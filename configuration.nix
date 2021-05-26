@@ -12,9 +12,6 @@
       #<nixpkgs/nixos/modules/profiles/hardened.nix>
     ];
 
-  # for binfmt / aarch compilation
-  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
@@ -23,7 +20,6 @@
   boot.loader.grub.configurationLimit = 7;
 
   boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   boot.kernelParams = [ "nouveau.modeset=0" ];
 
@@ -34,24 +30,10 @@
   networking.networkmanager.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking.useDHCP = false;
   #networking.interfaces.enp3s0f1.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
-  # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
