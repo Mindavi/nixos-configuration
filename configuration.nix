@@ -67,6 +67,8 @@
     irssi
     thunderbird
     tdesktop
+
+    rtl_433
   ];
 
   programs.bash.enableCompletion = true;
