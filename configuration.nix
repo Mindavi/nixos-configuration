@@ -69,6 +69,8 @@
     tdesktop
 
     rtl_433
+
+    steam
   ];
 
   programs.bash.enableCompletion = true;
@@ -100,6 +102,9 @@
   # Add unfree packages that should be installed here.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
+    "steam"
+    "steam-original"
+    "steam-runtime"
   ];
 
   # Workaround https://github.com/NixOS/nixpkgs/issues/124215
