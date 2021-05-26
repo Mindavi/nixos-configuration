@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       # slowness abound
       #<nixpkgs/nixos/modules/profiles/hardened.nix>
@@ -60,11 +60,11 @@
     bat # cat
     ripgrep # grep
     fzf # fuzzy find
-    
+
     pciutils
     wget
     vim
-    firefox 
+    firefox
     htop
     gitAndTools.gitFull
     keepassxc
@@ -106,7 +106,7 @@
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@Localhost";
-    buildMachinesFiles = [];
+    buildMachinesFiles = [ ];
     useSubstitutes = true;
   };
 
@@ -145,7 +145,7 @@
   ];
   # 20595 for 0ad
   # 6567 for mindustry
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     #20595
     #6567
   ];
@@ -195,7 +195,7 @@
   users.users.rick = {
     isNormalUser = true;
     home = "/home/rick";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "adbusers" "plugdev" "libvirtd"];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "adbusers" "plugdev" "libvirtd" ];
     initialPassword = "rikkert";
   };
 
