@@ -100,6 +100,10 @@
     "discord"
   ];
 
+  # Workaround https://github.com/NixOS/nixpkgs/issues/124215
+  # Can be removed shortly
+  documentation.info.enable = lib.mkForce false;
+
   #nixpkgs.config.contentAddressedByDefault = true;
 
   # Some programs need SUID wrappers, can be configured further or are
