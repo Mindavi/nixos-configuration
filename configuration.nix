@@ -119,7 +119,7 @@
 
   # Add unfree packages that should be installed here.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    Discord
+    "discord"
   ];
 
   #nixpkgs.config.contentAddressedByDefault = true;
