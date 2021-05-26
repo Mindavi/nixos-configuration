@@ -16,7 +16,6 @@
   fileSystems."/" =
     {
       device = "/dev/disk/by-label/nixos";
-    # device = "/dev/disk/by-uuid/cd1f909e-dbc4-4293-9df5-5dd216f38f7f"; # sdb5
       fsType = "ext4";
     };
 
@@ -31,14 +30,12 @@
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/SYSTEM";
-    # device = "/dev/disk/by-uuid/B47E-DAC3"; # sdb1
       fsType = "vfat";
     };
 
   swapDevices =
     [ {
       device = "/dev/disk/by-label/nix-swap";
-    # device = "/dev/disk/by-uuid/377e5198-807d-4aee-8a52-f3f6b9a9e41f"; } # sdb4
       }
     ];
 
