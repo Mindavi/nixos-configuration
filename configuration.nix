@@ -4,16 +4,6 @@
 
 { config, pkgs, lib, ... }:
 
-let
-  # nvidia
-  #nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-  #  export __NV_PRIME_RENDER_OFFLOAD=1
-  #  export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-  #  export __GLX_VENDOR_LIBRARY_NAME=nvidia
-  #  export __VK_LAYER_NV_optimus=NVIDIA_only
-  #  exec -a "$0" "$@"
-  #'';
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -64,19 +54,7 @@ in
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  #hardware.nvidia.prime = {
-  #  offload.enable = true;
-  #  intelBusId = "PCI:0:2:0";
-  #  nvidiaBusId = "PCI:1:0:0";
-  #};
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # nvidia enable
-    #nvidia-offload
-
     # rust cli tools
     exa # ls
     bat # cat
@@ -136,11 +114,6 @@ in
   virtualisation.libvirtd.onBoot = "ignore";
   virtualisation.libvirtd.enable = true;
 
-  # nvidia
-  #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  #  "nvidia-x11"
-  #  "nvidia-settings"
-  #];
 
   #nixpkgs.config.contentAddressedByDefault = true;
 
