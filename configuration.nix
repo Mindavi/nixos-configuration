@@ -65,14 +65,12 @@
     wget
     vim
     firefox 
-    thunderbird
     htop
     gitAndTools.gitFull
     keepassxc
     tree
     sl
     vlc
-    tdesktop
     syncthing
     #transmission
     fping
@@ -84,9 +82,14 @@
 
     # photo viewer
     nomacs
-  ];
 
-  #services.transmission.enable = true;
+    # communication
+    discord
+    element-desktop
+    irssi
+    thunderbird
+    tdesktop
+  ];
 
   programs.bash.enableCompletion = true;
 
@@ -114,6 +117,10 @@
   virtualisation.libvirtd.onBoot = "ignore";
   virtualisation.libvirtd.enable = true;
 
+  # Add unfree packages that should be installed here.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    Discord
+  ];
 
   #nixpkgs.config.contentAddressedByDefault = true;
 
@@ -121,8 +128,6 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -141,10 +146,9 @@
   # 20595 for 0ad
   # 6567 for mindustry
   networking.firewall.allowedUDPPorts = [ 
-    20595
-    6567
+    #20595
+    #6567
   ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
   nix = {
@@ -153,19 +157,16 @@
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations
     '';
-    # for binfmt / aarch compilation
-    # extra-platforms = aarch64-linux arm-linux
   };
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    openFirewall = true;
-  };
+  # avahi doesn't seem to work properly
+  #services.avahi = {
+  #  enable = true;
+  #  nssmdns = true;
+  #  openFirewall = true;
+  #};
 
-  # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
@@ -173,23 +174,22 @@
   services.udev.packages = [ pkgs.rtl-sdr ];
 
   security.sudo.extraConfig = ''
-Defaults	insults
+    Defaults insults
   '';
 
   hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    # Enable touchpad support.
+    libinput.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+  };
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {
@@ -204,6 +204,5 @@ Defaults	insults
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
-
 }
 
