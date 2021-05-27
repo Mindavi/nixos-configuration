@@ -108,8 +108,7 @@
   ];
 
   # Workaround https://github.com/NixOS/nixpkgs/issues/124215
-  # Can be removed shortly
-  documentation.info.enable = lib.mkForce false;
+  nix.sandboxPaths = [ "/bin/sh=${pkgs.bash}/bin/sh" ];
 
   #nixpkgs.config.contentAddressedByDefault = true;
 
