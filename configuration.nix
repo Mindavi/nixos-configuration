@@ -54,6 +54,7 @@
     fping
     vscodium
     jq
+    libreoffice
 
     # pdf viewer
     okular
@@ -69,11 +70,10 @@
     tdesktop
 
     rtl_433
-
-    steam
   ];
 
   programs.bash.enableCompletion = true;
+  programs.steam.enable = true;
 
   # syncthing is available on http://127.0.0.1:8384/
   services.syncthing = {
