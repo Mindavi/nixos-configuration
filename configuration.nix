@@ -1,5 +1,15 @@
 { config, pkgs, lib, ... }:
 
+let
+  hydraForCa = pkgs.hydra-unstable.overrideAttrs (oldAttrs: rec {
+    src = pkgs.fetchFromGitHub {
+      owner = "regnat";
+      repo = "hydra";
+      rev = "2090d3a0899db4b63d3fbf93545be0020385a165";
+      sha256 = "sha256-GrYR/xX/kWxxB0VoHKj0c3Pw7A6RLPexDkVNNVa7kn4=";
+    };
+  });
+in
 {
   imports =
     [
@@ -83,8 +93,10 @@
     configDir = "/home/rick/.config/syncthing";
   };
 
+
   # hydra is available on http://localhost:3000/
   services.hydra = {
+    package = hydraForCa;
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@Localhost";
