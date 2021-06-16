@@ -5,8 +5,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "regnat";
       repo = "hydra";
-      rev = "2090d3a0899db4b63d3fbf93545be0020385a165";
-      sha256 = "sha256-GrYR/xX/kWxxB0VoHKj0c3Pw7A6RLPexDkVNNVa7kn4=";
+      rev = "df4835bd105eaff5d3be781ad5afda52f965c0a9";
+      sha256 = "sha256-B5UA9dXucR92cWt6p+XQVi8HJu+U6RVlfz8jGI4yfuU=";
     };
   });
 in
