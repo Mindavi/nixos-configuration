@@ -119,9 +119,6 @@ in
     "steam-runtime"
   ];
 
-  # Workaround https://github.com/NixOS/nixpkgs/issues/124215
-  nix.sandboxPaths = [ "/bin/sh=${pkgs.bash}/bin/sh" ];
-
   #nixpkgs.config.contentAddressedByDefault = true;
 
   # Some programs need SUID wrappers, can be configured further or are
