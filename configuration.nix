@@ -174,6 +174,10 @@ in
     Defaults insults
   '';
 
+  # Due to the hardened kernel, this option is disabled by default.
+  # However, e.g. platformio and element use this, so it's easier to just have it enabled.
+  security.unprivilegedUsernsClone = true;
+
   hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
