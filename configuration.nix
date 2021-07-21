@@ -299,6 +299,11 @@ in
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations
     '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   services.printing.enable = true;
