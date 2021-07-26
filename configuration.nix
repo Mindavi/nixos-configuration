@@ -319,9 +319,12 @@ in
   hardware.rtl-sdr.enable = true;
   services.udev.packages = [ pkgs.rtl-sdr ];
 
-  security.sudo.extraConfig = ''
-    Defaults insults
-  '';
+  security.sudo = {
+    execWheelOnly = true;
+    extraConfig = ''
+      Defaults insults
+    '';
+  };
 
   # Due to the hardened kernel, this option is disabled by default.
   # However, e.g. platformio and element use this, so it's easier to just have it enabled.
