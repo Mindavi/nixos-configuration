@@ -252,10 +252,6 @@ in
   # For android studio
   #programs.adb.enable = true;
 
-  virtualisation.libvirtd.qemuRunAsRoot = false;
-  virtualisation.libvirtd.onBoot = "ignore";
-  virtualisation.libvirtd.enable = true;
-
   # Add unfree packages that should be installed here.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
@@ -266,9 +262,6 @@ in
 
   #nixpkgs.config.contentAddressedByDefault = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   # Enable the OpenSSH daemon.
@@ -340,13 +333,11 @@ in
     desktopManager.plasma5.enable = true;
   };
 
-  #virtualisation.docker.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {
     isNormalUser = true;
     home = "/home/rick";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "docker" "adbusers" "plugdev" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" ];
     initialPassword = "rikkert";
   };
 
