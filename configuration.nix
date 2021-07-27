@@ -306,12 +306,13 @@ in
   };
 
   services.printing.enable = true;
-  # avahi doesn't seem to work properly
-  #services.avahi = {
-  #  enable = true;
-  #  nssmdns = true;
-  #  openFirewall = true;
-  #};
+  services.avahi = {
+    domainName = "local";
+    enable = true;
+    interfaces = [ "wlp2s0" ];
+    nssmdns = true;
+    openFirewall = true;
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
