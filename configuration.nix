@@ -141,8 +141,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "regnat";
       repo = "hydra";
-      rev = "a1b6e82bd07ebe783bbec65a56501a81c56c92ff";
-      sha256 = "sha256-CompknZoxSd6g10Nr/9H/KkCgoMqFx+JRLwP+J2TVzo=";
+      rev = "d20639a322e340770c9672e0181e70e48214a21c";
+      sha256 = "sha256-qLKPN76cCztrE/hW1rLoeK8axSSEHJqGXO7uH6J3J5g=";
     };
     buildInputs =
       with pkgs; [
