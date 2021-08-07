@@ -287,7 +287,15 @@ in
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixUnstable.overrideAttrs( { patches ? [], ... }: {
+      patches = patches ++ [
+        (pkgs.fetchpatch {
+          name = "more-lenient-conflicting-dependency-set";
+          url = "https://github.com/NixOS/nix/commit/a4ec6cb1da63941c9ec3e7ffcb7639fc21b858c8.patch";
+          sha256 = "sha256-RQRZ586I2p2ju6NYvQUX4cil4z6Tbk7m4P0UGXdSjfs=";
+        })
+      ];
+    });
     useSandbox = true;
     # removed ca-references for now
     extraOptions = ''
