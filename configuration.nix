@@ -26,7 +26,7 @@ in
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.configurationLimit = 7;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   boot.kernelParams = [ "nouveau.modeset=0" ];
 
@@ -188,8 +188,7 @@ in
     '';
   };
 
-  # Due to the hardened kernel, this option is disabled by default.
-  # However, e.g. platformio and element use this, so it's easier to just have it enabled.
+  # e.g. platformio and element use this, so make sure this is enabled.
   security.unprivilegedUsernsClone = true;
 
   hardware.bluetooth.enable = true;
