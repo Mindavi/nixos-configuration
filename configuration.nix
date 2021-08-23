@@ -147,7 +147,7 @@ in
     useSandbox = true;
     # removed ca-references for now
     extraOptions = ''
-      experimental-features = nix-command flakes ca-derivations
+      experimental-features = nix-command flakes ca-derivations ca-references
     '';
     #binaryCaches = [
     #  "https://cache.ngi0.nixos.org/"
