@@ -143,7 +143,11 @@ in
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixUnstable.overrideAttrs (oldAttrs: {
+      patches = (oldAttrs.patches or []) ++ [
+        ./nix-store-path-illegal.patch
+      ];
+    });
     useSandbox = true;
     # removed ca-references for now
     extraOptions = ''
