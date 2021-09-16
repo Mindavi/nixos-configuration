@@ -41,6 +41,35 @@ in
   #networking.interfaces.enp3s0f1.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
+  networking.hosts = {
+    "192.168.220.89" = [ "berekenend" ];
+    "192.168.2.8" = [ "aqua" ];
+  };
+
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        ips = [ "10.8.0.20/32" ];
+        privateKeyFile = "/home/rick/.wireguard/key.priv";
+        allowedIPsAsRoutes = true;
+        peers = [
+          {
+            endpoint = "kubus.maartendekruijf.nl:51821";
+            publicKey = "lZRBtuENLle0JB1oXu59bdJ/HZp6gW5PlXWXY1X4xTw=";
+            allowedIPs = [
+              # External devices
+              "10.8.0.0/24"
+              # VMs
+              "192.168.220.0/24"
+            ];
+            persistentKeepalive = 15;
+          }
+        ];
+      };
+    };
+  };
+
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
@@ -93,6 +122,17 @@ in
     user = "rick";
     configDir = "/home/rick/.config/syncthing";
   };
+
+  programs.ssh.extraConfig = ''
+    Host berekenend
+      Port 22
+      User root
+
+      IdentitiesOnly yes
+      IdentityFile /root/.ssh/nix_remote
+      StrictHostKeyChecking accept-new
+      PubkeyAcceptedKeyTypes ssh-ed25519
+  '';
 
 
   # hydra is available on http://localhost:3000/
