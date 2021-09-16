@@ -101,6 +101,7 @@ in
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@Localhost";
+    # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
     buildMachinesFiles = [ ];
     useSubstitutes = true;
   };
@@ -145,7 +146,7 @@ in
   nix = {
     package = pkgs.nixUnstable.overrideAttrs (oldAttrs: {
       patches = (oldAttrs.patches or []) ++ [
-        ./nix-store-path-illegal.patch
+        #./nix-store-path-illegal.patch
         # https://github.com/NixOS/nix/pull/5224
         (pkgs.fetchpatch {
           url = "https://github.com/NixOS/nix/commit/0b42a0f7813ade2bc3114bbf02b49e688e376e42.patch";
@@ -154,9 +155,10 @@ in
       ];
     });
     useSandbox = true;
-    # removed ca-references for now
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations ca-references
+      builders-use-substitutes = true
+      timeout = 86400 # 24 hours
     '';
     #binaryCaches = [
     #  "https://cache.ngi0.nixos.org/"
