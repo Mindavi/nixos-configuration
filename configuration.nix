@@ -211,7 +211,26 @@ in
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-
+    # somehow localhost doesn't work (tries to use ssh?)  and the wireguard connection
+    # to the berekenend host also doesn't work, so disable this for now.
+    #buildMachines = [
+    #  { hostName = "berekenend";
+    #    system = "x86_64-linux";
+    #    maxJobs = 8;
+    #    speedFactor = 2;
+    #    supportedFeatures = [ "nixos-test" "big-parallel" "kvm" "ca-derivations" ];
+    #    mandatoryFeatures = [ ];
+    #  }
+    #  { hostName = "localhost";
+    #    #system = "x86_64-linux";
+    #    system = "builtin";
+    #    maxJobs = 8;
+    #    speedFactor = 1;
+    #    supportedFeatures = [ "nixos-test" "big-parallel" "kvm" "ca-derivations" "benchmark" ];
+    #    mandatoryFeatures = [ ];
+    #  }
+    #];
+    #distributedBuilds = true;
   };
 
   services.printing.enable = true;
