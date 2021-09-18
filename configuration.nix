@@ -43,6 +43,7 @@ in
 
   networking.hosts = {
     "192.168.220.89" = [ "berekenend" ];
+    "192.168.220.10" = [ "pve-bokkenpoot" ];
     "192.168.2.8" = [ "aqua" ];
   };
 
