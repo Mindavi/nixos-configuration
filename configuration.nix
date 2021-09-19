@@ -187,7 +187,6 @@ in
   nix = {
     package = pkgs.nixUnstable.overrideAttrs (oldAttrs: {
       patches = (oldAttrs.patches or []) ++ [
-        #./nix-store-path-illegal.patch
         # https://github.com/NixOS/nix/pull/5224
         (pkgs.fetchpatch {
           url = "https://github.com/NixOS/nix/commit/0b42a0f7813ade2bc3114bbf02b49e688e376e42.patch";
