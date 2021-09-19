@@ -223,6 +223,11 @@ in
       }
     ];
     distributedBuilds = true;
+
+    # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
+    # see https://nixos.org/manual/nix/stable/#chap-tuning-cores-and-jobs
+    maxJobs = 4;
+    # since buildCores warns about non-reproducibility, I'll not touch it -- for now.
   };
 
   services.printing.enable = true;
