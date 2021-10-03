@@ -185,15 +185,7 @@ in
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable.overrideAttrs (oldAttrs: {
-      patches = (oldAttrs.patches or []) ++ [
-        # https://github.com/NixOS/nix/pull/5224
-        (pkgs.fetchpatch {
-          url = "https://github.com/NixOS/nix/commit/0b42a0f7813ade2bc3114bbf02b49e688e376e42.patch";
-          sha256 = "sha256-VldpA57HIFAQffA5C6jq1HvR1DLNIoht2qe4QjQBa8Y=";
-        })
-      ];
-    });
+    package = pkgs.nixUnstable;
     useSandbox = true;
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations ca-references
