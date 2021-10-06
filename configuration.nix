@@ -1,16 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  hydraForCa = pkgs.hydra-unstable.overrideAttrs (oldAttrs: rec {
-    version = "unstable-content-addressed";
-    src = pkgs.fetchFromGitHub {
-      owner = "Mindavi";
-      repo = "hydra";
-      rev = "52656b488018b6d16e56c3b9dc942229ab1efd33";
-      sha256 = "sha256-ysMCV4qkdB4sJ29JDJrSal1fzo5WaTKcgarcoRhL0uU=";
-    };
-  });
-in
 {
   imports =
     [
@@ -138,10 +127,10 @@ in
 
   # hydra is available on http://localhost:3000/
   services.hydra = {
-    package = hydraForCa;
+    package = pkgs.hydra-unstable;
     enable = true;
     hydraURL = "http://localhost:3000";
-    notificationSender = "hydra@Localhost";
+    notificationSender = "hydra@localhost";
     # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
     buildMachinesFiles = [ ];
     useSubstitutes = true;
