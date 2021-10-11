@@ -100,6 +100,10 @@
     tdesktop
 
     rtl_433
+
+    # frequently used dev tools
+    diffoscope
+    qemu
   ];
 
   programs.bash.enableCompletion = true;
