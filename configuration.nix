@@ -178,7 +178,7 @@
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nix_2_4;
     useSandbox = true;
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations ca-references
