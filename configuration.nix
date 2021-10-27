@@ -31,33 +31,7 @@
   networking.interfaces.wlp2s0.useDHCP = true;
 
   networking.hosts = {
-    "192.168.220.89" = [ "berekenend" ];
-    "192.168.220.10" = [ "pve-bokkenpoot" ];
     "192.168.2.8" = [ "aqua" ];
-  };
-
-  networking.wireguard = {
-    enable = true;
-    interfaces = {
-      wg0 = {
-        ips = [ "10.8.0.20/32" ];
-        privateKeyFile = "/home/rick/.wireguard/key.priv";
-        allowedIPsAsRoutes = true;
-        peers = [
-          {
-            endpoint = "kubus.maartendekruijf.nl:51821";
-            publicKey = "lZRBtuENLle0JB1oXu59bdJ/HZp6gW5PlXWXY1X4xTw=";
-            allowedIPs = [
-              # External devices
-              "10.8.0.0/24"
-              # VMs
-              "192.168.220.0/24"
-            ];
-            persistentKeepalive = 15;
-          }
-        ];
-      };
-    };
   };
 
   time.timeZone = "Europe/Amsterdam";
@@ -116,18 +90,6 @@
     user = "rick";
     configDir = "/home/rick/.config/syncthing";
   };
-
-  programs.ssh.extraConfig = ''
-    Host berekenend
-      Port 22
-      User rick
-
-      IdentityFile /home/rick/.ssh/nix_remote
-      IdentityFile /home/rick/.ssh/id_ed25519
-      StrictHostKeyChecking accept-new
-      PubkeyAcceptedKeyTypes ssh-ed25519
-  '';
-
 
   # hydra is available on http://localhost:3000/
   services.hydra = {
@@ -196,17 +158,7 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    buildMachines = [
-      { hostName = "berekenend";
-        sshUser = "rick";
-        sshKey = "/home/rick/.ssh/nix_remote";
-        system = "x86_64-linux";
-        maxJobs = 8;
-        speedFactor = 2;
-        supportedFeatures = [ "nixos-test" "big-parallel" "kvm" "ca-derivations" ];
-        mandatoryFeatures = [ ];
-      }
-    ];
+    buildMachines = [];
     distributedBuilds = true;
 
     # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
