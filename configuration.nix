@@ -93,7 +93,14 @@
 
   # hydra is available on http://localhost:3000/
   services.hydra = {
-    package = pkgs.hydra-unstable;
+    package = pkgs.hydra-unstable.overrideAttrs (oldAttrs: {
+      src = pkgs.fetchFromGitHub {
+        owner = "regnat";
+        repo = "hydra";
+        rev = "e0feb62dd5ed7289576eb91f19cbfeb66d00d53a";
+        sha256 = "sha256-VOfVvcL7JY2pa1i9T9KZj8KUfFm7S8wV5wk6aZKov1Y=";
+      };
+    });
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
