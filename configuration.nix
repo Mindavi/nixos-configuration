@@ -132,11 +132,13 @@
   # 6567 for mindustry
   # 51413 for transmission
   # 5201 for iperf3
+  # 5000 for development servers
   networking.firewall.allowedTCPPorts = [
     #25565
     #6567
     #51413
     #5201
+    5000
   ];
   # 20595 for 0ad
   # 6567 for mindustry
