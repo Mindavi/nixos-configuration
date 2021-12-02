@@ -59,6 +59,12 @@
     vscodium
     jq
     libreoffice
+    file
+    zip
+    screen
+    p7zip
+    digikam
+    fdupes
 
     # pdf viewer
     okular
@@ -76,8 +82,9 @@
     rtl_433
 
     # frequently used dev tools
-    diffoscope
+    #diffoscope
     qemu
+    valgrind
   ];
 
   programs.bash.enableCompletion = true;
