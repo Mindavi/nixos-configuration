@@ -4,9 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./firewall.nix
-      ./samba.nix
-      ../../modules/home-assistant.nix
+      ./modules/firewall.nix
+      ./modules/home-assistant.nix
+      ./modules/samba.nix
       ../../modules/iperf.nix
       ../../modules/rtl-sdr.nix
       ../../modules/sudo.nix
@@ -109,19 +109,6 @@
     interfaces = [ "wlp2s0" ];  # TODO: change to correct interface
     nssmdns = true;
     openFirewall = true;
-  };
-
-  hardware.rtl-sdr.enable = true;
-  services.udev.packages = [ pkgs.rtl-sdr ];
-
-  security.sudo = {
-    package = pkgs.sudo.override {
-      withInsults = true;
-    };
-    execWheelOnly = true;
-    extraConfig = ''
-      Defaults insults
-    '';
   };
 
   # e.g. platformio and element use this, so make sure this is enabled.
