@@ -4,6 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./firewall.nix
+      ./samba.nix
+      ../../modules/home-assistant.nix
       ../../modules/iperf.nix
       ../../modules/rtl-sdr.nix
       ../../modules/sudo.nix
