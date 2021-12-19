@@ -8,5 +8,12 @@
         ./machines/nixos-asus/default.nix
       ];
     };
+    nixosConfigurations.aqua = nixpkgs-unstable.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./machines/aqua/default.nix
+      ];
+    };
   };
 }
+
