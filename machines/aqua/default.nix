@@ -57,20 +57,6 @@
 
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # 25565 for minecraft
-  # 6567 for mindustry
-  # 51413 for transmission
-  # 5201 for iperf3
-  # 5000 for development servers
-  networking.firewall.allowedTCPPorts = [
-    #25565
-    #6567
-  ];
-  # 6567 for mindustry
-  networking.firewall.allowedUDPPorts = [
-    #6567
-  ];
   networking.firewall.enable = true;
 
   nix = {
