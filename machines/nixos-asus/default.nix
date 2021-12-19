@@ -4,6 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./gaming.nix
+      ../../modules/sudo.nix
+      ../../modules/rtl-sdr.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -64,9 +67,6 @@
     digikam
     fdupes
 
-    # games
-    multimc
-
     # pdf viewer
     okular
 
@@ -74,7 +74,6 @@
     nomacs
 
     # communication
-    discord
     element-desktop
     irssi
     thunderbird
@@ -89,8 +88,6 @@
   ];
 
   programs.bash.enableCompletion = true;
-  programs.steam.enable = true;
-  hardware.steam-hardware.enable = true;
 
   # syncthing is available on http://127.0.0.1:8384/
   services.syncthing = {
@@ -110,6 +107,7 @@
     buildMachinesFiles = [ ];
     useSubstitutes = true;
   };
+  services.postgresql.package = pkgs.postgresql_14;
 
   # For android studio
   #programs.adb.enable = true;
@@ -192,19 +190,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  hardware.rtl-sdr.enable = true;
-  services.udev.packages = [ pkgs.rtl-sdr ];
-
-  security.sudo = {
-    package = pkgs.sudo.override {
-      withInsults = true;
-    };
-    execWheelOnly = true;
-    extraConfig = ''
-      Defaults insults
-    '';
-  };
-
   # e.g. platformio and element use this, so make sure this is enabled.
   security.unprivilegedUsernsClone = true;
 
@@ -228,7 +213,6 @@
     initialPassword = "rikkert";
   };
 
-  services.postgresql.package = pkgs.postgresql_14;
 
   system.stateVersion = "21.11";
 }
