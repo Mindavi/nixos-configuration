@@ -4,8 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      # slowness abound
-      #<nixpkgs/nixos/modules/profiles/hardened.nix>
     ];
 
   # Use the systemd-boot EFI boot loader.
