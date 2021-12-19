@@ -160,9 +160,11 @@
     '';
     binaryCaches = [
       "https://cache.ngi0.nixos.org/"
+      "https://nix-community.cachix.org"
     ];
     binaryCachePublicKeys = [
       "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     gc = {
       automatic = true;
