@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
-  subnet = "192.168.2.0/24";
-  #subnet = "10.0.2.0/24";
+  #subnet = "192.168.2.0/24";
+  subnet = "10.0.2.0/24";
 in
 {
   # Make sure firewall is enabled.
@@ -21,7 +21,7 @@ in
     iptables -A nixos-fw -p udp -m udp -s ${subnet} --dport 138 -j nixos-fw-accept
 
     # home assistant (FIXME: to be removed again)
-    #iptables -A nixos-fw -p tcp -m tcp -s ${subnet} --dport 8123 -j nixos-fw-accept
+    iptables -A nixos-fw -p tcp -m tcp -s ${subnet} --dport 8123 -j nixos-fw-accept
   ''; 
 }
 
