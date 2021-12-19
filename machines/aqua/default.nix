@@ -4,6 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../modules/iperf.nix
+      ../../modules/rtl-sdr.nix
+      ../../modules/sudo.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -43,7 +46,6 @@
     tree
     vim
     zip
-
   ];
 
   programs.bash.enableCompletion = true;
@@ -128,6 +130,7 @@
     home = "/home/rick";
     extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" ];
     initialPassword = "rikkert";
+    openssh.authorizedKeys.keys =  [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus" ];
   };
 
   services.postgresql.package = pkgs.postgresql_14;
