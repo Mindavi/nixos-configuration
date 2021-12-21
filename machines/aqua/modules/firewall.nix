@@ -7,6 +7,9 @@ in
   # Make sure firewall is enabled.
   networking.firewall.enable = true;
 
+  # Open up 8000 for testing purposes.
+  networking.firewall.allowedTCPPorts = [ 8000 ];
+
   networking.firewall.extraCommands = ''
     # mdns, zeroconf, avahi
     iptables -A nixos-fw -p udp -m udp -s ${subnet} --dport 5353 -j nixos-fw-accept
