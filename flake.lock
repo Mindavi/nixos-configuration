@@ -1,12 +1,28 @@
 {
   "nodes": {
+    "nixpkgs-mindavi-new-hydra": {
+      "locked": {
+        "lastModified": 1639948277,
+        "narHash": "sha256-xw9VlW1WPJu+Av6xPtDevVXkfHXWD+gua7Ochmmym8k=",
+        "owner": "Mindavi",
+        "repo": "nixpkgs",
+        "rev": "9bae23a9951fc8e472c42ba89afb21ee0034ae1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mindavi",
+        "ref": "hydra-update/2021-12-17",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1639699734,
-        "narHash": "sha256-tlX6WebGmiHb2Hmniff+ltYp+7dRfdsBxw9YczLsP60=",
+        "lastModified": 1640053112,
+        "narHash": "sha256-7C0UQssCdAMyCNSv8szLJfZ5xYMBr9mh27zYUmo8wHQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "03ec468b14067729a285c2c7cfa7b9434a04816c",
+        "rev": "c478eaf416411a7dedf773185b6d5bfc966a80ae",
         "type": "github"
       },
       "original": {
@@ -18,6 +34,7 @@
     },
     "root": {
       "inputs": {
+        "nixpkgs-mindavi-new-hydra": "nixpkgs-mindavi-new-hydra",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
