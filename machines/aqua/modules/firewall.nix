@@ -25,6 +25,6 @@ in
 
     # home assistant (FIXME: to be removed again)
     iptables -A nixos-fw -p tcp -m tcp -s ${subnet} --dport 8123 -j nixos-fw-accept
-  ''; 
+  '';
 }
 
