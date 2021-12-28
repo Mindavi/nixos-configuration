@@ -4,7 +4,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./gaming.nix
+      ./modules/gaming.nix
+      ./modules/nvidia.nix
       ../../modules/sudo.nix
       ../../modules/rtl-sdr.nix
     ];
@@ -118,6 +119,8 @@
     "steam"
     "steam-original"
     "steam-runtime"
+    "nvidia-x11"
+    "nvidia-settings"
   ];
 
   #nixpkgs.config.contentAddressedByDefault = true;
