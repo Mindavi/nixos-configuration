@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs-mindavi-new-hydra": {
       "locked": {
-        "lastModified": 1639948277,
-        "narHash": "sha256-xw9VlW1WPJu+Av6xPtDevVXkfHXWD+gua7Ochmmym8k=",
+        "lastModified": 1642204842,
+        "narHash": "sha256-lZKYM3Fg3l5o8iqJQZ4TlS0ojVq5CAW7nKxYh35VsqM=",
         "owner": "Mindavi",
         "repo": "nixpkgs",
-        "rev": "9bae23a9951fc8e472c42ba89afb21ee0034ae1e",
+        "rev": "5fa086c6e974abc787cd21ae72bd857040e0f04e",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1640053112,
-        "narHash": "sha256-7C0UQssCdAMyCNSv8szLJfZ5xYMBr9mh27zYUmo8wHQ=",
+        "lastModified": 1641887635,
+        "narHash": "sha256-kDGpufwzVaiGe5e1sBUBPo9f1YN+nYHJlYqCaVpZTQQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c478eaf416411a7dedf773185b6d5bfc966a80ae",
+        "rev": "b2737d4980a17cc2b7d600d7d0b32fd7333aca88",
         "type": "github"
       },
       "original": {
