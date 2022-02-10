@@ -6,6 +6,6 @@
 
   environment.systemPackages = with pkgs; [
     discord
-    multimc
+    polymc
   ];
 }
