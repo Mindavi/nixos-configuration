@@ -1,17 +1,17 @@
 {
   "nodes": {
-    "nixpkgs-mindavi-new-hydra": {
+    "nixpkgs-mayflower-new-hydra": {
       "locked": {
-        "lastModified": 1647379000,
-        "narHash": "sha256-+BhCIl6+vJg/FW8cJ6sVufsx/cF8u8thpWy6cGoXke8=",
-        "owner": "Mindavi",
+        "lastModified": 1644952898,
+        "narHash": "sha256-hVApCbyXgLS2YnWNNuFHwOS2157+4wa2Ryu9BZqnDpk=",
+        "owner": "mayflower",
         "repo": "nixpkgs",
-        "rev": "59da80fea6572fd92cdc26b0e1388fe633f49d23",
+        "rev": "0c6017869a16bbc241d7d65cb1f16d21587e1de5",
         "type": "github"
       },
       "original": {
-        "owner": "Mindavi",
-        "ref": "hydra-update/2021-12-17",
+        "owner": "mayflower",
+        "ref": "hydra-updates",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -34,7 +34,7 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs-mindavi-new-hydra": "nixpkgs-mindavi-new-hydra",
+        "nixpkgs-mayflower-new-hydra": "nixpkgs-mayflower-new-hydra",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
