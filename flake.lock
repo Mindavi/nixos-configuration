@@ -1,28 +1,28 @@
 {
   "nodes": {
-    "nixpkgs-new-hydra": {
+    "nixpkgs-mayflower-new-hydra": {
       "locked": {
-        "lastModified": 1649592356,
-        "narHash": "sha256-DxEhycfFSxYsSLg0Cleee0zZLdDT9k3RUfRLKQVqqbM=",
-        "owner": "Mindavi",
+        "lastModified": 1644952898,
+        "narHash": "sha256-hVApCbyXgLS2YnWNNuFHwOS2157+4wa2Ryu9BZqnDpk=",
+        "owner": "mayflower",
         "repo": "nixpkgs",
-        "rev": "5ce3a938d6bfea14d328f3bb4999745b82d035e4",
+        "rev": "0c6017869a16bbc241d7d65cb1f16d21587e1de5",
         "type": "github"
       },
       "original": {
-        "owner": "Mindavi",
-        "ref": "tmp/hydra-update",
+        "owner": "mayflower",
+        "ref": "hydra-updates",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1649408932,
-        "narHash": "sha256-JhTW1OtS5fACcRXLqcTTQyYO5vLkO+bceCqeRms13SY=",
+        "lastModified": 1648632716,
+        "narHash": "sha256-kCmnDeiaMsdhfnNKjxdOzwRh2H6eQb8yWAL+nNabC/Y=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "42948b300670223ca8286aaf916bc381f66a5313",
+        "rev": "710fed5a2483f945b14f4a58af2cd3676b42d8c8",
         "type": "github"
       },
       "original": {
@@ -34,7 +34,7 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs-new-hydra": "nixpkgs-new-hydra",
+        "nixpkgs-mayflower-new-hydra": "nixpkgs-mayflower-new-hydra",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
