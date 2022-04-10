@@ -216,7 +216,7 @@
   users.users.rick = {
     isNormalUser = true;
     home = "/home/rick";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" "kvm" ];
     initialPassword = "rikkert";
   };
 
