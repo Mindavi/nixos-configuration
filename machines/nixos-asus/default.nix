@@ -10,6 +10,11 @@
       ../../modules/rtl-sdr.nix
     ];
 
+  nixpkgs.config = {
+    # enable whenever hydra stops using an alias.
+    #allowAliases = false;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
@@ -49,8 +54,8 @@
     wget
     vim
     firefox
+    gitFull
     htop
-    gitAndTools.gitFull
     keepassxc
     tree
     sl
@@ -69,7 +74,7 @@
     fdupes
 
     # pdf viewer
-    okular
+    libsForQt5.okular
 
     # photo viewer
     nomacs
@@ -154,7 +159,7 @@
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.unstable;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
