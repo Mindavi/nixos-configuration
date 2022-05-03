@@ -15,6 +15,11 @@ in {
       };
       api.dashboard = true;
       accesslog = true;
+      #certificatesResolvers.le.acme = {
+        #email = "rol3517@gmail.com";
+        #storage = "letsencrypt/acme.json";  # FIXME: probably somewhere in /var/?
+        #httpChallenge.entryPoint = "web";
+      #};
     };
     dynamicConfigOptions = {
       http = {
