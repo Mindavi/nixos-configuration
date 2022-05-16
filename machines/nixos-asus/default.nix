@@ -88,9 +88,12 @@
     rtl_433
 
     # frequently used dev tools
-    #diffoscope
+    diffoscopeMinimal
     qemu
     valgrind
+    nixpkgs-review
+
+    remmina
   ];
 
   virtualisation.virtualbox.host.enable = true;
