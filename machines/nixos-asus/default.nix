@@ -110,7 +110,7 @@
 
   # hydra is available on http://localhost:3000/
   services.hydra = {
-    package = pkgs.hydra-unstable;
+    package = pkgs.hydra_unstable;
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";

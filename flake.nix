@@ -1,7 +1,7 @@
 {
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.nixpkgs-new-hydra.url = "github:mayflower/nixpkgs/hydra-updates";
-  #inputs.nixpkgs-new-hydra.url = "github:NickCao/nixpkgs/hydra-update";
+  #inputs.nixpkgs-new-hydra.url = "github:mayflower/nixpkgs/hydra-updates";
+  inputs.nixpkgs-new-hydra.url = "github:NickCao/nixpkgs/hydra-update";
 
   outputs = { self, nixpkgs-unstable, nixpkgs-new-hydra }: {
     nixosConfigurations.nixos-asus = nixpkgs-new-hydra.lib.nixosSystem {
