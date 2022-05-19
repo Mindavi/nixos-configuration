@@ -180,7 +180,7 @@
       ];
     };
     extraOptions = ''
-      experimental-features = nix-command flakes ca-derivations
+      experimental-features = nix-command flakes # ca-derivations
       builders-use-substitutes = true
       timeout = 86400 # 24 hours
     '';
