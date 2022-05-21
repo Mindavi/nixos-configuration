@@ -1,10 +1,9 @@
 {
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  #inputs.nixpkgs-new-hydra.url = "github:mayflower/nixpkgs/hydra-updates";
-  inputs.nixpkgs-new-hydra.url = "github:NickCao/nixpkgs/hydra-update";
+  inputs.nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
-  outputs = { self, nixpkgs-unstable, nixpkgs-new-hydra }: {
-    nixosConfigurations.nixos-asus = nixpkgs-new-hydra.lib.nixosSystem {
+  outputs = { self, nixpkgs-unstable, nixpkgs-master }: {
+    nixosConfigurations.nixos-asus = nixpkgs-master.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./machines/nixos-asus/default.nix

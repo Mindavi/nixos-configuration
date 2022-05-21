@@ -1,17 +1,17 @@
 {
   "nodes": {
-    "nixpkgs-new-hydra": {
+    "nixpkgs-master": {
       "locked": {
-        "lastModified": 1653040987,
-        "narHash": "sha256-Fq9j+T19N/vbBEGpbjXzRU/8kdKmerSHdIeYyEP9TEs=",
-        "owner": "NickCao",
+        "lastModified": 1653137215,
+        "narHash": "sha256-QPlslmKKwq+Wsmdzt1nUWBaq4Ym4Kl+KCGhul20jIWM=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e9e0ab3a03e74e4172d36ed332a36d72fff6aec3",
+        "rev": "c0fd7af59a465db0ac393c60969a0a1857b52ceb",
         "type": "github"
       },
       "original": {
-        "owner": "NickCao",
-        "ref": "hydra-update",
+        "owner": "NixOS",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -34,7 +34,7 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs-new-hydra": "nixpkgs-new-hydra",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
