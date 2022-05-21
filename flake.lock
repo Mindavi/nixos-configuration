@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs-new-hydra": {
       "locked": {
-        "lastModified": 1652688849,
-        "narHash": "sha256-UQMiKWJoKRHxOJyJN+3CSTH7GM+PVPA9OVRcc7/KQxQ=",
+        "lastModified": 1653040987,
+        "narHash": "sha256-Fq9j+T19N/vbBEGpbjXzRU/8kdKmerSHdIeYyEP9TEs=",
         "owner": "NickCao",
         "repo": "nixpkgs",
-        "rev": "e42c74d5267c4468d741bccf2d21d13707abfb4a",
+        "rev": "e9e0ab3a03e74e4172d36ed332a36d72fff6aec3",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1652659998,
-        "narHash": "sha256-FqNrXC1EE6U2RACwXBlsAvg1lqQGLYpuYb6+W3DL9vA=",
+        "lastModified": 1652885393,
+        "narHash": "sha256-YIgvvlk4iQ1Hi7KD9o5gsojc+ApB+jiH1d5stK8uXiw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1d7db1b9e4cf1ee075a9f52e5c36f7b9f4207502",
+        "rev": "48037fd90426e44e4bf03e6479e88a11453b9b66",
         "type": "github"
       },
       "original": {

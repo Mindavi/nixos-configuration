@@ -11,8 +11,10 @@
     ];
 
   nixpkgs.config = {
-    # enable whenever hydra stops using an alias.
-    #allowAliases = false;
+    # Even though it's not recommended, I'm going to enable this anyway.
+    # I like it to be a hard error when an attribute is renamed or whatever.
+    # Can always disable this again when it causes issues.
+    allowAliases = false;
   };
 
   # Use the systemd-boot EFI boot loader.
