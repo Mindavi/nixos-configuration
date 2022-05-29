@@ -111,8 +111,20 @@
   };
 
   # hydra is available on http://localhost:3000/
-  services.hydra = {
-    package = pkgs.hydra_unstable;
+  services.hydra = let
+    hydra_with_scmdiff_patch = pkgs.hydra_unstable.overrideAttrs(oldAttrs: {
+      patches = oldAttrs.patches ++ [
+        # https://github.com/NixOS/hydra/pull/1215
+        # fix scmdiff
+        (pkgs.fetchpatch {
+          name = "fix-scmdiff";
+          url = "https://github.com/NixOS/hydra/commit/b6ea85a601ddac9cb0716d8cb4d446439fa0778f.patch";
+          hash = "sha256-QHjwLYQucdkBs6OsFI8kWo5ugkPXXlTgdbGFxKBHAHo=";
+        })
+      ];
+    });
+    in {
+    package = hydra_with_scmdiff_patch;
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
