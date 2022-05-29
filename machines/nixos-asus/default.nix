@@ -98,7 +98,7 @@
     remmina
   ];
 
-  virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enable = true;
 
   programs.bash.enableCompletion = true;
 
