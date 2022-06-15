@@ -175,8 +175,24 @@
   ];
   networking.firewall.enable = true;
 
-  nix = {
-    package = pkgs.nixVersions.unstable;
+  nix = let
+    nix' = (pkgs.nixVersions.nix_2_9.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
+      pname = "nix-with-sanitizers";
+      hardeningDisable = [ "all" ];
+      hardeningEnable = [ ];
+      doInstallCheck = false;
+      NIX_CFLAGS_COMPILE = "-fsanitize=address,undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      postPatch = oldAttrs.postPatch or "" + ''
+        # Insert the asan default options in a random file, outside any namespaces.
+        # We need to disable detect_leaks since it doesn't seem to work well with boehmgc.
+        # (or nix is actually leaking a lot of memory)
+        substituteInPlace src/libutil/error.cc \
+          --replace 'namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; namespace nix'
+      '';
+    });
+  in
+  {
+    package = nix';
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
