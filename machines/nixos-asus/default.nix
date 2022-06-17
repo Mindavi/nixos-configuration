@@ -181,13 +181,35 @@
       hardeningDisable = [ "all" ];
       hardeningEnable = [ ];
       doInstallCheck = false;
-      NIX_CFLAGS_COMPILE = "-fsanitize=address,undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      #NIX_CFLAGS_COMPILE = "-fsanitize=address,undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      NIX_CFLAGS_COMPILE = "-fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
       postPatch = oldAttrs.postPatch or "" + ''
         # Insert the asan default options in a random file, outside any namespaces.
         # We need to disable detect_leaks since it doesn't seem to work well with boehmgc.
         # (or nix is actually leaking a lot of memory)
-        substituteInPlace src/libutil/error.cc \
-          --replace 'namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; namespace nix'
+        #substituteInPlace src/nix/build.cc \
+        #  --replace 'using namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; using namespace nix'
+        #substituteInPlace src/libmain/shared.cc \
+        #  --replace 'namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; namespace nix'
+        #substituteInPlace src/libcmd/command.cc \
+        #  --replace 'namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; namespace nix'
+        #substituteInPlace src/libexpr/primops.cc \
+        #  --replace 'namespace nix' 'const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }; namespace nix'
+
+         # Done:
+         # - libcmd (libnixcmd)
+         # - libexpr (via config.h)
+         # - libfetchers (via config.h)
+         # - libmain (libnixmain)
+         # - libstore (via config.h)
+         # - libutil (via config.h)
+         # - nix (the main binary)
+      '';
+
+      postConfigure = oldAttrs.postConfigure or "" + ''
+        #substituteInPlace config.h \
+        #  --replace '#define HAVE_INTTYPES_H 1' '#define HAVE_INTTYPES_H 1
+#const char *__asan_default_options() { return "detect_leaks=0:halt_on_error=false"; }'
       '';
     });
   in
