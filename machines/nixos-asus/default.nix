@@ -111,8 +111,25 @@
   };
 
   # hydra is available on http://localhost:3000/
-  services.hydra =
-    package = pkgs.hydra_unstable;
+  services.hydra = let
+    hydra_with_longer_timeout = pkgs.hydra_unstable.overrideAttrs(oldAttrs: {
+      # Change 5s timeout for init to 30s
+      postPatch = oldAttrs.postPatch or "" + ''
+        substituteInPlace t/lib/HydraTestContext.pm \
+          --replace 'expectOkay(5, ("hydra-init"));' 'expectOkay(30, ("hydra-init"));'
+
+        for file in $(find -type f -name "*.t"); do
+          echo adding Test2::Harness / Yath timeout to file $file
+          substituteInPlace $file \
+            --replace 'use warnings;' 'use warnings;
+# HARNESS-TIMEOUT-EVENT 240'
+          head $file
+        done
+        '';
+    });
+    in
+    {
+    package = hydra_with_longer_timeout;
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
