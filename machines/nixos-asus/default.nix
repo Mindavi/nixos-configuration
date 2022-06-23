@@ -15,6 +15,7 @@
     # I like it to be a hard error when an attribute is renamed or whatever.
     # Can always disable this again when it causes issues.
     allowAliases = false;
+    #contentAddressedByDefault = true;
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -151,8 +152,6 @@
     "nvidia-x11"
     "nvidia-settings"
   ];
-
-  #nixpkgs.config.contentAddressedByDefault = true;
 
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
