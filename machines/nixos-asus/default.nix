@@ -211,6 +211,10 @@
          # - nix (the main binary)
       '';
 
+      patches = [
+        ./patches/nix-tag-unexpected-eof.diff
+      ];
+
       postConfigure = oldAttrs.postConfigure or "" + ''
         #substituteInPlace config.h \
         #  --replace '#define HAVE_INTTYPES_H 1' '#define HAVE_INTTYPES_H 1
