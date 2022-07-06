@@ -1,28 +1,12 @@
 {
   "nodes": {
-    "nixos-new-hydra": {
-      "locked": {
-        "lastModified": 1655433589,
-        "narHash": "sha256-aXtzIuqfisyNlgHP4MISHXmyTl0uUtmbPREc7MxFbsI=",
-        "owner": "NickCao",
-        "repo": "nixpkgs",
-        "rev": "2207d369616aa77ef7a85e3fc69704fbdc8bdd88",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NickCao",
-        "ref": "hydra-bump",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1655567057,
-        "narHash": "sha256-Cc5hQSMsTzOHmZnYm8OSJ5RNUp22bd5NADWLHorULWQ=",
+        "lastModified": 1657020478,
+        "narHash": "sha256-sU5hXEGcOcvz2xoPAuNLBQJLXjwvPpTkoddyXE8gw20=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e0a42267f73ea52adc061a64650fddc59906fc99",
+        "rev": "71a4f0dc3d80ba76f437c888c1c3d59f1df98163",
         "type": "github"
       },
       "original": {
@@ -34,7 +18,6 @@
     },
     "root": {
       "inputs": {
-        "nixos-new-hydra": "nixos-new-hydra",
         "nixos-unstable": "nixos-unstable"
       }
     }
