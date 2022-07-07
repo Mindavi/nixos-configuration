@@ -195,7 +195,7 @@
     });
   in
   {
-    package = nix';
+    package = pkgs.nix;  # TODO: change back to nix'
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
