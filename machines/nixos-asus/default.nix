@@ -165,10 +165,14 @@
   nix = let
     nix' = (pkgs.nixVersions.nix_2_9.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
       pname = "nix-with-sanitizers";
-      #hardeningDisable = [ "all" ];
-      #hardeningEnable = [ ];
-      doInstallCheck = false;
-      NIX_CFLAGS_COMPILE = "-fsanitize=address,undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      # False if ASAN is enabled since some tests then start failing.
+      doInstallCheck = true;
+      NIX_CFLAGS_COMPILE = "-fstack-protector-all -fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+
+      # TODO: check if these flags do anything and don't break the build.
+      #CFLAGS = [ "-fstack-protector-all" ];
+      #CXXFLAGS = [ "-fstack-protector-all" ];
+
       patches = oldAttrs.patches or [] ++ [
         (pkgs.fetchpatch {
           name = "asan-disable-leak-detection-most-apps";
@@ -190,12 +194,22 @@
           url = "https://github.com/Mindavi/nix/commit/f7d3ba738b75246426a9be8697a4ddccb9b64f71.patch";
           hash = "sha256-iaGEINjmQH6mPtWddGORzYfXwysucn46D526U/XUrm8=";
         })
+        (pkgs.fetchpatch {
+          name = "disable-asan-again";
+          url = "https://github.com/Mindavi/nix/commit/d8ab900d94a8108a22860eac4d0165e834e63302.patch";
+          hash = "sha256-ZY2AmGOALTrAk0V1txUF6ygYkdXNsi0kp25CUaxElV4=";
+        })
+        (pkgs.fetchpatch {
+          name = "cast-rowid-to-correct-type-GH6716";
+          url = "https://github.com/NixOS/nix/commit/2beb929753d28604ccd40057fca295a11640e40e.patch";
+          hash = "sha256-8ktSFWxLTtX0Btc/MQqGI35OpEvttH+zTTz/ZJPGGMw=";
+        })
         ./patches/nix-tag-unexpected-eof.diff
       ];
     });
   in
   {
-    package = pkgs.nix;  # TODO: change back to nix'
+    package = nix';
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
