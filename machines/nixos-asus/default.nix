@@ -16,6 +16,10 @@
     # Can always disable this again when it causes issues.
     allowAliases = false;
     #contentAddressedByDefault = true;
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
   };
 
   # Use the systemd-boot EFI boot loader.
