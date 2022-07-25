@@ -43,7 +43,7 @@
     htop
     jq
     ripgrep # grep
-    #rtl_433
+    rtl_433
     screen
     sl
     syncthing
@@ -63,20 +63,26 @@
 
   nix = {
     package = pkgs.nixUnstable;
-    useSandbox = true;
+    settings = {
+      sandbox = true;
+      # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
+      # see https://nixos.org/manual/nix/stable/#chap-tuning-cores-and-jobs
+      max-jobs = 4;
+      # since buildCores warns about non-reproducibility, I'll not touch it -- for now.
+      substituters = [
+        "https://cache.ngi0.nixos.org/"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations
       builders-use-substitutes = true
       timeout = 86400 # 24 hours
     '';
-    binaryCaches = [
-      "https://cache.ngi0.nixos.org/"
-      "https://nix-community.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -84,11 +90,6 @@
     };
     buildMachines = [];
     distributedBuilds = true;
-
-    # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
-    # see https://nixos.org/manual/nix/stable/#chap-tuning-cores-and-jobs
-    maxJobs = 4;
-    # since buildCores warns about non-reproducibility, I'll not touch it -- for now.
   };
 
   services.avahi = {
@@ -113,6 +114,6 @@
 
   services.postgresql.package = pkgs.postgresql_14;
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
 
