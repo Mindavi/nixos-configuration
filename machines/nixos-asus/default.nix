@@ -167,15 +167,11 @@
   networking.firewall.enable = true;
 
   nix = let
-    nix' = (pkgs.nixVersions.nix_2_9.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
+    nix' = (pkgs.nixVersions.nix_2_10.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
       pname = "nix-with-sanitizers";
       # False if ASAN is enabled since some tests then start failing.
       doInstallCheck = true;
       NIX_CFLAGS_COMPILE = "-fstack-protector-all -fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
-
-      # TODO: check if these flags do anything and don't break the build.
-      #CFLAGS = [ "-fstack-protector-all" ];
-      #CXXFLAGS = [ "-fstack-protector-all" ];
 
       patches = oldAttrs.patches or [] ++ [
         (pkgs.fetchpatch {
@@ -202,11 +198,6 @@
           name = "disable-asan-again";
           url = "https://github.com/Mindavi/nix/commit/d8ab900d94a8108a22860eac4d0165e834e63302.patch";
           hash = "sha256-ZY2AmGOALTrAk0V1txUF6ygYkdXNsi0kp25CUaxElV4=";
-        })
-        (pkgs.fetchpatch {
-          name = "cast-rowid-to-correct-type-GH6716";
-          url = "https://github.com/NixOS/nix/commit/2beb929753d28604ccd40057fca295a11640e40e.patch";
-          hash = "sha256-8ktSFWxLTtX0Btc/MQqGI35OpEvttH+zTTz/ZJPGGMw=";
         })
         ./patches/nix-tag-unexpected-eof.diff
       ];
