@@ -16,6 +16,7 @@
     # Can always disable this again when it causes issues.
     allowAliases = false;
     #contentAddressedByDefault = true;
+  };
 
   zramSwap = {
     enable = true;
