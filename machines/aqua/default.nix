@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ./modules/fail2ban.nix
       ./modules/firewall.nix
-      #./modules/home-assistant.nix
+      ./modules/home-assistant.nix
       ./modules/samba.nix
       ./modules/traefik.nix
       ../../modules/iperf.nix

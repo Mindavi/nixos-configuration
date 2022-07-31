@@ -1,12 +1,14 @@
 { pkgs, config, ...}:
 let
-  hassWithoutInstallCheck = pkgs.home-assistant.overrideAttrs (oldAttrs: {
-    doInstallCheck = false;
-  });
+  #hassWithoutInstallCheck = pkgs.home-assistant.overrideAttrs (oldAttrs: {
+  #  doInstallCheck = false;
+  #});
 in {
   services.home-assistant = {
-    port = 8123;
-    package = hassWithoutInstallCheck.override {
+    config = {
+      http.server_port = 8123;
+    };
+    package = pkgs.home-assistant.override {
       extraComponents = [
         "default_config"
         "discovery"

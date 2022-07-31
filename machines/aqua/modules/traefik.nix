@@ -1,16 +1,18 @@
 { pkgs, config, ... }:
 let
-  port = 8000;  # use 8000 for experimentation
+  # use 8000 for testing since it's easier to open up for now
+  webport = 8000;
+  websecureport = 8000;  # use 8000 for experimentation
 in {
   services.traefik = {
     enable = true;
     staticConfigOptions = {
       entryPoints = {
         web = {
-          address = ":${toString port}";
+          address = ":${toString webport}";
         };
         websecure = {
-          address = ":443";
+          address = ":${toString websecureport}";
         };
       };
       api.dashboard = true;
@@ -49,7 +51,6 @@ in {
     };
   };
 
-  # use 8000 for testing since it's easier to open up for now
-  networking.firewall.allowedTCPPorts = [ 80 443 ] ++ [ port ];
+  networking.firewall.allowedTCPPorts = [ webport websecureport ];
 }
 
