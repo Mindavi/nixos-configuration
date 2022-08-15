@@ -2,16 +2,16 @@
   "nodes": {
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1659219666,
-        "narHash": "sha256-pzYr5fokQPHv7CmUXioOhhzDy/XyWOIXP4LZvv/T7Mk=",
-        "owner": "NixOS",
+        "lastModified": 1660147466,
+        "narHash": "sha256-znV9Qmfzfkbq9otmj3BOIzgH9Jki9f4JefMCXO6LopY=",
+        "owner": "NickCao",
         "repo": "nixpkgs",
-        "rev": "7b9be38c7250b22d829ab6effdee90d5e40c6e5c",
+        "rev": "dc76730f027eba65286a928e0a1c01fbcc537e19",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "NickCao",
+        "ref": "hydra",
         "repo": "nixpkgs",
         "type": "github"
       }
