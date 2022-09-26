@@ -80,6 +80,7 @@
     p7zip
     digikam
     fdupes
+    mqttui # handy for mqtt debugging/logging
 
     # pdf viewer
     libsForQt5.okular
