@@ -168,45 +168,8 @@
   ];
   networking.firewall.enable = true;
 
-  nix = let
-    nix' = (pkgs.nixVersions.nix_2_10.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
-      pname = "nix-with-sanitizers";
-      # False if ASAN is enabled since some tests then start failing.
-      doInstallCheck = true;
-      NIX_CFLAGS_COMPILE = "-fstack-protector-all -fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
-
-      patches = oldAttrs.patches or [] ++ [
-        (pkgs.fetchpatch {
-          name = "asan-disable-leak-detection-most-apps";
-          url = "https://github.com/Mindavi/nix/commit/24a26b40fd6d1714d40851b13eaa4273b7d5536f.patch";
-          hash = "sha256-Qg+/f9aFzp/OHLZ0fRidLlk23+MItyELJbaNKYNL54g=";
-        })
-        (pkgs.fetchpatch {
-          name = "tests-disable-decompression-error-test";
-          url = "https://github.com/Mindavi/nix/commit/d51915ea25ecc25c6d4a8138465b9fca8256c114.patch";
-          hash = "sha256-/GtpMY8a9ZrVcNW6jhVID9oBYbglfKs+fKnnwTBI3TI=";
-        })
-        (pkgs.fetchpatch {
-          name = "enable-asan-ubsan";
-          url = "https://github.com/Mindavi/nix/commit/330c5b8d126de7508e6316e5a453eccdb1467961.patch";
-          hash = "sha256-qsf99K0k6c9OTEsma58CgwAGoXnp4zdq8UTmYvyuTAk=";
-        })
-        (pkgs.fetchpatch {
-          name = "asan-disable-leak-detection-nix-app";
-          url = "https://github.com/Mindavi/nix/commit/f7d3ba738b75246426a9be8697a4ddccb9b64f71.patch";
-          hash = "sha256-iaGEINjmQH6mPtWddGORzYfXwysucn46D526U/XUrm8=";
-        })
-        (pkgs.fetchpatch {
-          name = "disable-asan-again";
-          url = "https://github.com/Mindavi/nix/commit/d8ab900d94a8108a22860eac4d0165e834e63302.patch";
-          hash = "sha256-ZY2AmGOALTrAk0V1txUF6ygYkdXNsi0kp25CUaxElV4=";
-        })
-        ./patches/nix-tag-unexpected-eof.diff
-      ];
-    });
-  in
-  {
-    package = nix';
+  nix = {
+    package = pkgs.nixVersions.nix_2_11;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
