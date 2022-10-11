@@ -5,8 +5,9 @@
   hardware.steam-hardware.enable = true;
 
   environment.systemPackages = with pkgs; [
-    zeroad
     discord
+    openttd
     polymc
+    zeroad
   ];
 }
