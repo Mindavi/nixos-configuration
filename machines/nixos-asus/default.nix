@@ -163,7 +163,7 @@
   # 20595 for 0ad
   # 6567 for mindustry
   networking.firewall.allowedUDPPorts = [
-    #20595
+    20595
     #6567
   ];
   networking.firewall.enable = true;
