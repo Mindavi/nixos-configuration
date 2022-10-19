@@ -169,8 +169,19 @@
   ];
   networking.firewall.enable = true;
 
-  nix = {
-    package = pkgs.nixVersions.nix_2_11;
+  nix = let
+    nix' = (pkgs.nixVersions.nix_2_11.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
+      pname = "nix-with-sanitizers";
+      # False if ASAN is enabled since some tests then start failing.
+      doInstallCheck = true;
+      NIX_CFLAGS_COMPILE = "-fstack-protector-all -fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      patches = [
+        ./patches/nix-tag-unexpected-eof.diff
+      ];
+    });
+  in
+  {
+    package = nix'; #pkgs.nixVersions.nix_2_11;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
