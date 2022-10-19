@@ -7,7 +7,7 @@
   environment.systemPackages = with pkgs; [
     discord
     openttd
-    polymc
+    #polymc
     zeroad
   ];
 }
