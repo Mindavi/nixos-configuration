@@ -36,7 +36,7 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  networking.hostName = "nixos-asus"; # Define your hostname.
+  networking.hostName = "nixos-asus";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
@@ -137,6 +137,7 @@
     "discord"
     "steam"
     "steam-original"
+    "steam-run"
     "steam-runtime"
     "nvidia-x11"
     "nvidia-settings"
@@ -204,7 +205,7 @@
   services.avahi = {
     domainName = "local";
     enable = true;
-    interfaces = [ "wlp2s0" ];
+    #interfaces = [ "wlp2s0" ];
     nssmdns = true;
     openFirewall = true;
   };
