@@ -82,6 +82,7 @@
     digikam
     fdupes
     mqttui # handy for mqtt debugging/logging
+    minicom # for uart / serial debugging
 
     # pdf viewer
     libsForQt5.okular
