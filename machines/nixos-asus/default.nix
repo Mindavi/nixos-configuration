@@ -102,6 +102,7 @@
     qemu
     valgrind
     nixpkgs-review
+    nix-output-monitor
 
     remmina
   ];
