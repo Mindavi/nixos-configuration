@@ -57,6 +57,7 @@
     bat # cat
     ripgrep # grep
     fzf # fuzzy find
+    pv # pipe viewer
 
     pciutils
     wget
