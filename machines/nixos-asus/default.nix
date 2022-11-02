@@ -71,6 +71,7 @@
     vlc
     syncthing
     #transmission
+    qbittorrent
     fping
     vscodium
     jq
