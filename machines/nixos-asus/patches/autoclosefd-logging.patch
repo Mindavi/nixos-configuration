@@ -1,0 +1,53 @@
+diff --git a/src/libutil/util.cc b/src/libutil/util.cc
+index 623b74bdd..1b0e2407b 100644
+--- a/src/libutil/util.cc
++++ b/src/libutil/util.cc
+@@ -817,19 +817,31 @@ void AutoDelete::reset(const Path & p, bool recursive) {
+ AutoCloseFD::AutoCloseFD() : fd{-1} {}
+ 
+ 
+-AutoCloseFD::AutoCloseFD(int fd) : fd{fd} {}
++AutoCloseFD::AutoCloseFD(int fd) : fd{fd} {
++  printInfo("AutoCloseFD created: %1%", fd);
++}
+ 
+ 
+ AutoCloseFD::AutoCloseFD(AutoCloseFD && that) : fd{that.fd}
+ {
+     that.fd = -1;
++    printInfo("AutoCloseFD created (move constructor): %1%", fd);
+ }
+ 
+ 
+ AutoCloseFD & AutoCloseFD::operator =(AutoCloseFD && that)
+ {
++    int thatFd = that.fd;
++    if (fd != -1)
++    {
++      if (fd == thatFd)
++        printError("AutoCloseFD: duplicate FDs: %1%", fd);
++      assert(fd != thatFd);
++    }
++    that.fd = -1;
++    printInfo("AutoCloseFD created (copy constructor): %1%", fd);
+     close();
+-    fd = that.fd;
++    fd = thatFd;
+     that.fd = -1;
+     return *this;
+ }
+@@ -854,9 +866,12 @@ int AutoCloseFD::get() const
+ void AutoCloseFD::close()
+ {
+     if (fd != -1) {
+-        if (::close(fd) == -1)
++        if (::close(fd) == -1) {
++            int prevFd = fd;
++            fd = -1;
+             /* This should never happen. */
+-            throw SysError("closing file descriptor %1%", fd);
++            throw SysError("closing file descriptor %1%", prevFd);
++        }
+         fd = -1;
+     }
+ }
