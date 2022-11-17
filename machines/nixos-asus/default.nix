@@ -186,6 +186,12 @@
       patches = [
         ./patches/nix-tag-unexpected-eof.diff
         ./patches/autoclosefd-logging.patch
+        (pkgs.fetchpatch {
+          # https://github.com/NixOS/nix/pull/7315
+          name = "dont-create-zero-length-arrays-in-primops";
+          url = "https://github.com/NixOS/nix/pull/7315/commits/761ac810f2e7abdad4bf139147be2f023fc00018.patch";
+          hash = "sha256-Rqfa6AtBlBPvTOZ7PJpUOtdKoKgB7JGX+2so6yVnHZg=";
+        })
       ];
     });
   in
