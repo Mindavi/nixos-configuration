@@ -2,7 +2,7 @@ diff --git a/src/libutil/util.cc b/src/libutil/util.cc
 index 623b74bdd..1b0e2407b 100644
 --- a/src/libutil/util.cc
 +++ b/src/libutil/util.cc
-@@ -817,19 +817,32 @@ void AutoDelete::reset(const Path & p, bool recursive) {
+@@ -817,19 +817,33 @@ void AutoDelete::reset(const Path & p, bool recursive) {
  AutoCloseFD::AutoCloseFD() : fd{-1} {}
  
  
@@ -25,9 +25,10 @@ index 623b74bdd..1b0e2407b 100644
 +    int thatFd = that.fd;
 +    if (fd != -1)
 +    {
-+      if (fd == thatFd)
-+        printError("AutoCloseFD: duplicate FDs: %1%", fd);
-+      assert(fd != thatFd);
++      bool sameFd = (fd == thatFd);
++      if (sameFd)
++        printInfo("AutoCloseFD: duplicate FDs: %1%", fd);
++      //assert(!sameFd);
 +    }
 +    that.fd = -1;
 +    printInfo("AutoCloseFD created (copy constructor): this: %1%, that: %2%", fd, thatFd);
