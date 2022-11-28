@@ -192,6 +192,11 @@
           url = "https://github.com/NixOS/nix/pull/7315/commits/761ac810f2e7abdad4bf139147be2f023fc00018.patch";
           hash = "sha256-Rqfa6AtBlBPvTOZ7PJpUOtdKoKgB7JGX+2so6yVnHZg=";
         })
+        (pkgs.fetchpatch {
+          name = "derivationgoal-fix";
+          url = "https://github.com/NixOS/nix/commit/7e162c69fe6cbfb929b5356a7df9de5c25c22565.patch";
+          hash = "sha256-8DX4spZOvgg5214HZdaUrFv4jkYEQhjckxOSiAkC0Cg=";
+        })
       ];
     });
   in
