@@ -186,6 +186,7 @@
       patches = [
         ./patches/nix-tag-unexpected-eof.diff
         ./patches/autoclosefd-logging.patch
+        ./patches/queryPathInfoUncached-assert.patch
         (pkgs.fetchpatch {
           # https://github.com/NixOS/nix/pull/7315
           name = "dont-create-zero-length-arrays-in-primops";

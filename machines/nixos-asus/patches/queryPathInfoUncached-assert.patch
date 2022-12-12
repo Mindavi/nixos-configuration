@@ -1,0 +1,15 @@
+diff --git a/src/libstore/store-api.cc b/src/libstore/store-api.cc
+index 06a9758fc..69643b0ab 100644
+--- a/src/libstore/store-api.cc
++++ b/src/libstore/store-api.cc
+@@ -612,9 +612,9 @@ void Store::queryPathInfo(const StorePath & storePath,
+ 
+     queryPathInfoUncached(storePath,
+         {[this, storePath, hashPart, callbackPtr](std::future<std::shared_ptr<const ValidPathInfo>> fut) {
+-
+             try {
+                 auto info = fut.get();
++                assert(info != nullptr);
+ 
+                 if (diskCache)
+                     diskCache->upsertNarInfo(getUri(), hashPart, info);
