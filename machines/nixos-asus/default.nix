@@ -176,33 +176,27 @@
   networking.firewall.enable = true;
 
   nix = let
-    nix' = (pkgs.nixVersions.nix_2_11.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
-      pname = "nix-with-sanitizers";
+    nix' = (pkgs.nixVersions.nix_2_12.override { enableDocumentation = false; }).overrideAttrs(oldAttrs: {
+      pname = "nix-with-debuginfo";
       # False if ASAN is enabled since some tests then start failing.
       #doInstallCheck = true;
-      # False because the autoclosefd-logging patch appears to cause tests to hang...
-      doInstallCheck = false;
-      NIX_CFLAGS_COMPILE = "-fstack-protector-all -fsanitize=undefined -fsanitize-recover=all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
+      doInstallCheck = true;
+      NIX_CFLAGS_COMPILE = "-g -fstack-protector-all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
       patches = [
         ./patches/nix-tag-unexpected-eof.diff
-        ./patches/autoclosefd-logging.patch
-        ./patches/queryPathInfoUncached-assert.patch
+        # Can cause tests to fail, make sure to disable them when enabling this.
+        #./patches/autoclosefd-logging.patch
         (pkgs.fetchpatch {
           # https://github.com/NixOS/nix/pull/7315
           name = "dont-create-zero-length-arrays-in-primops";
           url = "https://github.com/NixOS/nix/pull/7315/commits/761ac810f2e7abdad4bf139147be2f023fc00018.patch";
           hash = "sha256-Rqfa6AtBlBPvTOZ7PJpUOtdKoKgB7JGX+2so6yVnHZg=";
         })
-        (pkgs.fetchpatch {
-          name = "derivationgoal-fix";
-          url = "https://github.com/NixOS/nix/commit/7e162c69fe6cbfb929b5356a7df9de5c25c22565.patch";
-          hash = "sha256-8DX4spZOvgg5214HZdaUrFv4jkYEQhjckxOSiAkC0Cg=";
-        })
       ];
     });
   in
   {
-    package = nix'; #pkgs.nixVersions.nix_2_11;
+    package = nix'; #pkgs.nixVersions.nix_2_12;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
