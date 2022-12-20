@@ -2,11 +2,11 @@
   "nodes": {
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1670751203,
-        "narHash": "sha256-XdoH1v3shKDGlrwjgrNX/EN8s3c+kQV7xY6cLCE8vcI=",
+        "lastModified": 1671359686,
+        "narHash": "sha256-3MpC6yZo+Xn9cPordGz2/ii6IJpP2n8LE8e/ebUXLrs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "64e0bf055f9d25928c31fb12924e59ff8ce71e60",
+        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
         "type": "github"
       },
       "original": {
