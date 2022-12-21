@@ -46,6 +46,7 @@
   networking.interfaces.wlp2s0.useDHCP = true;
 
   networking.hosts = {
+    "192.168.2.7" = [ "raspberry" ];
     "192.168.2.8" = [ "aqua" ];
   };
 
