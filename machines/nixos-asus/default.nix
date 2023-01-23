@@ -250,7 +250,12 @@
     enable = true;
     layout = "us";
     # Enable touchpad support.
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+      };
+    };
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
   };
