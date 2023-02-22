@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   hardware.rtl-sdr.enable = true;
-  services.udev.packages = [ pkgs.rtl-sdr ];
-  boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
+  environment.systemPackages = with pkgs; [
+    rtl_433
+  ];
 
   # This module also requires the following settings:
   # users.users.<username>.extraGroups = [ "plugdev" ];
