@@ -7,6 +7,7 @@
       ./modules/fail2ban.nix
       ./modules/firewall.nix
       ./modules/home-assistant.nix
+      ./modules/hydra.nix
       ./modules/samba.nix
       ./modules/traefik.nix
       ../../modules/iperf.nix
@@ -61,7 +62,7 @@
   networking.firewall.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
+    #package = pkgs.nixUnstable;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
@@ -111,8 +112,8 @@
     openssh.authorizedKeys.keys =  [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus" ];
   };
 
-  services.postgresql.package = pkgs.postgresql_14;
+  services.postgresql.package = pkgs.postgresql_15;
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 }
 

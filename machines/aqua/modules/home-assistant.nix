@@ -1,9 +1,5 @@
 { pkgs, config, ...}:
-let
-  #hassWithoutInstallCheck = pkgs.home-assistant.overrideAttrs (oldAttrs: {
-  #  doInstallCheck = false;
-  #});
-in {
+{
   services.home-assistant = {
     config = {
       http.server_port = 8123;
