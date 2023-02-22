@@ -43,7 +43,6 @@
     htop
     jq
     ripgrep # grep
-    rtl_433
     screen
     sl
     syncthing
