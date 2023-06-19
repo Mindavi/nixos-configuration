@@ -95,7 +95,7 @@
   services.avahi = {
     domainName = "local";
     enable = true;
-    interfaces = [ "wlp2s0" ];  # TODO: change to correct interface
+    interfaces = [ "wlp2s0" ];
     nssmdns = true;
     openFirewall = true;
   };
