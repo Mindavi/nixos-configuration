@@ -2,11 +2,12 @@
 let
   # use 8000 for testing since it's easier to open up for now
   webport = 8000;
-  websecureport = 8000;  # use 8000 for experimentation
+  websecureport = 8001;  # use 8001 for experimentation
 in {
   services.traefik = {
     enable = true;
     staticConfigOptions = {
+      log.level = "DEBUG";
       entryPoints = {
         web = {
           address = ":${toString webport}";
@@ -43,9 +44,14 @@ in {
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
+          middlewares = "internal-whitelist";
         };
         services.homeassistant = {
-          loadBalancer.servers.url = "http://localhost:8123";
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:8123";
+            }
+          ];
         };
       };
     };
