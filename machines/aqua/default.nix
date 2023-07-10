@@ -95,7 +95,8 @@
   services.avahi = {
     domainName = "local";
     enable = true;
-    interfaces = [ "wlp2s0" ];
+    # TODO(ricsch): Name of the interface
+    allowInterfaces = [ "wlp2so" ];
     nssmdns = true;
     openFirewall = true;
   };
@@ -114,6 +115,6 @@
 
   services.postgresql.package = pkgs.postgresql_15;
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }
 
