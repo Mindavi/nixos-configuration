@@ -228,7 +228,10 @@
     distributedBuilds = true;
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
   services.avahi = {
     domainName = "local";
     enable = true;
