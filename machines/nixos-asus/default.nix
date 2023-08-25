@@ -177,7 +177,7 @@
   networking.firewall.enable = true;
 
   nix = let
-    nix' = (pkgs.nixVersions.nix_2_16.override { enableDocumentation = true; }).overrideAttrs(oldAttrs: {
+    nix' = (pkgs.nixVersions.unstable.override { enableDocumentation = true; }).overrideAttrs(oldAttrs: {
       pname = "nix-with-debuginfo";
       # False if ASAN is enabled since some tests then start failing.
       #doInstallCheck = true;
