@@ -54,7 +54,7 @@
 
   environment.systemPackages = with pkgs; [
     # rust cli tools
-    exa # ls
+    eza # ls
     bat # cat
     ripgrep # grep
     fzf # fuzzy find
