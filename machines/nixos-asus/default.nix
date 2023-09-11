@@ -180,7 +180,6 @@
     nix' = (pkgs.nixVersions.unstable.override { enableDocumentation = true; }).overrideAttrs(oldAttrs: {
       pname = "nix-with-debuginfo";
       # False if ASAN is enabled since some tests then start failing.
-      #doInstallCheck = true;
       doInstallCheck = true;
       NIX_CFLAGS_COMPILE = "-g -fstack-protector-all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
       patches = [
