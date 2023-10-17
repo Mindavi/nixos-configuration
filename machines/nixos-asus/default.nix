@@ -108,6 +108,9 @@
     nix-output-monitor
 
     remmina
+
+    # https://github.com/NixOS/nixpkgs/issues/66093
+    gnome.adwaita-icon-theme
   ];
 
   #virtualisation.virtualbox.host.enable = true;
