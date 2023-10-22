@@ -126,8 +126,19 @@
   };
 
   # hydra is available on http://localhost:3000/
-  services.hydra = {
-    package = pkgs.hydra_unstable;
+  services.hydra = let
+    hydra' = pkgs.hydra_unstable.overrideAttrs(oldAttrs: {
+      patches = [
+        # https://github.com/NixOS/hydra/pull/1301
+        (pkgs.fetchpatch2 {
+          name = "queue-runner-performance.patch";
+          url = "https://github.com/delroth/hydra/commit/b7c864c515faee58a11a67ea8619e464e883ad34.patch";
+          hash = "sha256-+O1dIGqMx1wORvmcW2HzBOsnl4k8ixNvOFmKp5yHBY0=";
+        })
+      ];
+    });
+  in {
+    package = hydra';
     enable = true;
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
