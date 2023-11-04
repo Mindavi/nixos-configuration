@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ./modules/fail2ban.nix
       ./modules/firewall.nix
-      ./modules/home-assistant.nix
+      #./modules/home-assistant.nix
       ./modules/hydra.nix
       ./modules/samba.nix
       ./modules/traefik.nix
@@ -20,7 +20,7 @@
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 

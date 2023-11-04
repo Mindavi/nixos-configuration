@@ -16,18 +16,25 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-label/himars";
+      device = "/dev/disk/by-label/nixos-aqua";
       fsType = "btrfs";
-      options = [ "subvol=@" "compress=zstd" ];
+      options = [ "subvol=root" "compress=zstd" ];
     };
 
-#  fileSystems."/nix" =
-#    {
-#      device = "/dev/disk/by-label/nix";
-#      fsType = "ext4";
-#      neededForBoot = true;
-#      options = [ "noatime" ];
-#    };
+  fileSystems."/home" =
+    {
+      device = "/dev/disk/by-label/nixos-aqua";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" ];
+    };
+
+  fileSystems."/nix" =
+    {
+      device = "/dev/disk/by-label/nixos-aqua";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
 
   fileSystems."/boot" =
     {
@@ -38,6 +45,7 @@
   swapDevices =
     [{
       device = "/dev/disk/by-label/nix-swap";
+      options = [ "noatime" ];
     }];
 
   nix.settings.max-jobs = lib.mkDefault 4;
