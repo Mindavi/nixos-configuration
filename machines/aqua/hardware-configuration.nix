@@ -16,7 +16,7 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-label/nixos";
+      device = "/dev/disk/by-label/himars";
       fsType = "ext4";
     };
 
