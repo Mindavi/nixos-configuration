@@ -17,7 +17,8 @@
   fileSystems."/" =
     {
       device = "/dev/disk/by-label/himars";
-      fsType = "ext4";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" ];
     };
 
 #  fileSystems."/nix" =
