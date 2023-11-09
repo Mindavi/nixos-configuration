@@ -32,7 +32,20 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
 
-  #networking.interfaces.<tbd>.useDHCP = true;
+  networking.interfaces = {
+    eno1 = {
+      # TODO(Mindavi): Can we enable both DHCP and a static address?
+      #                I'd expect so, but ???.
+      useDHCP = true;
+      ipv4.addresses = [
+        {
+          address = "192.168.1.8";
+          prefixLength = 24;
+        }
+      ];
+      # TODO(Mindavi): ipv6 address.
+    };
+  };
 
   time.timeZone = "Europe/Amsterdam";
 
