@@ -34,8 +34,8 @@
 
   networking.interfaces = {
     eno1 = {
-      # TODO(Mindavi): Can we enable both DHCP and a static address?
-      #                I'd expect so, but ???.
+      # Intentionally enable both DHCP and static IP.
+      # This can be handy for recovery when network config is changed.
       useDHCP = true;
       ipv4.addresses = [
         {
