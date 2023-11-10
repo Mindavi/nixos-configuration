@@ -108,10 +108,14 @@
   services.avahi = {
     domainName = "local";
     enable = true;
-    # TODO(ricsch): Name of the interface
-    allowInterfaces = [ "wlp2so" ];
+    allowInterfaces = [ "eno1" ];
     nssmdns = true;
     openFirewall = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
