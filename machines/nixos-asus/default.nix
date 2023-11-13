@@ -248,7 +248,7 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
-    domainName = "thuis";
+    domainName = "local";
     openFirewall = true;
     publish = {
       enable = true;
