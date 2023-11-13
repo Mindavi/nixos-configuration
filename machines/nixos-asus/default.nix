@@ -47,7 +47,7 @@
 
   networking.hosts = {
     "192.168.2.7" = [ "raspberry" ];
-    "192.168.1.8" = [ "aqua" ];
+    #"192.168.1.8" = [ "aqua" ];
   };
 
   time.timeZone = "Europe/Amsterdam";
