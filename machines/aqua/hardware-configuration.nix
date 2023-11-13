@@ -48,6 +48,7 @@
       options = [ "noatime" ];
     }];
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nix.settings.max-jobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }
