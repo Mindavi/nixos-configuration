@@ -10,6 +10,7 @@
       ./modules/hydra.nix
       ./modules/samba.nix
       ./modules/traefik.nix
+      #./modules/virtualisation.nix
       ../../modules/iperf.nix
       ../../modules/rtl-sdr.nix
       ../../modules/sudo.nix
@@ -56,6 +57,7 @@
     gitAndTools.gitFull
     htop
     jq
+    parted
     ripgrep # grep
     screen
     sl
