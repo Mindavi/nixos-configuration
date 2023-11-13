@@ -108,10 +108,9 @@
   };
 
   services.avahi = {
-    domainName = "local";
     enable = true;
-    allowInterfaces = [ "eno1" ];
     nssmdns = true;
+    domainName = "thuis";
     openFirewall = true;
     publish = {
       enable = true;

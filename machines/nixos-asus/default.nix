@@ -246,11 +246,15 @@
     drivers = [ pkgs.gutenprint ];
   };
   services.avahi = {
-    domainName = "local";
     enable = true;
-    #interfaces = [ "wlp2s0" ];
     nssmdns = true;
+    domainName = "thuis";
     openFirewall = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
   };
 
   sound.enable = true;
@@ -283,7 +287,6 @@
     extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" "kvm" ];
     initialPassword = "rikkert";
   };
-
 
   system.stateVersion = "21.11";
 }
