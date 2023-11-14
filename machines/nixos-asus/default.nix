@@ -47,7 +47,8 @@
 
   networking.hosts = {
     "192.168.2.7" = [ "raspberry" ];
-    #"192.168.1.8" = [ "aqua" ];
+    "192.168.1.8" = [ "aqua" ];
+    "192.168.1.123" = [ "printer" ];
   };
 
   time.timeZone = "Europe/Amsterdam";
@@ -240,6 +241,7 @@
     enable = true;
     drivers = [ pkgs.gutenprint ];
   };
+  # mDNS doesn't work with TP-Link Deco M5 mesh modules.
   services.avahi = {
     enable = true;
     nssmdns = true;
