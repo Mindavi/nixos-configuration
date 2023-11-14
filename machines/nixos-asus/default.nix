@@ -162,11 +162,6 @@
     "nvidia-settings"
   ];
 
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
   # Open ports in the firewall.
   # 25565 for minecraft
   # 6567 for mindustry
