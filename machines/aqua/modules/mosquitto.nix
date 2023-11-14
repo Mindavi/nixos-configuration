@@ -3,8 +3,8 @@
   services.mosquitto = {
     enable = true;
     persistence = false;
-    listeners = {
-      default = {
+    listeners = [
+      {
         port = 1883;
         acl = [
           "topic read public/#"
@@ -17,9 +17,8 @@
           "topic write sensor/+/+/control"
 
           "user devicelist"
-          
         ];
-      };
+      }
     ];
   };
 }

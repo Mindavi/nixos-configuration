@@ -8,6 +8,7 @@
       ./modules/firewall.nix
       #./modules/home-assistant.nix
       ./modules/hydra.nix
+      ./modules/mosquitto.nix
       ./modules/samba.nix
       ./modules/traefik.nix
       #./modules/virtualisation.nix
