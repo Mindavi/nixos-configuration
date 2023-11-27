@@ -185,6 +185,7 @@
     #6567
   ];
   networking.firewall.enable = true;
+  networking.firewall.logRefusedPackets = true;
 
   nix = let
     nix' = (pkgs.nixVersions.nix_2_18.override { enableDocumentation = true; }).overrideAttrs(oldAttrs: {

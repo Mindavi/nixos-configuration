@@ -7,12 +7,14 @@ in
   # Make sure firewall is enabled.
   networking.firewall.enable = true;
 
+  networking.firewall.logRefusedPackets = true;
+
   # Open up 8000 for testing purposes.
   networking.firewall.allowedTCPPorts = [ 8000 ];
 
   networking.firewall.extraCommands = ''
     # mdns, zeroconf, avahi
-    iptables -A nixos-fw -p udp -m udp -s ${subnet} --dport 5353 -j nixos-fw-accept
+    #iptables -A nixos-fw -p udp -m udp -s ${subnet} --dport 5353 -j nixos-fw-accept
 
     # mosquitto (insecure)
     iptables -A nixos-fw -p tcp -m tcp -s ${subnet} --dport 1883 -j nixos-fw-accept
