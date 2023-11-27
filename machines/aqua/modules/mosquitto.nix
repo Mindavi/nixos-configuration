@@ -3,6 +3,7 @@
   services.mosquitto = {
     enable = true;
     persistence = false;
+    logType = [ "all" ];
     listeners = [
       {
         port = 1883;
