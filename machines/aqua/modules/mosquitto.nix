@@ -16,7 +16,7 @@
         users = {
           rtl_433 = {
             acl = [
-              "read rtl_433"
+              "read rtl_433/#"
               "write rtl_433/aqua/#"
             ];
           };
