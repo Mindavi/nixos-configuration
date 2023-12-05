@@ -187,27 +187,8 @@
   networking.firewall.enable = true;
   networking.firewall.logRefusedPackets = true;
 
-  nix = let
-    nix' = (pkgs.nixVersions.nix_2_18.override { enableDocumentation = true; }).overrideAttrs(oldAttrs: {
-      pname = "nix-with-debuginfo";
-      # False if ASAN is enabled since some tests then start failing.
-      doInstallCheck = true;
-      NIX_CFLAGS_COMPILE = "-g -fstack-protector-all -fno-common -fno-omit-frame-pointer -O1 -fno-optimize-sibling-calls";
-      patches = [
-        ./patches/nix-tag-unexpected-eof.diff
-        # Can cause tests to fail, make sure to disable them when enabling this.
-        #./patches/autoclosefd-logging.patch
-        (pkgs.fetchpatch {
-          # https://github.com/NixOS/nix/pull/7315
-          name = "dont-create-zero-length-arrays-in-primops";
-          url = "https://github.com/NixOS/nix/pull/7315/commits/761ac810f2e7abdad4bf139147be2f023fc00018.patch";
-          hash = "sha256-Rqfa6AtBlBPvTOZ7PJpUOtdKoKgB7JGX+2so6yVnHZg=";
-        })
-      ];
-    });
-  in
-  {
-    package = nix'; #pkgs.nixVersions.nix_2_12;
+  nix = {
+    package = pkgs.nixVersions.nix_2_19;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
