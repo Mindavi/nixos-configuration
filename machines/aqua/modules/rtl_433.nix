@@ -16,7 +16,7 @@
       Restart = "on-failure";
       RestartSec = "10s";
       ProtectSystem = "strict";
-      PrivateHome = true;
+      ProtectHome = true;
       PrivateTmp = true;
     };
   };
