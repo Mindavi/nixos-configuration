@@ -10,14 +10,21 @@
         port = 1883;
         # TODO(Mindavi): unsafe, but ok-ish if only allowed from localhost
         omitPasswordAuth = true;
+        users = {
+          rtl_433 = {
+            acl = [
+              "topic read rtl_433"
+              "topic write rtl_433/aqua/#"
+            ];
+          };
+          monitor = {
+            acl = [
+              "topic read #"
+            ];
+          };
+        };
         acl = [
           "topic read public/#"
-
-          "user monitor"
-          "topic read #"
-
-          "user rtl"
-          "topic write rtl_433/aqua/#"
         ];
       }
     ];
