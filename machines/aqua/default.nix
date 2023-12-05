@@ -9,6 +9,7 @@
       #./modules/home-assistant.nix
       ./modules/hydra.nix
       ./modules/mosquitto.nix
+      ./modules/rtl_433.nix
       ./modules/samba.nix
       ./modules/traefik.nix
       #./modules/virtualisation.nix
@@ -23,7 +24,6 @@
   boot.loader.efi.canTouchEfiVariables = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 
   hardware.cpu.intel.updateMicrocode = true;
