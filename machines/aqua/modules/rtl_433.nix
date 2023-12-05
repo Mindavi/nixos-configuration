@@ -10,7 +10,7 @@
     description = "rtl_433 listener daemon";
     serviceConfig = {
       Type = "exec";
-      ExecStart = "${pkgs.rtl_433}/bin/rtl_433 -F json";
+      ExecStart = "${pkgs.rtl_433}/bin/rtl_433 -F json -F mqtt";
       DynamicUser = "yes";
       SupplementaryGroups = [ "plugdev" ];
       Restart = "on-failure";
