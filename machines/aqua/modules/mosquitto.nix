@@ -16,18 +16,19 @@
         users = {
           rtl_433 = {
             acl = [
-              "topic read rtl_433"
-              "topic write rtl_433/aqua/#"
+              "read rtl_433"
+              "write rtl_433/aqua/#"
             ];
           };
           monitor = {
             acl = [
-              "topic read #"
+              "read #"
             ];
           };
         };
         acl = [
           "topic read public/#"
+          "pattern write public/%u/#"
         ];
       }
     ];
