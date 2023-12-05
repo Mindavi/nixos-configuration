@@ -7,6 +7,9 @@
     listeners = [
       {
         address = "127.0.0.1";
+        settings = {
+          allow_anonymous = true;
+        };
         port = 1883;
         # TODO(Mindavi): unsafe, but ok-ish if only allowed from localhost
         omitPasswordAuth = true;
