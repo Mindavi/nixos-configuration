@@ -214,7 +214,7 @@
   # mDNS doesn't work with TP-Link Deco M5 mesh modules.
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     domainName = "local";
     openFirewall = true;
     publish = {
