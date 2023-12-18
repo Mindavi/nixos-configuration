@@ -205,6 +205,7 @@
     };
     buildMachines = [];
     distributedBuilds = true;
+    registry.nixpkgs.to = { type = "path"; path = pkgs.path; };
   };
 
   services.printing = {
