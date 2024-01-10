@@ -206,6 +206,7 @@
     buildMachines = [];
     distributedBuilds = true;
     registry.nixpkgs.to = { type = "path"; path = pkgs.path; };
+    nixPath = [ "nixpkgs=${pkgs.path}" ];
   };
 
   services.printing = {
