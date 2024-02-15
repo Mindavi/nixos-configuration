@@ -129,6 +129,29 @@
   # hydra is available on http://localhost:3000/
   services.hydra = {
     enable = true;
+    # TODO(Mindavi): Revisit when nix_2_20 builds...
+    #                https://github.com/NixOS/nixpkgs/pull/285264
+    #                Reverting the hydra patches to support nix_2_20 results in conflicts.
+    #                Let's just wait until nix_2_20 works in nixpkgs, that makes it a lot easier to update hydra.
+    #package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: rec {
+    #  version = "unstable-2024-01-30_nix_2_19";
+    #  patches = (oldAttrs.patches or []) ++ [
+    #    (pkgs.fetchpatch2 {
+    #      url = "https://patch-diff.githubusercontent.com/raw/NixOS/hydra/pull/1354.patch";
+    #      name = "nix_2_20_support.patch";
+    #      hash = "sha256-AyluH3+9um83upYpjO6QsZ4Nv2Vv8Nlhj0c4IBhe0Gs=";
+    #      revert = true;
+    #    })
+    #  ];
+    #  src = pkgs.fetchFromGitHub {
+    #    owner = "NixOS";
+    #    repo = "hydra";
+    #    rev = "c1bd50a80db45930cdfc1975903d1f76cca1053a";
+    #    hash = "sha256-ezuVLIjasa/Kki32I3x59tr7FRJsITYTH3Xh6yznwOk=";
+    #  };
+    #})).override {
+    #  nix = pkgs.nixVersions.nix_2_19;
+    #};
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
     # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
