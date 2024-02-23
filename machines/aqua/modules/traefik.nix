@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   # use 8000 for testing since it's easier to open up for now
-  webport = 8000;
+  webport = 80;
   websecureport = 8001;  # use 8001 for experimentation
 in {
   services.traefik = {
@@ -34,11 +34,11 @@ in {
           middlewares = "internal-whitelist";
         };
         # TODO: change source range to 192.168.2.0/24
-        middlewares.internal-whitelist.ipwhitelist.sourcerange = "10.0.2.0/24";
+        middlewares.internal-whitelist.ipwhitelist.sourcerange = "192.168.1.0/24";
 
         routers.homeassistant = {
           # TODO: change to home.rickvanschijndel.eu
-          rule = "Host(`home.localhost`)";
+          rule = "Host(`home.localhost`) || ClientIP(`192.168.1.0/24`)";
           # TODO: change to websecure
           entrypoints = "web";
           #tls = true;
