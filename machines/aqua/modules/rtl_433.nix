@@ -6,6 +6,7 @@
   ];
   systemd.services.rtl_433 = {
     wantedBy = [ "multi-user.target" ];
+    requires = [ "network-online.target" ];
     after = [ "network-online.target" ];
     description = "rtl_433 listener daemon";
     serviceConfig = {
