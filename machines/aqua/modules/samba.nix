@@ -11,16 +11,14 @@
       "guest ok" = "no";
       comment = "Opslag voor gezin";
     };
-    # TODO: add users (here?) -> Maybe we just want to sync with the unix users somehow?
-    # username: familie
   };
+  users.groups.familie = {};
   users.users.familie = {
     isSystemUser = true;
     home = "/var/data/samba";
+    group = "familie";
     extraGroups = [ ];
     initialPassword = "familie";
   };
-  users.users.familie.group = "familie";
-  users.groups.familie = {};
 }
 
