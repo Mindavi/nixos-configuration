@@ -157,6 +157,10 @@
     # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
     buildMachinesFiles = [ ];
     useSubstitutes = true;
+    extraConfig = ''
+      # Uses quite a bit of memory, so prevent multiple evals at once to reduce change of memory exhaustion.
+      max_concurrent_evals = 1
+    '';
   };
   services.postgresql.package = pkgs.postgresql_14;
 
