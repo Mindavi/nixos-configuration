@@ -6,7 +6,7 @@
     openFirewall = false;
     shares.copydrive = {
       path = "/var/data/samba/copydrive";
-      "read only" = true;
+      "read only" = false;
       browseable = "yes";
       "guest ok" = "no";
       comment = "Opslag voor gezin";
