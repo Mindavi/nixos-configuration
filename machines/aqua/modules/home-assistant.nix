@@ -25,15 +25,15 @@
     package = pkgs.home-assistant.override {
       extraComponents = [
         "default_config"
-        #"history"
-        #"html5"
-        #"http"
-        #"local_ip" # ???
-        #"logbook"
-        #"lovelace"
+        "history"
+        "html5"
+        "http"
+        "local_ip" # ???
+        "logbook"
+        "lovelace"
         #"minecraft_server"
         "mqtt"
-        #"shelly"
+        "shelly"
       ];
     };
     # Use a proxy.
