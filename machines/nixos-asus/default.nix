@@ -275,6 +275,7 @@
       };
     };
     displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
     desktopManager.plasma5.enable = true;
   };
 
