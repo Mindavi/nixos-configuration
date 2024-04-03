@@ -33,6 +33,14 @@
               "write sensor/+/+/will"
             ];
           };
+          bedroom = {
+            acl = [
+              "write sensor/+/+/control"
+              "write sensor/+/+/debug"
+              "write sensor/+/+/status"
+              "write sensor/+/+/will"
+            ];
+          };
         };
         acl = [
           "topic read public/#"
