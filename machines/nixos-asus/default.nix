@@ -135,14 +135,15 @@
     #                Let's just wait until nix_2_20 works in nixpkgs, that makes it a lot easier to update hydra.
     package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: rec {
       version = "unstable-2024-03-08_nix_2_20";
-    #  patches = (oldAttrs.patches or []) ++ [
+      patches = (oldAttrs.patches or []) ++ [
     #    (pkgs.fetchpatch2 {
     #      url = "https://patch-diff.githubusercontent.com/raw/NixOS/hydra/pull/1354.patch";
     #      name = "nix_2_20_support.patch";
     #      hash = "sha256-AyluH3+9um83upYpjO6QsZ4Nv2Vv8Nlhj0c4IBhe0Gs=";
     #      revert = true;
     #    })
-    #  ];
+        ./patches/hydra-ca-outpaths-patch.diff
+      ];
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
         repo = "hydra";
