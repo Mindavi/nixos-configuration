@@ -201,6 +201,8 @@
   ];
   networking.firewall.enable = true;
   networking.firewall.logRefusedPackets = true;
+  networking.firewall.logRefusedConnections = true;
+  networking.firewall.rejectPackets = true;
 
   nix = {
     package = pkgs.nixVersions.nix_2_20;
