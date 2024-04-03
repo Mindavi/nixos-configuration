@@ -162,6 +162,7 @@
       max_concurrent_evals = 1
     '';
   };
+  systemd.services.hydra-send-stats.enable = false;
   services.postgresql.package = pkgs.postgresql_14;
 
   # For android studio
