@@ -129,20 +129,43 @@
   # hydra is available on http://localhost:3000/
   services.hydra = {
     enable = true;
-    # TODO(Mindavi): Revisit when nix_2_20 builds...
-    #                https://github.com/NixOS/nixpkgs/pull/285264
-    #                Reverting the hydra patches to support nix_2_20 results in conflicts.
-    #                Let's just wait until nix_2_20 works in nixpkgs, that makes it a lot easier to update hydra.
     package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: rec {
       version = "unstable-2024-03-08_nix_2_20";
       patches = (oldAttrs.patches or []) ++ [
-    #    (pkgs.fetchpatch2 {
-    #      url = "https://patch-diff.githubusercontent.com/raw/NixOS/hydra/pull/1354.patch";
-    #      name = "nix_2_20_support.patch";
-    #      hash = "sha256-AyluH3+9um83upYpjO6QsZ4Nv2Vv8Nlhj0c4IBhe0Gs=";
-    #      revert = true;
-    #    })
-        ./patches/hydra-ca-outpaths-patch.diff
+        # https://github.com/NixOS/hydra/pull/1374
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/1665aed5e302f213db048a38af44021b5e815d80.patch";
+          name = "test-caDependingOnFailingCA.patch";
+          hash = "sha256-QsanP5AX3Pq49yuQHIIOCZs73EM6Mnw5tUtsPtKApNE=";
+        })
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/71986632ced0dcaa0bf8262d2f41e52d3216c39d.patch";
+          name = "hydra-server_findLog-render-fix.patch";
+          hash = "sha256-4egxeChv1G3cWxyfYOtQh8uev/iUhpybLocYFyEOCEk=";
+        })
+        # https://github.com/NixOS/hydra/pull/1372
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";
+          name = "show-build-step-names.patch";
+          hash = "sha256-7CUfoXzzzfjNU2IyxvGhGbDg3lVdI8K3FQovUOQvh5E=";
+        })
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/bd380f694e71e1b9bff7db2f12de6ade94a1edd2.patch";
+          name = "only-show-stepname-not-equal-drv-name.patch";
+          hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
+        })
+        # https://github.com/NixOS/hydra/pull/1368
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/669617ab54a667623fdbbc07dfd7354b5d66286b.patch";
+          name = "fix-login-using-enter.patch";
+          hash = "sha256-ZgHVW5ZeY0vYaD0Dj5vxgXquu7u6ElBS8t0Gr0T+cu0=";
+        })
+        # https://github.com/NixOS/hydra/pull/1370
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/99afff03b06d6b9a3d464ede9724e29a03e91329.patch";
+          name = "queue-runner-drop-broken-connections.patch";
+          hash = "sha256-0S3YTxa+1NjeXSYtkmXxcuKKkjACux5dNR1X1yo1jZU=";
+        })
       ];
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
