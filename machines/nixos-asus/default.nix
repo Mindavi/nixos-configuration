@@ -166,6 +166,8 @@
           name = "queue-runner-drop-broken-connections.patch";
           hash = "sha256-0S3YTxa+1NjeXSYtkmXxcuKKkjACux5dNR1X1yo1jZU=";
         })
+        # https://github.com/NixOS/hydra/pull/875
+        #./patches/nixos-hydra-pull-875.patch
       ];
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
