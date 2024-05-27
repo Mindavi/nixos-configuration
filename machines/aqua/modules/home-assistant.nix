@@ -22,15 +22,19 @@
         ip_ban_enabled = true;
         login_attempts_threshold = 4;
       };
+      logger = {
+        default = "info";
+      };
       lovelace.mode = "yaml";
-      frontend = {};
+
       config = {};
-      #history = {};
-      #system_health = {};
-      default_config = {};
-      #input_boolean = {};
-      #mobile_app = {};
-      #energy = {};
+      #default_config = {};
+      energy = {};
+      frontend = {};
+      history = {};
+      input_boolean = {};
+      mobile_app = {};
+      system_health = {};
     };
     lovelaceConfig = {
       title = "An example.";
