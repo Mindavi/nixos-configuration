@@ -10,5 +10,7 @@
     useSubstitutes = true;
   };
 
-  networking.firewall.allowedTCPPorts = [ 3001 ];
+  networking.firewall.allowedTCPPorts = [
+    config.services.hydra.port
+  ];
 }
