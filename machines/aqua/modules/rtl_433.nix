@@ -11,7 +11,7 @@
     description = "rtl_433 listener daemon";
     serviceConfig = {
       Type = "exec";
-      ExecStart = "${pkgs.rtl_433}/bin/rtl_433 -F json -F \"mqtt://localhost:1883,user=rtl_433,retain=0\"";
+      ExecStart = "${pkgs.rtl_433}/bin/rtl_433 -F json -F \"mqtt://localhost:1884,user=rtl_433,pass=rtl_433_pass,retain=0\"";
       DynamicUser = "yes";
       SupplementaryGroups = [ "plugdev" ];
       Restart = "on-failure";
