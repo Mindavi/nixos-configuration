@@ -9,8 +9,10 @@
     config = {
       homeassistant = {
         name = "Home";
+        temperature_unit = "C";
+        country = "NL";
         unit_system = "metric";
-        time_zone = "UTC";
+        time_zone = "Europe/Amsterdam";
       };
       http = {
         server_port = 8123;
@@ -20,23 +22,49 @@
         ip_ban_enabled = true;
         login_attempts_threshold = 4;
       };
+      lovelace.mode = "yaml";
       frontend = {};
+      config = {};
+      #history = {};
+      #system_health = {};
+      default_config = {};
+      #input_boolean = {};
+      #mobile_app = {};
+      #energy = {};
+    };
+    lovelaceConfig = {
+      title = "An example.";
+      views = [
+        {
+          title = "First page.";
+          cards = [
+            {
+              type = "markdown";
+              title = "Lovelace";
+              content = "Hello, lovelace **world**, it _works_.";
+            }
+          ];
+        }
+      ];
     };
     package = pkgs.home-assistant.override {
       extraComponents = [
         "default_config"
+        "energy"
+        "esphome"
         "history"
         "html5"
         "http"
         "local_ip" # ???
         "logbook"
         "lovelace"
+        "met"
         #"minecraft_server"
         "mqtt"
         "shelly"
       ];
     };
-    # Use a proxy.
+    # TODO(Mindavi): Use a proxy.
     openFirewall = false;
     enable = true;
     configDir = "/var/lib/hass";
