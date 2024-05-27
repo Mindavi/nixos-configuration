@@ -35,16 +35,11 @@
           allow_anonymous = true;
         };
         users = {
-          test_user = {
-            acl = [
-              "read rtl_433/#"
-            ];
-            password = "test_user_mqtt";
-          };
           monitor = {
             acl = [
               "read #"
             ];
+            password = "everythingisvisibleforme";
           };
           sensor = {
             acl = [
