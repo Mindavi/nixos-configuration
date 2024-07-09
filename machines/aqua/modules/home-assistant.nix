@@ -58,6 +58,7 @@
     package = pkgs.home-assistant.override {
       extraComponents = [
         "default_config"
+        "dhcp"
         "energy"
         "esphome"
         "history"
@@ -68,9 +69,11 @@
         "lovelace"
         "met"
         #"minecraft_server"
+        "mobile_app"
         "mqtt"
-        "radios"
         "shelly"
+        "ssdp"
+        "zha"
       ];
     };
     # TODO(Mindavi): Use a proxy.
