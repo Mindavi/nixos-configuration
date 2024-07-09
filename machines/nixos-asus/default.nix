@@ -111,12 +111,12 @@
     remmina
 
     # https://github.com/NixOS/nixpkgs/issues/66093
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   #virtualisation.virtualbox.host.enable = true;
 
-  programs.bash.enableCompletion = true;
+  programs.bash.completion.enable = true;
 
   # syncthing is available on http://127.0.0.1:8384/
   services.syncthing = {
@@ -296,9 +296,9 @@
   hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
+  services = {
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
     # Enable touchpad support.
     libinput = {
       enable = true;
@@ -306,9 +306,11 @@
         tapping = true;
       };
     };
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma5.enable = true;
+    xserver = {
+      enable = true;
+      xkb.layout = "us";
+      desktopManager.plasma5.enable = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
