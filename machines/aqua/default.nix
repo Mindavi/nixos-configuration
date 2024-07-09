@@ -63,13 +63,13 @@
     screen
     sl
     syncthing
-    transmission
+    #transmission_4
     tree
     vim
     zip
   ];
 
-  programs.bash.enableCompletion = true;
+  programs.bash.completion.enable = true;
 
   # TODO: add hydra, syncthing
 
