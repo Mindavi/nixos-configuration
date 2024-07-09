@@ -16,7 +16,11 @@
     # Can always disable this again when it causes issues.
     allowAliases = false;
     #contentAddressedByDefault = true;
+    #strictDepsByDefault = true;
+    #structuredAttrsByDefault = true;
   };
+
+  #documentation.enable = false;
 
   zramSwap = {
     enable = true;
@@ -44,6 +48,15 @@
   networking.useDHCP = false;
   #networking.interfaces.enp3s0f1.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
+
+  # Prevent waiting for DHCP if running in a VM.
+  #networking.dhcpcd.wait = "if-carrier-up";
+  #systemd.network.wait-online.timeout = 5;
+  #systemd.network.wait-online.enable = false;
+
+  #networking.usePredictableInterfaceNames = true;
+  #systemd.network.enable = true;
+  #networking.useNetworkd = true;
 
   networking.hosts = {
     "192.168.2.7" = [ "raspberry" ];
