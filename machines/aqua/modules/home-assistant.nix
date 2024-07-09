@@ -33,8 +33,12 @@
       frontend = {};
       history = {};
       input_boolean = {};
+      map = {};
       mobile_app = {};
+      network = {};
+      sun = {};
       system_health = {};
+      system_log = {};
     };
     lovelaceConfig = {
       title = "An example.";
@@ -65,6 +69,7 @@
         "met"
         #"minecraft_server"
         "mqtt"
+        "radios"
         "shelly"
       ];
     };
