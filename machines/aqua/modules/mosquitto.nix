@@ -21,6 +21,7 @@
             acl = [
               "read #"
             ];
+            password = "everythingisvisibleforme";
           };
         };
         acl = [
