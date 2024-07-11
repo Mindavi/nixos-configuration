@@ -13,7 +13,10 @@
         country = "NL";
         unit_system = "metric";
         time_zone = "Europe/Amsterdam";
+        #external_url = "TBD";
       };
+      #auth_providers = {}; # kept disabled for now, as recommended on the home-assistant page
+      #                     # something to consider later for easier onboarding of others in the house
       http = {
         server_port = 8123;
         #server_host = "127.0.0.1";
@@ -33,13 +36,20 @@
       frontend = {};
       history = {};
       input_boolean = {};
-      map = {};
+      #map = {}; # deprecated in yaml, to be removed in 2024.10
       mobile_app = {};
       network = {};
       sun = {};
       system_health = {};
       system_log = {};
+
+      "automation manual" = [];
+      "automation ui" = "!include automations.yaml";
     };
+    # Ensure automations.yaml is generated if it doesn't exist yet.
+    systemd.tmpfiles.rules = [
+      "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
+    ];
     lovelaceConfig = {
       title = "An example.";
       views = [
