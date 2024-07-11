@@ -46,10 +46,6 @@
       "automation manual" = [];
       "automation ui" = "!include automations.yaml";
     };
-    # Ensure automations.yaml is generated if it doesn't exist yet.
-    systemd.tmpfiles.rules = [
-      "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
-    ];
     lovelaceConfig = {
       title = "An example.";
       views = [
@@ -91,5 +87,9 @@
     enable = true;
     configDir = "/var/lib/hass";
   };
+  # Ensure automations.yaml is generated if it doesn't exist yet.
+  systemd.tmpfiles.rules = [
+    "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
+  ];
 }
 
