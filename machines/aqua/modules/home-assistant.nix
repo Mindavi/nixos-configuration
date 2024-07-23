@@ -46,6 +46,25 @@
       "automation manual" = [];
       "automation ui" = "!include automations.yaml";
     };
+    extraComponents = [
+      "default_config"
+      "dhcp"
+      "energy"
+      "esphome"
+      "history"
+      "html5"
+      "http"
+      "local_ip" # ???
+      "logbook"
+      "lovelace"
+      "met"
+      #"minecraft_server"
+      "mobile_app"
+      "mqtt"
+      "shelly"
+      "ssdp"
+      "zha"
+    ];
     lovelaceConfig = {
       title = "An example.";
       views = [
@@ -61,27 +80,7 @@
         }
       ];
     };
-    package = pkgs.home-assistant.override {
-      extraComponents = [
-        "default_config"
-        "dhcp"
-        "energy"
-        "esphome"
-        "history"
-        "html5"
-        "http"
-        "local_ip" # ???
-        "logbook"
-        "lovelace"
-        "met"
-        #"minecraft_server"
-        "mobile_app"
-        "mqtt"
-        "shelly"
-        "ssdp"
-        "zha"
-      ];
-    };
+    package = pkgs.home-assistant;
     # TODO(Mindavi): Use a proxy.
     openFirewall = false;
     enable = true;
