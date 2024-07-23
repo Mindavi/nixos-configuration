@@ -143,19 +143,8 @@
   services.hydra = {
     enable = true;
     package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: rec {
-      version = "unstable-2024-03-08_nix_2_20";
-      patches = (oldAttrs.patches or []) ++ [
-        # https://github.com/NixOS/hydra/pull/1374
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/1665aed5e302f213db048a38af44021b5e815d80.patch";
-          name = "test-caDependingOnFailingCA.patch";
-          hash = "sha256-QsanP5AX3Pq49yuQHIIOCZs73EM6Mnw5tUtsPtKApNE=";
-        })
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/71986632ced0dcaa0bf8262d2f41e52d3216c39d.patch";
-          name = "hydra-server_findLog-render-fix.patch";
-          hash = "sha256-4egxeChv1G3cWxyfYOtQh8uev/iUhpybLocYFyEOCEk=";
-        })
+      version = "unstable-2024-07-09_nix_2_22";
+      patches = (/*oldAttrs.patches or */ []) ++ [
         # https://github.com/NixOS/hydra/pull/1372
         (pkgs.fetchpatch2 {
           url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";
@@ -167,29 +156,17 @@
           name = "only-show-stepname-not-equal-drv-name.patch";
           hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
         })
-        # https://github.com/NixOS/hydra/pull/1368
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/669617ab54a667623fdbbc07dfd7354b5d66286b.patch";
-          name = "fix-login-using-enter.patch";
-          hash = "sha256-ZgHVW5ZeY0vYaD0Dj5vxgXquu7u6ElBS8t0Gr0T+cu0=";
-        })
-        # https://github.com/NixOS/hydra/pull/1370
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/99afff03b06d6b9a3d464ede9724e29a03e91329.patch";
-          name = "queue-runner-drop-broken-connections.patch";
-          hash = "sha256-0S3YTxa+1NjeXSYtkmXxcuKKkjACux5dNR1X1yo1jZU=";
-        })
         # https://github.com/NixOS/hydra/pull/875
         #./patches/nixos-hydra-pull-875.patch
       ];
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
         repo = "hydra";
-        rev = "8f56209bd6f3b9ec53d50a23812a800dee7a1969";
-        hash = "sha256-mhEj02VruXPmxz3jsKHMov2ERNXk9DwaTAunWEO1iIQ=";
+        rev = "d7986226f0666d5aa0032fdcdb9f38eef6a91dd3";
+        hash = "sha256-9DW0tAiAOfglua76t3viSvIw1gR1EETf0HTAmZklc3I=";
       };
     })).override {
-      nix = pkgs.nixVersions.nix_2_20;
+      nix = pkgs.nixVersions.nix_2_22;
     };
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
