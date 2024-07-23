@@ -142,7 +142,7 @@
   # hydra is available on http://localhost:3000/
   services.hydra = {
     enable = true;
-    package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: rec {
+    package = (pkgs.hydra_unstable.overrideAttrs(oldAttrs: {
       version = "unstable-2024-07-09_nix_2_22";
       patches = (/*oldAttrs.patches or */ []) ++ [
         # https://github.com/NixOS/hydra/pull/1372
