@@ -38,6 +38,7 @@
       input_boolean = {};
       #map = {}; # deprecated in yaml, to be removed in 2024.10
       mobile_app = {};
+      # Broker must be set up via the web UI.
       mqtt = {
         sensor = [
           {
@@ -86,15 +87,21 @@
       "zha"
     ];
     lovelaceConfig = {
-      title = "An example.";
+      title = "Thuis";
       views = [
         {
-          title = "First page.";
+          title = "Overzicht";
           cards = [
             {
-              type = "markdown";
-              title = "Lovelace";
-              content = "Hello, lovelace **world**, it _works_.";
+              type = "entities";
+              title = "Temperaturen";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "sensor.temperature_bedroom_rick";
+                  name = "Slaapkamer Rick 1";
+                }
+              ];
             }
           ];
         }
