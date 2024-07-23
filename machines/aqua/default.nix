@@ -125,7 +125,7 @@
     isNormalUser = true;
     home = "/home/rick";
     extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" ];
-    initialPassword = "rikkert";
+    initialPassword = "rikkert1";
     openssh.authorizedKeys.keys =  [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus" ];
   };
   users.mutableUsers = true;
