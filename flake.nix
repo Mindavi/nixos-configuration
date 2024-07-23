@@ -1,6 +1,5 @@
 {
-  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-
+  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixos-unstable }: {
     nixosConfigurations.nixos-asus = nixos-unstable.lib.nixosSystem {
