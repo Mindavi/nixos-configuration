@@ -70,7 +70,7 @@
           }
           {
             name = "Temperature living room (ch1)";
-            object_id = "temperature_bresser_portable_1"
+            object_id = "temperature_bresser_portable_1";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/1/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -79,7 +79,7 @@
           }
           {
             name = "Temperature washing room (ch2)";
-            object_id = "temperature_bresser_portable_2"
+            object_id = "temperature_bresser_portable_2";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/2/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -88,7 +88,7 @@
           }
           {
             name = "Temperature pantry (ch3)";
-            object_id = "temperature_bresser_portable_3"
+            object_id = "temperature_bresser_portable_3";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/3/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -97,7 +97,7 @@
           }
           {
             name = "Humidity living room (ch1)";
-            object_id = "humidity_bresser_portable_1"
+            object_id = "humidity_bresser_portable_1";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/1/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -106,7 +106,7 @@
           }
           {
             name = "Humidity washing room (ch2)";
-            object_id = "humidity_bresser_portable_2"
+            object_id = "humidity_bresser_portable_2";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/2/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -115,7 +115,7 @@
           }
           {
             name = "Humidity pantry (ch3)";
-            object_id = "humidity_bresser_portable_3"
+            object_id = "humidity_bresser_portable_3";
             state_topic = "rtl_433/homeserver/devices/Nexus-TH/3/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -145,9 +145,9 @@
             object_id = "temperature_outside";
             state_topic = "rtl_433/homeserver/devices/Hideki-Temperature/3/temperature_C";
             unit_of_measurement = "°C";
-            value_template: '{{ value | round(1) }}'
+            value_template = "{{ value | round(1) }}";
             device_class = "temperature";
-            force_update: true
+            force_update = true;
             expire_after = 1800;
             state_class = "measurement";
           }
