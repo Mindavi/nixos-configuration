@@ -38,6 +38,26 @@
       input_boolean = {};
       #map = {}; # deprecated in yaml, to be removed in 2024.10
       mobile_app = {};
+      mqtt = {
+        sensor = [
+          {
+            name = "Temperature bedroom Rick";
+            state_topic = "sensor/temperature/bedroom/status";
+            unit_of_measurement = "°C";
+            device_class = "temperature";
+            state_class = "measurement";
+            expire_after = 300;
+          }
+          {
+            name = "Humidity bedroom Rick";
+            state_topic = "sensor/humidity/bedroom/status";
+            unit_of_measurement = "%";
+            device_class = "humidity";
+            state_class = "measurement";
+            expire_after = 300;
+          }
+        ];
+      };
       network = {};
       sun = {};
       system_health = {};
