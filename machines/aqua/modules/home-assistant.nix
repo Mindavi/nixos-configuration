@@ -103,6 +103,17 @@
                 }
               ];
             }
+            {
+              type = "entities";
+              title = "Luchtvochtigheid";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "sensor.humidity_bedroom_rick";
+                  name = "Slaapkamer Rick";
+                }
+              ];
+            }
           ];
         }
       ];
