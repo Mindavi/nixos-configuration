@@ -1,5 +1,7 @@
 { pkgs, config, ...}:
-{
+let
+  mqtt_server_name = config.networking.hostName;
+in {
   # HACK(Mindavi): to be removed ASAP
   nixpkgs.config.permittedInsecurePackages = [
    "openssl-1.1.1w"
@@ -71,7 +73,7 @@
           {
             name = "Temperature living room (ch1)";
             object_id = "temperature_bresser_portable_1";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/1/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
             expire_after = 1800;
@@ -80,7 +82,7 @@
           {
             name = "Temperature washing room (ch2)";
             object_id = "temperature_bresser_portable_2";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/2/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
             expire_after = 1800;
@@ -89,7 +91,7 @@
           {
             name = "Temperature pantry (ch3)";
             object_id = "temperature_bresser_portable_3";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/3/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
             expire_after = 1800;
@@ -98,7 +100,7 @@
           {
             name = "Humidity living room (ch1)";
             object_id = "humidity_bresser_portable_1";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/1/humidity";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
             expire_after = 1800;
@@ -107,7 +109,7 @@
           {
             name = "Humidity washing room (ch2)";
             object_id = "humidity_bresser_portable_2";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/2/humidity";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
             expire_after = 1800;
@@ -116,7 +118,7 @@
           {
             name = "Humidity pantry (ch3)";
             object_id = "humidity_bresser_portable_3";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/3/humidity";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
             expire_after = 1800;
@@ -125,25 +127,25 @@
           {
             name = "Battery status living room (ch1)";
             object_id = "battery_status_bresser_portable_1";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/1/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Battery status washing room (ch2)";
             object_id = "battery_status_bresser_portable_2";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/2/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Battery status pantry (ch3)";
             object_id = "battery_status_bresser_portable_3";
-            state_topic = "rtl_433/homeserver/devices/Nexus-TH/3/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Temperature outside";
             object_id = "temperature_outside";
-            state_topic = "rtl_433/homeserver/devices/Hideki-Temperature/3/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/temperature_C";
             unit_of_measurement = "°C";
             value_template = "{{ value | round(1) }}";
             device_class = "temperature";
@@ -154,7 +156,7 @@
           {
             name = "Temperature outside battery status";
             object_id = "temperature_outside_battery_status";
-            state_topic = "rtl_433/homeserver/devices/Hideki-Temperature/3/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/battery_ok";
             state_class = "measurement";
           }
         ];
