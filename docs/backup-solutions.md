@@ -173,6 +173,7 @@ Pros:
 
 - natively supports using ssh keys for decryption, though _not_ ssh keys with a password
 - seems a bit simpler in use/setup, but not completely sure on this. Maybe good to try them both and see what sticks.
+- Used in this article which seems relatively straightforward to follow: https://www.arthurkoziel.com/restic-backups-b2-nixos/
 
 Cons:
 
