@@ -154,3 +154,40 @@ Pros:
 
 - Backblaze R2
 - BorgBase (helps paying for Borg development): https://www.borgbase.com/
+- rsync.net
+
+## Secret management tools
+
+To manage the secrets for connecting to the backup service, some secret management must be done.
+It seems there are mostly 2 big / common tools for this, described in the following paragraphs.
+
+They all seems to have some downsides/complications, not completely sure what to use.
+My first thought is to setup local backups first, to get a good feeling and not to worry
+too much about using these secret management tools. It'll help me get a grasp on the backup solutions.
+Then after I'm a bit more experienced with whatever backup tool I end up using, I'll figure out
+what secret management tool to use.
+
+### agenix
+
+Pros:
+
+- natively supports using ssh keys for decryption, though _not_ ssh keys with a password
+- seems a bit simpler in use/setup, but not completely sure on this. Maybe good to try them both and see what sticks.
+
+Cons:
+
+- Seems to have a bit less features than sops-nix, but I'll have to figure out what I actually need
+
+### sops-nix
+
+Pros:
+
+- Can use a KMS tool / backup, so maybe I could setup OpenBAO (Hashicorp Vault alternative) and use that
+    - But not sure how that's supposed to work and haven't found / read the documentation on that yet
+    - Seems like I'll need a server running somewhere
+- Supports yubikey in some kind of way, which may be a good alternative to using private ssh keys
+
+Cons:
+
+- no native support for ssh keys for decryption, but support for deriving an `age` key from an ssh key
+    - what about ssh keys with a password here?
