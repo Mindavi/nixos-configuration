@@ -191,9 +191,10 @@
         rev = "d7986226f0666d5aa0032fdcdb9f38eef6a91dd3";
         hash = "sha256-9DW0tAiAOfglua76t3viSvIw1gR1EETf0HTAmZklc3I=";
       };
-    })).override {
-      nix = pkgs.nixVersions.nix_2_22;
-    };
+    }));
+    #.override {
+    #  nix = pkgs.nixVersions.nix_2_22;
+    #};
     hydraURL = "http://localhost:3000";
     notificationSender = "hydra@localhost";
     # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
