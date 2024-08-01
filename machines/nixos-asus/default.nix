@@ -158,9 +158,33 @@
           name = "only-show-stepname-not-equal-drv-name.patch";
           hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
         })
+        # https://github.com/NixOS/hydra/pull/1399
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/54002f0fcf4a7cb65baf3e25e665e5325292f609.patch";
+          name = "always-skip-evaluate-oom-job.t.patch";
+          hash = "sha256-N7zpU4jMMwZSZi6q7tYNPHiNWFJgdjNeg7iGTnqr1jM=";
+        })
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/a6b14369ee05c376deb04dd71062a5b95f186096.patch";
+          name = "test.pl_increase-event-timeout_set-qvf.patch";
+          hash = "sha256-hWpWEwwDdydeeZJs6l9I9wsQwg0hPzcMboZfsp5H/fQ=";
+        })
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/578a3d22920c2dc319c3c55ff0b63e899aa15588.patch";
+          name = "test-increase-timeouts-for-high-load.patch";
+          hash = "sha256-I9YYSd9hNQ5bIdisFsowUkTuiyVoSIpyacga80896Qw=";
+        })
+        # https://github.com/NixOS/hydra/pull/1396
+        (pkgs.fetchpatch2 {
+          url = "https://github.com/NixOS/hydra/commit/bc19e7cd65e55e39e9c304d108010399ef0987a2.patch";
+          name = "renderInputDiff_increase-git-hash-length-8-12.patch";
+          hash = "sha256-+NVnFTnmSJ8uwx1tHGTDL7ZSSTlKWvq+F9D3XH0gj1E=";
+        })
         # https://github.com/NixOS/hydra/pull/875
         #./patches/nixos-hydra-pull-875.patch
       ];
+      # Required for https://github.com/NixOS/hydra/pull/1399, after merging fix in nixpkgs.
+      postPatch = null;
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
         repo = "hydra";
