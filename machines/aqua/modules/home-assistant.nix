@@ -177,6 +177,7 @@ in {
       "history"
       "html5"
       "http"
+      "isal" # https://github.com/NixOS/nixpkgs/issues/330377
       "local_ip" # ???
       "logbook"
       "lovelace"
