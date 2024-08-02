@@ -3,7 +3,8 @@
   services.mosquitto = {
     enable = true;
     persistence = false;
-    logType = [ "all" ];
+    # TODO(Mindavi): probably should reduce this at some point, but at least debug is disabled now.
+    logType = [ "error" "warning" "notice" "information" "subscribe" "unsubscribe" ];
     listeners = [
       {
         # localhost has a different port and only allows connections from the same machine.
