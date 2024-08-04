@@ -184,38 +184,6 @@ in {
       "ssdp"
       "zha"
     ];
-    lovelaceConfig = {
-      title = "Thuis";
-      views = [
-        {
-          title = "Overzicht";
-          cards = [
-            {
-              type = "entities";
-              title = "Temperaturen";
-              show_header_toggle = false;
-              entities = [
-                {
-                  entity = "sensor.temperature_bedroom_rick";
-                  name = "Slaapkamer Rick 1";
-                }
-              ];
-            }
-            {
-              type = "entities";
-              title = "Luchtvochtigheid";
-              show_header_toggle = false;
-              entities = [
-                {
-                  entity = "sensor.humidity_bedroom_rick";
-                  name = "Slaapkamer Rick";
-                }
-              ];
-            }
-          ];
-        }
-      ];
-    };
     package = pkgs.home-assistant;
     # TODO(Mindavi): Use a proxy.
     openFirewall = false;
