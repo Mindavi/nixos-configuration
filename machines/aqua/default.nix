@@ -10,7 +10,7 @@ in
       ./hardware-configuration.nix
       ./modules/fail2ban.nix
       ./modules/firewall.nix
-      ./modules/home-assistant.nix
+      ./modules/home-assistant
       ./modules/hydra.nix
       ./modules/mosquitto.nix
       ./modules/rtl_433.nix
