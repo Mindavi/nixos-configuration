@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
 
+let
+  # TODO(Mindavi): consider this: https://discourse.nixos.org/t/detect-build-vm-in-flake/20648
+  isVmBuild = builtins.trace ''building as vm: ${lib.boolToString (config.virtualisation ? qemu)}'' (config.virtualisation ? qemu);
+in
 {
   imports =
     [
@@ -34,7 +38,7 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
 
-  networking.interfaces = {
+  networking.interfaces = lib.optionalAttrs (!isVmBuild) {
     eno1 = {
       # Intentionally enable both DHCP and static IP.
       # This can be handy for recovery when network config is changed.
