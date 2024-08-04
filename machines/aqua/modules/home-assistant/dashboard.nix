@@ -95,7 +95,7 @@
                   name = "Stroomverbruik";
                 }
                 {
-                  entity = "energy_produced_tariff_1";
+                  entity = "sensor.energy_produced_tariff_1";
                   name = "Stroomopwek";
                 }
               ];
