@@ -180,6 +180,7 @@ in {
       #"minecraft_server"
       "mobile_app"
       "mqtt"
+      "renault"
       "shelly"
       "ssdp"
       "zha"
