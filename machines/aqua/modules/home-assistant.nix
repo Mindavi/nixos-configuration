@@ -2,11 +2,6 @@
 let
   mqtt_server_name = config.networking.hostName;
 in {
-  # HACK(Mindavi): to be removed ASAP
-  nixpkgs.config.permittedInsecurePackages = [
-   "openssl-1.1.1w"
-  ];
-
   services.home-assistant = {
     config = {
       homeassistant = {
