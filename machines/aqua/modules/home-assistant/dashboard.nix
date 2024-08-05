@@ -5,6 +5,16 @@
       title = "Thuis";
       views = [
         {
+          title = "Aansturing";
+          cards = [
+            {
+              type = "light";
+              entity = "light.lamp_slaapkamer_rick";
+              name = "Slaapkamer Rick";
+            }
+          ];
+        }
+        {
           title = "Klimaat";
           cards = [
             {
