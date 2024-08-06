@@ -1,6 +1,7 @@
 { pkgs, config, ...}:
 {
   # Used for CoIoT on Shelly plugs
+  # FIXME(Mindavi): move to firewall.nix and only allow packets from local network.
   networking.firewall.allowedUDPPorts = [ 5683 ];
   services.home-assistant = {
     config = {
