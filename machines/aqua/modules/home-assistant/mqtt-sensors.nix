@@ -132,8 +132,8 @@ in {
             state_class = "total_increasing";
             icon = "mdi:flash";
             value_template = "{{ value_json.Total }}";
-          {
           }
+          {
             name = "Energy generated today";
             state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
             unit_of_measurement = "kWh";
