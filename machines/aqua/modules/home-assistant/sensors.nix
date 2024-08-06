@@ -24,32 +24,33 @@
         }
         {
           platform = "statistics";
-          name = "Electricity usage over last week";
+          name = "Electricity usage over last week v3";
           entity_id = "sensor.total_electricity_usage";
           state_characteristic = "change";
           max_age = {
             days = 7;
           };
-          unique_id = "electricity_usage_over_last_week_v2";
+          unique_id = "electricity_usage_over_last_week_v3";
         }
         {
           platform = "statistics";
-          name = "Electricity production over last week";
+          name = "Electricity production over last week v3";
           entity_id = "sensor.total_electricity_production";
           state_characteristic = "change";
           max_age = {
             days = 7;
           };
-          unique_id = "electricity_production_over_last_week_v2";
+          unique_id = "electricity_production_over_last_week_v3";
         }
         {
           platform = "statistics";
-          name = "Average power over last week";
+          name = "Average power over last week v2";
           entity_id = "sensor.power_consumed";
           state_characteristic = "average_linear";
           max_age = {
             days = 7;
           };
+          unique_id = "average_power_over_last_week_v2";
         }
       ];
     };

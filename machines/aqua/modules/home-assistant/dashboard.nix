@@ -124,15 +124,15 @@
               show_header_toggle = false;
               entities = [
                 {
-                  entity = "sensor.electricity_usage_over_last_week";
+                  entity = "sensor.electricity_usage_over_last_week_v3";
                   name = "Stroomverbruik";
                 }
                 {
-                  entity = "sensor.electricity_production_over_last_week";
+                  entity = "sensor.electricity_production_over_last_week_v3";
                   name = "Stroomopwek";
                 }
                 {
-                  entity = "sensor.average_power_over_last_week";
+                  entity = "sensor.average_power_over_last_week_v2";
                   name = "Gemiddeld vermogen";
                 }
               ];
