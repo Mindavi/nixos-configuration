@@ -20,7 +20,9 @@ in
       RestartSec = "10s";
       ProtectSystem = "strict";
       ProtectHome = true;
+      # TODO(Mindavi): Maybe for now write to the actual /tmp instead of some private directory?
       PrivateTmp = true;
+      WorkingDirectory = "/tmp";
     };
   };
 }
