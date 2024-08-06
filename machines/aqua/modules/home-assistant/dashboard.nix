@@ -131,6 +131,10 @@
                   entity = "sensor.electricity_production_over_last_week";
                   name = "Stroomopwek";
                 }
+                {
+                  entity = "sensor.average_power_over_last_week";
+                  name = "Gemiddeld vermogen";
+                }
               ];
             }
             {
