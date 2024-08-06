@@ -43,8 +43,9 @@
           unique_id = "electricity_production_over_last_week_v3";
         }
         /*
-        Enabling this causes 100% CPU usage of 1 core in home assistant and breaks the system.
-        Figure out how we can do this better, maybe by first averaging over 5 mins and then using those samples.
+        # Enabling this causes 100% CPU usage of 1 core in home assistant and breaks the system.
+        # Figure out how we can do this better, maybe by first averaging over 5 mins and then using those samples.
+        # Likely just using average/mean will help? Then no time compares are required.
         {
           platform = "statistics";
           name = "Average power over last week v2";
