@@ -89,6 +89,10 @@
                   entity = "sensor.shellyplug_4a0038_power";
                   name = "Server en computer";
                 }
+                {
+                  entity = "sensor.current_power";
+                  name = "Zonnepanelen";
+                }
               ];
             }
             {
@@ -105,8 +109,12 @@
                   name = "Stroomverbruik";
                 }
                 {
-                  entity = "sensor.energy_produced_tariff_1";
+                  entity = "sensor.energy_produced_tariff_2";
                   name = "Stroomopwek";
+                }
+                {
+                  entity = "sensor.total_energy_generated";
+                  name = "Stroomopwek zonnepanelen";
                 }
               ];
             }
