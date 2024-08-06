@@ -123,6 +123,131 @@ in {
             state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/battery_ok";
             state_class = "measurement";
           }
+
+          {
+            name = "Total energy generated";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "kWh";
+            device_class = "energy";
+            state_class = "total_increasing";
+            icon = "mdi:flash";
+            value_template = "{{ value_json.Total }}";
+          {
+          }
+            name = "Energy generated today";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "kWh";
+            device_class = "energy";
+            state_class = "total_increasing";
+            icon = "mdi:flash";
+            value_template = "{{ value_json.Today }}";
+          }
+          {
+            name = "Energy generated yesterday";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "kWh";
+            device_class = "energy";
+            state_class = "total_increasing";
+            icon = "mdi:flash";
+            value_template = "{{ value_json.Yesterday }}";
+          }
+          {
+            name = "Energy generated this month";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "kWh";
+            device_class = "energy";
+            state_class = "total_increasing";
+            icon = "mdi:flash";
+            value_template = "{{ value_json.Month }}";
+          }
+          {
+            name = "Energy generated last month";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "kWh";
+            device_class = "energy";
+            state_class = "total_increasing";
+            icon = "mdi:flash";
+            value_template = "{{ value_json.LastMonth }}";
+          }
+          {
+            name = "Inverter status";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            icon = "mdi:power";
+            value_template = "{{ value_json.Status }}";
+          }
+          {
+            name = "Current power";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            icon = "mdi:flash";
+            unit_of_measurement = "W";
+            value_template = "{{ value_json.PNow }}";
+            device_class = "power";
+            state_class = "measurement";
+          }
+          {
+            name = "Voltage DC string 1";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            icon = "mdi:current-dc";
+            unit_of_measurement = "V";
+            value_template = "{{ value_json.Vdc1 }}";
+            state_class = "measurement";
+          }
+          {
+            name = "Voltage DC string 2";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            icon = "mdi:current-dc";
+            unit_of_measurement = "V";
+            value_template = "{{ value_json.Vdc2 }}";
+            state_class = "measurement";
+          }
+          {
+            name = "Current DC string 1";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            icon = "mdi:current-dc";
+            unit_of_measurement = "A";
+            value_template = "{{ value_json.Adc1 }}";
+            state_class = "measurement";
+          }
+          {
+            name = "Current DC string 2";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "A";
+            icon = "mdi:current-dc";
+            value_template = "{{ value_json.Adc2 }}";
+            state_class = "measurement";
+          }
+          {
+            name = "AC voltage";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "V";
+            icon = "mdi:current-ac";
+            value_template = "{{ value_json.Vac }}";
+            state_class = "measurement";
+          }
+          {
+            name = "AC current";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "A";
+            icon = "mdi:current-ac";
+            value_template = "{{ value_json.Aac }}";
+            state_class = "measurement";
+          }
+          {
+            name = "AC frequency";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "Hz";
+            icon = "mdi:current-ac";
+            value_template = "{{ value_json.Fac }}";
+            state_class = "measurement";
+          }
+          {
+            name = "Inverter temperature";
+            state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
+            unit_of_measurement = "°C";
+            value_template = "{{ value_json.Temperature }}";
+            device_class = "temperature";
+            state_class = "measurement";
+          }
         ];
       };
     };
