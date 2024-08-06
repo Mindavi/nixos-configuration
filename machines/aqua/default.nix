@@ -15,6 +15,7 @@ in
       ./modules/mosquitto.nix
       ./modules/rtl_433.nix
       ./modules/samba.nix
+      ./modules/solar-inverter.nix
       ./modules/traefik.nix
       #./modules/virtualisation.nix
       ../../modules/iperf.nix
