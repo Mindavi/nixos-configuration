@@ -34,6 +34,10 @@
       #map = {}; # deprecated in yaml, to be removed in 2024.10
       mobile_app = {};
       network = {};
+      recorder = {
+        # TODO(Mindavi): Check database size now and then.
+        auto_purge = false;
+      };
       sun = {};
       system_health = {};
       system_log = {};
