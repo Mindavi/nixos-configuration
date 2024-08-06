@@ -105,11 +105,11 @@
                   name = "Gas";
                 }
                 {
-                  entity = "sensor.energy_consumed_tariff_1";
+                  entity = "sensor.total_electricity_usage";
                   name = "Stroomverbruik";
                 }
                 {
-                  entity = "sensor.energy_produced_tariff_2";
+                  entity = "sensor.total_electricity_production";
                   name = "Stroomopwek";
                 }
                 {
@@ -124,11 +124,11 @@
               show_header_toggle = false;
               entities = [
                 {
-                  entity = "sensor.electricity_usage_last_week";
+                  entity = "sensor.electricity_usage_over_last_week";
                   name = "Stroomverbruik";
                 }
                 {
-                  entity = "sensor.electricity_production_last_week";
+                  entity = "sensor.electricity_production_over_last_week";
                   name = "Stroomopwek";
                 }
               ];
