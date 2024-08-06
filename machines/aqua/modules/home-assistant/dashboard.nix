@@ -119,6 +119,21 @@
               ];
             }
             {
+              type = "entities";
+              title = "Afgelopen week";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "sensor.electricity_usage_last_week";
+                  name = "Stroomverbruik";
+                }
+                {
+                  entity = "sensor.electricity_production_last_week";
+                  name = "Stroomopwek";
+                }
+              ];
+            }
+            {
               type = "markdown";
               title = "Verbruikers";
               content = ''
