@@ -24,6 +24,12 @@
             ];
             password = "everythingisvisibleforme";
           };
+          inverter = {
+            acl = [
+              "write sensor/inverter/ginlong-inverter-monitor/#"
+            ];
+            password = "inverter-monitor<>";
+          };
         };
         acl = [
           "topic read public/#"
