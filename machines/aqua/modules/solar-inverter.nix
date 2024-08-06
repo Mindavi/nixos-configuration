@@ -9,8 +9,8 @@ in
   networking.firewall.allowedTCPPorts = [ 9999 ];
   systemd.services.solar-inverter = {
     wantedBy = [ "multi-user.target" ];
-    requires = [ "network-online.target" ];
-    after = [ "network-online.target" ];
+    wants = [ "network-online.target" "mosquitto.service" ];
+    after = [ "network-online.target" "mosquitto.service" ];
     description = "solar inverter listener daemon";
     environment = {
       MQTT_CLIENTID = "ginlong-inverter-monitor";
