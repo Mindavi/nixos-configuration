@@ -30,6 +30,7 @@
           max_age = {
             days = 7;
           };
+          unique_id = "electricity_usage_over_last_week_v2";
         }
         {
           platform = "statistics";
@@ -39,6 +40,7 @@
           max_age = {
             days = 7;
           };
+          unique_id = "electricity_production_over_last_week_v2";
         }
         {
           platform = "statistics";
