@@ -1,5 +1,7 @@
 { pkgs, config, ...}:
 {
+  # Used for CoIoT on Shelly plugs
+  networking.firewall.allowedUDPPorts = [ 5683 ];
   services.home-assistant = {
     config = {
       homeassistant = {
