@@ -22,4 +22,7 @@ in {
 
   # required for gdm
   hardware.nvidia.modesetting.enable = true;
+  # TODO(mindavi): Let's start with the safe option and try out the open driver later.
+  # https://github.com/NixOS/nixpkgs/pull/337289
+  hardware.nvidia.open = false;
 }
