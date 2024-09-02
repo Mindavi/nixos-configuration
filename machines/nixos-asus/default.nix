@@ -171,7 +171,7 @@
     buildMachinesFiles = [ ];
     useSubstitutes = true;
     extraConfig = ''
-      # Uses quite a bit of memory, so prevent multiple evals at once to reduce change of memory exhaustion.
+      # Uses quite a bit of memory, so prevent multiple evals at once to reduce chance of memory exhaustion.
       max_concurrent_evals = 1
     '';
   };
