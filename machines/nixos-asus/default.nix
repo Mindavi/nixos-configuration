@@ -237,7 +237,8 @@
     '';
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "02:17";
+      randomizedDelaySec = "25min";
       options = "--delete-older-than 30d";
     };
     buildMachines = [];
