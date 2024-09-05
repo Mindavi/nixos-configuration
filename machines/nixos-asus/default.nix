@@ -219,7 +219,7 @@
   networking.firewall.rejectPackets = true;
 
   nix = {
-    package = pkgs.nixVersions.nix_2_23;
+    package = pkgs.nixVersions.nix_2_24;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
