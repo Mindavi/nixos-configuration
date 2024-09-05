@@ -50,7 +50,7 @@
   networking.interfaces.wlp2s0.useDHCP = true;
 
   # Prevent waiting for DHCP if running in a VM.
-  #networking.dhcpcd.wait = "if-carrier-up";
+  networking.dhcpcd.wait = "if-carrier-up";
   #systemd.network.wait-online.timeout = 5;
   #systemd.network.wait-online.enable = false;
 
@@ -216,6 +216,7 @@
   networking.firewall.enable = true;
   networking.firewall.logRefusedPackets = true;
   networking.firewall.logRefusedConnections = true;
+  networking.firewall.logReversePathDrops = true;
   networking.firewall.rejectPackets = true;
 
   nix = {
