@@ -17,6 +17,11 @@
     allowAliases = false;
     #contentAddressedByDefault = true;
     #strictDepsByDefault = true;
+    # error: The `env` attribute set cannot contain any attributes passed to derivation. The following attributes are overlapping:
+    # - BASH_SHELL: in `env`: "/bin/sh"; in derivation arguments: "/bin/sh"
+    # - NIX_CFLAGS_COMPILE: in `env`: ""; in derivation arguments: ""
+    # - is64bit: in `env`: true; in derivation arguments: true
+    # - linuxHeaders: in `env`: <derivation linux-headers-6.9>; in derivation arguments: <derivation linux-headers-6.9>
     #structuredAttrsByDefault = true;
   };
 
