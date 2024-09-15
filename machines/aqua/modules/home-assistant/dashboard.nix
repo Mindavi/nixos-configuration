@@ -82,6 +82,10 @@
                   name = "Energiemeter";
                 }
                 {
+                  entity = "sensor.shellyplug_4ba4f7_power";
+                  name = "Laptop";
+                }
+                {
                   entity = "sensor.shellyplug_4ad3c1_power";
                   name = "Televisieset";
                 }

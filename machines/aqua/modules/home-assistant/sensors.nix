@@ -42,6 +42,16 @@
           };
           unique_id = "electricity_production_over_last_week_v3";
         }
+        {
+          platform = "statistics";
+          name = "Gas usage over last week";
+          entity_id = "sensor.gas_consumed";
+          state_characteristic = "change";
+          max_age = {
+            days = 7;
+          };
+          unique_id = "gas_usage_over_last_week";
+        }
         /*
         # Enabling this causes 100% CPU usage of 1 core in home assistant and breaks the system.
         # Figure out how we can do this better, maybe by first averaging over 5 mins and then using those samples.
