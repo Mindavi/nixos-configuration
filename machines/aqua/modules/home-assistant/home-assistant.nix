@@ -45,7 +45,31 @@
       system_health = {};
       system_log = {};
 
-      "automation manual" = [];
+      "automation manual" = [
+        {
+          alias = "Wake up Lights";
+          trigger = {
+            platform = "time";
+            at = "sensor.pixel_7_next_alarm";
+          };
+          condition = {
+            condition = "state";
+            entity_id = "device_tracker.pixel_7";
+            state = "home";
+          };
+          action = {
+            service = "light.turn_on";
+            target = {
+              entity_id = "light.lamp_slaapkamer_rick";
+            };
+            data = {
+              transition = 60; # 60 seconds
+              brightness_pct = 100;
+            };
+          };
+          mode = "single";
+        }
+      ];
       "automation ui" = "!include automations.yaml";
     };
     extraComponents = [
