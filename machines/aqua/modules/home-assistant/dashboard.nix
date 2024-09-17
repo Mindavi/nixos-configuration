@@ -135,6 +135,10 @@
                   entity = "sensor.electricity_production_over_last_week_v3";
                   name = "Stroomopwek";
                 }
+                {
+                  entity = "sensor.gas_usage_over_last_week";
+                  name = "Gasverbruik";
+                }
               ];
             }
             {
