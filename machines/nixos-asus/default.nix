@@ -150,7 +150,7 @@
   services.hydra = {
     enable = true;
     package = (pkgs.hydra.overrideAttrs(oldAttrs: {
-      version = "0-unstable-2024-08-27-mindavi";
+      version = oldAttrs.version + "-mindavi";
       patches = (/*oldAttrs.patches or */ []) ++ [
         # https://github.com/NixOS/hydra/pull/1372
         (pkgs.fetchpatch2 {
@@ -162,11 +162,6 @@
           url = "https://github.com/NixOS/hydra/commit/bd380f694e71e1b9bff7db2f12de6ade94a1edd2.patch";
           name = "only-show-stepname-not-equal-drv-name.patch";
           hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
-        })
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/250780aaf2c185b4b8530ae82dd67dc8e00f4345.patch";
-          name = "tests-use-like-for-testing-regexes.patch";
-          hash = "sha256-szrTbRoHYfIHrtNIJ4XCwrd3rYKpgzPiY50hSCQ073U=";
         })
         # https://github.com/NixOS/hydra/pull/875
         #./patches/nixos-hydra-pull-875.patch
