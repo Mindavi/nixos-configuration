@@ -218,11 +218,13 @@
     20595
     #6567
   ];
+  networking.nftables.enable = true;
   networking.firewall.enable = true;
   networking.firewall.logRefusedPackets = true;
   networking.firewall.logRefusedConnections = true;
   networking.firewall.logReversePathDrops = true;
   networking.firewall.rejectPackets = true;
+  networking.firewall.checkReversePath = true;
 
   nix = {
     package = pkgs.nixVersions.nix_2_24;
