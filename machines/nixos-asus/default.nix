@@ -134,6 +134,7 @@
     adwaita-icon-theme
 
     android-tools
+    chromium
   ];
 
   #virtualisation.virtualbox.host.enable = true;
