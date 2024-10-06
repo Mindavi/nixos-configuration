@@ -132,6 +132,8 @@
 
     # https://github.com/NixOS/nixpkgs/issues/66093
     adwaita-icon-theme
+
+    android-tools
   ];
 
   #virtualisation.virtualbox.host.enable = true;
@@ -302,6 +304,11 @@
       desktopManager.plasma5.enable = true;
     };
   };
+
+  programs.adb.enable = true;
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {
