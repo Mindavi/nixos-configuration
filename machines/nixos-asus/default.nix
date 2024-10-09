@@ -42,6 +42,11 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   boot.kernelParams = [ "nouveau.modeset=0" ];
+  boot.kernel.sysctl = {
+    # https://www.kernel.org/doc/html/latest/mm/overcommit-accounting.html
+    # Prevent hydra from being OOM-killed
+    "vm.overcommit_memory" = "2";
+  };
 
   hardware.cpu.intel.updateMicrocode = true;
 
