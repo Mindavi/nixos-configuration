@@ -48,6 +48,27 @@
     "vm.overcommit_memory" = "2";
   };
 
+  services.prometheus = {
+    enable = true;
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [
+          "systemd"
+        ];
+      };
+    };
+    globalConfig.scrape_interval = "15s";
+    # Don't expose outside laptop for now.
+    # Firewall will handle this but this is extra protection if firewall is disabled for some reason.
+    listenAddress = "127.0.0.1";
+    port = 9090;
+    scrapeConfigs = [
+      static_configs = [{
+        targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
+      }];
+    ];
+  };
   hardware.cpu.intel.updateMicrocode = true;
 
   networking.hostName = "nixos-asus";
