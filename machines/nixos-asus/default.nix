@@ -64,9 +64,12 @@
     listenAddress = "127.0.0.1";
     port = 9090;
     scrapeConfigs = [
-      static_configs = [{
-        targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
-      }];
+      {
+        job_name = "node";
+        static_configs = [{
+          targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
+        }];
+      }
     ];
   };
   hardware.cpu.intel.updateMicrocode = true;
