@@ -70,6 +70,13 @@
           targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
         }];
       }
+      {
+        job_name = "hydra";
+        static_configs = [{
+          # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
+          targets = [ "localhost:9198" ];
+        }];
+      }
     ];
   };
   hardware.cpu.intel.updateMicrocode = true;
