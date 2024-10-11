@@ -54,6 +54,10 @@
                   name = "Slaapkamer Rick";
                 }
                 {
+                  entity = "sensor.humidity_outside";
+                  name = "Buiten";
+                }
+                {
                   entity = "sensor.humidity_bresser_portable_1";
                   name = "Woonkamer";
                 }
