@@ -109,21 +109,31 @@ in {
           {
             name = "Temperature outside";
             object_id = "temperature_outside";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/temperature_C";
+            #state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/temperature_C";
             unit_of_measurement = "°C";
-            value_template = "{{ value | round(1) }}";
+            #value_template = "{{ value | round(1) }}";
             device_class = "temperature";
             force_update = true;
             expire_after = 1800;
             state_class = "measurement";
           }
           {
-            name = "Temperature outside battery status";
-            object_id = "temperature_outside_battery_status";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/battery_ok";
+            name = "Humidity outside";
+            object_id = "humidity_outside";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/humidity";
+            unit_of_measurement = "%";
+            device_class = "humidity";
+            expire_after = 1800;
             state_class = "measurement";
           }
-
+          {
+            name = "Temperature outside battery status";
+            object_id = "temperature_outside_battery_status";
+            #state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/battery_ok";
+            state_class = "measurement";
+          }
           {
             name = "Total energy generated";
             state_topic = "sensor/inverter/ginlong-inverter-monitor/status";
