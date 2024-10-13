@@ -192,3 +192,5 @@ Cons:
 
 - no native support for ssh keys for decryption, but support for deriving an `age` key from an ssh key
     - what about ssh keys with a password here?
+
+restic vs borg: https://www.hostinger.com/blog/restic-borg
