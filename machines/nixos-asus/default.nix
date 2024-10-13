@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/backup.nix
       ./modules/gaming.nix
       ./modules/nvidia.nix
       ../../modules/sudo.nix
