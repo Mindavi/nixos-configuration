@@ -5,8 +5,10 @@
     [
       ./hardware-configuration.nix
       ./modules/backup.nix
+      ./modules/firewall.nix
       ./modules/gaming.nix
       ./modules/nvidia.nix
+      ./modules/prometheus.nix
       ../../modules/sudo.nix
       ../../modules/rtl-sdr.nix
     ];
@@ -48,79 +50,6 @@
     "vm.overcommit_memory" = "0";
   };
 
-  services.prometheus = {
-    enable = true;
-    exporters = {
-      json = {
-        enable = true;
-        port = 7979;
-        listenAddress = "127.0.0.1";
-        configFile = pkgs.writeTextFile {
-          name = "prometheus-json-exporter.yaml";
-          # Inspiration taken from example configs: https://github.com/prometheus-community/json_exporter/blob/master/examples/config.yml
-          # And from an issue that explains how to use the ValueType format: https://github.com/prometheus-community/json_exporter/issues/217
-          text = lib.generators.toYAML {} {
-            modules.default.metrics = [
-              {
-                name = "hydra_queuerunnerstatus_nrQueuedBuilds";
-                path = "{ .nrQueuedBuilds }";
-                help = "Number of builds in the queue";
-                valuetype = "gauge";
-              }
-            ];
-          };
-        };
-      };
-      node = {
-        enable = true;
-        enabledCollectors = [
-          "systemd"
-        ];
-      };
-    };
-    globalConfig.scrape_interval = "15s";
-    # Don't expose outside laptop for now.
-    # Firewall will handle this but this is extra protection if firewall is disabled for some reason.
-    listenAddress = "127.0.0.1";
-    port = 9090;
-    scrapeConfigs = [
-      {
-        job_name = "node";
-        static_configs = [{
-          targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
-        }];
-      }
-      {
-        job_name = "hydra";
-        static_configs = [{
-          # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-          targets = [ "localhost:9198" ];
-        }];
-      }
-      {
-        job_name = "hydra_queuerunnerstatus_json";
-        metrics_path = "/probe";
-        params.module = [ "default" ];
-        static_configs = [{
-          targets = [ "${config.services.hydra.hydraURL}/queue-runner-status" ];
-        }];
-        relabel_configs = [
-          {
-            source_labels = [ "__address__" ];
-            target_label = "__param_target";
-          }
-          {
-            source_labels = [ "__param_target" ];
-            target_label = "instance";
-          }
-          {
-            target_label = "__address__";
-            replacement = "localhost:${toString config.services.prometheus.exporters.json.port}";
-          }
-        ];
-      }
-    ];
-  };
   hardware.cpu.intel.updateMicrocode = true;
 
   networking.hostName = "nixos-asus";
@@ -282,35 +211,6 @@
     "nvidia-x11"
     "nvidia-settings"
   ];
-
-  # Open ports in the firewall.
-  # 25565 for minecraft
-  # 6567 for mindustry
-  # 51413 for transmission
-  # 5201 for iperf3
-  # 5000 for development servers
-  # 8080 for development servers
-  networking.firewall.allowedTCPPorts = [
-    #25565
-    #6567
-    #51413
-    #5201
-    5000
-    8080
-  ];
-  # 20595 for 0ad
-  # 6567 for mindustry
-  networking.firewall.allowedUDPPorts = [
-    20595
-    #6567
-  ];
-  networking.nftables.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.logRefusedPackets = true;
-  networking.firewall.logRefusedConnections = true;
-  networking.firewall.logReversePathDrops = true;
-  networking.firewall.rejectPackets = true;
-  networking.firewall.checkReversePath = true;
 
   nix = {
     package = pkgs.nixVersions.nix_2_24;
