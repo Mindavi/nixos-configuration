@@ -128,7 +128,7 @@
     element-desktop
     irssi
     thunderbird
-    telegram-desktop
+    #telegram-desktop
 
     rtl_433
 
