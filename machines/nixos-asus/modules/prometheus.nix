@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-    services.prometheus = {
+  services.prometheus = {
     enable = true;
     exporters = {
       json = {
@@ -39,24 +44,30 @@
     scrapeConfigs = [
       {
         job_name = "node";
-        static_configs = [{
-          targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
-        }];
+        static_configs = [
+          {
+            targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
+          }
+        ];
       }
       {
         job_name = "hydra";
-        static_configs = [{
-          # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-          targets = [ "localhost:9198" ];
-        }];
+        static_configs = [
+          {
+            # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
+            targets = [ "localhost:9198" ];
+          }
+        ];
       }
       {
         job_name = "hydra_queuerunnerstatus_json";
         metrics_path = "/probe";
         params.module = [ "default" ];
-        static_configs = [{
-          targets = [ "${config.services.hydra.hydraURL}/queue-runner-status" ];
-        }];
+        static_configs = [
+          {
+            targets = [ "${config.services.hydra.hydraURL}/queue-runner-status" ];
+          }
+        ];
         relabel_configs = [
           {
             source_labels = [ "__address__" ];
