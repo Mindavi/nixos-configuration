@@ -57,12 +57,15 @@
         listenAddress = "127.0.0.1";
         configFile = pkgs.writeTextFile {
           name = "prometheus-json-exporter.yaml";
+          # Inspiration taken from example configs: https://github.com/prometheus-community/json_exporter/blob/master/examples/config.yml
+          # And from an issue that explains how to use the ValueType format: https://github.com/prometheus-community/json_exporter/issues/217
           text = lib.generators.toYAML {} {
             modules.default.metrics = [
               {
                 name = "hydra_queuerunnerstatus_nrQueuedBuilds";
                 path = "{ .nrQueuedBuilds }";
                 help = "Number of builds in the queue";
+                valuetype = "gauge";
               }
             ];
           };
