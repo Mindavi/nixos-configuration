@@ -206,6 +206,9 @@
         # https://github.com/NixOS/hydra/pull/875
         #./patches/nixos-hydra-pull-875.patch
       ];
+      postPatch = (oldAttrs.postPatch or "") + ''
+        sed -i '16i use Nix::Store;' src/lib/Hydra/Plugin/S3Backup.pm
+      '';
     }));
     #.override {
     #  nix = pkgs.nixVersions.nix_2_22;
