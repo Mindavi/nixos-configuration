@@ -34,11 +34,11 @@
                   entity = "sensor.temperature_bresser_portable_1";
                   name = "Woonkamer";
                 }
-                 {
+                {
                   entity = "sensor.temperature_bresser_portable_2";
                   name = "Washok";
                 }
-                 {
+                {
                   entity = "sensor.temperature_bresser_portable_3";
                   name = "Voorraadkast";
                 }
