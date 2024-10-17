@@ -42,6 +42,10 @@
                   entity = "sensor.temperature_bresser_portable_3";
                   name = "Voorraadkast";
                 }
+                {
+                  entity = "sensor.thermometer_portable_with_display_temperature";
+                  name = "Draagbare sensor (hal)";
+                }
               ];
             }
             {
@@ -68,6 +72,10 @@
                 {
                   entity = "sensor.humidity_bresser_portable_3";
                   name = "Voorraadkast";
+                }
+                {
+                  entity = "sensor.thermometer_portable_with_display_humidity";
+                  name = "Draagbare sensor (hal)";
                 }
               ];
             }
