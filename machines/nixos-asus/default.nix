@@ -222,6 +222,7 @@
       "steam-original"
       "steam-run"
       "steam-runtime"
+      "steam-unwrapped"
       "nvidia-x11"
       "nvidia-settings"
     ];
