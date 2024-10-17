@@ -180,6 +180,8 @@
       ];
       postPatch = (oldAttrs.postPatch or "") + ''
         sed -i '16i use Hydra::Helper::Nix;' src/lib/Hydra/Plugin/S3Backup.pm
+        substituteInPlace src/script/nix-prefetch-git \
+          --replace-fail "git init;" "git init --initial-branch=trunk;"
       '';
     }));
     #.override {
