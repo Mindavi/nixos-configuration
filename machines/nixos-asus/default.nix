@@ -179,7 +179,7 @@
         #./patches/nixos-hydra-pull-875.patch
       ];
       postPatch = (oldAttrs.postPatch or "") + ''
-        sed -i '16i use Nix::Store;' src/lib/Hydra/Plugin/S3Backup.pm
+        sed -i '16i use Hydra::Helper::Nix;' src/lib/Hydra/Plugin/S3Backup.pm
       '';
     }));
     #.override {
