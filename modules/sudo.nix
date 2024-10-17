@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   security.sudo = {
     package = pkgs.sudo.override {
@@ -10,4 +15,3 @@
     '';
   };
 }
-

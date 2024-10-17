@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   hardware.rtl-sdr.enable = true;
   environment.systemPackages = with pkgs; [
@@ -8,4 +13,3 @@
   # This module also requires the following settings:
   # users.users.<username>.extraGroups = [ "plugdev" ];
 }
-

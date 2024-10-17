@@ -1,17 +1,21 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./modules/backup.nix
-      ./modules/firewall.nix
-      ./modules/gaming.nix
-      ./modules/nvidia.nix
-      ./modules/prometheus.nix
-      ../../modules/sudo.nix
-      ../../modules/rtl-sdr.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/backup.nix
+    ./modules/firewall.nix
+    ./modules/gaming.nix
+    ./modules/nvidia.nix
+    ./modules/prometheus.nix
+    ../../modules/sudo.nix
+    ../../modules/rtl-sdr.nix
+  ];
 
   nixpkgs.config = {
     # Even though it's not recommended, I'm going to enable this anyway.
@@ -161,29 +165,35 @@
   # hydra is available on http://localhost:3000/
   services.hydra = {
     enable = true;
-    package = (pkgs.hydra.overrideAttrs(oldAttrs: {
-      version = oldAttrs.version + "-mindavi";
-      patches = (/*oldAttrs.patches or */ []) ++ [
-        # https://github.com/NixOS/hydra/pull/1372
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";
-          name = "show-build-step-names.patch";
-          hash = "sha256-7CUfoXzzzfjNU2IyxvGhGbDg3lVdI8K3FQovUOQvh5E=";
-        })
-        (pkgs.fetchpatch2 {
-          url = "https://github.com/NixOS/hydra/commit/bd380f694e71e1b9bff7db2f12de6ade94a1edd2.patch";
-          name = "only-show-stepname-not-equal-drv-name.patch";
-          hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
-        })
-        # https://github.com/NixOS/hydra/pull/875
-        #./patches/nixos-hydra-pull-875.patch
-      ];
-      postPatch = (oldAttrs.postPatch or "") + ''
-        sed -i '16i use Hydra::Helper::Nix;' src/lib/Hydra/Plugin/S3Backup.pm
-        substituteInPlace src/script/nix-prefetch-git \
-          --replace-fail "git init;" "git init --initial-branch=trunk;"
-      '';
-    }));
+    package = (
+      pkgs.hydra.overrideAttrs (oldAttrs: {
+        version = oldAttrs.version + "-mindavi";
+        patches =
+          # oldAttrs.patches or
+          ([ ]) ++ [
+            # https://github.com/NixOS/hydra/pull/1372
+            (pkgs.fetchpatch2 {
+              url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";
+              name = "show-build-step-names.patch";
+              hash = "sha256-7CUfoXzzzfjNU2IyxvGhGbDg3lVdI8K3FQovUOQvh5E=";
+            })
+            (pkgs.fetchpatch2 {
+              url = "https://github.com/NixOS/hydra/commit/bd380f694e71e1b9bff7db2f12de6ade94a1edd2.patch";
+              name = "only-show-stepname-not-equal-drv-name.patch";
+              hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
+            })
+            # https://github.com/NixOS/hydra/pull/875
+            #./patches/nixos-hydra-pull-875.patch
+          ];
+        postPatch =
+          (oldAttrs.postPatch or "")
+          + ''
+            sed -i '16i use Hydra::Helper::Nix;' src/lib/Hydra/Plugin/S3Backup.pm
+            substituteInPlace src/script/nix-prefetch-git \
+              --replace-fail "git init;" "git init --initial-branch=trunk;"
+          '';
+      })
+    );
     #.override {
     #  nix = pkgs.nixVersions.nix_2_22;
     #};
@@ -204,15 +214,17 @@
   #programs.adb.enable = true;
 
   # Add unfree packages that should be installed here.
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "discord"
-    "steam"
-    "steam-original"
-    "steam-run"
-    "steam-runtime"
-    "nvidia-x11"
-    "nvidia-settings"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+      "steam"
+      "steam-original"
+      "steam-run"
+      "steam-runtime"
+      "nvidia-x11"
+      "nvidia-settings"
+    ];
 
   nix = {
     package = pkgs.nixVersions.nix_2_24;
@@ -223,8 +235,8 @@
       max-jobs = 4;
       # since buildCores warns about non-reproducibility, I'll not touch it -- for now.
 
-      trusted-public-keys = [];
-      substituters = [];
+      trusted-public-keys = [ ];
+      substituters = [ ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes ca-derivations
@@ -237,9 +249,12 @@
       randomizedDelaySec = "25min";
       options = "--delete-older-than 30d";
     };
-    buildMachines = [];
+    buildMachines = [ ];
     distributedBuilds = true;
-    registry.nixpkgs.to = { type = "path"; path = pkgs.path; };
+    registry.nixpkgs.to = {
+      type = "path";
+      path = pkgs.path;
+    };
     nixPath = [ "nixpkgs=${pkgs.path}" ];
   };
 
@@ -300,10 +315,16 @@
   users.users.rick = {
     isNormalUser = true;
     home = "/home/rick";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" "kvm" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "dialout"
+      "adbusers"
+      "plugdev"
+      "kvm"
+    ];
     initialPassword = "rikkert";
   };
 
   system.stateVersion = "21.11";
 }
-
