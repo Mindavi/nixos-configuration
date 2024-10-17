@@ -18,7 +18,7 @@ in
 
     # mosquitto (insecure)
     iptables -A nixos-fw -p tcp -m tcp -s ${subnetReal},${subnetVm} --dport 1883 -j nixos-fw-accept
-    
+
     # samba
     iptables -A nixos-fw -p tcp -m tcp -s ${subnetReal},${subnetVm} --dport 139 -j nixos-fw-accept
     iptables -A nixos-fw -p tcp -m tcp -s ${subnetReal},${subnetVm} --dport 445 -j nixos-fw-accept
@@ -29,4 +29,3 @@ in
     iptables -A nixos-fw -p tcp -m tcp -s ${subnetReal},${subnetVm} --dport 8123 -j nixos-fw-accept
   '';
 }
-

@@ -53,19 +53,19 @@
           unique_id = "gas_usage_over_last_week";
         }
         /*
-        # Enabling this causes 100% CPU usage of 1 core in home assistant and breaks the system.
-        # Figure out how we can do this better, maybe by first averaging over 5 mins and then using those samples.
-        # Likely just using average/mean will help? Then no time compares are required.
-        {
-          platform = "statistics";
-          name = "Average power over last week v2";
-          entity_id = "sensor.power_consumed";
-          state_characteristic = "average_linear";
-          max_age = {
-            days = 7;
-          };
-          unique_id = "average_power_over_last_week_v2";
-        }
+          # Enabling this causes 100% CPU usage of 1 core in home assistant and breaks the system.
+          # Figure out how we can do this better, maybe by first averaging over 5 mins and then using those samples.
+          # Likely just using average/mean will help? Then no time compares are required.
+          {
+            platform = "statistics";
+            name = "Average power over last week v2";
+            entity_id = "sensor.power_consumed";
+            state_characteristic = "average_linear";
+            max_age = {
+              days = 7;
+            };
+            unique_id = "average_power_over_last_week_v2";
+          }
         */
       ];
     };

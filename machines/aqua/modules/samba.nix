@@ -12,7 +12,7 @@
       comment = "Opslag voor gezin";
     };
   };
-  users.groups.familie = {};
+  users.groups.familie = { };
   users.users.familie = {
     isSystemUser = true;
     home = "/var/data/samba";
@@ -21,4 +21,3 @@
     initialPassword = "familie";
   };
 }
-

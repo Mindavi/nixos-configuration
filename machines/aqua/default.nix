@@ -1,27 +1,33 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   # TODO(Mindavi): consider this: https://discourse.nixos.org/t/detect-build-vm-in-flake/20648
-  isVmBuild = builtins.trace ''building as vm: ${lib.boolToString (config.virtualisation ? qemu)}'' (config.virtualisation ? qemu);
+  isVmBuild = builtins.trace ''building as vm: ${lib.boolToString (config.virtualisation ? qemu)}'' (
+    config.virtualisation ? qemu
+  );
 in
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./modules/fail2ban.nix
-      ./modules/firewall.nix
-      ./modules/home-assistant
-      ./modules/hydra.nix
-      ./modules/mosquitto.nix
-      ./modules/rtl_433.nix
-      ./modules/samba.nix
-      ./modules/solar-inverter.nix
-      ./modules/traefik.nix
-      #./modules/virtualisation.nix
-      ../../modules/iperf.nix
-      ../../modules/rtl-sdr.nix
-      ../../modules/sudo.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/fail2ban.nix
+    ./modules/firewall.nix
+    ./modules/home-assistant
+    ./modules/hydra.nix
+    ./modules/mosquitto.nix
+    ./modules/rtl_433.nix
+    ./modules/samba.nix
+    ./modules/solar-inverter.nix
+    ./modules/traefik.nix
+    #./modules/virtualisation.nix
+    ../../modules/iperf.nix
+    ../../modules/rtl-sdr.nix
+    ../../modules/sudo.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -107,7 +113,7 @@ in
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    buildMachines = [];
+    buildMachines = [ ];
     distributedBuilds = true;
   };
 
@@ -127,9 +133,17 @@ in
   users.users.rick = {
     isNormalUser = true;
     home = "/home/rick";
-    extraGroups = [ "wheel" "networkmanager" "dialout" "adbusers" "plugdev" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "dialout"
+      "adbusers"
+      "plugdev"
+    ];
     initialPassword = "rikkert1";
-    openssh.authorizedKeys.keys =  [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus"
+    ];
   };
   users.mutableUsers = true;
 
@@ -137,4 +151,3 @@ in
 
   system.stateVersion = "23.05";
 }
-

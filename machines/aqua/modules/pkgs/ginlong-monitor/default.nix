@@ -1,4 +1,9 @@
-{ lib, buildGoModule, fetchFromGitHub, installShellFiles }:
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  installShellFiles,
+}:
 
 buildGoModule {
   pname = "ginlong-monitor";
@@ -13,7 +18,11 @@ buildGoModule {
 
   vendorHash = "sha256-wCN6HpO0a9437gxBhXxjdZXNvhasQHGpcFjv4b7cc4g=";
 
-  subPackages = [ "ginlongmonitor" "ginlongmqtt" "ginlongparse" ];
+  subPackages = [
+    "ginlongmonitor"
+    "ginlongmqtt"
+    "ginlongparse"
+  ];
 
   # Don't strip, for me the symbols can be useful for debugging.
   #ldflags = [

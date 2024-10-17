@@ -1,7 +1,8 @@
-{ config, ...}:
+{ config, ... }:
 let
   mqtt_server_name = config.networking.hostName;
-in {
+in
+{
   services.home-assistant = {
     config = {
       # Broker must be set up via the web UI.

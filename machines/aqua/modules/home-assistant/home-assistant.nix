@@ -1,4 +1,4 @@
-{ pkgs, config, ...}:
+{ pkgs, config, ... }:
 {
   # Used for CoIoT on Shelly plugs
   # FIXME(Mindavi): move to firewall.nix and only allow packets from local network.
@@ -28,22 +28,22 @@
       };
       lovelace.mode = "yaml";
 
-      config = {};
+      config = { };
       #default_config = {};
-      energy = {};
-      frontend = {};
-      history = {};
-      input_boolean = {};
+      energy = { };
+      frontend = { };
+      history = { };
+      input_boolean = { };
       #map = {}; # deprecated in yaml, to be removed in 2024.10
-      mobile_app = {};
-      network = {};
+      mobile_app = { };
+      network = { };
       recorder = {
         # TODO(Mindavi): Check database size now and then.
         auto_purge = false;
       };
-      sun = {};
-      system_health = {};
-      system_log = {};
+      sun = { };
+      system_health = { };
+      system_log = { };
 
       "automation manual" = [
         {
@@ -114,4 +114,3 @@
     "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
   ];
 }
-

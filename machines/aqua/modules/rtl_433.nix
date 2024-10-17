@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   boot.blacklistedKernelModules = [ "dvb_usb_rtl28xxu" ];
   environment.systemPackages = with pkgs; [

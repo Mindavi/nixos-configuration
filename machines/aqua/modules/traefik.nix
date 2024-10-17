@@ -2,8 +2,9 @@
 let
   # use 8000 for testing since it's easier to open up for now
   webport = 80;
-  websecureport = 8001;  # use 8001 for experimentation
-in {
+  websecureport = 8001; # use 8001 for experimentation
+in
+{
   services.traefik = {
     enable = true;
     staticConfigOptions = {
@@ -19,9 +20,9 @@ in {
       api.dashboard = true;
       accesslog = true;
       #certificatesResolvers.le.acme = {
-        #email = "rol3517@gmail.com";
-        #storage = "letsencrypt/acme.json";  # FIXME: probably somewhere in /var/?
-        #httpChallenge.entryPoint = "web";
+      #email = "rol3517@gmail.com";
+      #storage = "letsencrypt/acme.json";  # FIXME: probably somewhere in /var/?
+      #httpChallenge.entryPoint = "web";
       #};
     };
     dynamicConfigOptions = {
@@ -57,6 +58,8 @@ in {
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ webport websecureport ];
+  networking.firewall.allowedTCPPorts = [
+    webport
+    websecureport
+  ];
 }
-

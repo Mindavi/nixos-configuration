@@ -1,6 +1,11 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
-  ginlong-monitor = (pkgs.callPackage ./pkgs/ginlong-monitor {});
+  ginlong-monitor = (pkgs.callPackage ./pkgs/ginlong-monitor { });
 in
 {
   environment.systemPackages = with pkgs; [
@@ -9,8 +14,14 @@ in
   networking.firewall.allowedTCPPorts = [ 9999 ];
   systemd.services.solar-inverter = {
     wantedBy = [ "multi-user.target" ];
-    wants = [ "network-online.target" "mosquitto.service" ];
-    after = [ "network-online.target" "mosquitto.service" ];
+    wants = [
+      "network-online.target"
+      "mosquitto.service"
+    ];
+    after = [
+      "network-online.target"
+      "mosquitto.service"
+    ];
     description = "solar inverter listener daemon";
     environment = {
       MQTT_CLIENTID = "ginlong-inverter-monitor";
