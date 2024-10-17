@@ -51,6 +51,23 @@
   services.prometheus = {
     enable = true;
     exporters = {
+      json = {
+        enable = true;
+        port = 7979;
+        listenAddress = "127.0.0.1";
+        configFile = pkgs.writeTextFile {
+          name = "prometheus-json-exporter.yaml";
+          text = lib.generators.toYAML {} {
+            modules.default.metrics = [
+              {
+                name = "hydra_queuerunnerstatus_nrQueuedBuilds";
+                path = "{ .nrQueuedBuilds }";
+                help = "Number of builds in the queue";
+              }
+            ];
+          };
+        };
+      };
       node = {
         enable = true;
         enabledCollectors = [
@@ -76,6 +93,28 @@
           # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
           targets = [ "localhost:9198" ];
         }];
+      }
+      {
+        job_name = "hydra_queuerunnerstatus_json";
+        metrics_path = "/probe";
+        params.module = [ "default" ];
+        static_configs = [{
+          targets = [ "${config.services.hydra.hydraURL}/queue-runner-status" ];
+        }];
+        relabel_configs = [
+          {
+            source_labels = [ "__address__" ];
+            target_label = "__param_target";
+          }
+          {
+            source_labels = [ "__param_target" ];
+            target_label = "instance";
+          }
+          {
+            target_label = "__address__";
+            replacement = "localhost:${toString config.services.prometheus.exporters.json.port}";
+          }
+        ];
       }
     ];
   };
