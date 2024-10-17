@@ -171,6 +171,8 @@
 
     android-tools
     chromium
+
+    nixfmt-rfc-style
   ];
 
   #virtualisation.virtualbox.host.enable = true;
