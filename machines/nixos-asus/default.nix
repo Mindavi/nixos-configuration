@@ -45,8 +45,7 @@
   boot.kernelParams = [ "nouveau.modeset=0" ];
   boot.kernel.sysctl = {
     # https://www.kernel.org/doc/html/latest/mm/overcommit-accounting.html
-    # Prevent hydra from being OOM-killed
-    "vm.overcommit_memory" = "2";
+    "vm.overcommit_memory" = "0";
   };
 
   services.prometheus = {
