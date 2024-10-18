@@ -99,7 +99,7 @@
                 }
                 {
                   entity = "sensor.shellyplug_4ad3c1_power";
-                  name = "Televisieset";
+                  name = "Quooker";
                 }
                 {
                   entity = "sensor.shellyplug_4a0038_power";
@@ -165,14 +165,15 @@
                 {% set server = states('sensor.shellyplug_4a0038_power') %}
                 {% set servermin = float(server, default=15) %}
                 {% set servermax = float(server, default=100) %}{# Not very sure about this... Needs more testing. #}
+                {% set quooker = states('sensor.shellyplug_4ad3c1_power') %}
                 {% set koelvriesbuiten = 60 %}
-                {% set vriezerbinnen = 45 %}
+                {% set vriezerbinnen = states('sensor.smart_energy_plug_freezer_power') %}
                 {% set koelkastbinnen = '?' %}
                 - Vijverpomp: {{vijverpompmin}}-{{vijverpompmax}}W
                 - Koelvriescombinatie buiten: ~{{koelvriesbuiten}}W
-                - Vriezer binnen: ~{{vriezerbinnen}}W
-                - Koelkast binnen: {{koelkastbinnen}}W
-                - Quooker: ?W (lijkt niet veel te zijn, tenzij aan het verwarmen)
+                - Vriezer binnen: {{vriezerbinnen}}W
+                - Koelkast binnen: ~{{koelkastbinnen}}W
+                - Quooker: {{quooker}}W
                 - Pomp vloerverwarming: ?W
                 - Televisieset: {{float(tvset, default='tussen ' + tvsetmin|string + '-' + tvsetmax|string)}}W
                 - Server, computer en printer: {{float(server, default='tussen ' + servermin|string + '-' + servermax|string)}}W
