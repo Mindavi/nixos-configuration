@@ -113,29 +113,6 @@
             }
             {
               type = "entities";
-              title = "Totaal verbruik";
-              show_header_toggle = false;
-              entities = [
-                {
-                  entity = "sensor.gas_consumed";
-                  name = "Gas";
-                }
-                {
-                  entity = "sensor.total_electricity_usage";
-                  name = "Stroomverbruik";
-                }
-                {
-                  entity = "sensor.total_electricity_production";
-                  name = "Stroomopwek";
-                }
-                {
-                  entity = "sensor.total_energy_generated";
-                  name = "Stroomopwek zonnepanelen";
-                }
-              ];
-            }
-            {
-              type = "entities";
               title = "Afgelopen week";
               show_header_toggle = false;
               entities = [
@@ -184,6 +161,29 @@
                 - Totaal maximum: {{totalmax}}
                 - Huidig: {{states('sensor.power_consumed')}}
               '';
+            }
+            {
+              type = "entities";
+              title = "Totaal verbruik";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "sensor.gas_consumed";
+                  name = "Gas";
+                }
+                {
+                  entity = "sensor.total_electricity_usage";
+                  name = "Stroomverbruik";
+                }
+                {
+                  entity = "sensor.total_electricity_production";
+                  name = "Stroomopwek";
+                }
+                {
+                  entity = "sensor.total_energy_generated";
+                  name = "Stroomopwek zonnepanelen";
+                }
+              ];
             }
           ];
         }
