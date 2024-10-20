@@ -50,6 +50,15 @@
           step = 5;
           mode = "slider";
         };
+        lights_power = {
+          name = "Lampen vermogen";
+          unit_of_measurement = "W";
+          initial = 30;
+          min = 0;
+          max = 250;
+          step = 10;
+          mode = "slider";
+        };
         kleine_verbruikers_power = {
           name = "Kleine verbruikers vermogen";
           unit_of_measurement = "W";

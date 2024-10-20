@@ -171,6 +171,9 @@
                   entity = "input_number.pomp_vloerverwarming_power";
                 }
                 {
+                  entity = "input_number.lights_power";
+                }
+                {
                   entity = "input_number.kleine_verbruikers_power";
                 }
               ];

@@ -117,6 +117,7 @@
             "input_number.koelkast_keuken_binnen_power"
             "input_number.pomp_vloerverwarming_power"
             "input_number.kleine_verbruikers_power"
+            "input_number.lights_power"
           ];
           type = "sum";
         }
