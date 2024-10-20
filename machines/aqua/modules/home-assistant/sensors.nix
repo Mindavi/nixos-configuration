@@ -103,6 +103,23 @@
             hours = 24;
           };
         }
+        {
+          platform = "minmax";
+          name = "Total power estimation energy measurement and simulation";
+          entity_ids = [
+            "sensor.smart_energy_plug_freezer_power"
+            "sensor.shellyplug_4a0038_power"
+            "sensor.shellyplug_4ad3c1_power"
+            "sensor.shellyplug_4ba4f7_power"
+            "input_number.vijverpomp_power"
+            "input_number.tvset_power"
+            "input_number.koelkast_vriezer_buiten_power"
+            "input_number.koelkast_keuken_binnen_power"
+            "input_number.pomp_vloerverwarming_power"
+            "input_number.kleine_verbruikers_power"
+          ];
+          type = "sum";
+        }
       ];
     };
   };

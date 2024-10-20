@@ -114,6 +114,10 @@
                   name = "Vriezer";
                 }
                 {
+                  entity = "sensor.total_power_estimation_energy_measurement_and_simulation";
+                  name = "Totaal energiemeters en simulatie";
+                }
+                {
                   entity = "sensor.current_power";
                   name = "Zonnepanelen";
                 }
@@ -152,10 +156,6 @@
                 {% set koelkast_keuken_binnen_power = float(states('input_number.koelkast_keuken_binnen_power')) %}
                 {% set pomp_vloerverwarming_power = float(states('input_number.pomp_vloerverwarming_power')) %}
                 {% set kleine_verbruikers_power = float(states('input_number.kleine_verbruikers_power')) %}
-                - Server: {{server}}W
-                - Quooker: {{quooker}}W
-                - Laptop: {{laptop}}W
-                - Vriezer binnen: {{vriezerbinnen}}W
                 {% set total = server + quooker + laptop + vriezerbinnen + vijverpomp_power + tvset_power + koelkast_vriezer_buiten_power + koelkast_keuken_binnen_power + pomp_vloerverwarming_power + kleine_verbruikers_power %}
                 - Totaal: {{total|round(3)}}W
                 - Huidig: {{float(states('sensor.power_consumed')) - float(states('sensor.power_produced'))}}W
