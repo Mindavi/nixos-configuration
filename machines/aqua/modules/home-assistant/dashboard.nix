@@ -215,19 +215,19 @@
               show_header_toggle = false;
               entities = [
                 {
-                  entity = "sensor.avg_power_24h_shellyplug_4ba4f7";
+                  entity = "sensor.average_power_24h_shellyplug_4ba4f7";
                   name = "Laptop";
                 }
                 {
-                  entity = "sensor.avg_power_24h_shellyplug_4ad3c1";
+                  entity = "sensor.average_power_24h_shellyplug_4ad3c1";
                   name = "Quooker";
                 }
                 {
-                  entity = "sensor.avg_power_24h_shellyplug_4a0038";
+                  entity = "sensor.average_power_24h_shellyplug_4a0038";
                   name = "Server, router en computer";
                 }
                 {
-                  entity = "sensor.avg_power_24h_smart_energy_plug_freezer";
+                  entity = "sensor.average_power_24h_smart_energy_plug_freezer";
                   name = "Vriezer";
                 }
               ];

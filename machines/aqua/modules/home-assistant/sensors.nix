@@ -75,7 +75,6 @@
           max_age = {
             hours = 24;
           };
-          unique_id = "avg_power_24h_shellyplug_4ba4f7";
         }
         {
           platform = "statistics";
@@ -85,7 +84,6 @@
           max_age = {
             hours = 24;
           };
-          unique_id = "avg_power_24h_shellyplug_4ad3c1";
         }
         {
           platform = "statistics";
@@ -95,7 +93,6 @@
           max_age = {
             hours = 24;
           };
-          unique_id = "avg_power_24h_shellyplug_4a0038";
         }
         {
           platform = "statistics";
@@ -105,7 +102,6 @@
           max_age = {
             hours = 24;
           };
-          unique_id = "avg_power_24h_smart_energy_plug_freezer";
         }
       ];
     };
