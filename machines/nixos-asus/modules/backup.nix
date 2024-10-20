@@ -41,6 +41,11 @@
         ];
         repository = "rclone:dropbox:restic/Pass";
         rcloneConfigFile = "/home/rick/.config/rclone/rclone.conf";
+        timerConfig = {
+          OnCalendar = "02:30";
+          Persistent = true;
+          randomizedDelaySec = "3h";
+        };
       };
     };
   };
