@@ -134,38 +134,54 @@
                 }
               ];
             }
-            # {
-            #   type = "markdown";
-            #   title = "Verbruikers";
-            #   content = ''
-            #     {% set vijverpompmin = 120 %}
-            #     {% set vijverpompmax = 140 %}
-            #     {% set tvset = states('sensor.shellyplug_4ad3c1_power') %}
-            #     {% set tvsetmin = float(tvset, default=10) %}
-            #     {% set tvsetmax = float(tvset, default=150) %}
-            #     {% set server = states('sensor.shellyplug_4a0038_power') %}
-            #     {% set servermin = float(server, default=15) %}
-            #     {% set servermax = float(server, default=100) %}{# Not very sure about this... Needs more testing. #}
-            #     {% set quooker = states('sensor.shellyplug_4ad3c1_power') %}
-            #     {% set koelvriesbuiten = 60 %}
-            #     {% set vriezerbinnen = states('sensor.smart_energy_plug_freezer_power') %}
-            #     {% set koelkastbinnen = '?' %}
-            #     - Vijverpomp: {{vijverpompmin}}-{{vijverpompmax}}W
-            #     - Koelvriescombinatie buiten: ~{{koelvriesbuiten}}W
-            #     - Vriezer binnen: {{vriezerbinnen}}W
-            #     - Koelkast binnen: ~{{koelkastbinnen}}W
-            #     - Quooker: {{quooker}}W
-            #     - Pomp vloerverwarming: ?W
-            #     - Televisieset: {{float(tvset, default='tussen ' + tvsetmin|string + '-' + tvsetmax|string)}}W
-            #     - Server, computer en printer: {{float(server, default='tussen ' + servermin|string + '-' + servermax|string)}}W
-
-            #     {% set totalmin = (vijverpompmin + tvsetmin + servermin + koelvriesbuiten + vriezerbinnen)|round %}
-            #     {% set totalmax = (vijverpompmax + tvsetmax + servermax + koelvriesbuiten + vriezerbinnen)|round %}
-            #     - Totaal minimum: {{totalmin}}
-            #     - Totaal maximum: {{totalmax}}
-            #     - Huidig: {{states('sensor.power_consumed')}}
-            #   '';
-            # }
+            {
+              type = "markdown";
+              title = "Verbruikers";
+              content = ''
+                {% set server = float(states('sensor.shellyplug_4a0038_power')) %}
+                {% set quooker = float(states('sensor.shellyplug_4ad3c1_power')) %}
+                {% set laptop = float(states('sensor.shellyplug_4ba4f7_power')) %}
+                {% set vriezerbinnen = float(states('sensor.smart_energy_plug_freezer_power')) %}
+                {% set vijverpomp_power = float(states('input_number.vijverpomp_power')) %}
+                {% set tvset_power = float(states('input_number.tvset_power')) %}
+                {% set koelkast_vriezer_buiten_power = float(states('input_number.koelkast_vriezer_buiten_power')) %}
+                {% set koelkast_keuken_binnen_power = float(states('input_number.koelkast_keuken_binnen_power')) %}
+                {% set pomp_vloerverwarming_power = float(states('input_number.pomp_vloerverwarming_power')) %}
+                {% set kleine_verbruikers_power = float(states('input_number.kleine_verbruikers_power')) %}
+                - Server: {{server}}W
+                - Quooker: {{quooker}}W
+                - Laptop: {{laptop}}W
+                - Vriezer binnen: {{vriezerbinnen}}W
+                {% set total = server + quooker + laptop + vriezerbinnen + vijverpomp_power + tvset_power + koelkast_vriezer_buiten_power + koelkast_keuken_binnen_power + pomp_vloerverwarming_power + kleine_verbruikers_power %}
+                - Totaal: {{total|round(3)}}W
+                - Huidig: {{float(states('sensor.power_consumed')) - float(states('sensor.power_produced'))}}W
+              '';
+            }
+            {
+              type = "entities";
+              title = "Verbruikers dummy";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "input_number.vijverpomp_power";
+                }
+                {
+                  entity = "input_number.tvset_power";
+                }
+                {
+                  entity = "input_number.koelkast_vriezer_buiten_power";
+                }
+                {
+                  entity = "input_number.koelkast_keuken_binnen_power";
+                }
+                {
+                  entity = "input_number.pomp_vloerverwarming_power";
+                }
+                {
+                  entity = "input_number.kleine_verbruikers_power";
+                }
+              ];
+            }
             {
               type = "entities";
               title = "Totaal verbruik";

@@ -6,7 +6,7 @@
       input_number = {
         # Some sliders to simulate energy users in the house.
         vijverpomp_power = {
-          name = "vijverpomp vermogen";
+          name = "Vijverpomp vermogen";
           unit_of_measurement = "W";
           initial = 120;
           min = 0;
@@ -15,7 +15,7 @@
           mode = "slider";
         };
         tvset_power = {
-          name = "televisieset vermogen";
+          name = "Televisieset vermogen";
           initial = 30;
           min = 10;
           max = 200;
