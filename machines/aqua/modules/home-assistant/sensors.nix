@@ -104,7 +104,7 @@
           };
         }
         {
-          platform = "minmax";
+          platform = "min_max";
           name = "Total power estimation energy measurement and simulation";
           entity_ids = [
             "sensor.smart_energy_plug_freezer_power"

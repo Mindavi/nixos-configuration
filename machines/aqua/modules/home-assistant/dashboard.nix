@@ -39,6 +39,10 @@
                   name = "Washok";
                 }
                 {
+                  entity = "sensor.temperature_sensor_no_display_temperature";
+                  name = "Washok 2";
+                }
+                {
                   entity = "sensor.temperature_bresser_portable_3";
                   name = "Voorraadkast";
                 }
