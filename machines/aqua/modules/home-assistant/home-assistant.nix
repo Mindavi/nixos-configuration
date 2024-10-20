@@ -34,7 +34,7 @@
       frontend = { };
       history = { };
       input_boolean = { };
-      #map = {}; # deprecated in yaml, to be removed in 2024.10
+      input_number = { };
       mobile_app = { };
       network = { };
       recorder = {
