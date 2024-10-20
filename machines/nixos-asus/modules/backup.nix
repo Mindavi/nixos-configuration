@@ -5,6 +5,9 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    rclone
+  ];
   services.restic = {
     backups = {
       localbackup = {
