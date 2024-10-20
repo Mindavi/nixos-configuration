@@ -39,12 +39,12 @@
                   name = "Washok";
                 }
                 {
-                  entity = "sensor.temperature_sensor_no_display_temperature";
-                  name = "Washok 2";
-                }
-                {
                   entity = "sensor.temperature_bresser_portable_3";
                   name = "Voorraadkast";
+                }
+                {
+                  entity = "sensor.temperature_sensor_no_display_temperature";
+                  name = "Voorraadkast 2";
                 }
                 {
                   entity = "sensor.thermometer_portable_with_display_temperature";
@@ -76,6 +76,10 @@
                 {
                   entity = "sensor.humidity_bresser_portable_3";
                   name = "Voorraadkast";
+                }
+                {
+                  entity = "sensor.temperature_sensor_no_display_humidity";
+                  name = "Voorraadkast 2";
                 }
                 {
                   entity = "sensor.thermometer_portable_with_display_humidity";
@@ -147,25 +151,6 @@
               ];
             }
             {
-              type = "markdown";
-              title = "Verbruikers";
-              content = ''
-                {% set server = float(states('sensor.shellyplug_4a0038_power')) %}
-                {% set quooker = float(states('sensor.shellyplug_4ad3c1_power')) %}
-                {% set laptop = float(states('sensor.shellyplug_4ba4f7_power')) %}
-                {% set vriezerbinnen = float(states('sensor.smart_energy_plug_freezer_power')) %}
-                {% set vijverpomp_power = float(states('input_number.vijverpomp_power')) %}
-                {% set tvset_power = float(states('input_number.tvset_power')) %}
-                {% set koelkast_vriezer_buiten_power = float(states('input_number.koelkast_vriezer_buiten_power')) %}
-                {% set koelkast_keuken_binnen_power = float(states('input_number.koelkast_keuken_binnen_power')) %}
-                {% set pomp_vloerverwarming_power = float(states('input_number.pomp_vloerverwarming_power')) %}
-                {% set kleine_verbruikers_power = float(states('input_number.kleine_verbruikers_power')) %}
-                {% set total = server + quooker + laptop + vriezerbinnen + vijverpomp_power + tvset_power + koelkast_vriezer_buiten_power + koelkast_keuken_binnen_power + pomp_vloerverwarming_power + kleine_verbruikers_power %}
-                - Totaal: {{total|round(3)}}W
-                - Huidig: {{float(states('sensor.power_consumed')) - float(states('sensor.power_produced'))}}W
-              '';
-            }
-            {
               type = "entities";
               title = "Verbruikers simulatie";
               show_header_toggle = false;
@@ -219,19 +204,19 @@
               show_header_toggle = false;
               entities = [
                 {
-                  entity = "sensor.average_power_24h_shellyplug_4ba4f7";
+                  entity = "sensor.average_power_24h_shellyplug_4ba4f7_2";
                   name = "Laptop";
                 }
                 {
-                  entity = "sensor.average_power_24h_shellyplug_4ad3c1";
+                  entity = "sensor.average_power_24h_shellyplug_4ad3c1_2";
                   name = "Quooker";
                 }
                 {
-                  entity = "sensor.average_power_24h_shellyplug_4a0038";
+                  entity = "sensor.average_power_24h_shellyplug_4a0038_2";
                   name = "Server, router en computer";
                 }
                 {
-                  entity = "sensor.average_power_24h_smart_energy_plug_freezer";
+                  entity = "sensor.average_power_24h_smart_energy_plug_freezer_2";
                   name = "Vriezer";
                 }
               ];
