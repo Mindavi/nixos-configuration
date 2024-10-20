@@ -213,6 +213,11 @@
       max_concurrent_evals = 1
     '';
   };
+  # Override loglevel. But how to get hydra-package? For now tacking vvvvvv on the end.
+  # But that depends a lot on implementation details...
+  #systemd.services.hydra-queue-runner.serviceConfig.ExecStart = lib.mkForce (let
+  #  pkgpath = builtins.head (builtins.split " " config.systemd.services.hydra-queue-runner.serviceConfig.ExecStopPost);
+  #in lib.debug.traceVal "@" + pkgpath + " hydra-queue-runner -vvvvvvv");
   systemd.services.hydra-send-stats.enable = false;
   services.postgresql.package = pkgs.postgresql_14;
 
