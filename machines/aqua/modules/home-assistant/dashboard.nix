@@ -110,6 +110,10 @@
                   name = "Server en computer";
                 }
                 {
+                  entity = "sensor.smart_energy_plug_freezer_power";
+                  name = "Vriezer";
+                }
+                {
                   entity = "sensor.current_power";
                   name = "Zonnepanelen";
                 }
@@ -159,7 +163,7 @@
             }
             {
               type = "entities";
-              title = "Verbruikers dummy";
+              title = "Verbruikers simulatie";
               show_header_toggle = false;
               entities = [
                 {
@@ -202,6 +206,29 @@
                 {
                   entity = "sensor.total_energy_generated";
                   name = "Stroomopwek zonnepanelen";
+                }
+              ];
+            }
+            {
+              type = "entities";
+              title = "Gemiddeld verbruik";
+              show_header_toggle = false;
+              entities = [
+                {
+                  entity = "avg_power_24h_shellyplug_4ba4f7";
+                  name = "Laptop";
+                }
+                {
+                  entity = "avg_power_24h_shellyplug_4ad3c1";
+                  name = "Quooker";
+                }
+                {
+                  entity = "avg_power_24h_shellyplug_4a0038";
+                  name = "Server, router en computer";
+                }
+                {
+                  entity = "avg_power_24h_smart_energy_plug_freezer";
+                  name = "Vriezer";
                 }
               ];
             }

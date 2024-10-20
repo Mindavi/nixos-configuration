@@ -67,6 +67,46 @@
             unique_id = "average_power_over_last_week_v2";
           }
         */
+        {
+          platform = "statistics";
+          name = "Average power 24h shellyplug 4ba4f7";
+          entity_id = "sensor.shellyplug_4ba4f7_power";
+          state_characteristic = "mean";
+          max_age = {
+            hours = 24;
+          };
+          unique_id = "avg_power_24h_shellyplug_4ba4f7";
+        }
+        {
+          platform = "statistics";
+          name = "Average power 24h shellyplug 4ad3c1";
+          entity_id = "sensor.shellyplug_4ad3c1_power";
+          state_characteristic = "mean";
+          max_age = {
+            hours = 24;
+          };
+          unique_id = "avg_power_24h_shellyplug_4ad3c1";
+        }
+        {
+          platform = "statistics";
+          name = "Average power 24h shellyplug 4a0038";
+          entity_id = "sensor.shellyplug_4a0038_power";
+          state_characteristic = "mean";
+          max_age = {
+            hours = 24;
+          };
+          unique_id = "avg_power_24h_shellyplug_4a0038";
+        }
+        {
+          platform = "statistics";
+          name = "Average power 24h smart energy plug freezer";
+          entity_id = "sensor.smart_energy_plug_freezer_power";
+          state_characteristic = "mean";
+          max_age = {
+            hours = 24;
+          };
+          unique_id = "avg_power_24h_smart_energy_plug_freezer";
+        }
       ];
     };
   };
