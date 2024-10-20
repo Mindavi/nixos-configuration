@@ -111,7 +111,7 @@
     zip
     screen
     p7zip
-    digikam
+    #digikam
     fdupes
     mqttui # handy for mqtt debugging/logging
     minicom # for uart / serial debugging
