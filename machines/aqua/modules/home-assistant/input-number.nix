@@ -44,7 +44,7 @@
         pomp_vloerverwarming_power = {
           name = "Vloerverwarmingspomp vermogen";
           unit_of_measurement = "W";
-          initial = 20;
+          initial = 44;
           min = 0;
           max = 100;
           step = 5;
