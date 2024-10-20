@@ -16,6 +16,7 @@
         };
         tvset_power = {
           name = "Televisieset vermogen";
+          unit_of_measurement = "W";
           initial = 30;
           min = 10;
           max = 200;
@@ -24,6 +25,7 @@
         };
         koelkast_vriezer_buiten_power = {
           name = "Koelvriescombinatie buiten vermogen";
+          unit_of_measurement = "W";
           initial = 60;
           min = 0;
           max = 100;
@@ -32,6 +34,7 @@
         };
         koelkast_keuken_binnen_power = {
           name = "Koelkast keuken binnen vermogen";
+          unit_of_measurement = "W";
           initial = 20;
           min = 0;
           max = 100;
@@ -40,6 +43,7 @@
         };
         pomp_vloerverwarming_power = {
           name = "Vloerverwarmingspomp vermogen";
+          unit_of_measurement = "W";
           initial = 20;
           min = 0;
           max = 100;
@@ -48,6 +52,7 @@
         };
         kleine_verbruikers_power = {
           name = "Kleine verbruikers vermogen";
+          unit_of_measurement = "W";
           initial = 5;
           min = 0;
           max = 50;
