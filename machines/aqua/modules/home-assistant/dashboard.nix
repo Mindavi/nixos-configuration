@@ -24,7 +24,7 @@
               entities = [
                 {
                   entity = "sensor.temperature_bedroom_rick";
-                  name = "Slaapkamer Rick 1";
+                  name = "Slaapkamer Rick";
                 }
                 {
                   entity = "sensor.temperature_outside";
