@@ -40,7 +40,7 @@
           "--keep-yearly 5"
         ];
         repository = "rclone:dropbox:restic/Pass";
-        rcloneConfigFile = "/home/rick/.config/rclone/rclone.conf"
+        rcloneConfigFile = "/home/rick/.config/rclone/rclone.conf";
       };
     };
   };
