@@ -24,6 +24,24 @@
         ];
         repository = "/run/media/rick/ricks_data/restic/Pass";
       };
+      dropbox_pass = {
+        initialize = true;
+        passwordFile = "/etc/nixos/secrets/restic-password";
+        paths = [
+          "/home/rick/Pass"
+        ];
+        exclude = [
+          ".ttxfolder"
+          ".stfolder*"
+        ];
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-monthly 12"
+          "--keep-yearly 5"
+        ];
+        repository = "rclone:dropbox:restic/Pass";
+        rcloneConfigFile = "/home/rick/.config/rclone/rclone.conf"
+      };
     };
   };
 }
