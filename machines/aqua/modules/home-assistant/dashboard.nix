@@ -157,24 +157,31 @@
               entities = [
                 {
                   entity = "input_number.vijverpomp_power";
+                  name = "Vijverpomp";
                 }
                 {
                   entity = "input_number.tvset_power";
+                  name = "Televisieset";
                 }
                 {
                   entity = "input_number.koelkast_vriezer_buiten_power";
+                  name = "Koelvriescombinatie";
                 }
                 {
                   entity = "input_number.koelkast_keuken_binnen_power";
+                  name = "Koelkast keuken";
                 }
                 {
                   entity = "input_number.pomp_vloerverwarming_power";
+                  name = "Vloerverwarmingspomp";
                 }
                 {
                   entity = "input_number.lights_power";
+                  name = "Lampen";
                 }
                 {
                   entity = "input_number.kleine_verbruikers_power";
+                  name = "Kleine verbruikers";
                 }
               ];
             }
