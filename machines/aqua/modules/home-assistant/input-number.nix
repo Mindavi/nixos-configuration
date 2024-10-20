@@ -53,7 +53,7 @@
         lights_power = {
           name = "Lampen vermogen";
           unit_of_measurement = "W";
-          initial = 30;
+          initial = 45;
           min = 0;
           max = 250;
           step = 10;
