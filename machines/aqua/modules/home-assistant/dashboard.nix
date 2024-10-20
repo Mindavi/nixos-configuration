@@ -91,7 +91,11 @@
               entities = [
                 {
                   entity = "sensor.power_consumed";
-                  name = "Energiemeter";
+                  name = "Energiemeter verbruik";
+                }
+                {
+                  entity = "sensor.power_produced";
+                  name = "Energiemeter productie";
                 }
                 {
                   entity = "sensor.shellyplug_4ba4f7_power";
@@ -130,38 +134,38 @@
                 }
               ];
             }
-            {
-              type = "markdown";
-              title = "Verbruikers";
-              content = ''
-                {% set vijverpompmin = 120 %}
-                {% set vijverpompmax = 140 %}
-                {% set tvset = states('sensor.shellyplug_4ad3c1_power') %}
-                {% set tvsetmin = float(tvset, default=10) %}
-                {% set tvsetmax = float(tvset, default=150) %}
-                {% set server = states('sensor.shellyplug_4a0038_power') %}
-                {% set servermin = float(server, default=15) %}
-                {% set servermax = float(server, default=100) %}{# Not very sure about this... Needs more testing. #}
-                {% set quooker = states('sensor.shellyplug_4ad3c1_power') %}
-                {% set koelvriesbuiten = 60 %}
-                {% set vriezerbinnen = states('sensor.smart_energy_plug_freezer_power') %}
-                {% set koelkastbinnen = '?' %}
-                - Vijverpomp: {{vijverpompmin}}-{{vijverpompmax}}W
-                - Koelvriescombinatie buiten: ~{{koelvriesbuiten}}W
-                - Vriezer binnen: {{vriezerbinnen}}W
-                - Koelkast binnen: ~{{koelkastbinnen}}W
-                - Quooker: {{quooker}}W
-                - Pomp vloerverwarming: ?W
-                - Televisieset: {{float(tvset, default='tussen ' + tvsetmin|string + '-' + tvsetmax|string)}}W
-                - Server, computer en printer: {{float(server, default='tussen ' + servermin|string + '-' + servermax|string)}}W
+            # {
+            #   type = "markdown";
+            #   title = "Verbruikers";
+            #   content = ''
+            #     {% set vijverpompmin = 120 %}
+            #     {% set vijverpompmax = 140 %}
+            #     {% set tvset = states('sensor.shellyplug_4ad3c1_power') %}
+            #     {% set tvsetmin = float(tvset, default=10) %}
+            #     {% set tvsetmax = float(tvset, default=150) %}
+            #     {% set server = states('sensor.shellyplug_4a0038_power') %}
+            #     {% set servermin = float(server, default=15) %}
+            #     {% set servermax = float(server, default=100) %}{# Not very sure about this... Needs more testing. #}
+            #     {% set quooker = states('sensor.shellyplug_4ad3c1_power') %}
+            #     {% set koelvriesbuiten = 60 %}
+            #     {% set vriezerbinnen = states('sensor.smart_energy_plug_freezer_power') %}
+            #     {% set koelkastbinnen = '?' %}
+            #     - Vijverpomp: {{vijverpompmin}}-{{vijverpompmax}}W
+            #     - Koelvriescombinatie buiten: ~{{koelvriesbuiten}}W
+            #     - Vriezer binnen: {{vriezerbinnen}}W
+            #     - Koelkast binnen: ~{{koelkastbinnen}}W
+            #     - Quooker: {{quooker}}W
+            #     - Pomp vloerverwarming: ?W
+            #     - Televisieset: {{float(tvset, default='tussen ' + tvsetmin|string + '-' + tvsetmax|string)}}W
+            #     - Server, computer en printer: {{float(server, default='tussen ' + servermin|string + '-' + servermax|string)}}W
 
-                {% set totalmin = (vijverpompmin + tvsetmin + servermin + koelvriesbuiten + vriezerbinnen)|round %}
-                {% set totalmax = (vijverpompmax + tvsetmax + servermax + koelvriesbuiten + vriezerbinnen)|round %}
-                - Totaal minimum: {{totalmin}}
-                - Totaal maximum: {{totalmax}}
-                - Huidig: {{states('sensor.power_consumed')}}
-              '';
-            }
+            #     {% set totalmin = (vijverpompmin + tvsetmin + servermin + koelvriesbuiten + vriezerbinnen)|round %}
+            #     {% set totalmax = (vijverpompmax + tvsetmax + servermax + koelvriesbuiten + vriezerbinnen)|round %}
+            #     - Totaal minimum: {{totalmin}}
+            #     - Totaal maximum: {{totalmax}}
+            #     - Huidig: {{states('sensor.power_consumed')}}
+            #   '';
+            # }
             {
               type = "entities";
               title = "Totaal verbruik";
