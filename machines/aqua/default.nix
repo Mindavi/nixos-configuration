@@ -14,6 +14,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/backup.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/home-assistant
