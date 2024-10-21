@@ -27,7 +27,7 @@
         timerConfig = {
           OnCalendar = "00:30";
           Persistent = true;
-          randomizedDelaySec = "3h";
+          RandomizedDelaySec = "3h";
         };
       };
     };
