@@ -13,7 +13,9 @@
   services.restic = {
     backups = {
       localbackup = {
-        initialize = true;
+        # Otherwise it will create the folder even if the drive is not mounted.
+        # TODO(mindavi): only run when disk is mounted...
+        initialize = false;
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
           "/home/rick/Pass"
