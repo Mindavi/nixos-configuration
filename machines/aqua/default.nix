@@ -25,6 +25,7 @@ in
     ./modules/solar-inverter.nix
     ./modules/traefik.nix
     #./modules/virtualisation.nix
+    ./modules/wireguard.nix
     ../../modules/iperf.nix
     ../../modules/rtl-sdr.nix
     ../../modules/sudo.nix
