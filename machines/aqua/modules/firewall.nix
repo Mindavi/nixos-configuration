@@ -7,7 +7,13 @@ in
   # Make sure firewall is enabled.
   networking.firewall.enable = true;
 
-  networking.firewall.logRefusedPackets = true;
+  networking.firewall = {
+    logRefusedPackets = true;
+    logRefusedConnections = true;
+    logReversePathDrops = true;
+    rejectPackets = true;
+    checkReversePath = true;
+  };
 
   # Open up 8000 for testing purposes.
   networking.firewall.allowedTCPPorts = [ 8000 ];
