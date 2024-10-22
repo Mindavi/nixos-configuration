@@ -6,7 +6,11 @@
   };
 
   outputs =
-    { self, nixos-unstable, nixvim }:
+    {
+      self,
+      nixos-unstable,
+      nixvim,
+    }:
     {
       nixosConfigurations.nixos-asus = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";
