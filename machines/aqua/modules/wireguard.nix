@@ -20,7 +20,7 @@
         peers = [
           {
             name = "phone-rick";
-            publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vldO1Gc=";
+            publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vIdO1Gc=";
             persistentKeepalive = 25;
             allowedIPs = [ "172.16.1.1/32" ];
             endpoint = "192.168.1.73:51820";
