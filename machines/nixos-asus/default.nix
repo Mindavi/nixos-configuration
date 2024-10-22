@@ -32,6 +32,10 @@
     #structuredAttrsByDefault = true;
   };
 
+  programs.nixvim = {
+    enable = true;
+  };
+
   #documentation.enable = false;
 
   zramSwap = {
