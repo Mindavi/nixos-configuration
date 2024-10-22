@@ -10,7 +10,6 @@
   ];
   networking.firewall.allowedUDPPorts = [ 51820 ];
   networking.wireguard = {
-    dynamicEndpointRefreshSeconds = 5;
     interfaces = {
       wg0 = {
         ips = [ "172.16.1.8/24" ];
@@ -24,6 +23,7 @@
             persistentKeepAlive = 25;
             allowedIPs = [ "172.16.1.1/32" ];
             endpoint = "192.168.1.73";
+            dynamicEndpointRefreshSeconds = 5;
           }
         ];
       };
