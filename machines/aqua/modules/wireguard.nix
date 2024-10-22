@@ -20,7 +20,7 @@
           {
             name = "phone-rick";
             publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vldO1Gc=";
-            persistentKeepAlive = 25;
+            persistentKeepalive = 25;
             allowedIPs = [ "172.16.1.1/32" ];
             endpoint = "192.168.1.73";
             dynamicEndpointRefreshSeconds = 5;
