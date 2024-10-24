@@ -32,4 +32,9 @@
       };
     };
   };
+  programs.ssh.extraConfig = ''
+    Host zh4793.rsync.net
+      IdentityFile /root/.ssh/id_ed25519_restic
+      User zh4793
+  '';
 }
