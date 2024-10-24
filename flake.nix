@@ -3,6 +3,13 @@
   inputs.nixvim = {
     url = "github:nix-community/nixvim";
     inputs.nixpkgs.follows = "nixos-unstable";
+    inputs.nuschtosSearch.follows = "";
+    inputs.home-manager.follows = "";
+    inputs.nix-darwin.follows = "";
+    inputs.devshell.follows = "";
+    inputs.treefmt-nix.follows = "";
+    inputs.git-hooks.follows = "";
+    inputs.flake-compat.follows = "";
   };
 
   outputs =
