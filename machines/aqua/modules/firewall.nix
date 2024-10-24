@@ -17,9 +17,6 @@ in
     checkReversePath = true;
   };
 
-  # Open up 8000 for testing purposes.
-  networking.firewall.allowedTCPPorts = [ 8000 ];
-
   networking.firewall.extraInputRules = ''
     # mdns, zeroconf, avahi TODO(mindavi): probably remove?
     #ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } udp 5353 accept
@@ -32,5 +29,8 @@ in
 
     # home assistant (FIXME: reverse proxy in front of hass)
     ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8123 accept
+
+    # Open up 8000 for testing purposes. E.g. running development servers.
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8000 accept
   '';
 }
