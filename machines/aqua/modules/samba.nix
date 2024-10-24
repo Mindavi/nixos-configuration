@@ -4,7 +4,7 @@
     enable = true;
     # only open firewall to internal network, see firewall.nix
     openFirewall = false;
-    shares.copydrive = {
+    settings.copydrive = {
       path = "/var/data/samba/copydrive";
       "read only" = false;
       browseable = "yes";
