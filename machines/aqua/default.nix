@@ -91,7 +91,6 @@ in
   networking.firewall.enable = true;
 
   nix = {
-    #package = pkgs.nixUnstable;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
