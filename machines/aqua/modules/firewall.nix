@@ -1,11 +1,13 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   subnetReal = "192.168.1.0/24";
   subnetVm = "10.0.2.0/24";
+  subnetWireGuard = "172.16.1.0/24";
 in
 {
   # Make sure firewall is enabled.
   networking.firewall.enable = true;
+  networking.nftables.enable = true;
 
   networking.firewall = {
     logRefusedPackets = true;
@@ -18,7 +20,7 @@ in
   # Open up 8000 for testing purposes.
   networking.firewall.allowedTCPPorts = [ 8000 ];
 
-  networking.firewall.extraCommands = ''
+  networking.firewall.extraCommands = lib.optionalString (!config.networking.nftables.enable) ''
     # mdns, zeroconf, avahi
     #iptables -A nixos-fw -p udp -m udp -s ${subnetReal},${subnetVm} --dport 5353 -j nixos-fw-accept
 
@@ -33,5 +35,15 @@ in
 
     # home assistant (FIXME: to be removed again)
     iptables -A nixos-fw -p tcp -m tcp -s ${subnetReal},${subnetVm} --dport 8123 -j nixos-fw-accept
+  '';
+  networking.firewall.extraInputRules = lib.optionalString (config.networking.nftables.enable) ''
+    # mosquitto (insecure)
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 1883 accept
+
+    # samba
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport { 137, 138, 139, 445 } accept
+
+    # home assistant (FIXME: reverse proxy in front of hass)
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8123 accept
   '';
 }
