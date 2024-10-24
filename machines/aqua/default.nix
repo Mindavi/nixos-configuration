@@ -18,7 +18,6 @@ in
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/home-assistant
-    ./modules/hydra.nix
     ./modules/mosquitto.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
@@ -26,6 +25,7 @@ in
     ./modules/traefik.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
+    ../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/rtl-sdr.nix
     ../../modules/sudo.nix
