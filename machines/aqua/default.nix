@@ -84,7 +84,7 @@ in
 
   programs.bash.completion.enable = true;
 
-  # TODO: add hydra, syncthing
+  # TODO: add syncthing
 
   services.openssh.enable = true;
 
