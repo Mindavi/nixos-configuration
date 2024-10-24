@@ -11,13 +11,20 @@
       nixos-unstable,
       nixvim,
     }:
+    let
+      system = "x86_64-linux";
+    in
     {
+      packages.${system}.hydra_exporter = nixos-unstable.legacyPackages.${system}.callPackage ./packages/hydra_exporter { };
       nixosConfigurations.nixos-asus = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./machines/nixos-asus/default.nix
           nixvim.nixosModules.nixvim
         ];
+        specialArgs = {
+          hydra_exporter = self.packages.${system}.hydra_exporter;
+        };
       };
       nixosConfigurations.aqua = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";

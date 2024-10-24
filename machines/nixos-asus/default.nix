@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  hydra_exporter,
   ...
 }:
 
@@ -87,6 +88,9 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
+    #(callPackage ../../packages/hydra_exporter {})
+    hydra_exporter
+
     # rust cli tools
     eza # ls
     bat # cat
