@@ -157,6 +157,7 @@
     chromium
 
     nixfmt-rfc-style
+    zed
   ];
 
   #virtualisation.virtualbox.host.enable = true;
