@@ -25,6 +25,7 @@
           ".stfolder*"
         ];
         repository = "/run/media/rick/ricks_data/restic/Pass";
+        timerConfig = null;
       };
       dropbox_pass = {
         initialize = true;
