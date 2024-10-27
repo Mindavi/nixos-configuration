@@ -31,6 +31,7 @@
   networking.firewall.enable = true;
   networking.firewall.logRefusedPackets = true;
   networking.firewall.logRefusedConnections = true;
+  networking.firewall.logRefusedUnicastsOnly = false;
   networking.firewall.logReversePathDrops = true;
   networking.firewall.rejectPackets = true;
   networking.firewall.checkReversePath = true;
