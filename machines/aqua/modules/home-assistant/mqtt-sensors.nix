@@ -47,7 +47,7 @@ in
           {
             name = "Temperature washing room (ch2)";
             object_id = "temperature_bresser_portable_2";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/109/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
             expire_after = 1800;
@@ -74,7 +74,7 @@ in
           {
             name = "Humidity washing room (ch2)";
             object_id = "humidity_bresser_portable_2";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/109/humidity";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
             expire_after = 1800;
@@ -98,7 +98,7 @@ in
           {
             name = "Battery status washing room (ch2)";
             object_id = "battery_status_bresser_portable_2";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/109/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/battery_ok";
             state_class = "measurement";
           }
           {
@@ -110,10 +110,8 @@ in
           {
             name = "Temperature outside";
             object_id = "temperature_outside";
-            #state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/temperature_C";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/temperature_C";
             unit_of_measurement = "°C";
-            #value_template = "{{ value | round(1) }}";
             device_class = "temperature";
             force_update = true;
             expire_after = 1800;
