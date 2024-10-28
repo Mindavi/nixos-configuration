@@ -83,7 +83,6 @@
   #networking.useNetworkd = true;
 
   networking.hosts = {
-    "192.168.2.7" = [ "raspberry" ];
     "192.168.1.8" = [ "aqua" ];
     "192.168.1.123" = [ "printer" ];
   };
@@ -91,7 +90,6 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
-    #(callPackage ../../packages/hydra_exporter {})
     hydra_exporter
 
     # rust cli tools
