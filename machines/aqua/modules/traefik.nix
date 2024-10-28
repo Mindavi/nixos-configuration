@@ -30,7 +30,7 @@ in
         routers.api = {
           entrypoints = "web";
           # TODO: change Host rule to traefik.rickvanschijndel.eu
-          rule = "Host(`traefik.localhost`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
+          rule = "(Host(`traefik.aqua`) || Host(`traefik.localhost`)) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
           service = "api@internal";
           middlewares = "internal-whitelist";
         };
@@ -39,7 +39,7 @@ in
 
         routers.homeassistant = {
           # TODO: change to home.rickvanschijndel.eu
-          rule = "Host(`home.localhost`) || ClientIP(`192.168.1.0/24`)";
+          rule = "Host(`home.aqua`) || Host(`home.localhost`) || ClientIP(`192.168.1.0/24`)";
           # TODO: change to websecure
           entrypoints = "web";
           #tls = true;
