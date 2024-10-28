@@ -1,8 +1,11 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }:
+let
+  hydra_exporter = pkgs.callPackage ../packages/hydra_exporter {};
+in
 {
   # hydra is available on http://localhost:3000/
   services.hydra = {
@@ -57,7 +60,33 @@
     '';
   };
   systemd.services.hydra-send-stats.enable = false;
-  networking.firewall.allowedTCPPorts = [
-    config.services.hydra.port
-  ];
+  # networking.firewall.allowedTCPPorts = [
+  #   config.services.hydra.port
+  # ];
+
+  networking.firewall.allowedTCPPorts = [ 9200 ];
+  systemd.services.hydra-exporter = {
+    wantedBy = [ "multi-user.target" ];
+    wants = [
+      "network-online.target"
+      "hydra-evaluator.service"
+    ];
+    after = [
+      "network-online.target"
+      "hydra-evaluator.service"
+    ];
+    description = "hydra queue runner stats exporter";
+    environment = {};
+    serviceConfig = {
+      Type = "exec";
+      ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}\ --web.listen-address=:9200";
+      DynamicUser = "yes";
+      Restart = "on-failure";
+      RestartSec = "30s";
+      ProtectSystem = "strict";
+      ProtectHome = true;
+      PrivateTmp = true;
+      WorkingDirectory = "/tmp";
+    };
+  };
 }
