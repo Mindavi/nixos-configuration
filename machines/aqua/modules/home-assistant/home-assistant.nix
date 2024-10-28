@@ -20,13 +20,14 @@
         #server_host = "127.0.0.1";
         use_x_forwarded_for = true;
         trusted_proxies = [
-            # Traefik
+            # Traefik / loopback
             "127.0.0.1"
+            "::1"
             # Local LAN
             "192.168.1.0/24"
+            "fe80::/64"
             # Wireguard
             "172.16.1.0/24"
-            "fe80::/64"
         ];
         ip_ban_enabled = true;
         login_attempts_threshold = 4;
