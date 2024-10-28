@@ -3,7 +3,8 @@
   config,
   ...
 }:
-{  # hydra is available on http://localhost:3000/
+{
+  # hydra is available on http://localhost:3000/
   services.hydra = {
     enable = true;
     package = (
