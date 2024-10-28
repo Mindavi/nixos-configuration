@@ -16,6 +16,7 @@
     ./modules/nvidia.nix
     ./modules/prometheus.nix
     ./modules/syncthing.nix
+    ./modules/wireguard.nix
     ../../modules/hydra.nix
     ../../modules/sudo.nix
     ../../modules/rtl-sdr.nix
