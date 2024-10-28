@@ -84,7 +84,12 @@
   #networking.useNetworkd = true;
 
   networking.hosts = {
-    "192.168.1.8" = [ "aqua" "home.aqua" "hydra.aqua" "traefik.aqua" ];
+    "192.168.1.8" = [
+      "aqua"
+      "home.aqua"
+      "hydra.aqua"
+      "traefik.aqua"
+    ];
     "192.168.1.123" = [ "printer" ];
   };
 
