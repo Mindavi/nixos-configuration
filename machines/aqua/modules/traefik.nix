@@ -3,6 +3,7 @@ let
   # use 8000 for testing since it's easier to open up for now
   webport = 80;
   websecureport = 8001; # use 8001 for experimentation
+  range = "192.168.1.0/24";
 in
 {
   services.traefik = {
@@ -39,24 +40,40 @@ in
           service = "api@internal";
           middlewares = "internal-whitelist";
         };
-        # TODO: change source range to 192.168.2.0/24
-        middlewares.internal-whitelist.ipwhitelist.sourcerange = "192.168.1.0/24";
+        middlewares.internal-whitelist.ipwhitelist.sourcerange = range;
 
+        middlewares.home-assistant-stripprefix.stripprefix.prefixes = "/hass";
         routers.homeassistant = {
           # TODO: change to home.rickvanschijndel.eu
-          rule = "Host(`home.aqua`) || Host(`home.localhost`) || ClientIP(`192.168.1.0/24`)";
+          rule = "Host(`home.aqua`) || Host(`home.localhost`) || (ClientIP(`${range}`) && PathPrefix(`/hass`))";
           # TODO: change to websecure
           entrypoints = "web";
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
-          middlewares = "internal-whitelist";
+          middlewares = [
+            "internal-whitelist"
+            "home-assistant-stripprefix"
+          ];
         };
         services.homeassistant = {
           loadBalancer.servers = [
             {
               url = "http://localhost:8123";
             }
+          ];
+        };
+        middlewares.hydra-stripprefix.stripprefix.prefixes = "/hydra";
+        routers.hydra = {
+          rule = "Host(`hydra.aqua`) || Host(`hydra.localhost`) || (ClientIP(`${range}`) && PathPrefix(`/hydra`))";
+          # TODO: change to websecure
+          entrypoints = "web";
+          #tls = true;
+          #tls.certresolver = "le";
+          service = "homeassistant";
+          middlewares = [
+            "internal-whitelist"
+            "hydra-stripprefix"
           ];
         };
       };
