@@ -12,6 +12,9 @@ in
       entryPoints = {
         web = {
           address = ":${toString webport}";
+          # https://doc.traefik.io/traefik/routing/routers/#entrypoints
+          # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
+          asDefault = true;
         };
         websecure = {
           address = ":${toString websecureport}";
@@ -28,6 +31,8 @@ in
     dynamicConfigOptions = {
       http = {
         routers.api = {
+          # https://doc.traefik.io/traefik/routing/routers/#entrypoints
+          # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
           entrypoints = "web";
           # TODO: change Host rule to traefik.rickvanschijndel.eu
           rule = "(Host(`traefik.aqua`) || Host(`traefik.localhost`)) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
