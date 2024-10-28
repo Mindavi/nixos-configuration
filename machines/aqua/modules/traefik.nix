@@ -70,10 +70,17 @@ in
           entrypoints = "web";
           #tls = true;
           #tls.certresolver = "le";
-          service = "homeassistant";
+          service = "hydra";
           middlewares = [
             "internal-whitelist"
             "hydra-stripprefix"
+          ];
+        };
+        services.hydra = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:3000";
+            }
           ];
         };
       };
