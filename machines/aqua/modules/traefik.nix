@@ -38,9 +38,9 @@ in
           # TODO: change Host rule to traefik.rickvanschijndel.eu
           rule = "(Host(`traefik.aqua`) || Host(`traefik.localhost`)) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
           service = "api@internal";
-          middlewares = "internal-whitelist";
+          middlewares = "internal-allowlist";
         };
-        middlewares.internal-whitelist.ipwhitelist.sourcerange = range;
+        middlewares.internal-allowlist.ipallowlist.sourcerange = range;
 
         middlewares.home-assistant-stripprefix.stripprefix.prefixes = "/hass";
         routers.homeassistant = {
@@ -52,7 +52,7 @@ in
           #tls.certresolver = "le";
           service = "homeassistant";
           middlewares = [
-            "internal-whitelist"
+            "internal-allowlist"
             "home-assistant-stripprefix"
           ];
         };
@@ -74,7 +74,7 @@ in
           #tls.certresolver = "le";
           service = "hydra";
           middlewares = [
-            "internal-whitelist"
+            "internal-allowlist"
             "hydra-stripprefix"
             "hydra-prefix-header"
           ];
