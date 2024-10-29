@@ -65,7 +65,7 @@ in
         };
         middlewares.hydra-stripprefix.stripprefix.prefixes = "/hydra";
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
-        middlewares.hydra-prefix-header.customrequestheaders.X-Request-Base = "/hydra";
+        middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
           rule = "Host(`hydra.aqua`) || Host(`hydra.localhost`) || (ClientIP(`${range}`) && PathPrefix(`/hydra`))";
           # TODO: change to websecure
