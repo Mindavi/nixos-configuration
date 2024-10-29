@@ -76,6 +76,7 @@ in
           middlewares = [
             "internal-whitelist"
             "hydra-stripprefix"
+            "hydra-prefix-header"
           ];
         };
         services.hydra = {
