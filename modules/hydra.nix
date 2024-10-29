@@ -60,11 +60,12 @@ in
     '';
   };
   systemd.services.hydra-send-stats.enable = false;
-  # networking.firewall.allowedTCPPorts = [
-  #   config.services.hydra.port
-  # ];
+  networking.firewall.allowedTCPPorts = [
+    config.services.hydra.port
+    # Port for hydra-exporter
+    9200
+  ];
 
-  networking.firewall.allowedTCPPorts = [ 9200 ];
   systemd.services.hydra-exporter = {
     wantedBy = [ "multi-user.target" ];
     wants = [
