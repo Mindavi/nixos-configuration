@@ -42,6 +42,7 @@ in
           middlewares = "internal-allowlist";
         };
         middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
+          "127.0.0.1/32"
           range_internal
           range_wireguard
         ];
