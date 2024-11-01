@@ -47,19 +47,17 @@ in
           range_wireguard
         ];
 
-        middlewares.home-assistant-stripprefix.stripprefix.prefixes = "/hass";
         routers.homeassistant = {
           # Home assistant doesn't support routing using a subpath.
           # https://community.home-assistant.io/t/accessing-home-assistant-through-reverse-proxy-with-custom-path/355792
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
-          rule = "Host(`hass.aqua`))";
+          rule = "Host(`hass.aqua`)";
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
           middlewares = [
             "internal-allowlist"
-            "home-assistant-stripprefix"
           ];
         };
         services.homeassistant = {
@@ -96,6 +94,6 @@ in
 
   networking.firewall.allowedTCPPorts = [
     webport
-    websecureport
+    # websecureport
   ];
 }
