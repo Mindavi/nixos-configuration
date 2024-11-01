@@ -4,7 +4,7 @@
   ...
 }:
 let
-  hydra_exporter = pkgs.callPackage ../packages/hydra_exporter {};
+  hydra_exporter = pkgs.callPackage ../packages/hydra_exporter { };
 in
 {
   # hydra is available on http://localhost:3000/
@@ -77,7 +77,7 @@ in
       "hydra-evaluator.service"
     ];
     description = "hydra queue runner stats exporter";
-    environment = {};
+    environment = { };
     serviceConfig = {
       Type = "exec";
       ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}/queue-runner-status\" --web.listen-address=:9200";
