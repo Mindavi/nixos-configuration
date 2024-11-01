@@ -86,7 +86,7 @@
   networking.hosts = {
     "192.168.1.8" = [
       "aqua"
-      "home.aqua"
+      "hass.aqua"
       "hydra.aqua"
       "traefik.aqua"
     ];
