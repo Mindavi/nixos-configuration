@@ -3,7 +3,8 @@ let
   # use 8000 for testing since it's easier to open up for now
   webport = 80;
   websecureport = 8001; # use 8001 for experimentation
-  range = "192.168.1.0/24";
+  range_internal = "192.168.1.0/24";
+  range_wireguard = "172.16.1.0/24";
 in
 {
   services.traefik = {
@@ -40,12 +41,15 @@ in
           service = "api@internal";
           middlewares = "internal-allowlist";
         };
-        middlewares.internal-allowlist.ipallowlist.sourcerange = range;
+        middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
+          range_internal
+          range_wireguard
+        ];
 
         middlewares.home-assistant-stripprefix.stripprefix.prefixes = "/hass";
         routers.homeassistant = {
           # TODO: change to home.rickvanschijndel.eu
-          rule = "Host(`home.aqua`) || Host(`home.localhost`) || (ClientIP(`${range}`) && PathPrefix(`/hass`))";
+          rule = "Host(`hass.aqua`) || ((ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)) && PathPrefix(`/hass`))";
           # TODO: change to websecure
           entrypoints = "web";
           #tls = true;
@@ -67,7 +71,7 @@ in
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
         middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
-          rule = "Host(`hydra.aqua`) || Host(`hydra.localhost`) || (ClientIP(`${range}`) && PathPrefix(`/hydra`))";
+          rule = "Host(`hydra.aqua`) || ((ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)) && PathPrefix(`/hydra`))";
           # TODO: change to websecure
           entrypoints = "web";
           #tls = true;
