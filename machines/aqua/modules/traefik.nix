@@ -49,10 +49,11 @@ in
 
         middlewares.home-assistant-stripprefix.stripprefix.prefixes = "/hass";
         routers.homeassistant = {
-          # TODO: change to home.rickvanschijndel.eu
-          rule = "Host(`hass.aqua`) || ((ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)) && PathPrefix(`/hass`))";
-          # TODO: change to websecure
-          entrypoints = "web";
+          # Home assistant doesn't support routing using a subpath.
+          # https://community.home-assistant.io/t/accessing-home-assistant-through-reverse-proxy-with-custom-path/355792
+          # https://github.com/home-assistant/core/issues/21113
+          # https://community.home-assistant.io/t/configurable-webroot/516
+          rule = "Host(`hass.aqua`))";
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
@@ -72,9 +73,7 @@ in
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
         middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
-          rule = "Host(`hydra.aqua`) || ((ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)) && PathPrefix(`/hydra`))";
-          # TODO: change to websecure
-          entrypoints = "web";
+          rule = "Host(`hydra.aqua`) || PathPrefix(`/hydra`))";
           #tls = true;
           #tls.certresolver = "le";
           service = "hydra";
