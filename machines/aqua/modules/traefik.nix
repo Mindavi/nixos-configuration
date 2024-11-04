@@ -52,7 +52,7 @@ in
           # https://community.home-assistant.io/t/accessing-home-assistant-through-reverse-proxy-with-custom-path/355792
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
-          rule = "Host(`hass.aqua`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)";
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
