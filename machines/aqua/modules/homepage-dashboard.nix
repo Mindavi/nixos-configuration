@@ -22,6 +22,7 @@
               {
                 abbr = "HASS";
                 href = "http://aqua.local";
+                description = "Home automation dashboard";
               }
             ];
           }
@@ -30,6 +31,7 @@
               {
                 abbr = "HY";
                 href = "http://aqua.local/hydra";
+                description = "Continuous integration for Nix";
               }
             ];
           }
@@ -38,6 +40,7 @@
               {
                 abbr = "TR";
                 href = "http://traefik.aqua/dashboard/";
+                description = "Reverse proxy";
               }
             ];
           }
@@ -50,6 +53,7 @@
               {
                 abbr = "ST";
                 href = "http://localhost:8384";
+                description = "Synchronize files between devices";
               }
             ];
           }
@@ -58,6 +62,7 @@
               {
                 abbr = "PROM";
                 href = "http://localhost:9090";
+                description = "Time series database";
               }
             ];
           }
