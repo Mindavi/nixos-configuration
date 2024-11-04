@@ -18,6 +18,7 @@ in
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/home-assistant
+    ./modules/homepage-dashboard.nix
     ./modules/mosquitto.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
