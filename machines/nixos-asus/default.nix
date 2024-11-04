@@ -164,6 +164,7 @@
 
     nixfmt-rfc-style
     zed-editor
+    nixd
   ];
 
   #virtualisation.virtualbox.host.enable = true;
