@@ -54,6 +54,9 @@ in
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
           rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)";
+          # Give this route the lowest priority to ensure other routes are always matched first.
+          # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
+          priority = 1;
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
