@@ -24,12 +24,16 @@
                 href = "http://aqua.local";
               }
             ];
+          }
+          {
             "Hydra" = [
               {
                 abbr = "HY";
                 href = "http://aqua.local/hydra";
               }
             ];
+          }
+          {
             "Traefik" = [
               {
                 abbr = "TR";
@@ -46,6 +50,14 @@
               {
                 abbr = "ST";
                 href = "http://localhost:8384";
+              }
+            ];
+          }
+          {
+            Prometheus = [
+              {
+                abbr = "PROM";
+                href = "http://localhost:9090";
               }
             ];
           }
