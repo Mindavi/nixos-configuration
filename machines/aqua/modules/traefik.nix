@@ -72,7 +72,7 @@ in
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
         middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
-          rule = "Host(`hydra.aqua`) || PathPrefix(`/hydra`))";
+          rule = "Host(`hydra.aqua`) || PathPrefix(`/hydra`)";
           #tls = true;
           #tls.certresolver = "le";
           service = "hydra";
