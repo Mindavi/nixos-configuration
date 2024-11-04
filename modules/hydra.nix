@@ -15,7 +15,7 @@ in
         version = oldAttrs.version + "-mindavi";
         patches =
           # oldAttrs.patches or
-          ([ ]) ++ [
+          [ ] ++ [
             # https://github.com/NixOS/hydra/pull/1372
             (pkgs.fetchpatch2 {
               url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";

@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   hydra_exporter,
