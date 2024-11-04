@@ -29,6 +29,6 @@
     # Port for rtl_433 http server
     # See https://github.com/merbanan/rtl_433/pull/2863
     # TODO(mindavi): Use firewall rule instead.
-    8443
+    8433
   ];
 }
