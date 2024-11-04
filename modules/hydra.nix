@@ -27,19 +27,6 @@ in
               name = "only-show-stepname-not-equal-drv-name.patch";
               hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
             })
-            # https://github.com/NixOS/hydra/pull/1417
-            (pkgs.fetchpatch2 {
-              url = "https://github.com/NixOS/hydra/commit/2a7b070da0ef2b2f23e4331282ba6e013690edb0.patch";
-              name = "nix-prefetch-git_set-branch-name.patch";
-              hash = "sha256-qgbzxJazYBERsTKCGZyxQ0rl+h6NpHFx70LYV/8hnlU=";
-            })
-            # https://github.com/NixOS/hydra/pull/1416
-            # https://github.com/NixOS/hydra/commit/8a54924d2aeffa841a3764b2c916211a8219c34c.patch
-            (pkgs.fetchpatch2 {
-              url = "https://github.com/NixOS/hydra/commit/8a54924d2aeffa841a3764b2c916211a8219c34c.patch";
-              name = "S3Backup-fix-compilation-issue.patch";
-              hash = "sha256-3UNI2dEemS1u/DXGayyUegC82ju9RVj8x6MlL+MCrxg=";
-            })
             # https://github.com/NixOS/hydra/pull/875
             #./patches/nixos-hydra-pull-875.patch
           ];
