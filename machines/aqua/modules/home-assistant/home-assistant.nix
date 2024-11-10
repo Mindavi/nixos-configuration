@@ -29,7 +29,9 @@
           # Wireguard
           "172.16.1.0/24"
         ];
-        ip_ban_enabled = true;
+        # TODO(Mindavi): I got locked out due to this, and I don't know why...
+        # Disable it until I figure out what happened.
+        ip_ban_enabled = false;
         login_attempts_threshold = 4;
       };
       logger = {
