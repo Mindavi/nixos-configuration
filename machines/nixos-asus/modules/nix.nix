@@ -1,5 +1,6 @@
 {
   config,
+  nixos-unstable,
   pkgs,
   ...
 }:
@@ -30,11 +31,11 @@
     };
     buildMachines = [ ];
     distributedBuilds = true;
-    registry.nixpkgs.to = {
-      type = "path";
-      path = pkgs.path;
-      narHash = pkgs.narHash;
-    };
-    nixPath = [ "nixpkgs=${pkgs.path}" ];
+    # https://github.com/ryan4yin/nixos-and-flakes-book/blob/main/docs/best-practices/nix-path-and-flake-registry.md
+    # https://github.com/stephen-huan/nixos-config/issues/1
+    # https://github.com/NixOS/nix/issues/9574
+    channel.enable = false;
+    registry.nixpkgs.flake = nixos-unstable;
+    # nixPath = [ "nixpkgs=${pkgs.path}" ];
   };
 }

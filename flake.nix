@@ -33,6 +33,7 @@
         ];
         specialArgs = {
           hydra_exporter = self.packages.${system}.hydra_exporter;
+          inherit nixos-unstable;
         };
       };
       nixosConfigurations.aqua = nixos-unstable.lib.nixosSystem {
@@ -40,6 +41,9 @@
         modules = [
           ./machines/aqua/default.nix
         ];
+        specialArgs = {
+          inherit nixos-unstable;
+        };
       };
     };
 }
