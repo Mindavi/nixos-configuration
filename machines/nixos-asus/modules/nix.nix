@@ -33,6 +33,7 @@
     registry.nixpkgs.to = {
       type = "path";
       path = pkgs.path;
+      narHash = pkgs.narHash;
     };
     nixPath = [ "nixpkgs=${pkgs.path}" ];
   };
