@@ -162,7 +162,7 @@
     chromium
 
     nixfmt-rfc-style
-    zed-editor
+    #zed-editor
     nixd
   ];
 
