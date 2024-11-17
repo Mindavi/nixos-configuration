@@ -45,6 +45,9 @@ in
       # Uses quite a bit of memory, so prevent multiple evals at once to reduce chance of memory exhaustion.
       max_concurrent_evals = 1
     '';
+    extraEnv = {
+      #"HYDRA_DEBUG" = "1";
+    };
   };
   systemd.services.hydra-send-stats.enable = false;
   networking.firewall.allowedTCPPorts = [
