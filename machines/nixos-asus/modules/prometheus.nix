@@ -95,6 +95,14 @@
           }
         ];
       }
+      {
+        job_name = "rtl_433";
+        static_configs = [
+          {
+            targets = [ "http://192.168.1.8:8433" ];
+          }
+        ];
+      }
     ];
   };
 }
