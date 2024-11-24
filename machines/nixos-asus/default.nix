@@ -164,6 +164,10 @@
     nixfmt-rfc-style
     zed-editor
     nixd
+
+    # samba
+    cifs-utils
+    smbclient
   ];
 
   #virtualisation.virtualbox.host.enable = true;
