@@ -36,5 +36,8 @@ in
 
     # Open up 8000 for testing purposes. E.g. running development servers.
     ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8000 accept
+
+    # rtl_433 http server
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8443 accept
   '';
 }

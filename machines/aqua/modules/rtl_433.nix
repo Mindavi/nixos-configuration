@@ -15,6 +15,7 @@
     description = "rtl_433 listener daemon";
     serviceConfig = {
       Type = "exec";
+      # See https://github.com/merbanan/rtl_433/pull/2863 for prometheus support
       ExecStart = "${pkgs.rtl_433}/bin/rtl_433 -F http -F json -F \"mqtt://localhost:1884,user=rtl_433,pass=rtl_433_pass,retain=0\"";
       DynamicUser = "yes";
       SupplementaryGroups = [ "plugdev" ];
@@ -25,10 +26,4 @@
       PrivateTmp = true;
     };
   };
-  networking.firewall.allowedTCPPorts = [
-    # Port for rtl_433 http server
-    # See https://github.com/merbanan/rtl_433/pull/2863
-    # TODO(mindavi): Use firewall rule instead.
-    8433
-  ];
 }
