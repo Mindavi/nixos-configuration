@@ -167,7 +167,7 @@
 
     # samba
     cifs-utils
-    smbclient
+    samba4Full
   ];
 
   #virtualisation.virtualbox.host.enable = true;
