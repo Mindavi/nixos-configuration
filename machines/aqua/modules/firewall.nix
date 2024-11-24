@@ -10,13 +10,12 @@ let
   subnetWireGuard = "172.16.1.0/24";
 in
 {
-  # Make sure firewall is enabled.
-  networking.firewall.enable = true;
   networking.nftables.enable = true;
-
   networking.firewall = {
+    enable = true;
     logRefusedPackets = true;
     logRefusedConnections = true;
+    logRefusedUnicastsOnly = false;
     logReversePathDrops = true;
     rejectPackets = true;
     checkReversePath = true;
