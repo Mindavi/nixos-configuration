@@ -12,7 +12,7 @@
     ./modules/firewall.nix
     ./modules/gaming.nix
     ./modules/nix.nix
-    ./modules/nvidia.nix
+    #./modules/nvidia.nix
     ./modules/prometheus.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
@@ -189,8 +189,8 @@
       "steam-run"
       "steam-runtime"
       "steam-unwrapped"
-      "nvidia-x11"
-      "nvidia-settings"
+      #"nvidia-x11"
+      #"nvidia-settings"
     ];
 
   services.printing = {
