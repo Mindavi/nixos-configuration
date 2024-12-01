@@ -5,6 +5,7 @@
 }:
 let
   hydra_exporter = pkgs.callPackage ../packages/hydra_exporter { };
+  hydra_exporter_port = 9200;
 in
 {
   # hydra is available on http://localhost:3000/
@@ -53,7 +54,7 @@ in
   networking.firewall.allowedTCPPorts = [
     config.services.hydra.port
     # Port for hydra-exporter
-    9200
+    hydra_exporter_port
   ];
 
   systemd.services.hydra-exporter = {
@@ -70,7 +71,7 @@ in
     environment = { };
     serviceConfig = {
       Type = "exec";
-      ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}/queue-runner-status\" --web.listen-address=:9200";
+      ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}/queue-runner-status\" --web.listen-address=:${hydra_exporter_port}";
       DynamicUser = "yes";
       Restart = "on-failure";
       RestartSec = "30s";
