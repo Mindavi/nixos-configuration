@@ -98,8 +98,8 @@ in
       "/"
       "/nix"
       "/home"
-    ]
-  }
+    ];
+  };
 
   nix = {
     settings = {
