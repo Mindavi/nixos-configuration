@@ -1,6 +1,5 @@
 {
-  #inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.nixos-unstable.url = "github:qowoz/nixpkgs/hydra-meson";
+  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixvim = {
     url = "github:nix-community/nixvim";
     inputs.nixpkgs.follows = "nixos-unstable";
