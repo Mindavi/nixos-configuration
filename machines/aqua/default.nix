@@ -20,6 +20,7 @@ in
     ./modules/home-assistant
     ./modules/homepage-dashboard.nix
     ./modules/mosquitto.nix
+    ./modules/prometheus.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
     ./modules/solar-inverter.nix
