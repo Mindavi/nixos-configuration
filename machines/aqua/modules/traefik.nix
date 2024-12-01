@@ -95,6 +95,22 @@ in
             }
           ];
         };
+
+        routers.prometheus = {
+          # https://blog.cubieserver.de/2020/configure-prometheus-on-a-sub-path-behind-reverse-proxy/
+          rule = "Host(`prometheus.aqua`) || PathPrefix(`/prometheus`)";
+          service = "prometheus";
+          middlewares = [
+            "internal-allowlist"
+          ];
+        };
+        services.prometheus = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString services.prometheus.port}"
+            }
+          ];
+        };
       };
     };
   };

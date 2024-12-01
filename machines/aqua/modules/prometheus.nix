@@ -20,6 +20,7 @@
     # Use traefik for proxying.
     listenAddress = "127.0.0.1";
     port = 9090;
+    webExternalUrl = "/prometheus/";
     scrapeConfigs = [
       {
         job_name = "node";
