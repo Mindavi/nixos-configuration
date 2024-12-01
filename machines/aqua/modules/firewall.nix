@@ -38,6 +38,6 @@ in
     ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8000 accept
 
     # rtl_433 http server
-    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8443 accept
+    ip saddr { ${subnetReal}, ${subnetVm}, ${subnetWireGuard} } tcp dport 8433 accept
   '';
 }
