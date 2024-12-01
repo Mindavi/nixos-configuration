@@ -36,6 +36,7 @@ in
     };
     dynamicConfigOptions = {
       http = {
+        ### Internal API
         routers.api = {
           # https://doc.traefik.io/traefik/routing/routers/#entrypoints
           # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
@@ -51,6 +52,7 @@ in
           range_wireguard
         ];
 
+        ### Home assistant
         routers.homeassistant = {
           # Home assistant doesn't support routing using a subpath.
           # https://community.home-assistant.io/t/accessing-home-assistant-through-reverse-proxy-with-custom-path/355792
@@ -75,6 +77,8 @@ in
             }
           ];
         };
+
+        ### Hydra
         middlewares.hydra-stripprefix.stripprefix.prefixes = "/hydra";
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
         middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
@@ -97,6 +101,7 @@ in
           ];
         };
 
+        ### Prometheus
         routers.prometheus = {
           # https://blog.cubieserver.de/2020/configure-prometheus-on-a-sub-path-behind-reverse-proxy/
           rule = "Host(`prometheus.aqua`) || PathPrefix(`/prometheus`)";
@@ -109,6 +114,22 @@ in
           loadBalancer.servers = [
             {
               url = "http://localhost:${toString config.services.prometheus.port}";
+            }
+          ];
+        };
+
+        ### Grafana
+        routers.grafana = {
+          rule = "Host(`grafana.aqua`) || PathPrefix(`/grafana`)";
+          service = "grafana";
+          middlewares = [
+            "internal-allowlist"
+          ];
+        };
+        services.grafana = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString config.services.grafana.settings.server.http_port}";
             }
           ];
         };
