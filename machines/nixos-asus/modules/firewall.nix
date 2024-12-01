@@ -5,6 +5,10 @@
   ...
 }:
 
+let
+  subnetReal = "192.168.1.0/24";
+  subnetWireGuard = "172.16.1.0/24";
+in
 {
   # Open ports in the firewall.
   # 25565 for minecraft
@@ -28,11 +32,20 @@
     #6567
   ];
   networking.nftables.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.logRefusedPackets = true;
-  networking.firewall.logRefusedConnections = true;
-  networking.firewall.logRefusedUnicastsOnly = false;
-  networking.firewall.logReversePathDrops = true;
-  networking.firewall.rejectPackets = true;
-  networking.firewall.checkReversePath = true;
+  networking.firewall = {
+    enable = true;
+    logRefusedPackets = true;
+    logRefusedConnections = true;
+    logRefusedUnicastsOnly = false;
+    logReversePathDrops = true;
+    rejectPackets = true;
+    checkReversePath = true;
+
+    extraInputRules = ''
+      # Open up 8000 for testing purposes. E.g. running development servers.
+      ip saddr { ${subnetReal}, ${subnetWireGuard} } tcp dport 8000 accept
+
+      # prometheus node_exporter
+      ip saddr { ${subnetWireGuard} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
+  '';
 }
