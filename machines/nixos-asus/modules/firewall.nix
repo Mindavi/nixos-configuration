@@ -47,5 +47,6 @@ in
 
       # prometheus node_exporter
       ip saddr { ${subnetWireGuard} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
-  '';
+    '';
+  };
 }
