@@ -107,7 +107,7 @@ in
         services.prometheus = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:${toString services.prometheus.port}"
+              url = "http://localhost:${toString services.prometheus.port}";
             }
           ];
         };
