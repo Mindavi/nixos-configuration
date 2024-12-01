@@ -31,6 +31,14 @@
         ];
       }
       {
+        job_name = "nixos-asus_node";
+        static_configs = [
+          {
+            targets = [ "172.16.1.2:9100" ];
+          }
+        ];
+      }
+      {
         job_name = "aqua_hydra_web_server";
         static_configs = [
           {
