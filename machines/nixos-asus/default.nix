@@ -87,6 +87,7 @@
       "aqua"
       "hass.aqua"
       "hydra.aqua"
+      "prometheus.aqua"
       "traefik.aqua"
     ];
     "192.168.1.123" = [ "printer" ];
