@@ -91,6 +91,16 @@ in
 
   networking.firewall.enable = true;
 
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    fileSystems = [
+      "/",
+      "/nix",
+      "/home",
+    ]
+  }
+
   nix = {
     settings = {
       sandbox = true;
