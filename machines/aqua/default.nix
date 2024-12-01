@@ -17,6 +17,7 @@ in
     ./modules/backup.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
+    ./modules/grafana.nix
     ./modules/home-assistant
     ./modules/homepage-dashboard.nix
     ./modules/mosquitto.nix
