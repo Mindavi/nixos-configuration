@@ -95,9 +95,9 @@ in
     enable = true;
     interval = "monthly";
     fileSystems = [
-      "/",
-      "/nix",
-      "/home",
+      "/"
+      "/nix"
+      "/home"
     ]
   }
 
