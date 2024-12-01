@@ -74,7 +74,7 @@
             # At least, we get errors like:
             # Dec 01 22:25:39 aqua prometheus[814]: time=2024-12-01T22:25:39.838+01:00 level=ERROR source=scrape.go:1585 msg="Failed to determine correct type of scrape target." component="scrape manager" scrape_pool=rtl_433 target=http://aqua:8433/metrics content_type="" fallback_media_type="" err="non-compliant scrape target sending blank Content-Type and no fallback_scrape_protocol specified for target"
             targets = [ "127.0.0.1:8433" ];
-            fallback_scrape_protocol = "PrometheusText0.0.4";
+            # fallback_scrape_protocol = "PrometheusText0.0.4";
           }
         ];
       }
