@@ -71,7 +71,7 @@ in
     environment = { };
     serviceConfig = {
       Type = "exec";
-      ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}/queue-runner-status\" --web.listen-address=:${hydra_exporter_port}";
+      ExecStart = "${hydra_exporter}/bin/hydra_exporter --collector.queue-runner.url=\"${config.services.hydra.hydraURL}/queue-runner-status\" --web.listen-address=:${toString hydra_exporter_port}";
       DynamicUser = "yes";
       Restart = "on-failure";
       RestartSec = "30s";

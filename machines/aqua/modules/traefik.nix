@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 let
@@ -70,7 +71,7 @@ in
         services.homeassistant = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:8123";
+              url = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
             }
           ];
         };
@@ -91,7 +92,7 @@ in
         services.hydra = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:3000";
+              url = "http://localhost:${toString config.services.hydra.port}";
             }
           ];
         };
@@ -107,7 +108,7 @@ in
         services.prometheus = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:${toString services.prometheus.port}";
+              url = "http://localhost:${toString config.services.prometheus.port}";
             }
           ];
         };
