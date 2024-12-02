@@ -135,11 +135,13 @@ in
         };
 
         ### Homepage dashboard
+        middlewares.homepage-dashboard-stripprefix.stripprefix.prefixes = "/dashboard";
         routers.homepage-dashboard = {
           rule = "PathPrefix(`/dashboard`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
           service = "homepage-dashboard";
           middlewares = [
             "internal-allowlist"
+            "homepage-dashboard-stripprefix"
           ];
         };
         services.homepage-dashboard = {

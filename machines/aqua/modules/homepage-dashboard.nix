@@ -12,6 +12,7 @@ in
     listenPort = 8082;
     openFirewall = false;
     settings = {
+      # https://gethomepage.dev/configs/settings/#base-url
       startUrl = "/dashboard";
     };
 
