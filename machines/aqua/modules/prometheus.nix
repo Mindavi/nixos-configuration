@@ -31,7 +31,7 @@
         ];
       }
       {
-        job_name = "nixos-asus_node";
+        job_name = "node";
         static_configs = [
           {
             targets = [ "172.16.1.2:9100" ];
@@ -39,7 +39,7 @@
         ];
       }
       {
-        job_name = "aqua_hydra_web_server";
+        job_name = "hydra_web_server";
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
@@ -48,7 +48,7 @@
         ];
       }
       {
-        job_name = "aqua_hydra_queue_runner";
+        job_name = "hydra_queue_runner";
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
@@ -57,7 +57,7 @@
         ];
       }
       {
-        job_name = "nixos-asus_hydra_web_server";
+        job_name = "hydra_web_server";
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
@@ -66,7 +66,7 @@
         ];
       }
       {
-        job_name = "nixos-asus_hydra_queue_runner";
+        job_name = "hydra_queue_runner";
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
@@ -76,13 +76,13 @@
       }
       {
         job_name = "rtl_433";
+        fallback_scrape_protocol = "PrometheusText0.0.4";
         static_configs = [
           {
             # Don't use `aqua`, it will try to use ipv6 and I think rtl_433 doesn't support that?
             # At least, we get errors like:
             # Dec 01 22:25:39 aqua prometheus[814]: time=2024-12-01T22:25:39.838+01:00 level=ERROR source=scrape.go:1585 msg="Failed to determine correct type of scrape target." component="scrape manager" scrape_pool=rtl_433 target=http://aqua:8433/metrics content_type="" fallback_media_type="" err="non-compliant scrape target sending blank Content-Type and no fallback_scrape_protocol specified for target"
             targets = [ "127.0.0.1:8433" ];
-            # fallback_scrape_protocol = "PrometheusText0.0.4";
           }
         ];
       }
