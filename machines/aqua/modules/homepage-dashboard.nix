@@ -4,6 +4,7 @@
 
 let
   aqua_url = "172.16.1.8";
+  nixos-asus_url = "172.16.1.2";
 in
 {
   services.homepage-dashboard = {

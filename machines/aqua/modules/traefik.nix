@@ -148,7 +148,7 @@ in
               url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}";
             }
           ];
-        }
+        };
       };
     };
   };
