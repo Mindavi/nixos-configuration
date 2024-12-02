@@ -14,6 +14,7 @@ in
       server = {
         port = 8082;
         host = "127.0.0.1";
+        base-url = "/dashboard";
       };
       pages = [
         {
