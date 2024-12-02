@@ -39,11 +39,11 @@ in
                         }
                         {
                           title = "Prometheus";
-                          url = "http://${nixos-asus_url}/prometheus";
+                          url = "http://${aqua_url}/prometheus";
                         }
                         {
                           title = "Grafana";
-                          url = "http://${nixos-asus_url}/grafana";
+                          url = "http://${aqua_url}/grafana";
                         }
                         {
                           title = "Traefik";
@@ -55,12 +55,12 @@ in
                       title = "nixos-asus";
                       links = [
                         {
-                          title = "Syncthing";
-                          url = "http://${nixos-asus_url}:8384";
-                        }
-                        {
                           title = "Prometheus";
                           url = "http://${nixos-asus_url}:9090";
+                        }
+                        {
+                          title = "Syncthing";
+                          url = "http://${nixos-asus_url}:8384";
                         }
                       ];
                     }
