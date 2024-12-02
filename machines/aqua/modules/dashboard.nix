@@ -12,7 +12,7 @@ in
     openFirewall = false;
     settings = {
       server = {
-        port = "8082";
+        port = 8082;
         host = "127.0.0.1";
       };
       pages = [
