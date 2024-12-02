@@ -133,6 +133,22 @@ in
             }
           ];
         };
+
+        ### Homepage dashboard
+        routers.homepage-dashboard = {
+          rule = "PathPrefix(`/dashboard`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
+          service = "homepage-dashboard";
+          middlewares = [
+            "internal-allowlist"
+          ];
+        };
+        services.homepage-dashboard = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}";
+            }
+          ];
+        }
       };
     };
   };

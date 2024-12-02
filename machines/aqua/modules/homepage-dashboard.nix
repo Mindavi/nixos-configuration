@@ -1,12 +1,15 @@
 {
   ...
 }:
+
+let
+  aqua_url = "172.16.1.8";
+in
 {
   services.homepage-dashboard = {
     enable = true;
     listenPort = 8082;
-    # TODO(mindavi): Disable again
-    openFirewall = true;
+    openFirewall = false;
     settings = {
       startUrl = "/dashboard";
     };
@@ -18,7 +21,7 @@
             "Home Assistant" = [
               {
                 abbr = "HASS";
-                href = "http://aqua.local";
+                href = "http://${aqua_url}";
                 description = "Home automation dashboard";
               }
             ];
@@ -27,8 +30,26 @@
             "Hydra" = [
               {
                 abbr = "HY";
-                href = "http://aqua.local/hydra";
+                href = "http://${aqua_url}/hydra";
                 description = "Continuous integration for Nix";
+              }
+            ];
+          }
+          {
+            "Prometheus" = [
+              {
+                abbr = "PROM";
+                href = "http://${nixos-asus_url}/prometheus";
+                description = "Time series database";
+              }
+            ];
+          }
+          {
+            "Grafana" = [
+              {
+                abbr = "GRAF";
+                href = "http://${nixos-asus_url}/grafana";
+                description = "Query and visualise time series data";
               }
             ];
           }
@@ -46,19 +67,19 @@
       {
         Laptop = [
           {
-            Syncthing = [
+            "Syncthing" = [
               {
                 abbr = "ST";
-                href = "http://localhost:8384";
+                href = "http://${nixos-asus_url}:8384";
                 description = "Synchronize files between devices";
               }
             ];
           }
           {
-            Prometheus = [
+            "Prometheus" = [
               {
                 abbr = "PROM";
-                href = "http://localhost:9090";
+                href = "http://${nixos-asus_url}:9090";
                 description = "Time series database";
               }
             ];
