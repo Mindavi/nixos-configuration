@@ -134,20 +134,20 @@ in
           ];
         };
 
-        ### Homepage dashboard
-        middlewares.homepage-dashboard-stripprefix.stripprefix.prefixes = "/dashboard";
-        routers.homepage-dashboard = {
+        ### Dashboard
+        middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard";
+        routers.dashboard = {
           rule = "PathPrefix(`/dashboard`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
-          service = "homepage-dashboard";
+          service = "dashboard";
           middlewares = [
             "internal-allowlist"
-            "homepage-dashboard-stripprefix"
+            "dashboard-stripprefix"
           ];
         };
-        services.homepage-dashboard = {
+        services.dashboard = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}";
+              url = "http://localhost:${toString config.services.glance.settings.server.port}";
             }
           ];
         };

@@ -19,7 +19,7 @@ in
     ./modules/firewall.nix
     ./modules/grafana.nix
     ./modules/home-assistant
-    ./modules/homepage-dashboard.nix
+    ./modules/dashboard.nix
     ./modules/mosquitto.nix
     ./modules/prometheus.nix
     ./modules/rtl_433.nix
