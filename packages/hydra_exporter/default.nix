@@ -6,7 +6,7 @@
 
 buildGoModule {
   pname = "hydra_exporter";
-  version = "unstable-2023-07-20";
+  version = "unstable-2024-11-22";
   src = fetchFromGitHub {
     owner = "helsinki-systems";
     repo = "hydra_exporter";
