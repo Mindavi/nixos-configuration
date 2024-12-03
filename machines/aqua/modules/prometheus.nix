@@ -26,15 +26,10 @@
         job_name = "node";
         static_configs = [
           {
-            targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
-          }
-        ];
-      }
-      {
-        job_name = "node";
-        static_configs = [
-          {
-            targets = [ "172.16.1.2:9100" ];
+            targets = [
+              "localhost:${toString config.services.prometheus.exporters.node.port}"
+              "172.16.1.2:9100"
+            ];
           }
         ];
       }
@@ -43,7 +38,10 @@
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-            targets = [ "aqua:9198" ];
+            targets = [
+              "aqua:9198"
+              "172.16.1.2:9198"
+            ];
           }
         ];
       }
@@ -52,25 +50,10 @@
         static_configs = [
           {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-            targets = [ "aqua:9200" ];
-          }
-        ];
-      }
-      {
-        job_name = "hydra_web_server";
-        static_configs = [
-          {
-            # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-            targets = [ "172.16.1.2:9198" ];
-          }
-        ];
-      }
-      {
-        job_name = "hydra_queue_runner";
-        static_configs = [
-          {
-            # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
-            targets = [ "172.16.1.2:9200" ];
+            targets = [
+              "aqua:9200"
+              "172.16.1.2:9200"
+            ];
           }
         ];
       }
