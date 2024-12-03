@@ -14,7 +14,7 @@ in
   services.traefik = {
     enable = true;
     staticConfigOptions = {
-      log.level = "DEBUG";
+      log.level = "INFO";
       entryPoints = {
         web = {
           address = ":${toString webport}";
