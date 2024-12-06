@@ -13,7 +13,6 @@
     ./modules/gaming.nix
     ./modules/nix.nix
     #./modules/nvidia.nix
-    ./modules/prometheus.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
     ../../modules/hydra.nix
