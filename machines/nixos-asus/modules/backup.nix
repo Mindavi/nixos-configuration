@@ -14,7 +14,7 @@
     backups = {
       localbackup = {
         # Otherwise it will create the folder even if the drive is not mounted.
-        # TODO(mindavi): only run when disk is mounted...
+        # TODO(mindavi): automatically run when disk is mounted...
         initialize = false;
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
