@@ -37,6 +37,17 @@
         job_name = "hydra_web_server";
         static_configs = [
           {
+            targets = [
+              "aqua:3000"
+              "172.16.1.2:3000"
+            ]
+          }
+        ]
+      }
+      {
+        job_name = "hydraqueuerunner";
+        static_configs = [
+          {
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
             targets = [
               "aqua:9198"
