@@ -6,6 +6,7 @@
 let
   hydra_exporter = pkgs.callPackage ../packages/hydra_exporter { };
   hydra_exporter_port = 9200;
+  hydraqueuerunner_port = 9198;
 in
 {
   # hydra is available on http://localhost:3000/
@@ -52,7 +53,10 @@ in
   };
   systemd.services.hydra-send-stats.enable = false;
   networking.firewall.allowedTCPPorts = [
+    # Hydra web server port.
     config.services.hydra.port
+    # hydraqueuerunner prometheus metrics port.
+    hydraqueuerunner_port
     # Port for hydra-exporter
     hydra_exporter_port
   ];
