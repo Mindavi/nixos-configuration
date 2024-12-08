@@ -10,6 +10,7 @@
       browseable = "yes";
       "guest ok" = "no";
       comment = "Opslag voor gezin";
+      "map to guest" = "bad user";
     };
   };
   users.groups.familie = { };
