@@ -9,7 +9,6 @@
     rclone
     restic
   ];
-  # TODO(mindavi): figure out how to automatically start backup when disk is plugged in.
   services.restic = {
     backups = {
       rsyncnet_samba = {
