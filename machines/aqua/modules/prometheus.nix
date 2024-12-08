@@ -27,7 +27,7 @@
         static_configs = [
           {
             targets = [
-              "localhost:${toString config.services.prometheus.exporters.node.port}"
+              "aqua:${toString config.services.prometheus.exporters.node.port}"
               "172.16.1.2:9100"
             ];
           }
