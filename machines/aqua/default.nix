@@ -14,6 +14,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
@@ -129,18 +130,6 @@ in
     };
     buildMachines = [ ];
     distributedBuilds = true;
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    domainName = "local";
-    openFirewall = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
