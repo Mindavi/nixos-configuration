@@ -13,6 +13,8 @@
     };
   };
   users.groups.familie = { };
+  # For adding credentials to Windows:
+  # https://superuser.com/questions/973690/windows-10-forgets-mapped-drives-credentials-after-reboot
   users.users.familie = {
     isSystemUser = true;
     home = "/var/data/samba";
