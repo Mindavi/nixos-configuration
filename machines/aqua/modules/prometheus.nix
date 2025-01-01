@@ -40,9 +40,9 @@
             targets = [
               "aqua:3000"
               "172.16.1.2:3000"
-            ]
+            ];
           }
-        ]
+        ];
       }
       {
         job_name = "hydraqueuerunner";
