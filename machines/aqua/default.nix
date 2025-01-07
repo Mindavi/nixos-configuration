@@ -28,6 +28,7 @@ in
     ./modules/samba.nix
     ./modules/solar-inverter.nix
     ./modules/traefik.nix
+    ./modules/zigbee2mqtt.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
     ../../modules/hydra.nix
