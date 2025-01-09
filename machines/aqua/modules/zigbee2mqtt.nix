@@ -6,7 +6,7 @@
 
 {
   services.zigbee2mqtt = {
-    enable = true;
+    enable = false;
     settings = {
       homeassistant = config.services.home-assistant.enable;
       permit_join = false;
