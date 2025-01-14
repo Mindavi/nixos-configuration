@@ -36,8 +36,7 @@
           };
         };
         acl = [
-          "read #"
-          "write #"
+          "topic readwrite #"
         ];
       }
     ];
