@@ -168,10 +168,7 @@
 
     # samba
     cifs-utils
-    (samba4Full.override {
-      # Workaround for https://github.com/NixOS/nixpkgs/issues/359723
-      enableCephFS = false;
-    })
+    samba4Full
   ];
 
   #virtualisation.virtualbox.host.enable = true;
