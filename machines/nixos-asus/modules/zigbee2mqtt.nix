@@ -6,7 +6,7 @@
 
 {
   services.zigbee2mqtt = {
-    enable = false;
+    enable = true;
     settings = {
       homeassistant = true;  # enable autodiscovery even though we won't run home assistant on nixos-asus
       permit_join = false;
