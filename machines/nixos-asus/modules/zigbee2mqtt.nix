@@ -30,7 +30,7 @@
         log_output = [
           "console"
         ];
-      }
+      };
     };
   };
 }
