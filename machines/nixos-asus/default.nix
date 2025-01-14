@@ -14,6 +14,7 @@
     ./modules/nix.nix
     ./modules/nvidia.nix
     ./modules/prometheus.nix
+    ./modules/samba.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
     ../../modules/hydra.nix
