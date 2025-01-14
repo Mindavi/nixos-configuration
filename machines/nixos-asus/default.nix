@@ -132,6 +132,7 @@
     #digikam
     fdupes
     mqttui # handy for mqtt debugging/logging
+    mqttx
     minicom # for uart / serial debugging
     deepin.deepin-calculator # calculator gui application
     qalculate-qt # calculator gui application
