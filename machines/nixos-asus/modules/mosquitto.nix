@@ -23,6 +23,10 @@
         users = {
           zigbee2mqtt = {
             password = "zb2mqttpass_test";
+            acl = [
+              "read #"
+              "write #"
+            ];
           };
           monitor = {
             acl = [
