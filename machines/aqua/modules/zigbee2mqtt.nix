@@ -21,7 +21,7 @@
         # base_url = "/zigbee2mqtt";
       };
       mqtt = {
-        server = "mqtt://localhost:8123";
+        server = "mqtt://localhost:1883";
         client_id = "zigbee2mqtt_1";
       };
     };

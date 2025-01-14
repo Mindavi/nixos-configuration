@@ -19,7 +19,7 @@
         port = 8080;
       };
       mqtt = {
-        server = "mqtt://localhost:8123";
+        server = "mqtt://localhost:1883";
         client_id = "zigbee2mqtt_1";
         user = "zigbee2mqtt";
         password = "zb2mqttpass_test";
