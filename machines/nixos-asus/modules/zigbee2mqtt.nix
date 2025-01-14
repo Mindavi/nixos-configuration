@@ -12,7 +12,7 @@
       permit_join = false;
       serial = {
         port = "tcp://192.168.1.74:6638";
-        # adapter = "zstack";  # not needed when using mDNS autodiscovery
+        adapter = "zstack";
       };
       frontend = {
         enabled = true;
