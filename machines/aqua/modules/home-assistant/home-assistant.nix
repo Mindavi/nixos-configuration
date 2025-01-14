@@ -80,16 +80,6 @@
           };
           mode = "single";
         }
-        {
-          alias = "Backup Home Assistant every night at 3 AM";
-          trigger = {
-            platform = "time";
-            at = "03:00:00";
-          };
-          action = {
-            service = "backup.create";
-          };
-        }
       ];
       "automation ui" = "!include automations.yaml";
     };
