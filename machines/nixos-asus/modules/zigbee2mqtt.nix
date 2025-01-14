@@ -26,7 +26,7 @@
         base_topic = "zigbee2mqtt";
       };
       advanced = {
-        log_level = "debug";
+        log_level = "info";
         log_output = [
           "console"
         ];

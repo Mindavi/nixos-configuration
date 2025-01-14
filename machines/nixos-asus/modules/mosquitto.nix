@@ -3,8 +3,8 @@
   services.mosquitto = {
     enable = true;
     persistence = false;
-    # TODO(Mindavi): probably should reduce this at some point, but at least debug is disabled now.
     logType = [
+      "debug"
       "error"
       "warning"
       "notice"
