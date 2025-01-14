@@ -35,6 +35,10 @@
             password = "everythingisvisibleforme";
           };
         };
+        acl = [
+          "read #"
+          "write #"
+        ];
       }
     ];
   };
