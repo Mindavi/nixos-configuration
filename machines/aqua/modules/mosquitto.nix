@@ -41,6 +41,7 @@
         acl = [
           "topic read public/#"
           "pattern write public/%u/#"
+          "pattern write public/%c/#"
         ];
       }
       {
