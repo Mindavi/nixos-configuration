@@ -37,14 +37,6 @@
             ];
             password = "inverter-monitor<>";
           };
-          open_mqtt_gateway = {
-            acl = [
-              # Home assistant autodiscovery.
-              "write homeassistant/#"
-              "readwrite openmqttgateway/#"
-            ];
-            password = "open_mqtt_gateway_1234";
-          };
         };
         acl = [
           "topic read public/#"
@@ -72,6 +64,14 @@
               "write sensor/+/+/will"
             ];
             password = "ThisiswhatIfeelitslike...";
+          };
+          open_mqtt_gateway = {
+            acl = [
+              # Home assistant autodiscovery.
+              "write homeassistant/#"
+              "readwrite openmqttgateway/#"
+            ];
+            password = "open_mqtt_gateway_1234";
           };
         };
         acl = [
