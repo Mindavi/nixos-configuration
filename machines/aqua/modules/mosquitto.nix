@@ -68,6 +68,7 @@
         };
         acl = [
           "topic read public/#"
+          "pattern write public/%c/#"
           "pattern write public/%u/#"
         ];
       }
