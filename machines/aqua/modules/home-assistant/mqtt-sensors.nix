@@ -56,7 +56,7 @@ in
           {
             name = "Temperature pantry (ch3)";
             object_id = "temperature_bresser_portable_3";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/89/temperature_C";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
             expire_after = 1800;
@@ -83,7 +83,7 @@ in
           {
             name = "Humidity pantry (ch3)";
             object_id = "humidity_bresser_portable_3";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/89/humidity";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
             expire_after = 1800;
@@ -104,7 +104,7 @@ in
           {
             name = "Battery status pantry (ch3)";
             object_id = "battery_status_bresser_portable_3";
-            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/89/battery_ok";
+            state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/battery_ok";
             state_class = "measurement";
           }
           {
