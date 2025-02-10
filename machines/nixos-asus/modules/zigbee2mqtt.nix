@@ -11,7 +11,7 @@
       homeassistant = true;  # enable autodiscovery even though we won't run home assistant on nixos-asus
       permit_join = false;
       serial = {
-        port = "tcp://192.168.1.74:6638";
+        port = "mdns://SLZB-06";
         adapter = "zstack";
       };
       frontend = {
