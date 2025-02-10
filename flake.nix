@@ -16,7 +16,7 @@
     {
       self,
       nixos-unstable,
-      nixvim,
+      #nixvim,
     }:
     let
       system = "x86_64-linux";
