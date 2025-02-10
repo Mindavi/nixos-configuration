@@ -1,33 +1,12 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "nixvim",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1736143030,
-        "narHash": "sha256-+hu54pAoLDEZT9pjHlqL9DNzWz0NbUn8NEAHP7PQPzU=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "b905f6fc23a9051a6e1b741e1438dbfc0634c6de",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1737885589,
-        "narHash": "sha256-Zf0hSrtzaM1DEz8//+Xs51k/wdSajticVrATqDrfQjg=",
+        "lastModified": 1739020877,
+        "narHash": "sha256-mIvECo/NNdJJ/bXjNqIh8yeoSjVLAuDuTUzAo7dzs8Y=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "852ff1d9e153d8875a83602e03fdef8a63f0ecf8",
+        "rev": "a79cfe0ebd24952b580b1cf08cd906354996d547",
         "type": "github"
       },
       "original": {
@@ -37,38 +16,9 @@
         "type": "github"
       }
     },
-    "nixvim": {
-      "inputs": {
-        "devshell": [],
-        "flake-compat": [],
-        "flake-parts": "flake-parts",
-        "git-hooks": [],
-        "home-manager": [],
-        "nix-darwin": [],
-        "nixpkgs": [
-          "nixos-unstable"
-        ],
-        "nuschtosSearch": [],
-        "treefmt-nix": []
-      },
-      "locked": {
-        "lastModified": 1737995534,
-        "narHash": "sha256-in2EtlH84FJ5+7l2vBWhUiknmDFAHTuHIPSBiMhICyw=",
-        "owner": "nix-community",
-        "repo": "nixvim",
-        "rev": "af4483c025ecf02ba36b2013eed0062ccd629809",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "nixos-unstable": "nixos-unstable",
-        "nixvim": "nixvim"
+        "nixos-unstable": "nixos-unstable"
       }
     }
   },
