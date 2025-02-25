@@ -34,6 +34,13 @@
             ];
             password = "everythingisvisibleforme";
           };
+          hass = {
+            acl = [
+              "read #"
+              "write #"
+            ];
+            password = "home-assistant-1";
+          };
         };
         acl = [
           "topic readwrite #"
