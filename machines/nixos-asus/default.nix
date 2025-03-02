@@ -12,6 +12,7 @@
     ./modules/firewall.nix
     ./modules/gaming.nix
     ./modules/home-assistant
+    ./modules/jellyfin.nix
     ./modules/mosquitto.nix
     ./modules/nix.nix
     ./modules/nvidia.nix
