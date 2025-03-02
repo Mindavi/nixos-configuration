@@ -22,7 +22,7 @@
       #intel-vdpau-driver
       libvdpau-va-gl
       #vaapiVdpau
-      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+      #intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
       # OpenCL support for intel CPUs before 12th gen
       # see: https://github.com/NixOS/nixpkgs/issues/356535
       intel-compute-runtime-legacy1
