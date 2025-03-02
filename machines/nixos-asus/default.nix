@@ -175,6 +175,13 @@
     # samba
     cifs-utils
     samba4Full
+
+    # DLNA
+    minidlna
+    ums  # universal media server
+    jellyfin
+    jellyfin-ffmpeg
+    jellyfin-web
   ];
 
   #virtualisation.virtualbox.host.enable = true;
