@@ -183,6 +183,10 @@
     jellyfin
     jellyfin-ffmpeg
     jellyfin-web
+
+    # Communication to smart meter
+    socat
+    #ser2net
   ];
 
   #virtualisation.virtualbox.host.enable = true;
