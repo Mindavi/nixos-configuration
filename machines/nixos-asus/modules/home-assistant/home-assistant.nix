@@ -63,6 +63,7 @@
     extraComponents = [
       "default_config"
       "dhcp"
+      "dsmr"
       "energy"
       "esphome"
       "history"
