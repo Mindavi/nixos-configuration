@@ -96,7 +96,6 @@
       "traefik.aqua"
     ];
     "192.168.1.123" = [ "printer" ];
-    "192.168.1.73" = [ "slzb-06" ];
   };
 
   time.timeZone = "Europe/Amsterdam";
