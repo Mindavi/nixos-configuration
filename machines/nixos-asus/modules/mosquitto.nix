@@ -41,7 +41,7 @@
             ];
             password = "home-assistant-1";
           };
-          openmqttgateway = {
+          open_mqtt_gateway = {
            acl = [
               "write #"
             ];
