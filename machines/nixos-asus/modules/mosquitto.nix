@@ -54,7 +54,7 @@
         users = {
           open_mqtt_gateway = {
             acl = [
-              "write #";
+              "write #"
             ];
             hashedPassword = "$7$101$0O71NK+NPfshX2EX$3Q62cfnr+3ytTKiN449UU9mtrExTJ6cjDRU5bLLRIrQAxSN9eJ+pZj7rjT0ViWLcutoueaPJvvKptKfZ5AW5tQ==";
           };
