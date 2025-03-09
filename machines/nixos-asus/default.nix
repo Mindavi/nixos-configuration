@@ -264,7 +264,7 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
-      desktopManager.plasma5.enable = true;
+      desktopManager.plasma6.enable = true;
     };
   };
 
