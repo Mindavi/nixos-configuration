@@ -76,8 +76,17 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
   #networking.interfaces.enp3s0f1.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
-
+  networking.interfaces = {
+    wlp2s0 = {
+      useDHCP = true;
+      ipv4.addresses = [
+        {
+          address = "192.168.178.3";
+          prefixLength = 24;
+        }
+      ];
+    };
+  };
   # Prevent waiting for DHCP if running in a VM.
   networking.dhcpcd.wait = "if-carrier-up";
   #systemd.network.wait-online.timeout = 5;
