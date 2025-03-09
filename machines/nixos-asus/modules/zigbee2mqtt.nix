@@ -13,6 +13,7 @@
       homeassistant = true;  # enable autodiscovery even though we won't run home assistant on nixos-asus
       permit_join = false;
       serial = {
+        # TODO(Mindavi): mDNS does not work at all, figure out why this is. Maybe systemd service restrictions from NixOS?
         #port = "mdns://slzb-06";
         port = "tcp://192.168.178.190:6638";
         adapter = "zstack";
