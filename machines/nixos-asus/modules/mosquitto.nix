@@ -20,6 +20,7 @@
         settings = {
           allow_anonymous = true;
         };
+        # !!! WARNING: only for services running on the same machine.
         users = {
           zigbee2mqtt = {
             password = "zb2mqttpass_test";
@@ -41,16 +42,23 @@
             ];
             password = "home-assistant-1";
           };
-          open_mqtt_gateway = {
-           acl = [
-              "write #"
-            ];
-            password = "MyPasswordForOpenMqttGateway";
-          };
         };
         acl = [
           "topic readwrite #"
         ];
+      }
+      {
+        # Available on all interfaces
+        address = null;
+        port = 1884;
+        users = {
+          open_mqtt_gateway = {
+            acl = [
+              "write #";
+            ];
+            hashedPassword = "$7$101$0O71NK+NPfshX2EX$3Q62cfnr+3ytTKiN449UU9mtrExTJ6cjDRU5bLLRIrQAxSN9eJ+pZj7rjT0ViWLcutoueaPJvvKptKfZ5AW5tQ==";
+          };
+        };
       }
     ];
   };
