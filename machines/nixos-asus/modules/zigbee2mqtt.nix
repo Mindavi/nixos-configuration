@@ -40,6 +40,6 @@
   systemd.services.zigbee2mqtt.serviceConfig = {
     # zigbee2mqtt stops when the adapter disconnects from the network / the laptop disconnects from the network
     # it happily exits with exit code 0, so let's just always try to restart here
-    Restart = "always";
+    Restart = lib.mkForce "always";
   };
 }
