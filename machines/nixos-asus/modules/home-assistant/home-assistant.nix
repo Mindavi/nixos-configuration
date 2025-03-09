@@ -61,6 +61,7 @@
       "automation ui" = "!include automations.yaml";
     };
     extraComponents = [
+      "daikin"
       "default_config"
       "dhcp"
       "dsmr"
