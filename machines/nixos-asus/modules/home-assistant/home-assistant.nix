@@ -66,6 +66,7 @@
       "dhcp"
       "dsmr"
       "energy"
+      "enphase_envoy"
       "esphome"
       "history"
       "html5"
