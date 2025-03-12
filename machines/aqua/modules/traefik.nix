@@ -7,7 +7,8 @@ let
   # use 8000 for testing since it's easier to open up for now
   webport = 80;
   websecureport = 8001; # use 8001 for experimentation
-  range_internal = "192.168.1.0/24";
+  range_internal1 = "192.168.1.0/24";
+  range_internal2 = "192.168.178.0/24";
   range_wireguard = "172.16.1.0/24";
 in
 {
@@ -48,7 +49,8 @@ in
         };
         middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
           "127.0.0.1/32"
-          range_internal
+          range_internal1
+          range_internal2
           range_wireguard
         ];
 
@@ -59,7 +61,7 @@ in
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
-          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal}`) || ClientIP(`${range_wireguard}`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard}`) || ClientIP(`${range_internal2}`)";
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
