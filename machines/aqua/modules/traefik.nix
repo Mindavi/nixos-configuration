@@ -61,7 +61,7 @@ in
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
-          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard}`) || ClientIP(`${range_internal2}`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || Host(`aqua.fritz.box`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard}`) || ClientIP(`${range_internal2}`)";
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
@@ -150,6 +150,22 @@ in
           loadBalancer.servers = [
             {
               url = "http://localhost:${toString config.services.glance.settings.server.port}";
+            }
+          ];
+        };
+
+        ### Zigbee2MQTT
+        routers.zigbee2mqtt = {
+          rule = "PathPrefix(`/zigbee2mqtt`)";
+          service = "zigbee2mqtt";
+          middlewares = [
+            "internal-allowlist"
+          ];
+        };
+        services.zigbee2mqtt = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString config.services.zigbee2mqtt.settings.frontend.port}";
             }
           ];
         };

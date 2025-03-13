@@ -21,6 +21,7 @@
       frontend = {
         enabled = true;
         port = 8081;
+        frontendBaseUrl = "/zigbee2mqtt";
       };
       mqtt = {
         server = "mqtt://localhost:1883";
