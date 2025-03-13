@@ -22,7 +22,7 @@
             name = "phone-rick";
             publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vIdO1Gc=";
             allowedIPs = [ "172.16.1.1/32" ];
-            endpoint = "192.168.1.73:51820";
+            endpoint = "192.168.178.9:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
@@ -30,7 +30,7 @@
             name = "nixos-asus";
             publicKey = "uKb3tIPQCTSdQBKvXjQFVT22gj6BHNveP3PSzq9gQBI=";
             allowedIPs = [ "172.16.1.2/32" ];
-            endpoint = "192.168.1.68:51820";
+            endpoint = "192.168.178.174:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
