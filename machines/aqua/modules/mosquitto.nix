@@ -49,7 +49,7 @@
               "readwrite #"
             ];
             hashedPassword = "$7$101$bHbx1V4Ad0fq2RNP$zaV4lS/YnXR3Fe6qdeh6DxllW6pkeytDv+8WlLnLK1cXZ6m5oqNXcLiUUsqfFY567AsjqNg6ncRvs34zedNmVQ==";
-          }
+          };
         };
         acl = [
           "topic read public/#"
