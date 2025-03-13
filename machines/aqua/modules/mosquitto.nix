@@ -37,6 +37,19 @@
             ];
             password = "inverter-monitor<>";
           };
+          zigbee2mqtt = {
+            password = ")O(*'e5[2#OpUch9,z7gn5z.";
+            acl = [
+              "readwrite zigbee2mqtt/#"
+              "write homeassistant/#"
+            ];
+          };
+          home_assistant = {
+            acl = [
+              "readwrite #"
+            ];
+            hashedPassword = "$7$101$bHbx1V4Ad0fq2RNP$zaV4lS/YnXR3Fe6qdeh6DxllW6pkeytDv+8WlLnLK1cXZ6m5oqNXcLiUUsqfFY567AsjqNg6ncRvs34zedNmVQ==";
+          }
         };
         acl = [
           "topic read public/#"
@@ -45,11 +58,12 @@
         ];
       }
       {
-        address = "0.0.0.0";
+        # Available on all interfaces
+        address = null;
         port = 1883;
-        settings = {
-          allow_anonymous = true;
-        };
+        # settings = {
+        #   allow_anonymous = true;
+        # };
         users = {
           monitor = {
             acl = [
@@ -70,9 +84,10 @@
             acl = [
               # Home assistant autodiscovery.
               "write homeassistant/#"
-              "readwrite openmqttgateway/#"
+              # Prefix as configured in the gateway.
+              "readwrite home/#"
             ];
-            password = "open_mqtt_gateway_1234";
+            hashedPassword = "$7$101$0O71NK+NPfshX2EX$3Q62cfnr+3ytTKiN449UU9mtrExTJ6cjDRU5bLLRIrQAxSN9eJ+pZj7rjT0ViWLcutoueaPJvvKptKfZ5AW5tQ==";
           };
         };
         acl = [

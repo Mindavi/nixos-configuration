@@ -24,10 +24,10 @@
         frontendBaseUrl = "/zigbee2mqtt";
       };
       mqtt = {
-        server = "mqtt://localhost:1883";
+        server = "mqtt://localhost:1884";
         client_id = "zigbee2mqtt_1";
         user = "zigbee2mqtt";
-        password = "zb2mqttpass_test";
+        password = ")O(*'e5[2#OpUch9,z7gn5z.";
         base_topic = "zigbee2mqtt";
       };
       advanced = {
