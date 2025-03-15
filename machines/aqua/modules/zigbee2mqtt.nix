@@ -30,8 +30,14 @@
         password = ")O(*'e5[2#OpUch9,z7gn5z.";
         base_topic = "zigbee2mqtt";
       };
+      availability = {
+        enabled = true;
+      };
       advanced = {
         log_level = "info";
+            log_namespaced_levels = {
+            "z2m:mqtt" = "warning";
+          };
         log_output = [
           "console"
         ];
