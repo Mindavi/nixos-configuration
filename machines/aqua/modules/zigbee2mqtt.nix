@@ -35,9 +35,9 @@
       };
       advanced = {
         log_level = "info";
-            log_namespaced_levels = {
-            "z2m:mqtt" = "warning";
-          };
+        log_namespaced_levels = {
+          "z2m:mqtt" = "warning";
+        };
         log_output = [
           "console"
         ];
