@@ -30,7 +30,7 @@ in
       api = {
         dashboard = true;
         basePath = "/traefik";
-      }
+      };
       accesslog = true;
       #certificatesResolvers.le.acme = {
       #email = "rol3517@gmail.com";
