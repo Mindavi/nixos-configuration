@@ -87,7 +87,7 @@
     package = pkgs.home-assistant;
     # TODO(Mindavi): Use a proxy.
     openFirewall = false;
-    enable = true;
+    enable = false;
     configDir = "/var/lib/hass";
   };
   # Ensure automations.yaml is generated if it doesn't exist yet.
