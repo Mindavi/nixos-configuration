@@ -56,38 +56,21 @@
       system_health = { };
       system_log = { };
 
-      "automation manual" = [
-        {
-          alias = "Wake up Lights";
-          trigger = {
-            platform = "time";
-            at = "sensor.pixel_7_next_alarm";
-          };
-          condition = {
-            condition = "state";
-            entity_id = "device_tracker.pixel_7";
-            state = "home";
-          };
-          action = {
-            service = "light.turn_on";
-            target = {
-              entity_id = "light.lamp_slaapkamer_rick";
-            };
-            data = {
-              transition = 60; # 60 seconds
-              brightness_pct = 100;
-            };
-          };
-          mode = "single";
-        }
-      ];
+      "automation manual" = [ ];
       "automation ui" = "!include automations.yaml";
     };
     extraComponents = [
+      "cast"
+      "climate"
+      "conversation"
+      "daikin"
       "default_config"
       "dhcp"
+      "dsmr"
       "energy"
+      "enphase_envoy"
       "esphome"
+      "fritz"
       "history"
       "html5"
       "http"
@@ -95,17 +78,25 @@
       "local_ip" # ???
       "logbook"
       "lovelace"
+      "luci"
       "met"
-      #"minecraft_server"
       "mobile_app"
       "mqtt"
+      "owntracks"
+      "piper"
       "renault"
       "shelly"
+      "shopping_list"
+      "smlight"
+      "snmp"
       "ssdp"
+      "ubus"
+      "webostv"
+      "whisper"
+      "wyoming"
       "zha"
     ];
     package = pkgs.home-assistant;
-    # TODO(Mindavi): Use a proxy.
     openFirewall = false;
     enable = true;
     configDir = "/var/lib/hass";
