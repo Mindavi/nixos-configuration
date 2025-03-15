@@ -27,7 +27,10 @@ in
           address = ":${toString websecureport}";
         };
       };
-      api.dashboard = true;
+      api = {
+        dashboard = true;
+        basePath = "/traefik";
+      }
       accesslog = true;
       #certificatesResolvers.le.acme = {
       #email = "rol3517@gmail.com";
@@ -42,8 +45,7 @@ in
           # https://doc.traefik.io/traefik/routing/routers/#entrypoints
           # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
           entrypoints = "web";
-          # TODO: change Host rule to traefik.rickvanschijndel.eu
-          rule = "(Host(`traefik.aqua`) || Host(`traefik.localhost`)) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))";
+          rule = "PathPrefix(`/traefik`) || PathPrefix(`/api`)";
           service = "api@internal";
           middlewares = "internal-allowlist";
         };

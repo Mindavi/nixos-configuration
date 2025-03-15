@@ -47,7 +47,7 @@ in
                         }
                         {
                           title = "Traefik";
-                          url = "http://traefik.aqua/dashboard/";
+                          url = "http://${aqua_url}/traefik/";
                         }
                         {
                           title = "Zigbee2MQTT";
