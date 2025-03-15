@@ -28,7 +28,7 @@ in
         };
       };
       api = {
-        dashboard = true;
+        dashboard = false;
         basePath = "/traefik";
       };
       accesslog = true;
@@ -41,20 +41,21 @@ in
     dynamicConfigOptions = {
       http = {
         ### Internal API
-        routers.api = {
-          # https://doc.traefik.io/traefik/routing/routers/#entrypoints
-          # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
-          entrypoints = "web";
-          rule = "PathPrefix(`/traefik`) || PathPrefix(`/api`)";
-          service = "api@internal";
-          middlewares = "internal-allowlist";
-        };
-        middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
-          "127.0.0.1/32"
-          range_internal1
-          range_internal2
-          range_wireguard
-        ];
+        # Disabled because it clashes with Home Assistant.
+        # routers.api = {
+        #   # https://doc.traefik.io/traefik/routing/routers/#entrypoints
+        #   # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
+        #   entrypoints = "web";
+        #   rule = "PathPrefix(`/traefik`) || PathPrefix(`/api`)";
+        #   service = "api@internal";
+        #   middlewares = "internal-allowlist";
+        # };
+        # middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
+        #   "127.0.0.1/32"
+        #   range_internal1
+        #   range_internal2
+        #   range_wireguard
+        # ];
 
         ### Home assistant
         routers.homeassistant = {
