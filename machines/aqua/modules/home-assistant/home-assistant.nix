@@ -37,7 +37,6 @@
       logger = {
         default = "info";
       };
-      lovelace.mode = "yaml";
 
       config = { };
       #default_config = {};
