@@ -187,7 +187,7 @@
 
     # DLNA
     minidlna
-    ums  # universal media server
+    ums # universal media server
     jellyfin
     jellyfin-ffmpeg
     jellyfin-web

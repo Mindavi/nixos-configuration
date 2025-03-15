@@ -10,7 +10,7 @@
     enable = true;
     package = pkgs.zigbee2mqtt_2;
     settings = {
-      homeassistant = true;  # enable autodiscovery even though we won't run home assistant on nixos-asus
+      homeassistant = true; # enable autodiscovery even though we won't run home assistant on nixos-asus
       permit_join = false;
       serial = {
         # TODO(Mindavi): mDNS does not work at all, figure out why this is. Maybe systemd service restrictions from NixOS?

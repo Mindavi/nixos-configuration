@@ -22,23 +22,29 @@ in
     checkReversePath = true;
   };
 
-  networking.firewall.extraInputRules = let
-    subnets = lib.concatStringsSep ", " [subnetInternal1 subnetInternal2 subnetVm subnetWireGuard];
+  networking.firewall.extraInputRules =
+    let
+      subnets = lib.concatStringsSep ", " [
+        subnetInternal1
+        subnetInternal2
+        subnetVm
+        subnetWireGuard
+      ];
     in
-  ''
-    # mdns, zeroconf, avahi TODO(mindavi): probably remove?
-    #ip saddr { ${subnets} } udp 5353 accept
+    ''
+      # mdns, zeroconf, avahi TODO(mindavi): probably remove?
+      #ip saddr { ${subnets} } udp 5353 accept
 
-    # mosquitto (insecure)
-    ip saddr { ${subnets} } tcp dport 1883 accept
+      # mosquitto (insecure)
+      ip saddr { ${subnets} } tcp dport 1883 accept
 
-    # samba
-    ip saddr { ${subnets} } tcp dport { 137, 138, 139, 445 } accept
+      # samba
+      ip saddr { ${subnets} } tcp dport { 137, 138, 139, 445 } accept
 
-    # Open up 8000 for testing purposes. E.g. running development servers.
-    ip saddr { ${subnets} } tcp dport 8000 accept
+      # Open up 8000 for testing purposes. E.g. running development servers.
+      ip saddr { ${subnets} } tcp dport 8000 accept
 
-    # rtl_433 http server
-    ip saddr { ${subnets} } tcp dport 8433 accept
-  '';
+      # rtl_433 http server
+      ip saddr { ${subnets} } tcp dport 8433 accept
+    '';
 }
