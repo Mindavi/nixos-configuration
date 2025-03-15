@@ -40,6 +40,13 @@ in
     };
     dynamicConfigOptions = {
       http = {
+        middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
+          "127.0.0.1/32"
+          range_internal1
+          range_internal2
+          range_wireguard
+        ];
+
         ### Internal API
         # Disabled because it clashes with Home Assistant.
         # routers.api = {
@@ -50,12 +57,6 @@ in
         #   service = "api@internal";
         #   middlewares = "internal-allowlist";
         # };
-        # middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
-        #   "127.0.0.1/32"
-        #   range_internal1
-        #   range_internal2
-        #   range_wireguard
-        # ];
 
         ### Home assistant
         routers.homeassistant = {
