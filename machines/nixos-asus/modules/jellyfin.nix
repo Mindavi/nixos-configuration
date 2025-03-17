@@ -5,7 +5,7 @@
 }:
 {
   services.jellyfin = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     user = "rick";
   };

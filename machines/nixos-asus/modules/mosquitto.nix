@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   services.mosquitto = {
-    enable = true;
+    enable = false;
     persistence = false;
     logType = [
       "debug"
