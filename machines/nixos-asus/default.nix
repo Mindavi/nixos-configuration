@@ -11,16 +11,13 @@
     ./modules/backup.nix
     ./modules/firewall.nix
     ./modules/gaming.nix
-    ./modules/home-assistant
     ./modules/jellyfin.nix
-    ./modules/mosquitto.nix
     ./modules/nix.nix
     ./modules/nvidia.nix
     ./modules/prometheus.nix
     ./modules/samba.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
-    ./modules/zigbee2mqtt.nix
     ../../modules/hydra.nix
     ../../modules/sudo.nix
     ../../modules/rtl-sdr.nix
