@@ -192,6 +192,10 @@
     # Communication to smart meter
     socat
     #ser2net
+
+    # Hard disk monitoring
+    smartmontools
+    gsmartcontrol
   ];
 
   #virtualisation.virtualbox.host.enable = true;
