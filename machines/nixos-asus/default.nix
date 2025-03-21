@@ -18,7 +18,8 @@
     ./modules/samba.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
-    ../../modules/hydra.nix
+    # ../../modules/hydra.nix
+    ../../modules/iperf.nix
     ../../modules/sudo.nix
     ../../modules/rtl-sdr.nix
   ];
