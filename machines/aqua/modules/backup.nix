@@ -16,6 +16,7 @@
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
           "/var/data/samba/copydrive"
+          "/var/lib/zigbee2mqtt"
         ];
         pruneOpts = [
           "--keep-daily 7"
