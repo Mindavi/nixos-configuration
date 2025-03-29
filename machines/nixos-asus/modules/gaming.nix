@@ -13,8 +13,7 @@
     discord
     openttd
     #polymc
-    #zeroad
-    # Make sure that at least the data is here.
-    zeroadPackages.zeroad-data
+    zeroad
+    zeroad-data
   ];
 }
