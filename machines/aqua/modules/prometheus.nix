@@ -39,7 +39,6 @@
           {
             targets = [
               "aqua:3000"
-              "172.16.1.2:3000"
             ];
           }
         ];
@@ -51,7 +50,6 @@
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
             targets = [
               "aqua:9198"
-              "172.16.1.2:9198"
             ];
           }
         ];
@@ -63,7 +61,6 @@
             # https://hydra.nixos.org/build/274637211/download/1/hydra/configuration.html#hydra-queue-runners-prometheus-service
             targets = [
               "aqua:9200"
-              "172.16.1.2:9200"
             ];
           }
         ];
@@ -73,7 +70,9 @@
         fallback_scrape_protocol = "PrometheusText0.0.4";
         static_configs = [
           {
-            targets = [ "aqua:8433" ];
+            targets = [
+              "aqua:8433"
+            ];
           }
         ];
       }
