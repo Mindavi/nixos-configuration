@@ -2,16 +2,16 @@
   "nodes": {
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1743256265,
-        "narHash": "sha256-1GJtabBAEwSkwKgSBe+osLCYwcRr5zx5H7ipuoVkO/4=",
-        "ref": "nixos-unstable-small",
-        "rev": "5dab1e63b3efccf767a54b0b978b41fe7410aff0",
-        "revCount": 776103,
+        "lastModified": 1743448293,
+        "narHash": "sha256-bmEPmSjJakAp/JojZRrUvNcDX2R5/nuX6bm+seVaGhs=",
+        "ref": "nixos-unstable",
+        "rev": "77b584d61ff80b4cef9245829a6f1dfad5afdfa3",
+        "revCount": 777401,
         "type": "git",
         "url": "file://git:/home/rick/nixpkgs"
       },
       "original": {
-        "ref": "nixos-unstable-small",
+        "ref": "nixos-unstable",
         "type": "git",
         "url": "file://git:/home/rick/nixpkgs"
       }
