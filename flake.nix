@@ -1,5 +1,5 @@
 {
-  inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable-small";
+  inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable";
 #  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 #  inputs.nixvim = {
 #    url = "github:nix-community/nixvim";
