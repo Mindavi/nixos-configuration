@@ -2,7 +2,9 @@
 {
   services.mosquitto = {
     enable = true;
-    persistence = false;
+    # Enable mostly because OpenMqttGateway does not republish the discovery info when the broker restarts/reloads.
+    # It doesn't seem to be required for many other things.
+    persistence = true;
     # TODO(Mindavi): probably should reduce this at some point, but at least debug is disabled now.
     logType = [
       "error"
