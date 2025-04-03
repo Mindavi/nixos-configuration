@@ -37,4 +37,16 @@
       IdentityFile /root/.ssh/id_ed25519_restic
       User zh4793
   '';
+
+  services.prometheus.exporters.restic = {
+    enable = true;
+    port = 9753;
+    repository = config.services.restic.backups.rsyncnet_samba.repository;
+    refreshInterval = 60 * 60 * 6;
+    passwordFile = config.services.restic.backups.rsyncnet_samba.passwordFile;
+    # Prometheus is running on this machine.
+    openFirewall = false;
+    # TODO(Mindavi): Eh, is this ok? I'd like localhost (on IPv6?).
+    listenAddress = "::1";
+  };
 }
