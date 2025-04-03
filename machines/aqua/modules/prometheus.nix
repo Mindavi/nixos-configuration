@@ -76,6 +76,16 @@
           }
         ];
       }
+      {
+        job_name = "restic";
+        static_configs = [
+          {
+            targets = [
+              "aqua:${toString config.services.prometheus.exporters.restic.port}"
+            ];
+          }
+        ];
+      }
     ];
   };
 }
