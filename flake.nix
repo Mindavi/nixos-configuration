@@ -1,23 +1,23 @@
 {
   inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable";
-#  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-#  inputs.nixvim = {
-#    url = "github:nix-community/nixvim";
-#    inputs.nixpkgs.follows = "nixos-unstable";
-#    inputs.nuschtosSearch.follows = "";
-#    inputs.home-manager.follows = "";
-#    inputs.nix-darwin.follows = "";
-#    inputs.devshell.follows = "";
-#    inputs.treefmt-nix.follows = "";
-#    inputs.git-hooks.follows = "";
-#    inputs.flake-compat.follows = "";
-#  };
+  #  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+  #  inputs.nixvim = {
+  #    url = "github:nix-community/nixvim";
+  #    inputs.nixpkgs.follows = "nixos-unstable";
+  #    inputs.nuschtosSearch.follows = "";
+  #    inputs.home-manager.follows = "";
+  #    inputs.nix-darwin.follows = "";
+  #    inputs.devshell.follows = "";
+  #    inputs.treefmt-nix.follows = "";
+  #    inputs.git-hooks.follows = "";
+  #    inputs.flake-compat.follows = "";
+  #  };
 
   outputs =
     {
       self,
       nixos-unstable,
-      #nixvim,
+    #nixvim,
     }:
     let
       system = "x86_64-linux";
