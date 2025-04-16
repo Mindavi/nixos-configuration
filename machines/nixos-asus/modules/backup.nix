@@ -50,6 +50,24 @@
           RandomizedDelaySec = "3h";
         };
       };
+      rsyncnet = {
+        initialize = true;
+        passwordFile = "/etc/nixos/secrets/restic-password";
+        paths = [
+          "/home/rick/Pass"
+        ];
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-monthly 12"
+          "--keep-yearly 25"
+        ];
+        repository = "sftp:zh4793@zh4793.rsync.net:restic/nixos-asus";
+        timerConfig = {
+          OnCalendar = "00:30";
+          Persistent = true;
+          RandomizedDelaySec = "3h";
+        };
+      };
     };
   };
 }
