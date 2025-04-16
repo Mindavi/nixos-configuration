@@ -15,23 +15,10 @@ in
     package = (
       pkgs.hydra.overrideAttrs (oldAttrs: {
         version = oldAttrs.version + "-mindavi";
-        patches =
-          # oldAttrs.patches or
-          [ ] ++ [
-            # https://github.com/NixOS/hydra/pull/1372
-            (pkgs.fetchpatch2 {
-              url = "https://github.com/NixOS/hydra/commit/8e7746d1e38776554a312da5491b98f86a80de76.patch";
-              name = "show-build-step-names.patch";
-              hash = "sha256-7CUfoXzzzfjNU2IyxvGhGbDg3lVdI8K3FQovUOQvh5E=";
-            })
-            (pkgs.fetchpatch2 {
-              url = "https://github.com/NixOS/hydra/commit/bd380f694e71e1b9bff7db2f12de6ade94a1edd2.patch";
-              name = "only-show-stepname-not-equal-drv-name.patch";
-              hash = "sha256-OtNmdLHvsa2XPlSkJM2hH1zi/igcRTX40qq9PNTtpAI=";
-            })
-            # https://github.com/NixOS/hydra/pull/875
-            #./patches/nixos-hydra-pull-875.patch
-          ];
+        patches = (oldAttrs.patches or [ ]) ++ [
+          # https://github.com/NixOS/hydra/pull/875
+          #./patches/nixos-hydra-pull-875.patch
+        ];
       })
     );
     #.override {
