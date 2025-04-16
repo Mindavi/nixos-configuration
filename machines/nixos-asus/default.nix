@@ -166,6 +166,7 @@
     valgrind
     nixpkgs-review
     nix-output-monitor
+    treefmt
 
     remmina
 
