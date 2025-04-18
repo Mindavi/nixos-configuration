@@ -26,7 +26,7 @@ in
     ./modules/prometheus.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
-    ./modules/solar-inverter.nix
+    #./modules/solar-inverter.nix
     ./modules/traefik.nix
     ./modules/zigbee2mqtt.nix
     #./modules/virtualisation.nix
