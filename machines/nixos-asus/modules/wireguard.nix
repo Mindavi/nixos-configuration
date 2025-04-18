@@ -15,6 +15,7 @@
       wg0 = {
         ips = [ "172.16.1.2/24" ];
         listenPort = 51820;
+        mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";
         generatePrivateKeyFile = true;
         peers = [
