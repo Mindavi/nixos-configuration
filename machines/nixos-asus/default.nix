@@ -95,14 +95,13 @@
   #networking.useNetworkd = true;
 
   networking.hosts = {
-    "192.168.1.8" = [
+    "192.168.178.8" = [
       "aqua"
       "hass.aqua"
       "hydra.aqua"
       "prometheus.aqua"
       "traefik.aqua"
     ];
-    "192.168.1.123" = [ "printer" ];
   };
 
   time.timeZone = "Europe/Amsterdam";
