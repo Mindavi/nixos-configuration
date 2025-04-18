@@ -108,7 +108,7 @@ in
             state_class = "measurement";
           }
           {
-            name = "Temperature outside";
+            name = "Temperature shed";
             object_id = "temperature_outside";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/temperature_C";
             unit_of_measurement = "°C";
@@ -118,7 +118,7 @@ in
             state_class = "measurement";
           }
           {
-            name = "Humidity outside";
+            name = "Humidity shed";
             object_id = "humidity_outside";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/humidity";
             unit_of_measurement = "%";
@@ -127,9 +127,8 @@ in
             state_class = "measurement";
           }
           {
-            name = "Temperature outside battery status";
+            name = "Temperature shed battery status";
             object_id = "temperature_outside_battery_status";
-            #state_topic = "rtl_433/${mqtt_server_name}/devices/Hideki-Temperature/3/+/battery_ok";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/battery_ok";
             state_class = "measurement";
           }
