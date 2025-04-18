@@ -45,6 +45,7 @@
       history = { };
       input_boolean = { };
       input_number = { };
+      logbook = { };
       mobile_app = { };
       network = { };
       recorder = {
