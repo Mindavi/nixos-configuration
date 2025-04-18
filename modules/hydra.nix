@@ -14,7 +14,7 @@ in
     enable = true;
     package = (
       pkgs.hydra.overrideAttrs (oldAttrs: {
-        version = oldAttrs.version + "-mindavi";
+        # version = oldAttrs.version + "-mindavi";
         patches = (oldAttrs.patches or [ ]) ++ [
           # https://github.com/NixOS/hydra/pull/875
           #./patches/nixos-hydra-pull-875.patch
