@@ -87,6 +87,7 @@
       "met"
       "mobile_app"
       "mqtt"
+      "music_assistant"
       "owntracks"
       "piper"
       "renault"

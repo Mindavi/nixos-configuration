@@ -22,6 +22,7 @@ in
     ./modules/grafana.nix
     ./modules/home-assistant
     ./modules/mosquitto.nix
+    ./modules/music-assistant.nix
     ./modules/nix.nix
     ./modules/prometheus.nix
     ./modules/rtl_433.nix
