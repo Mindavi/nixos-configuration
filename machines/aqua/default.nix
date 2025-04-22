@@ -16,11 +16,11 @@ in
     ./hardware-configuration.nix
     ./modules/avahi.nix
     ./modules/backup.nix
+    ./modules/dashboard.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/grafana.nix
     ./modules/home-assistant
-    ./modules/dashboard.nix
     ./modules/mosquitto.nix
     ./modules/nix.nix
     ./modules/prometheus.nix
@@ -28,9 +28,9 @@ in
     ./modules/samba.nix
     #./modules/solar-inverter.nix
     ./modules/traefik.nix
-    ./modules/zigbee2mqtt.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
+    ./modules/zigbee2mqtt.nix
     ../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/rtl-sdr.nix
