@@ -60,6 +60,7 @@
       "automation ui" = "!include automations.yaml";
     };
     extraComponents = [
+      "bluetooth"
       "cast"
       "climate"
       "conversation"
@@ -71,9 +72,13 @@
       "enphase_envoy"
       "esphome"
       "fritz"
+      "gardena_bluetooth"
+      "govee_ble"
       "history"
       "html5"
       "http"
+      "husqvarna_automower_ble"
+      "ibeacon"
       "isal" # https://github.com/NixOS/nixpkgs/issues/330377
       "local_ip" # ???
       "logbook"
