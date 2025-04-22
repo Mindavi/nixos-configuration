@@ -8,10 +8,12 @@
       "dlna"
       "filesystem_local"
       "jellyfin"
+      "podcastfeed"
       "radiobrowser"
-      "slimproto"
       "soundcloud"
       "spotify"
+      "spotify_connect"
+      "squeezelite"
     ];
   };
 }
