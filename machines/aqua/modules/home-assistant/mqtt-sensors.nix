@@ -132,6 +132,14 @@ in
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/battery_ok";
             state_class = "measurement";
           }
+          # Override OpenMqttGateway specificity for some channels.
+          # https://docs.openmqttgateway.com/integrate/home_assistant.html#rtl-433-auto-discovery-specificity
+          # {
+          #   state_topic = "+/+/RTL_433toMQTT/Nexus-TH/1/+";
+          # }
+          # {
+          #   state_topic = "+/+/RTL_433toMQTT/Nexus-TH/2/+";
+          # }
         ];
       };
     };
