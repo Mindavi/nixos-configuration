@@ -7,7 +7,7 @@
 
 {
   nix = {
-    package = pkgs.nixVersions.nix_2_24;
+    package = pkgs.nixVersions.nix_2_28;
     settings = {
       sandbox = true;
       # decrease max number of jobs to prevent highly-parallelizable jobs from context-switching too much
