@@ -4,13 +4,15 @@
     enable = true;
     # only open firewall to internal network, see firewall.nix
     openFirewall = false;
-    settings.copydrive = {
-      path = "/var/data/samba/copydrive";
-      "read only" = false;
-      browseable = "yes";
-      "guest ok" = "no";
-      comment = "Opslag voor gezin";
-      "map to guest" = "bad user";
+    settings = {
+      copydrive = {
+        path = "/var/data/samba/copydrive";
+        "read only" = false;
+        browseable = "yes";
+        "guest ok" = "no";
+        comment = "Opslag voor gezin";
+        "map to guest" = "bad user";
+      };
     };
   };
   users.groups.familie = { };
