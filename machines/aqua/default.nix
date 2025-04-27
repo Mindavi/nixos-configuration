@@ -77,6 +77,7 @@ in
     fzf # fuzzy find
     gitAndTools.gitFull
     htop
+    jpeginfo # verify validity of jpegs
     jq
     parted
     ripgrep # grep
