@@ -52,4 +52,10 @@
     # Should be supported, see https://github.com/prometheus/client_python/issues/791
     listenAddress = "::1";
   };
+
+  systemd.services.prometheus-restic-exporter = {
+    path = [
+      pkgs.openssh
+    ];
+  };
 }
