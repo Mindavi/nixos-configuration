@@ -10,6 +10,18 @@ let
   isVmBuild = builtins.trace ''building as vm: ${lib.boolToString (config.virtualisation ? qemu)}'' (
     config.virtualisation ? qemu
   );
+  # https://wiki.nixos.org/wiki/ZFS
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
 in
 {
   imports = [
@@ -43,7 +55,7 @@ in
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = latestKernelPackage;
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -87,6 +99,7 @@ in
     #transmission_4
     tree
     vim
+    zfs
     zip
   ];
 
