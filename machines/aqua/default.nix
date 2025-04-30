@@ -138,6 +138,7 @@ in
     ];
   };
   users.mutableUsers = true;
+  services.userborn.enable = true;
 
   services.postgresql.package = pkgs.postgresql_15;
 
