@@ -13,6 +13,8 @@
         enable = true;
         enabledCollectors = [
           "systemd"
+          # To maybe detect why the home assistant keeps dropping connections.
+          "tcpstat"
         ];
       };
     };
