@@ -41,7 +41,7 @@
   # Unit is failing on aqua.
   # Apr 03 07:54:54 aqua prometheus-restic-exporter-start[209376]: 2025-04-03 07:54:54 ERROR    Unable to collect metrics from Restic. Exception: Error executing restic snapshot command: {"message_type":"exit_error","code":1,"message":"Fatal: unable to open repository at sftp:zh4793@zh4793.rsync.net:restic/samba: exec: \"ssh\": executable file not found in $PATH"}  Exit code: 1
   services.prometheus.exporters.restic = {
-    enable = true;
+    enable = false;
     port = 9753;
     repository = config.services.restic.backups.rsyncnet_samba.repository;
     refreshInterval = 60 * 60 * 6;
