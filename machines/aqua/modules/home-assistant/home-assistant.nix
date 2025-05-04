@@ -48,6 +48,10 @@
       logbook = { };
       mobile_app = { };
       network = { };
+      prometheus = {
+        namespace = "home";
+        requires_auth = true;
+      };
       recorder = {
         # TODO(Mindavi): Check database size now and then.
         auto_purge = false;
@@ -90,6 +94,7 @@
       "music_assistant"
       "owntracks"
       "piper"
+      "prometheus"
       "renault"
       "shelly"
       "shopping_list"
