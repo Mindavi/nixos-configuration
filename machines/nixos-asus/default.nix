@@ -99,6 +99,7 @@
       "aqua"
       "hass.aqua"
       "hydra.aqua"
+      "music-assistant.aqua"
       "prometheus.aqua"
       "traefik.aqua"
     ];

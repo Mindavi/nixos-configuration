@@ -173,6 +173,22 @@ in
             }
           ];
         };
+
+        ### Music assistant
+        routers.music-assistant = {
+          rule = "Host(`music-assistant.aqua`)";
+          service = "music-assistant";
+          middlewares = [
+            "internal-allowlist"
+          ];
+        };
+        services.music-assistant = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:8095";
+            }
+          ];
+        };
       };
     };
   };

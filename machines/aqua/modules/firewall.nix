@@ -46,5 +46,8 @@ in
 
       # rtl_433 http server
       ip saddr { ${subnets} } tcp dport 8433 accept
+
+      # music assistant custom stream port
+      ip saddr { ${subnets} } tcp dport 8097 accept
     '';
 }
