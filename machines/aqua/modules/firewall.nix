@@ -46,12 +46,14 @@ in
 
       # music assistant custom stream port
       ip saddr { ${subnets} } tcp dport 8097 accept
+      # squeezelite / slimproto / music assistant
+      ip saddr { ${subnets} } tcp dport 3483 accept
 
       # enable multicast support (avahi, upnp)
       # taken and adapted from nixos/modules/services/audio/roon-server.nix
       # port 5353 is already opened by avahi, but IGMP packets seem to be dropped too
       ip saddr { 224.0.0.0/4, 240.0.0.0/5 } accept
       ip daddr 224.0.0.0/4 accept
-      pkttype { multicast } accept
+      pkttype { multicast, broadcast } accept
     '';
 }
