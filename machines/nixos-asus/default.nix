@@ -14,6 +14,7 @@
     ./modules/jellyfin.nix
     ./modules/nix.nix
     ./modules/nvidia.nix
+    ./modules/printer-scanner.nix
     ./modules/prometheus.nix
     ./modules/samba.nix
     ./modules/syncthing.nix
@@ -198,6 +199,10 @@
     # Hard disk monitoring
     smartmontools
     gsmartcontrol
+
+    # Scanner
+    simple-scan
+    kdePackages.skanlite
   ];
 
   #virtualisation.virtualbox.host.enable = true;
@@ -287,6 +292,7 @@
       "adbusers"
       "plugdev"
       "kvm"
+      "scanner"
     ];
     initialPassword = "rikkert";
   };
