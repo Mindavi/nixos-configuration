@@ -59,10 +59,6 @@ in
                       title = "nixos-asus";
                       links = [
                         {
-                          title = "Prometheus";
-                          url = "http://${nixos-asus_url}:9090";
-                        }
-                        {
                           title = "Syncthing";
                           url = "http://${nixos-asus_url}:8384";
                         }
