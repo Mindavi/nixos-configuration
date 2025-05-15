@@ -141,9 +141,9 @@ in
         };
 
         ### Dashboard
-        middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard";
+        middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard/";
         routers.dashboard = {
-          rule = "(Path(`/dashboard/`) || Path(`/dashboard`)) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
+          rule = "PathPrefix(`/dashboard/`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
           service = "dashboard";
           middlewares = [
             "internal-allowlist"
