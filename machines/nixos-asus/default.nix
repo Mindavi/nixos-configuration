@@ -124,7 +124,6 @@
     firefox
     gitFull
     htop
-    keepassxc
     tree
     sl
     vlc
@@ -204,10 +203,11 @@
     simple-scan
     kdePackages.skanlite
 
-    # Secret management
+    # secret management
     age
-    ssh-to-age
     age-plugin-yubikey
+    keepassxc
+    ssh-to-age
   ];
 
   #virtualisation.virtualbox.host.enable = true;
