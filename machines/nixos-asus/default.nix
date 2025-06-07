@@ -207,6 +207,7 @@
     age
     age-plugin-yubikey
     keepassxc
+    sops
     ssh-to-age
   ];
 
