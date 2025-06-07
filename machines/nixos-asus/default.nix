@@ -203,6 +203,11 @@
     # Scanner
     simple-scan
     kdePackages.skanlite
+
+    # Secret management
+    age
+    ssh-to-age
+    age-plugin-yubikey
   ];
 
   #virtualisation.virtualbox.host.enable = true;
