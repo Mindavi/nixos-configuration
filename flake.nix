@@ -13,10 +13,16 @@
   #    inputs.flake-compat.follows = "";
   #  };
 
+  inputs.sops-nix = {
+    url = "github:Mic92/sops-nix";
+    inputs.nixpkgs.follows = "nixos-unstable";
+  };
+
   outputs =
     {
       self,
       nixos-unstable,
+      sops-nix,
     #nixvim,
     }:
     let
@@ -31,6 +37,7 @@
         modules = [
           ./machines/nixos-asus/default.nix
           #nixvim.nixosModules.nixvim
+          sops-nix.nixosModules.sops
         ];
         specialArgs = {
           hydra_exporter = self.packages.${system}.hydra_exporter;
@@ -41,6 +48,7 @@
         system = "x86_64-linux";
         modules = [
           ./machines/aqua/default.nix
+          sops-nix.nixosModules.sops
         ];
         specialArgs = {
           inherit nixos-unstable;
