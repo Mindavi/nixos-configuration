@@ -37,7 +37,7 @@
             acl = [
               "read #"
             ];
-            password = "everythingisvisibleforme";
+            passwordFile = config.sops.secrets."mosquitto/monitor".path;
           };
           inverter = {
             acl = [
@@ -77,7 +77,7 @@
             acl = [
               "read #"
             ];
-            password = "everythingisvisibleforme";
+            passwordFile = config.sops.secrets."mosquitto/monitor".path;
           };
           sensor = {
             acl = [

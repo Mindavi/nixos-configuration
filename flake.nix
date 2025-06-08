@@ -48,10 +48,7 @@
         system = "x86_64-linux";
         modules = [
           ./machines/aqua/default.nix
-          sops-nix.nixosModules.sops {
-            sops.defaultSopsFile = ./secrets/aqua.yaml;
-            sops.secrets."mosquitto/monitor" = {};
-          }
+          sops-nix.nixosModules.sops
         ];
         specialArgs = {
           inherit nixos-unstable;

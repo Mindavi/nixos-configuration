@@ -40,6 +40,7 @@ in
     ./modules/rtl_433.nix
     ./modules/samba.nix
     #./modules/solar-inverter.nix
+    ./modules/sops.nix
     ./modules/traefik.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
