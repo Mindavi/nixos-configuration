@@ -211,6 +211,8 @@
     ssh-to-age
   ];
 
+  environment.variables.EDITOR = "vim";
+
   #virtualisation.virtualbox.host.enable = true;
 
   programs.bash.completion.enable = true;
