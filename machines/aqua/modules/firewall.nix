@@ -45,7 +45,7 @@ in
       ip saddr { ${subnets} } tcp dport 8433 accept
 
       # music assistant custom stream port
-      ip saddr { ${subnets} } tcp dport 8097 accept
+      ip saddr { ${subnets} } tcp dport { 8097, 8098, 9000 } accept
       # squeezelite / slimproto / music assistant
       ip saddr { ${subnets} } tcp dport 3483 accept
 
