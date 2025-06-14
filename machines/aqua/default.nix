@@ -26,6 +26,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/audio.nix
     ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/dashboard.nix
@@ -127,11 +128,12 @@ in
     isNormalUser = true;
     home = "/home/rick";
     extraGroups = [
-      "wheel"
-      "networkmanager"
-      "dialout"
       "adbusers"
+      "audio"
+      "dialout"
+      "networkmanager"
       "plugdev"
+      "wheel"
     ];
     initialPassword = "rikkert1";
     openssh.authorizedKeys.keys = [
