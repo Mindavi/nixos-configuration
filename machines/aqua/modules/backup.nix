@@ -40,6 +40,12 @@
 
   # Unit is failing on aqua.
   # Apr 03 07:54:54 aqua prometheus-restic-exporter-start[209376]: 2025-04-03 07:54:54 ERROR    Unable to collect metrics from Restic. Exception: Error executing restic snapshot command: {"message_type":"exit_error","code":1,"message":"Fatal: unable to open repository at sftp:zh4793@zh4793.rsync.net:restic/samba: exec: \"ssh\": executable file not found in $PATH"}  Exit code: 1
+
+  # 2025-04-30 22:14:17 ERROR
+  # Unable to collect metrics from Restic. Exception: Error executing restic snapshot command: subprocess ssh: hostkeys_find_by_key_hostfile: hostkeys_foreach failed for
+  # /home/rick/.ssh/known_hosts: Permission denied subprocess ssh: Host key verification failed. {"message_type":"exit_error","code":1,"message"
+  # :"Fatal: unable to open repository at sftp:zh4793@zh4793.rsync.net:restic/samba: unable to start the sftp session, error:
+  # error receiving version packet from server: server unexpectedly closed connection: unexpected EOF"}  Exit code: 1
   services.prometheus.exporters.restic = {
     enable = false;
     port = 9753;
