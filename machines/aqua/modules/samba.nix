@@ -21,6 +21,8 @@
         "guest ok" = "no";
         comment = "Opslag voor gezin";
         "valid users" = "gedeeld rick";
+        "force user" = "gedeeld";
+        "force group" = "gedeeld";
       };
       shared_documents = {
         path = "/var/data/samba/shared_documents";
@@ -28,7 +30,9 @@
         browseable = "no";
         "guest ok" = "no";
         comment = "Gedeelde documenten en bestanden";
-        "valid users" = "gedeeld";
+        "valid users" = "gedeeld rick";
+        "force user" = "gedeeld";
+        "force group" = "gedeeld";
       };
       private_documents = {
         path = "/var/data/samba/rick_documents";
