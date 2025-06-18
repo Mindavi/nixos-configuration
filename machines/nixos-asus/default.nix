@@ -209,6 +209,9 @@
     keepassxc
     sops
     ssh-to-age
+
+    # streaming
+    obs-studio
   ];
 
   environment.variables.EDITOR = "vim";

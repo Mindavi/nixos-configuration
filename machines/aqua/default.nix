@@ -37,6 +37,7 @@ in
     ./modules/mosquitto.nix
     ./modules/music-assistant.nix
     ./modules/nix.nix
+    ./modules/owncast.nix
     ./modules/prometheus.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
