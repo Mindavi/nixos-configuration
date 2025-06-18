@@ -8,8 +8,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    1935
-    # TODO(Mindavi): use traefik instead
-    8080
+    config.services.owncast.rtmp-port
   ];
 }
