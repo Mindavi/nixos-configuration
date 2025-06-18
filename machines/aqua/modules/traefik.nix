@@ -198,7 +198,7 @@ in
           removeHeader = true;
         };
         routers.owncast_internet = {
-          rule = "Host(`owncast.rickvanschijndel.eu`) || Host(`owncast.aqua`)";
+          rule = "Host(`owncast.rickvanschijndel.eu`)";
           service = "owncast";
           middlewares = [
             "owncast-auth"
