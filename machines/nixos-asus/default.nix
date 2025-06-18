@@ -105,6 +105,9 @@
       "prometheus.aqua"
       "traefik.aqua"
     ];
+    "172.16.1.8" = [
+      "owncast-wg.aqua"
+    ];
   };
 
   time.timeZone = "Europe/Amsterdam";
