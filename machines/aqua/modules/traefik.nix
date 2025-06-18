@@ -191,10 +191,14 @@ in
         };
 
         ### Owncast
+        # TODO(Mindavi): This is just temporary, don't worry too much about kind of leaking this.
+        middlewares.owncast-auth.basicauth.users = "livestream:$apr1$JUOgeXL6$oXoowCXNZpqbad347ZL8f1";
         routers.owncast = {
           rule = "Host(`owncast.rickvanschijndel.eu`) || Host(`owncast.aqua`)";
           service = "owncast";
-          middlewares = [];
+          middlewares = [
+            "owncast-auth"
+          ];
         };
         services.owncast = {
           loadBalancer.servers = [
