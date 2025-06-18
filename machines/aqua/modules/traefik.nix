@@ -189,6 +189,20 @@ in
             }
           ];
         };
+
+        ### Owncast
+        routers.owncast = {
+          rule = "Host(`owncast.rickvanschijndel.eu`) || Host(`owncast.aqua`)";
+          service = "owncast";
+          middlewares = [];
+        };
+        services.owncast = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString config.services.owncast.port}";
+            }
+          ];
+        };
       };
     };
   };

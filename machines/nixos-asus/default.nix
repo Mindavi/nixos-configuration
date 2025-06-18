@@ -101,6 +101,7 @@
       "hass.aqua"
       "hydra.aqua"
       "music-assistant.aqua"
+      "owncast.aqua"
       "prometheus.aqua"
       "traefik.aqua"
     ];
