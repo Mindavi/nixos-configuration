@@ -223,8 +223,10 @@
         cudaSupport = true;
       }
     );
-    plugins = with pkgs; [
-      obs-studio-plugins.droidcam-obs
+    plugins = with pkgs.obs-studio-plugins; [
+      droidcam-obs
+      obs-urlsource
+      obs-text-pthread
     ];
   };
 
