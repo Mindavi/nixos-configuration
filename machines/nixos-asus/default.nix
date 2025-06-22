@@ -188,6 +188,10 @@
     cifs-utils
     samba4Full
 
+    usbutils
+    ntfs3g
+    parted
+
     # DLNA
     minidlna
     ums # universal media server
