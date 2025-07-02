@@ -84,6 +84,7 @@
       "husqvarna_automower_ble"
       "ibeacon"
       "isal" # https://github.com/NixOS/nixpkgs/issues/330377
+      "linkplay"
       "local_ip" # ???
       "logbook"
       "lovelace"
