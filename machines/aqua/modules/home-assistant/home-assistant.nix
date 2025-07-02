@@ -108,6 +108,7 @@
       "webostv"
       "whisper"
       "wyoming"
+      "xiaomi_ble"
       "zha"
     ];
     package = pkgs.home-assistant;
