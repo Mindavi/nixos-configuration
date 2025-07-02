@@ -6,12 +6,12 @@
 
 buildGoModule {
   pname = "hydra_exporter";
-  version = "unstable-2024-11-22";
+  version = "unstable-2025-07-02";
   src = fetchFromGitHub {
-    owner = "helsinki-systems";
+    owner = "Mindavi";
     repo = "hydra_exporter";
-    rev = "a68d9bd5351c9502d4eacf38241ef7f5bd373a81";
-    hash = "sha256-3BVpvTVYC3J8OWY4MrQ3+jiMIk6FInMErzWin3BZL/Q=";
+    rev = "ab8bfa778431586eeab67b02b28132db1b3eb34e";
+    hash = "sha256-ZP4tM6RMU6W0NB5IUkrDTMLVuZR506ppVXxmyN5vJDI=";
   };
   vendorHash = "sha256-Vfh/MZXDOGduWnuR8f80peKjlk68shBKHyrSheinaZQ=";
 }
