@@ -62,6 +62,7 @@ in
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 
   hardware.cpu.intel.updateMicrocode = true;
+  hardware.bluetooth.enable = true;
 
   networking.hostName = "aqua";
   networking.networkmanager.enable = true;
