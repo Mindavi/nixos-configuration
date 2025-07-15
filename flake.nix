@@ -54,5 +54,16 @@
           inherit nixos-unstable;
         };
       };
+      nixosConfigurations.castle = nixos-unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/aqua/default.nix
+          sops-nix.nixosModules.sops
+        ];
+        specialArgs = {
+          inherit nixos-unstable;
+        };
+      };
+
     };
 }
