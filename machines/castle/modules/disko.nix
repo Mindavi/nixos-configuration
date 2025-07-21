@@ -35,7 +35,7 @@
         type = "zpool";
         # Single disk, no mode options.
         mode = "";
-        rootfsOptions = {
+        rootFsOptions = {
           acltype = "posixacl";
           compression = "zstd";
           "com.sun:auto-snapshot" = "false";
