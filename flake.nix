@@ -68,7 +68,7 @@
       nixosConfigurations.castle = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machines/aqua/default.nix
+          ./machines/castle/default.nix
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
           sops-nix.nixosModules.sops
