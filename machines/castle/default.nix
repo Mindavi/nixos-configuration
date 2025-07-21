@@ -30,8 +30,10 @@ in
     ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/dashboard.nix
+    ./modules/disko.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
+    ./modules/impermanence.nix
     ./modules/nix.nix
     ./modules/prometheus.nix
     ./modules/sops.nix

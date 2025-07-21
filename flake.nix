@@ -23,9 +23,15 @@
     inputs.nixpkgs.follows = "nixos-unstable";
   };
 
+  inputs.impermanence = {
+    url = "github:nix-community/impermanence";
+  };
+
   outputs =
     {
       self,
+      disko,
+      impermanence,
       nixos-unstable,
       sops-nix,
     #nixvim,
@@ -63,6 +69,8 @@
         system = "x86_64-linux";
         modules = [
           ./machines/aqua/default.nix
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
           sops-nix.nixosModules.sops
         ];
         specialArgs = {
