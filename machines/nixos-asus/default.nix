@@ -180,7 +180,7 @@
     android-tools
     chromium
 
-    nixfmt-rfc-style
+    nixfmt
     zed-editor
     nixd
 
