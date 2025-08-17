@@ -67,6 +67,8 @@ in
   hardware.bluetooth.enable = true;
 
   networking.hostName = "aqua";
+  # head -c 8 /etc/machine-id
+  networking.hostId = "c496aec3";
   networking.networkmanager.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
