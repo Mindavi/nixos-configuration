@@ -83,11 +83,17 @@
         # Use 4k block size: https://jrs-s.net/2018/08/17/zfs-tuning-cheat-sheet/
         options.ashift = "12";
         datasets = {
-          storage = {
+          # For important documents that should be backed up.
+          storage_documents = {
             type = "zfs_fs";
-            mountpoint = "/storage";
+            mountpoint = "/storage/documents";
             # TODO(Mindavi): fill in further...
           };
+          # For applications that require a lot of storage but where backing up is less important.
+          storage_apps = {
+            type = "zfs_fs";
+            mountpoint = "/storage/apps";
+          }
         };
       };
     };
