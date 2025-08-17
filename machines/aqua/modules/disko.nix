@@ -72,7 +72,7 @@
         type = "zpool";
         # raidz1 or use vdevs?
         mode = "raidz1";
-        rootfsOptions = {
+        rootFsOptions = {
           acltype = "posixacl";
           compression = "zstd";
           "com.sun:auto-snapshot" = "false";
@@ -93,7 +93,7 @@
           storage_apps = {
             type = "zfs_fs";
             mountpoint = "/storage/apps";
-          }
+          };
         };
       };
     };
