@@ -186,7 +186,7 @@
 
     # samba
     cifs-utils
-    samba4Full
+    samba4
 
     usbutils
     ntfs3g
