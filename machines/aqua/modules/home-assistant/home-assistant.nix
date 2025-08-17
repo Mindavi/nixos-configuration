@@ -64,6 +64,9 @@
       "automation ui" = "!include automations.yaml";
     };
     extraComponents = [
+      # TODO(Mindavi): fix bluetooth permissions:
+      # aqua hass[PID]: INFO (MainThread) [bluetooth_auto_recovery.recover] hci1 permission denied to /dev/bus/usb/001/007 while attempting USB reset: [Errno 13] Permission denied: '/dev/bus/usb/001/007'
+
       "bluetooth"
       "cast"
       "climate"
