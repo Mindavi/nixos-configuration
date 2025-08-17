@@ -60,7 +60,7 @@ in
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  boot.kernelPackages = zfsCompatibleKernelPackages;
+  boot.kernelPackages = latestKernelPackage;
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 
   hardware.cpu.intel.updateMicrocode = true;
