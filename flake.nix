@@ -59,7 +59,7 @@
         system = "x86_64-linux";
         modules = [
           ./machines/aqua/default.nix
-          #disko.nixosModules.disko
+          disko.nixosModules.disko
           sops-nix.nixosModules.sops
         ];
         specialArgs = {
