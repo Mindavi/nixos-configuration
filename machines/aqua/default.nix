@@ -96,6 +96,7 @@ in
     file
     fzf # fuzzy find
     gitAndTools.gitFull
+    hdparm
     htop
     jpeginfo # verify validity of jpegs
     jq
