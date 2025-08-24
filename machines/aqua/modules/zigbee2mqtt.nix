@@ -10,7 +10,7 @@
     enable = true;
     package = pkgs.zigbee2mqtt_2;
     settings = {
-      homeassistant = config.services.home-assistant.enable;
+      homeassistant.enabled = config.services.home-assistant.enable;
       permit_join = false;
       serial = {
         # TODO(Mindavi): mDNS does not work at all, figure out why this is. Maybe systemd service restrictions from NixOS?
