@@ -54,7 +54,7 @@
       };
       recorder = {
         # TODO(Mindavi): Check database size now and then.
-        auto_purge = false;
+        auto_purge = true;
       };
       sun = { };
       system_health = { };
