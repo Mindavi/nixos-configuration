@@ -47,7 +47,7 @@ in
     ./modules/traefik.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
-    ./modules/zfs.nix
+    #./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
     #../../modules/hydra.nix
     ../../modules/iperf.nix
