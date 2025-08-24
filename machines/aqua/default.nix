@@ -49,7 +49,7 @@ in
     ./modules/wireguard.nix
     ./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
-    ../../modules/hydra.nix
+    #../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/rtl-sdr.nix
     ../../modules/sudo.nix
