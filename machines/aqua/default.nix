@@ -106,6 +106,7 @@ in
     syncthing
     #transmission_4
     tree
+    usbutils
     vim
     zfs
     zip
