@@ -30,7 +30,7 @@ in
     ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/dashboard.nix
-    ./modules/disko.nix
+    #./modules/disko.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/grafana.nix
@@ -47,7 +47,7 @@ in
     ./modules/traefik.nix
     #./modules/virtualisation.nix
     ./modules/wireguard.nix
-    ./modules/zfs.nix
+    #./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
     ../../modules/hydra.nix
     ../../modules/iperf.nix
