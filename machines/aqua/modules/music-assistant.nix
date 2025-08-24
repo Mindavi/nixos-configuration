@@ -2,6 +2,7 @@
 {
   services.music-assistant = {
     enable = true;
+    # TODO(Mindavi): add opodsync and gpodder provider
     providers = [
       "builtin"
       "chromecast"
