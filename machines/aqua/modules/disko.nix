@@ -66,6 +66,7 @@
         };
       };
     };
+    # some hints: https://notthebe.ee/blog/nixos-ephemeral-zfs-root/
     # TODO(Mindavi): ashift=12, noatime/atime=off
     zpool = {
       zroot = {
@@ -83,15 +84,20 @@
         # Use 4k block size: https://jrs-s.net/2018/08/17/zfs-tuning-cheat-sheet/
         options.ashift = "12";
         datasets = {
-          # For important documents that should be backed up.
-          storage_documents = {
+          storage = {
             type = "zfs_fs";
+            options.mountpoint = "none";
+          };
+          # For important documents that should be backed up.
+          "storage/documents" = {
+            type = "zfs_fs";
+            options.mountpoint = "legacy";
             mountpoint = "/storage/documents";
-            # TODO(Mindavi): fill in further...
           };
           # For applications that require a lot of storage but where backing up is less important.
-          storage_apps = {
+          "storage/apps" = {
             type = "zfs_fs";
+            options.mountpoint = "legacy";
             mountpoint = "/storage/apps";
           };
         };
