@@ -60,6 +60,10 @@ in
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = false;
 
+  # The system will try to boot as far as possible even if mounting (or other services) fail.
+  # Otherwise it will be dropped in an emergency shell (without SSH access).
+  systemd.enableEmergencyMode = false;
+
   boot.kernelPackages = latestKernelPackage;
   #boot.kernelParams = [ "nouveau.modeset=0" ];
 
