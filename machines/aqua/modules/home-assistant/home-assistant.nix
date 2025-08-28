@@ -127,6 +127,6 @@
   # Allow USB adapter to be controlled by home assistant.
   # Should fix permission issues with controlling the adapter.
   services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="hass", MODE="0600"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="hass", MODE="0660"
   '';
 }
