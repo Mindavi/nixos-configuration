@@ -150,7 +150,7 @@
     qalculate-qt # calculator gui application
 
     # pdf viewer
-    libsForQt5.okular
+    kdePackages.okular
 
     # photo viewer
     nomacs
