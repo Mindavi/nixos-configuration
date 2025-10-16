@@ -216,6 +216,9 @@
     keepassxc
     sops
     ssh-to-age
+
+    # gaming
+    prismlauncher
   ];
 
   # streaming
