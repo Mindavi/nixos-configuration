@@ -126,7 +126,10 @@
 
   # Allow USB adapter to be controlled by home assistant.
   # Should fix permission issues with controlling the adapter.
+  # 2357:0604: TP-LINK UB500
+  # 0b05:190e: ASUS USB-BT500
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="hass", MODE="0660"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="190e", GROUP="hass", MODE="0660"
   '';
 }
