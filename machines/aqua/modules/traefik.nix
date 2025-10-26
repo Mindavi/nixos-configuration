@@ -190,31 +190,18 @@ in
           ];
         };
 
-        ### Owncast
-        # TODO(Mindavi): This is just temporary, don't worry too much about kind of leaking this.
-        middlewares.owncast-auth.basicauth = {
-          users = "livestream:$apr1$JUOgeXL6$oXoowCXNZpqbad347ZL8f1";
-          # Otherwise it conflicts with the basic auth owncast serves on the admin endpoint.
-          removeHeader = true;
-        };
-        routers.owncast_internet = {
-          rule = "Host(`owncast.rickvanschijndel.eu`)";
-          service = "owncast";
-          middlewares = [
-            "owncast-auth"
-          ];
-        };
-        routers.owncast_trusted = {
-          rule = "Host(`owncast.aqua`) || Host(`owncast-wg.aqua`)";
-          service = "owncast";
+        ### Syncthing
+        routers.syncthing = {
+          rule = "PathPrefix(`/syncthing`)";
+          service = "syncthing";
           middlewares = [
             "internal-allowlist"
           ];
         };
-        services.owncast = {
+        services.syncthing = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:${toString config.services.owncast.port}";
+              url = "http://${config.services.syncthing.guiAddress}";
             }
           ];
         };
