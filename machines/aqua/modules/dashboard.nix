@@ -53,6 +53,10 @@ in
                           title = "Zigbee2MQTT";
                           url = "http://${aqua_url}/zigbee2mqtt";
                         }
+                        {
+                          title = "Syncthing";
+                          url = "http://${aqua_url}/syncthing";
+                        }
                       ];
                     }
                     {
