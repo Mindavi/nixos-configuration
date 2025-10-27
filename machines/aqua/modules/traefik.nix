@@ -191,11 +191,13 @@ in
         };
 
         ### Syncthing
+        middlewares.syncthing-stripprefix.stripprefix.prefixes = "/syncthing";
         routers.syncthing = {
           rule = "PathPrefix(`/syncthing`)";
           service = "syncthing";
           middlewares = [
             "internal-allowlist"
+            "syncthing-stripprefix"
           ];
         };
         services.syncthing = {
