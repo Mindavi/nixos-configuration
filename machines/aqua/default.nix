@@ -101,7 +101,7 @@ in
     fdupes
     file
     fzf # fuzzy find
-    gitAndTools.gitFull
+    gitFull
     hdparm
     htop
     jpeginfo # verify validity of jpegs
