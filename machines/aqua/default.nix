@@ -35,6 +35,7 @@ in
     ./modules/firewall.nix
     ./modules/grafana.nix
     ./modules/home-assistant
+    ./modules/immich.nix
     ./modules/mosquitto.nix
     ./modules/music-assistant.nix
     ./modules/nix.nix
