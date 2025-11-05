@@ -22,7 +22,7 @@
     # ../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/sudo.nix
-    ../../modules/rtl-sdr.nix
+    #../../modules/rtl-sdr.nix
   ];
 
   nixpkgs.config = {
@@ -161,7 +161,7 @@
     thunderbird
     #telegram-desktop
 
-    rtl_433
+    #rtl_433
 
     # frequently used dev tools
     diffoscopeMinimal
@@ -222,19 +222,18 @@
   ];
 
   # streaming
-  programs.obs-studio = {
-    enable = true;
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
-    plugins = with pkgs.obs-studio-plugins; [
-      droidcam-obs
-      obs-urlsource
-      obs-text-pthread
-    ];
-  };
+  #programs.obs-studio = {
+  #  enable = true;
+  #  package = (
+  #    pkgs.obs-studio.override {
+  #      cudaSupport = true;
+  #    }
+  #  );
+  #  plugins = with pkgs.obs-studio-plugins; [
+  #    droidcam-obs
+  #    obs-text-pthread
+  #  ];
+  #};
 
   environment.variables.EDITOR = "vim";
 
@@ -310,9 +309,6 @@
   };
 
   programs.adb.enable = true;
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {
