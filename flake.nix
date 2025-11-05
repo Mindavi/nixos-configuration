@@ -1,6 +1,6 @@
 {
   #inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable";
-  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/544961dfcce86422ba200ed9a0b00dd4b1486ec5";
   #  inputs.nixvim = {
   #    url = "github:nix-community/nixvim";
   #    inputs.nixpkgs.follows = "nixos-unstable";
