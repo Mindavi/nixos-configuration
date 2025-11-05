@@ -2,6 +2,8 @@
   #inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable";
   # TODO(Mindavi): Go back to nixos-unstable when #453713 goes through.
   #                https://nixpk.gs/pr-tracker.html?pr=453713
+  # Upstream issue: https://github.com/systemd/systemd/issues/38932
+  # and upstream fix: https://github.com/systemd/systemd/pull/39089
   inputs.nixos-unstable.url = "github:NixOS/nixpkgs/544961dfcce86422ba200ed9a0b00dd4b1486ec5";
   #  inputs.nixvim = {
   #    url = "github:nix-community/nixvim";
