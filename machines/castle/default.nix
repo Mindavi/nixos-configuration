@@ -26,20 +26,20 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/audio.nix
+    #./modules/audio.nix
     ./modules/avahi.nix
-    ./modules/backup.nix
+    #./modules/backup.nix
     ./modules/disko.nix
-    ./modules/fail2ban.nix
+    #./modules/fail2ban.nix
     ./modules/firewall.nix
     #./modules/impermanence.nix
     ./modules/nix.nix
-    ./modules/prometheus.nix
+    #./modules/prometheus.nix
     ./modules/sops.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
-    ../../modules/hydra.nix
-    ../../modules/iperf.nix
+    #../../modules/hydra.nix
+    #../../modules/iperf.nix
     ../../modules/sudo.nix
   ];
 
@@ -88,7 +88,7 @@ in
     sbctl # secure boot
     screen
     sl
-    syncthing
+    #syncthing
     #transmission_4
     tree
     vim
