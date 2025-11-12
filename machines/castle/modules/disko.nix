@@ -36,6 +36,8 @@
     # inspiration:
     # https://github.com/collinarnett/brew/tree/main/hosts/azathoth
     # https://github.com/nix-community/disko/blob/master/example/zfs-encrypted-root.nix
+    # https://gitlab.com/misuzu/nixos-configuration/-/blob/a5a836e25b81f3f0ede57e68e7884e42aa2b0769/hosts/akane/disko-config.nix
+    # https://discourse.nixos.org/t/zfs-with-disko-faluire-to-import-zfs-pool/61988
     zpool = {
       zroot = {
         type = "zpool";
@@ -47,6 +49,9 @@
           "com.sun:auto-snapshot" = "false";
           mountpoint = "none";
           xattr = "sa";
+          encryption = "aes-256-gcm";
+          keyformat = "passphrase";
+          keylocation = "prompt";
         };
         #mountpoint = "/";
         #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
@@ -64,36 +69,17 @@
               reservation = "20GiB";
             };
           };
-          #persist = {
-          #  type = "zfs_fs";
-          #  mountpoint = "/persist";
-          #  options.mountpoint = "/persist";
-          #  options."com.sun:auto-snapshot" = "false";
-          #  postCreateHook = "zfs snapshot zroot/persist@empty";
-          #};
-          #persistSave = {
-          #  type = "zfs_fs";
-          #  mountpoint = "/persist/save";
-          #  options.mountpoint = "/persist/save";
-          #  options."com.sun:auto-snapshot" = "false";
-          #  postCreateHook = "zfs snapshot zroot/persistSave@empty";
-          #};
           "root" = {
             type = "zfs_fs";
             mountpoint = "/";
+            options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/root@empty";
-
-            options = {
-              encryption = "aes-256-gcm";
-              keyformat = "passphrase";
-              keylocation = "prompt";
-            };
           };
           "root/nix" = {
             type = "zfs_fs";
             mountpoint = "/nix";
-            options.mountpoint = "/nix";
+            options.mountpoint = "legacy";
             options = {
               atime = "off";
               canmount = "on";
@@ -104,7 +90,7 @@
           "root/home" = {
             type = "zfs_fs";
             mountpoint = "/home";
-            options.mountpoint = "/home";
+            options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/root/home@empty";
           };
