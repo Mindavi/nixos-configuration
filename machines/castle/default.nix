@@ -84,6 +84,7 @@ in
     jq
     parted
     ripgrep # grep
+    sbctl # secure boot
     screen
     sl
     syncthing
