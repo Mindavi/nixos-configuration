@@ -1,4 +1,9 @@
 {
+  # HACK(Mindavi): not sure if this is the right way to go about this.
+  # See open issue on disko repository: https://github.com/nix-community/disko/issues/192
+  #fileSystems."/persist".neededForBoot = true;
+  #fileSystems."/persist/save".neededForBoot = true;
+
   disko.devices = {
     disk = {
       main = {
@@ -73,26 +78,33 @@
             };
             postCreateHook = "zfs snapshot zroot/nix@empty";
           };
-          persist = {
-            type = "zfs_fs";
-            mountpoint = "/persist";
-            options.mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs snapshot zroot/persist@empty";
-          };
-          persistSave = {
-            type = "zfs_fs";
-            mountpoint = "/persist/save";
-            options.mountpoint = "/persist/save";
-            options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs snapshot zroot/persistSave@empty";
-          };
+          #persist = {
+          #  type = "zfs_fs";
+          #  mountpoint = "/persist";
+          #  options.mountpoint = "/persist";
+          #  options."com.sun:auto-snapshot" = "false";
+          #  postCreateHook = "zfs snapshot zroot/persist@empty";
+          #};
+          #persistSave = {
+          #  type = "zfs_fs";
+          #  mountpoint = "/persist/save";
+          #  options.mountpoint = "/persist/save";
+          #  options."com.sun:auto-snapshot" = "false";
+          #  postCreateHook = "zfs snapshot zroot/persistSave@empty";
+          #};
           root = {
             type = "zfs_fs";
             mountpoint = "/";
             options.mountpoint = "/";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/root@empty";
+          };
+          home = {
+            type = "zfs_fs";
+            mountpoint = "/home";
+            options.mountpoint = "/home";
+            options."com.sun:auto-snapshot" = "false";
+            postCreateHook = "zfs snapshot zroot/home@empty";
           };
           tmp = {
             type = "zfs_fs";
