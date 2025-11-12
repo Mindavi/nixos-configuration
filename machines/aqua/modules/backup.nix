@@ -17,6 +17,7 @@
         paths = [
           "/var/data/samba"
           "/var/lib/zigbee2mqtt"
+          "/storage/documents"
         ];
         pruneOpts = [
           "--keep-daily 7"
