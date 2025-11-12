@@ -36,7 +36,7 @@
       box_3 = {
         type = "disk";
         device = "/dev/disk/by-id/ata-ST8000NM017B-2TJ103_WWZ6Z0RK";
-         content = {
+        content = {
           type = "gpt";
           partitions = {
             zfs = {
@@ -48,7 +48,7 @@
             };
           };
         };
-     };
+      };
       box_4 = {
         type = "disk";
         device = "/dev/disk/by-id/ata-ST8000NM017B-2TJ103_WWZ6Z4AA";
