@@ -128,7 +128,7 @@ in
   };
   users.mutableUsers = false;
 
-  services.postgresql.package = pkgs.postgresql_15;
+  services.postgresql.package = pkgs.postgresql_17;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.11";
 }
