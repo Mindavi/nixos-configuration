@@ -53,6 +53,7 @@ in
 
   networking = {
     hostName = "castle";
+    hostId = "676dc1cb";
     networkmanager.enable = false;
     # Disable global useDhcp flag, it is deprecated.
     useDHCP = false;
