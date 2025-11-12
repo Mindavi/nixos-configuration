@@ -70,7 +70,7 @@
           nix = {
             type = "zfs_fs";
             mountpoint = "/nix";
-            options.mountpoint = "/nix";
+            options.mountpoint = "legacy";
             options = {
               atime = "off";
               canmount = "on";
@@ -95,14 +95,14 @@
           root = {
             type = "zfs_fs";
             mountpoint = "/";
-            options.mountpoint = "/";
+            options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/root@empty";
           };
           home = {
             type = "zfs_fs";
             mountpoint = "/home";
-            options.mountpoint = "/home";
+            options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/home@empty";
           };
@@ -110,7 +110,7 @@
             type = "zfs_fs";
             mountpoint = "/tmp";
             options = {
-              mountpoint = "/tmp";
+              mountpoint = "legacy";
               sync = "disabled";
             };
           };
