@@ -47,10 +47,6 @@
           "com.sun:auto-snapshot" = "false";
           mountpoint = "none";
           xattr = "sa";
-
-          encryption = "aes-256-gcm";
-          keyformat = "passphrase";
-          keylocation = "prompt";
         };
         mountpoint = "/";
         postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
