@@ -48,8 +48,8 @@
           mountpoint = "none";
           xattr = "sa";
         };
-        mountpoint = "/";
-        postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
+        #mountpoint = "/";
+        #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
         # Use 4k block size: https://jrs-s.net/2018/08/17/zfs-tuning-cheat-sheet/
         # for Samsung 980 'page size' is 16 KB, but how does that translate to sector size?
         options.ashift = "12";
