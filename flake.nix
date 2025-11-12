@@ -4,6 +4,7 @@
   #                https://nixpk.gs/pr-tracker.html?pr=453713
   # Upstream issue: https://github.com/systemd/systemd/issues/38932
   # and upstream fix: https://github.com/systemd/systemd/pull/39089
+  # TODO(Mindavi): staging-next got merged, it's in the small channel now so likely tomorrow it'll be in the big channel (today: 2025-11-12)
   inputs.nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   #  inputs.nixvim = {
   #    url = "github:nix-community/nixvim";
