@@ -19,7 +19,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = [ "umask=0077" "nofail" ];
               };
             };
             zfs = {
@@ -35,6 +35,7 @@
     };
     # inspiration:
     # https://github.com/collinarnett/brew/tree/main/hosts/azathoth
+    # https://github.com/nix-community/disko/blob/master/example/zfs-encrypted-root.nix
     zpool = {
       zroot = {
         type = "zpool";
@@ -51,8 +52,8 @@
           keyformat = "passphrase";
           keylocation = "prompt";
         };
-        #mountpoint = "/";
-        #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
+        mountpoint = "/";
+        postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
         # Use 4k block size: https://jrs-s.net/2018/08/17/zfs-tuning-cheat-sheet/
         # for Samsung 980 'page size' is 16 KB, but how does that translate to sector size?
         options.ashift = "12";
@@ -66,17 +67,6 @@
               mountpoint = "none";
               reservation = "20GiB";
             };
-          };
-          nix = {
-            type = "zfs_fs";
-            mountpoint = "/nix";
-            options.mountpoint = "legacy";
-            options = {
-              atime = "off";
-              canmount = "on";
-              "com.sun:auto-snapshot" = "false";
-            };
-            postCreateHook = "zfs snapshot zroot/nix@empty";
           };
           #persist = {
           #  type = "zfs_fs";
@@ -92,19 +82,35 @@
           #  options."com.sun:auto-snapshot" = "false";
           #  postCreateHook = "zfs snapshot zroot/persistSave@empty";
           #};
-          root = {
+          "root" = {
             type = "zfs_fs";
             mountpoint = "/";
-            options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
             postCreateHook = "zfs snapshot zroot/root@empty";
+
+            options = {
+              encryption = "aes-256-gcm";
+              keyformat = "passphrase";
+              keylocation = "prompt";
+            };
           };
-          home = {
+          "root/nix" = {
+            type = "zfs_fs";
+            mountpoint = "/nix";
+            options.mountpoint = "/nix";
+            options = {
+              atime = "off";
+              canmount = "on";
+              "com.sun:auto-snapshot" = "false";
+            };
+            postCreateHook = "zfs snapshot zroot/root/nix@empty";
+          };
+          "root/home" = {
             type = "zfs_fs";
             mountpoint = "/home";
-            options.mountpoint = "legacy";
+            options.mountpoint = "/home";
             options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs snapshot zroot/home@empty";
+            postCreateHook = "zfs snapshot zroot/root/home@empty";
           };
           tmp = {
             type = "zfs_fs";
