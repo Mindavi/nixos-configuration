@@ -40,7 +40,7 @@ in
     ./modules/zfs.nix
     #../../modules/hydra.nix
     #../../modules/iperf.nix
-    ../../modules/sudo.nix
+    #../../modules/sudo.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
