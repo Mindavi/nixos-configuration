@@ -54,9 +54,10 @@
           "com.sun:auto-snapshot" = "false";
           mountpoint = "none";
           xattr = "sa";
-          #encryption = "aes-256-gcm";
-          #keyformat = "passphrase";
-          #keylocation = "prompt";
+          # TODO(Mindavi): consider using luks, instead. It supports yubikey and TPM2.
+          encryption = "aes-256-gcm";
+          keyformat = "passphrase";
+          keylocation = "prompt";
         };
         #mountpoint = "/";
         #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
