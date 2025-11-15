@@ -48,7 +48,18 @@ in
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.supportedFilesystems = [ "zfs" ];
-  boot.supportedFilesystems = [ "zfs" ];
+  boot = {
+    supportedFilesystems = [ "zfs" ];
+    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/modules/zfs.nix
+    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/base-zfs/disko-config.nix
+    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/base-zfs/configuration.nix
+    zfs = {
+      # These all seem defaults...
+      requestEncryptionCredentials = true;
+      forceImportRoot = false;
+      devNodes = "/dev/disk/by-id";
+    };
+  };
 
   boot.kernelPackages = latestKernelPackage;
   hardware.cpu.amd.updateMicrocode = true;
@@ -60,7 +71,7 @@ in
     # Disable global useDhcp flag, it is deprecated.
     useDHCP = false;
     interfaces = lib.optionalAttrs (!isVmBuild) {
-      eno1 = {
+      enp2s0 = {
         # Intentionally enable both DHCP and static IP.
         # This can be handy for recovery when network config is changed.
         useDHCP = true;
