@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   environment.persistence."/persist" = {
     directories = [
