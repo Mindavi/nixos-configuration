@@ -32,7 +32,7 @@ in
     ./modules/disko.nix
     ./modules/fail2ban.nix
     ./modules/firewall.nix
-    #./modules/impermanence.nix
+    ./modules/impermanence.nix
     ./modules/nix.nix
     ./modules/prometheus.nix
     ./modules/sops.nix
