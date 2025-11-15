@@ -129,4 +129,6 @@
       };
     };
   };
+  # Impermanence requires this.
+  fileSystems."/persist".neededForBoot = true;
 }
