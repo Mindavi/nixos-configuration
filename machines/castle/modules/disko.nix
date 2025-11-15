@@ -22,11 +22,21 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            zfs = {
+            luks = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "zroot";
+                type = "luks";
+                name = "crypted";
+                passwordFile = "/tmp/secret.key"; # For interactive password entry
+                settings = {
+                  allowDiscards = true;
+                  # keyFile = "/tmp/secret.key"; # enable for non-interactive password entry
+                };
+                # Note(Mindavi): It is very important to export the zroot / zpools after nixos-install to ensure they can be imported on reboot.
+                content = {
+                  type = "zfs";
+                  pool = "zroot";
+                };
               };
             };
           };
@@ -47,7 +57,7 @@
         # Single disk, no mode options.
         mode = "";
         # From disko example, possibly helps with issues importing zroot?
-        options.cachefile = "none";
+        #options.cachefile = "none";
         rootFsOptions = {
           acltype = "posixacl";
           compression = "zstd";
@@ -55,9 +65,9 @@
           mountpoint = "none";
           xattr = "sa";
           # TODO(Mindavi): consider using luks, instead. It supports yubikey and TPM2.
-          encryption = "aes-256-gcm";
-          keyformat = "passphrase";
-          keylocation = "prompt";
+          #encryption = "aes-256-gcm";
+          #keyformat = "passphrase";
+          #keylocation = "prompt";
         };
         #mountpoint = "/";
         #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
@@ -75,14 +85,14 @@
               reservation = "20GiB";
             };
           };
-          "root" = {
+          "local/root" = {
             type = "zfs_fs";
             mountpoint = "/";
             options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs snapshot zroot/root@empty";
+            postCreateHook = "zfs snapshot zroot/local/root@empty";
           };
-          "root/nix" = {
+          "local/nix" = {
             type = "zfs_fs";
             mountpoint = "/nix";
             options.mountpoint = "legacy";
@@ -91,14 +101,21 @@
               canmount = "on";
               "com.sun:auto-snapshot" = "false";
             };
-            postCreateHook = "zfs snapshot zroot/root/nix@empty";
+            postCreateHook = "zfs snapshot zroot/local/nix@empty";
           };
-          "root/home" = {
+          "safe/home" = {
             type = "zfs_fs";
             mountpoint = "/home";
             options.mountpoint = "legacy";
             options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs snapshot zroot/root/home@empty";
+            postCreateHook = "zfs snapshot zroot/safe/home@empty";
+          };
+          "safe/persist" = {
+            type = "zfs_fs";
+            mountpoint = "/persist";
+            options.mountpoint = "legacy";
+            options."com.sun:auto-snapshot" = "false";
+            postCreateHook = "zfs snapshot zroot/safe/persist@empty";
           };
           tmp = {
             type = "zfs_fs";
