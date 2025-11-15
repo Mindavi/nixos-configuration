@@ -1,4 +1,5 @@
 {
+  boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.supportedFilesystems = [ "zfs" ];
   # Recommended to be disabled, default enabled for backwards compat reasons.
   boot.zfs.forceImportRoot = false;

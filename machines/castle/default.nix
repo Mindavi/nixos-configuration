@@ -26,34 +26,27 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    #./modules/audio.nix
+    ./modules/audio.nix
     ./modules/avahi.nix
-    #./modules/backup.nix
+    ./modules/backup.nix
     ./modules/disko.nix
-    #./modules/fail2ban.nix
+    ./modules/fail2ban.nix
     ./modules/firewall.nix
     #./modules/impermanence.nix
     ./modules/nix.nix
-    #./modules/prometheus.nix
+    ./modules/prometheus.nix
     ./modules/sops.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
-    #../../modules/hydra.nix
-    #../../modules/iperf.nix
-    #../../modules/sudo.nix
+    ../../modules/hydra.nix
+    ../../modules/iperf.nix
+    ../../modules/sudo.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.supportedFilesystems = [ "zfs" ];
-  boot = {
-    supportedFilesystems = [ "zfs" ];
-    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/modules/zfs.nix
-    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/base-zfs/disko-config.nix
-    # https://github.com/firecat53/nixos/blob/9613ed4f8dc56037d1fc5c3f9cee8d87a2ca0d91/hosts/base-zfs/configuration.nix
-  };
 
   boot.kernelPackages = latestKernelPackage;
   hardware.cpu.amd.updateMicrocode = true;
@@ -68,6 +61,7 @@ in
       enp2s0 = {
         # Intentionally enable both DHCP and static IP.
         # This can be handy for recovery when network config is changed.
+        # Also, ideally the router handles that the same IP keeps being set up.
         useDHCP = true;
         ipv4.addresses = [
           {
@@ -95,8 +89,7 @@ in
     sbctl # secure boot
     screen
     sl
-    #syncthing
-    #transmission_4
+    transmission_4
     tree
     vim
     zfs
@@ -119,6 +112,7 @@ in
   # Define a user account. Don't forget to set a password with `passwd`.
   users.users.rick = {
     isNormalUser = true;
+    uid = 1000;
     home = "/home/rick";
     extraGroups = [
       "adbusers"
@@ -134,8 +128,6 @@ in
     ];
   };
   users.mutableUsers = false;
-
   services.postgresql.package = pkgs.postgresql_17;
-
   system.stateVersion = "25.11";
 }
