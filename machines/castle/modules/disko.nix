@@ -46,6 +46,8 @@
         type = "zpool";
         # Single disk, no mode options.
         mode = "";
+        # From disko example, possibly helps with issues importing zroot?
+        options.cachefile = "none";
         rootFsOptions = {
           acltype = "posixacl";
           compression = "zstd";
