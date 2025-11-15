@@ -8,7 +8,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_1TB_S649NL1W144708T";
         content = {
           type = "gpt";
           partitions = {
@@ -19,7 +19,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" "nofail" ];
+                mountOptions = [ "umask=0077" ];
               };
             };
             zfs = {
@@ -52,9 +52,9 @@
           "com.sun:auto-snapshot" = "false";
           mountpoint = "none";
           xattr = "sa";
-          encryption = "aes-256-gcm";
-          keyformat = "passphrase";
-          keylocation = "prompt";
+          #encryption = "aes-256-gcm";
+          #keyformat = "passphrase";
+          #keylocation = "prompt";
         };
         #mountpoint = "/";
         #postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot@blank$' || zfs snapshot zroot@blank";
