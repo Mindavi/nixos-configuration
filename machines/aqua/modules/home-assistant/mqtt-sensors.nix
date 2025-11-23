@@ -10,7 +10,7 @@ in
         sensor = [
           {
             name = "Temperature bedroom Rick";
-            object_id = "temperature_bedroom_rick";
+            default_entity_id = "sensor.temperature_bedroom_rick";
             state_topic = "sensor/temperature/bedroom/status";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -19,7 +19,7 @@ in
           }
           {
             name = "Temperature bedroom Rick 2";
-            object_id = "temperature_bedroom_rick_2";
+            default_entity_id = "sensor.temperature_bedroom_rick_2";
             state_topic = "sensor/temperature/bedroom/debug";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -28,7 +28,7 @@ in
           }
           {
             name = "Humidity bedroom Rick";
-            object_id = "humidity_bedroom_rick";
+            default_entity_id = "sensor.humidity_bedroom_rick";
             state_topic = "sensor/humidity/bedroom/status";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -37,7 +37,7 @@ in
           }
           {
             name = "Temperature (ch1)";
-            object_id = "temperature_bresser_portable_1";
+            default_entity_id = "sensor.temperature_bresser_portable_1";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/+/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -46,7 +46,7 @@ in
           }
           {
             name = "Temperature (ch2)";
-            object_id = "temperature_bresser_portable_2";
+            default_entity_id = "sensor.temperature_bresser_portable_2";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -55,7 +55,7 @@ in
           }
           {
             name = "Temperature (ch3)";
-            object_id = "temperature_bresser_portable_3";
+            default_entity_id = "sensor.temperature_bresser_portable_3";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -64,7 +64,7 @@ in
           }
           {
             name = "Humidity (ch1)";
-            object_id = "humidity_bresser_portable_1";
+            default_entity_id = "sensor.humidity_bresser_portable_1";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/+/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -73,7 +73,7 @@ in
           }
           {
             name = "Humidity (ch2)";
-            object_id = "humidity_bresser_portable_2";
+            default_entity_id = "sensor.humidity_bresser_portable_2";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -82,7 +82,7 @@ in
           }
           {
             name = "Humidity (ch3)";
-            object_id = "humidity_bresser_portable_3";
+            default_entity_id = "sensor.humidity_bresser_portable_3";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -91,25 +91,25 @@ in
           }
           {
             name = "Battery status (ch1)";
-            object_id = "battery_status_bresser_portable_1";
+            default_entity_id = "sensor.battery_status_bresser_portable_1";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/1/+/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Battery status (ch2)";
-            object_id = "battery_status_bresser_portable_2";
+            default_entity_id = "sensor.battery_status_bresser_portable_2";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/2/+/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Battery status (ch3)";
-            object_id = "battery_status_bresser_portable_3";
+            default_entity_id = "sensor.battery_status_bresser_portable_3";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/181/battery_ok";
             state_class = "measurement";
           }
           {
             name = "Temperature shed";
-            object_id = "temperature_outside";
+            default_entity_id = "sensor.temperature_outside";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/temperature_C";
             unit_of_measurement = "°C";
             device_class = "temperature";
@@ -119,7 +119,7 @@ in
           }
           {
             name = "Humidity shed";
-            object_id = "humidity_outside";
+            default_entity_id = "sensor.humidity_outside";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/humidity";
             unit_of_measurement = "%";
             device_class = "humidity";
@@ -128,7 +128,7 @@ in
           }
           {
             name = "Temperature shed battery status";
-            object_id = "temperature_outside_battery_status";
+            default_entity_id = "sensor.temperature_outside_battery_status";
             state_topic = "rtl_433/${mqtt_server_name}/devices/Nexus-TH/3/4/battery_ok";
             state_class = "measurement";
           }
