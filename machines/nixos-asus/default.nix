@@ -80,7 +80,7 @@
       useDHCP = true;
       ipv4.addresses = [
         {
-          address = "192.168.178.3";
+          address = "192.168.1.3";
           prefixLength = 24;
         }
       ];
@@ -96,7 +96,7 @@
   #networking.useNetworkd = true;
 
   networking.hosts = {
-    "192.168.178.8" = [
+    "192.168.1.8" = [
       "aqua"
       "hass.aqua"
       "hydra.aqua"
