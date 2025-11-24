@@ -51,5 +51,8 @@
     RestartSec = 15;
     RestartSteps = 10;
     RestartMaxDelaySec = "5min";
+    # Attempt to resolve mDNS issues.
+    # TODO(Mindavi): add failure message here and/or create issue upstream.
+    CapabilityBoundingSet = lib.mkForce "~";
   };
 }
