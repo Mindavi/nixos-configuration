@@ -72,5 +72,10 @@
     # Attempt to resolve mDNS issues.
     # TODO(Mindavi): add failure message here and/or create issue upstream.
     CapabilityBoundingSet = lib.mkForce "~";
+    RestrictAddressFamilies = lib.mkForce [
+      "AF_UNIX"
+      "AF_INET"
+      "AF_INET6"
+    ];
   };
 }
