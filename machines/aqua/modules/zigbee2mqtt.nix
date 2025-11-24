@@ -14,8 +14,8 @@
       permit_join = false;
       serial = {
         # TODO(Mindavi): mDNS does not work at all, figure out why this is. Maybe systemd service restrictions from NixOS?
-        #port = "mdns://slzb-06";
-        port = "tcp://192.168.1.23:6638";
+        port = "mdns://slzb-06";
+        #port = "tcp://192.168.1.23:6638";
         adapter = "zstack";
       };
       frontend = {
