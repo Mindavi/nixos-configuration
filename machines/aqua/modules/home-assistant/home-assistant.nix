@@ -152,9 +152,11 @@
     enable = true;
     configDir = "/var/lib/hass";
   };
-  extraPackages = [
-    pkgs.picotts # missing when installing picotts component
+
+  environment.systemPackages = with pkgs; [
+    picotts
   ];
+
   # Ensure automations.yaml is generated if it doesn't exist yet.
   systemd.tmpfiles.rules = [
     "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
