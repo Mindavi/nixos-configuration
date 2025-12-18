@@ -61,6 +61,11 @@
       sun = { };
       system_health = { };
       system_log = { };
+      tts = [
+        {
+          platform = "picotts";
+        }
+      ];
 
       "automation nixos" = [ ];
       "automation ui" = "!include automations.yaml";
@@ -84,6 +89,7 @@
       "energy"
       "enphase_envoy"
       "esphome"
+      "ffmpeg"
       "fritz"
       "gardena_bluetooth"
       "govee_ble"
