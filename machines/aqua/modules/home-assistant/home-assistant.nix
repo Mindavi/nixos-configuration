@@ -63,7 +63,12 @@
       system_log = { };
       tts = [
         {
-          platform = "picotts";
+          platform = "marytts";
+          host = "localhost";
+          port = 59125;
+          codec = "WAVE_FILE";
+          voice = "cmu-slt-hsmm";
+          language = "en_US";
         }
       ];
 
@@ -111,13 +116,13 @@
       "logbook"
       "lovelace"
       "luci"
+      "marytts"
       "met"
       "mobile_app"
       "mqtt"
       "music_assistant"
       "owntracks"
       "paperless_ngx"
-      "picotts"
       "ping"
       "piper"
       "prometheus"
@@ -153,10 +158,6 @@
     configDir = "/var/lib/hass";
   };
 
-  environment.systemPackages = with pkgs; [
-    picotts
-  ];
-
   # Ensure automations.yaml is generated if it doesn't exist yet.
   systemd.tmpfiles.rules = [
     "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
@@ -172,4 +173,11 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="hass", MODE="0660"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="190e", GROUP="hass", MODE="0660"
   '';
+
+  # TTS service
+  services.marytts = {
+    enable = true;
+    openFirewall = false;
+    port = 59125;
+  };
 }
