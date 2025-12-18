@@ -61,16 +61,6 @@
       sun = { };
       system_health = { };
       system_log = { };
-      tts = [
-        {
-          platform = "marytts";
-          host = "localhost";
-          port = 59125;
-          codec = "WAVE_FILE";
-          voice = "cmu-slt-hsmm";
-          language = "en_US";
-        }
-      ];
 
       "automation nixos" = [ ];
       "automation ui" = "!include automations.yaml";
@@ -116,7 +106,6 @@
       "logbook"
       "lovelace"
       "luci"
-      "marytts"
       "met"
       "mobile_app"
       "mqtt"
@@ -173,11 +162,4 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="0604", GROUP="hass", MODE="0660"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", ATTRS{idProduct}=="190e", GROUP="hass", MODE="0660"
   '';
-
-  # TTS service
-  services.marytts = {
-    enable = true;
-    openFirewall = false;
-    port = 59125;
-  };
 }
