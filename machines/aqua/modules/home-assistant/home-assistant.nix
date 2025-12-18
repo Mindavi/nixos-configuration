@@ -71,7 +71,7 @@
     extraComponents = [
       # TODO(Mindavi): fix bluetooth permissions:
       # aqua hass[PID]: INFO (MainThread) [bluetooth_auto_recovery.recover] hci1 permission denied to /dev/bus/usb/001/007 while attempting USB reset: [Errno 13] Permission denied: '/dev/bus/usb/001/007'
-
+      "alert"
       "bluetooth"
       "cast"
       "climate"
@@ -110,6 +110,7 @@
       "music_assistant"
       "owntracks"
       "paperless_ngx"
+      "picotts"
       "ping"
       "piper"
       "prometheus"
@@ -125,6 +126,7 @@
       "upnp"
       "webostv"
       "whisper"
+      "wled"
       "wyoming"
       "xiaomi_ble"
       "zeroconf"
