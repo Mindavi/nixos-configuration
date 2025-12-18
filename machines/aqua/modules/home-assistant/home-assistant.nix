@@ -38,8 +38,9 @@
         default = "info";
       };
 
+      # note: adaptive_lighting is a custom component
+      adaptive_lighting = { };
       config = { };
-      #default_config = {};
       energy = { };
       frontend = { };
       history = { };
@@ -60,8 +61,12 @@
       system_health = { };
       system_log = { };
 
-      "automation manual" = [ ];
+      "automation nixos" = [ ];
       "automation ui" = "!include automations.yaml";
+      "scene nixos" = [ ];
+      "scene ui" = "!include scenes.yaml";
+      "script nixos" = [ ];
+      "script ui" = "!include scripts.yaml";
     };
     extraComponents = [
       # TODO(Mindavi): fix bluetooth permissions:
@@ -88,7 +93,10 @@
       "ibeacon"
       "isal" # https://github.com/NixOS/nixpkgs/issues/330377
       "linkplay"
-      "local_ip" # ???
+      "local_calendar"
+      "local_file"
+      "local_ip"
+      "local_todo"
       "logbook"
       "lovelace"
       "luci"
@@ -112,7 +120,16 @@
       "whisper"
       "wyoming"
       "xiaomi_ble"
+      "zeroconf"
       "zha"
+    ];
+    customComponents = with pkgs.home-assistant-custom-components; [
+      adaptive_lighting
+      # auth_oidc
+      # localtuya # mutually exclusive with tuya_local
+      smartir
+      # tuya_local
+      waste_collection_schedule
     ];
     package = pkgs.home-assistant;
     openFirewall = false;
@@ -122,6 +139,8 @@
   # Ensure automations.yaml is generated if it doesn't exist yet.
   systemd.tmpfiles.rules = [
     "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
+    "f ${config.services.home-assistant.configDir}/scenes.yaml 0755 hass hass"
+    "f ${config.services.home-assistant.configDir}/scripts.yaml 0755 hass hass"
   ];
 
   # Allow USB adapter to be controlled by home assistant.
