@@ -33,10 +33,10 @@ in
                           title = "Home assistant";
                           url = "http://${aqua_url}";
                         }
-                        {
-                          title = "Hydra";
-                          url = "http://${aqua_url}/hydra";
-                        }
+                        # {
+                        #   title = "Hydra";
+                        #   url = "http://${aqua_url}/hydra";
+                        # }
                         {
                           title = "Prometheus";
                           url = "http://${aqua_url}/prometheus";
@@ -55,7 +55,7 @@ in
                         }
                         {
                           title = "Syncthing";
-                          url = "http://${aqua_url}/syncthing";
+                          url = "http://${aqua_url}/syncthing/";
                         }
                       ];
                     }
