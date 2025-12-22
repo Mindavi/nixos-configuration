@@ -17,8 +17,7 @@
     faster-whisper = {
       servers.hass = {
         enable = true;
-        # see https://github.com/rhasspy/rhasspy3/blob/master/programs/asr/faster-whisper/script/download.py
-        model = "base-int8";
+        model = "medium"; # other options: base-int8, small
         language = "nl";
         uri = "tcp://127.0.0.1:10300";
         device = "cpu";
