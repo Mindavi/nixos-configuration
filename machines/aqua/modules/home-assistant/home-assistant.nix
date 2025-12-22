@@ -11,8 +11,8 @@
         country = "NL";
         unit_system = "metric";
         time_zone = "Europe/Amsterdam";
-        #internal_url = "TBD";
-        external_url = "http://aqua";
+        #external_url = "TBD";
+        internal_url = "http://aqua";
       };
       #auth_providers = {}; # kept disabled for now, as recommended on the home-assistant page
       #                     # something to consider later for easier onboarding of others in the house
