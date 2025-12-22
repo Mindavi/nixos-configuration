@@ -1,13 +1,9 @@
-{ pkgs, config, ...}:
+{ pkgs, config, ... }:
 
 {
   services.ollama = {
-    enable = true;
+    enable = false;
     port = 11434;
-    loadModels = [
-      "qwen3:4b"
-      "deepseek-r1:8b"
-    ];
+    loadModels = [ ];
   };
 }
-
