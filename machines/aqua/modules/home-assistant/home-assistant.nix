@@ -74,7 +74,11 @@
       # TODO(Mindavi): fix bluetooth permissions:
       # aqua hass[PID]: INFO (MainThread) [bluetooth_auto_recovery.recover] hci1 permission denied to /dev/bus/usb/001/007 while attempting USB reset: [Errno 13] Permission denied: '/dev/bus/usb/001/007'
       "alert"
+      "assist_pipeline"
+      "assist_satellite"
       "bluetooth"
+      "bluetooth_adapters"
+      "bluetooth_le_tracker"
       "cast"
       "climate"
       "conversation"
