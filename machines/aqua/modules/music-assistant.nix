@@ -5,12 +5,17 @@
     # TODO(Mindavi): add opodsync and gpodder provider
     providers = [
       "builtin"
+      "builtin_player"
       "chromecast"
       "dlna"
       "filesystem_local"
+      "hass"
+      "hass_players"
+      "itunes_podcasts"
       "jellyfin"
       "podcastfeed"
       "radiobrowser"
+      "snapcast"
       "soundcloud"
       "spotify"
       "spotify_connect"
