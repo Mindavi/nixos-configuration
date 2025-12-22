@@ -111,6 +111,7 @@
       "logbook"
       "lovelace"
       "luci"
+      "ollama"
       "media_player"
       "media_source"
       "met"
