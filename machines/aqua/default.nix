@@ -48,6 +48,7 @@ in
     ./modules/syncthing.nix
     ./modules/traefik.nix
     #./modules/virtualisation.nix
+    ./modules/voice.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
