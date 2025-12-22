@@ -106,6 +106,8 @@
       "logbook"
       "lovelace"
       "luci"
+      "media_player"
+      "media_source"
       "met"
       "mobile_app"
       "mqtt"
