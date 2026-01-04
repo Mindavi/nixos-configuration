@@ -222,8 +222,8 @@
 
     # script to sync changed data to SSD from parents
     (writeShellScriptBin "sync-photos-to-ssd" ''
+      set -euxo pipefail
       export PATH="${
-        set -euxo pipefail
         lib.makeBinPath ([
           pkgs.rsync
           # Below packages should definitely be in ambient environment.
