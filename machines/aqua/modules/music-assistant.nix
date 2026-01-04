@@ -5,7 +5,6 @@
     # TODO(Mindavi): add opodsync and gpodder provider
     providers = [
       "builtin"
-      "builtin_player"
       "chromecast"
       "dlna"
       "filesystem_local"
