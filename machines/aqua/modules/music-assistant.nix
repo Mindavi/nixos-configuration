@@ -14,6 +14,7 @@
       "jellyfin"
       "podcastfeed"
       "radiobrowser"
+      "sendspin"
       "snapcast"
       "soundcloud"
       "spotify"
