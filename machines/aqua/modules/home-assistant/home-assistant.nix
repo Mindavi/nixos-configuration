@@ -65,6 +65,18 @@
             "*sensor.tpms_schrader_*"
             "*sensor.cotech_*"
             "*sensor.acurite_*"
+            "*sensor.nexa_security_*"
+            "*sensor.burnhardbbq_*"
+            "*sensor.klikaanklikuit_switch_*"
+            "*sensor.philips_temperature_*"
+            "*sensor.ht680_remote_*"
+            "*sensor.markisol_*"
+            "*sensor.megacode_remote_*"
+            "*sensor.microchip_hcs200*"
+            "*sensor.secplus_v1_*"
+            "*sensor.skylink_ha_434tl_motion_*"
+            "*sensor.generic_remote_*"
+            "*sensor.revolt_nc5462_*"
             "sensor.*_distance"
             "number.*_distance_min"
             "number.*_distance_max"
@@ -72,6 +84,7 @@
             "number.*_presence_sensitivity"
             "number.*_presence_timeout"
             "sensor.*_illuminance"
+            "automation.*"
           ];
         };
       };
