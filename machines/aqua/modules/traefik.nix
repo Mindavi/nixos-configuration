@@ -46,6 +46,10 @@ in
           range_internal2
           range_wireguard
         ];
+        middlewares.localhost-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
+          "127.0.0.1/32"
+          "[::1]"
+        ];
 
         ### Internal API
         # Disabled because it clashes with Home Assistant.
@@ -81,6 +85,14 @@ in
             {
               url = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
             }
+          ];
+        };
+
+        routers.homeassistant_prometheus = {
+          rule = "PathPrefix(`/api/prometheus`)";
+          service = "homeassistant";
+          middlewares = [
+            "localhost-allowlist"
           ];
         };
 
