@@ -53,6 +53,27 @@
       prometheus = {
         namespace = "home";
         requires_auth = true;
+        filter = {
+          exclude_entity_globs = [
+            "sensor.interlogix_security*"
+            "sensor.ambientweather*"
+            "sensor.sun_*"
+            "sensor.acurite_986*"
+            "sensor.waveman_switch*"
+            "sensor.oregon_cm180i*"
+            "sensor.watts_wfhtrf_*"
+            "sensor.tpms_schrader_*"
+            "sensor.cotech_*"
+            "sensor.acurite_*"
+            "sensor.*_distance"
+            "number.*_distance_min"
+            "number.*_distance_max"
+            "number.*_move_sensitivity"
+            "number.*_presence_sensitivity"
+            "number.*_presence_timeout"
+            "sensor.*_illuminance"
+          ];
+        };
       };
       recorder = {
         # TODO(Mindavi): Check database size now and then.
