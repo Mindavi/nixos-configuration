@@ -9,6 +9,8 @@
     };
     "samba/gedeeld" = { };
     "samba/rick" = { };
-    "prometheus/homeassistant" = { };
+    "prometheus/homeassistant" = {
+      owner = config.systemd.services.prometheus.serviceConfig.User;
+    };
   };
 }
