@@ -10,7 +10,8 @@
     # Re-sending discovery on re-connections can be done via a configuration option:
     # https://github.com/1technophile/OpenMQTTGateway/pull/1274
     # Requires rebuilding OpenMqttGateway myself.
-    persistence = true;
+    # Update: disable because OpenMqttGateway adds too much things and I prefer stateless as much as possible.
+    persistence = false;
     # TODO(Mindavi): probably should reduce this at some point, but at least debug is disabled now.
     logType = [
       "error"
