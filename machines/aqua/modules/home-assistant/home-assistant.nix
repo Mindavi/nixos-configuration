@@ -86,11 +86,6 @@
             "sensor.*_illuminance"
             "automation.*"
           ];
-          include_entity_globs = [
-            "binary_sensor.*_occupancy"
-            "sensor.*_temperature"
-            "sensor.*_humidity"
-          ];
         };
       };
       recorder = {
