@@ -68,6 +68,19 @@
         ];
       }
       {
+        job_name = "home_assistant";
+        scrape_interval = "30s";
+        metrics_path = "/api/prometheus";
+        bearer_token_file = config.sops.secrets."prometheus/homeassistant".path;
+        static_configs = [
+          {
+            targets = [
+              "aqua:8123"
+            ];
+          }
+        ];
+      }
+      {
         job_name = "rtl_433";
         fallback_scrape_protocol = "PrometheusText0.0.4";
         static_configs = [

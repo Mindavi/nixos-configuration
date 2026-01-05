@@ -9,5 +9,6 @@
     };
     "samba/gedeeld" = { };
     "samba/rick" = { };
+    "prometheus/homeassistant" = { };
   };
 }
