@@ -23,6 +23,8 @@
     listenAddress = "127.0.0.1";
     port = 9090;
     webExternalUrl = "/prometheus/";
+    # Required because we read a credential file using sops that's not available from the nix sandbox.
+    checkConfig = "syntax-only";
     scrapeConfigs = [
       {
         job_name = "node";
@@ -69,7 +71,6 @@
       }
       {
         job_name = "home_assistant";
-        scrape_interval = "30s";
         metrics_path = "/api/prometheus";
         bearer_token_file = config.sops.secrets."prometheus/homeassistant".path;
         static_configs = [
