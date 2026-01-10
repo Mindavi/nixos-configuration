@@ -13,9 +13,8 @@
         security = "user";
         "map to guest" = "Never";
       };
-      copydrive = {
-        # TODO(Mindavi): Rename at some point
-        path = "/var/data/samba/copydrive";
+      family_documents = {
+        path = "/var/data/samba/family_documents";
         "read only" = false;
         browseable = "yes";
         "guest ok" = "no";
