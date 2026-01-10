@@ -14,7 +14,7 @@
         "map to guest" = "Never";
       };
       family_documents = {
-        path = "/var/data/samba/family_documents";
+        path = "/storage/documents/samba/family_documents";
         "read only" = false;
         browseable = "yes";
         "guest ok" = "no";
@@ -24,7 +24,7 @@
         "force group" = "gedeeld";
       };
       shared_documents = {
-        path = "/var/data/samba/shared_documents";
+        path = "/storage/documents/samba/shared_documents";
         "read only" = false;
         browseable = "no";
         "guest ok" = "no";
@@ -34,7 +34,7 @@
         "force group" = "gedeeld";
       };
       private_documents = {
-        path = "/var/data/samba/rick_documents";
+        path = "/storage/documents/samba/rick_documents";
         "read only" = false;
         browseable = "no";
         "guest ok" = "no";
