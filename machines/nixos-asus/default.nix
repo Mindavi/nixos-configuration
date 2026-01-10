@@ -127,6 +127,7 @@
     vim
     firefox
     gitFull
+    mergiraf
     htop
     tree
     sl
