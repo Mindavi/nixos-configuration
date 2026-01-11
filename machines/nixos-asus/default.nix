@@ -262,9 +262,6 @@
 
   services.postgresql.package = pkgs.postgresql_17;
 
-  # For android studio
-  #programs.adb.enable = true;
-
   # Add unfree packages that should be installed here.
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -326,8 +323,6 @@
       xkb.layout = "us";
     };
   };
-
-  programs.adb.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {
