@@ -260,7 +260,7 @@
 
   programs.bash.completion.enable = true;
 
-  services.postgresql.package = pkgs.postgresql_14;
+  services.postgresql.package = pkgs.postgresql_17;
 
   # For android studio
   #programs.adb.enable = true;
