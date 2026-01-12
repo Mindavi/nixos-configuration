@@ -181,7 +181,6 @@
     chromium
 
     nixfmt
-    zed-editor
     nixd
 
     # samba
