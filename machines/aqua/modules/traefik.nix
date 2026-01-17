@@ -8,7 +8,6 @@ let
   webport = 80;
   websecureport = 8001; # use 8001 for experimentation
   range_internal1 = "192.168.1.0/24";
-  range_internal2 = "192.168.178.0/24";
   range_wireguard = "172.16.1.0/24";
 in
 {
@@ -40,12 +39,6 @@ in
     };
     dynamicConfigOptions = {
       http = {
-        middlewares.internal-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
-          "127.0.0.1/32"
-          range_internal1
-          range_internal2
-          range_wireguard
-        ];
         middlewares.localhost-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
           "127.0.0.1/32"
           "[::1]"
@@ -59,7 +52,6 @@ in
         #   entrypoints = "web";
         #   rule = "PathPrefix(`/traefik`) || PathPrefix(`/api`)";
         #   service = "api@internal";
-        #   middlewares = "internal-allowlist";
         # };
 
         ### Home assistant
@@ -69,16 +61,13 @@ in
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
-          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || Host(`aqua.fritz.box`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard}`) || ClientIP(`${range_internal2}`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard}`) || Host(`aqua.lan`)";
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
           #tls = true;
           #tls.certresolver = "le";
           service = "homeassistant";
-          middlewares = [
-            "internal-allowlist"
-          ];
         };
         services.homeassistant = {
           loadBalancer.servers = [
@@ -106,7 +95,6 @@ in
           #tls.certresolver = "le";
           service = "hydra";
           middlewares = [
-            "internal-allowlist"
             "hydra-stripprefix"
             "hydra-prefix-header"
           ];
@@ -124,9 +112,6 @@ in
           # https://blog.cubieserver.de/2020/configure-prometheus-on-a-sub-path-behind-reverse-proxy/
           rule = "Host(`prometheus.aqua`) || PathPrefix(`/prometheus`)";
           service = "prometheus";
-          middlewares = [
-            "internal-allowlist"
-          ];
         };
         services.prometheus = {
           loadBalancer.servers = [
@@ -140,9 +125,6 @@ in
         routers.grafana = {
           rule = "Host(`grafana.aqua`) || PathPrefix(`/grafana`)";
           service = "grafana";
-          middlewares = [
-            "internal-allowlist"
-          ];
         };
         services.grafana = {
           loadBalancer.servers = [
@@ -158,7 +140,6 @@ in
           rule = "PathPrefix(`/dashboard/`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
           service = "dashboard";
           middlewares = [
-            "internal-allowlist"
             "dashboard-stripprefix"
           ];
         };
@@ -174,9 +155,6 @@ in
         routers.zigbee2mqtt = {
           rule = "PathPrefix(`/zigbee2mqtt`)";
           service = "zigbee2mqtt";
-          middlewares = [
-            "internal-allowlist"
-          ];
         };
         services.zigbee2mqtt = {
           loadBalancer.servers = [
@@ -188,11 +166,8 @@ in
 
         ### Music assistant
         routers.music-assistant = {
-          rule = "Host(`music-assistant.aqua`)";
+          rule = "Host(`music-assistant.aqua`) || Host(`music-assistant.aqua.local`) || Host(`music-assistant.aqua.lan`)";
           service = "music-assistant";
-          middlewares = [
-            "internal-allowlist"
-          ];
         };
         services.music-assistant = {
           loadBalancer.servers = [
@@ -208,7 +183,6 @@ in
           rule = "PathPrefix(`/syncthing`)";
           service = "syncthing";
           middlewares = [
-            "internal-allowlist"
             "syncthing-stripprefix"
           ];
         };
