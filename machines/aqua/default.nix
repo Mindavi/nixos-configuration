@@ -159,7 +159,7 @@ in
   users.mutableUsers = true;
   services.userborn.enable = true;
 
-  services.postgresql.package = pkgs.postgresql_17;
+  services.postgresql.package = pkgs.postgresql_18;
 
   system.stateVersion = "23.05";
 }
