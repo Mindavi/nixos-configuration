@@ -57,7 +57,7 @@ in
       pkttype { multicast, broadcast } accept
 
       # multicast DNS (inspiration: https://github.com/reckenrode/nixos-configs/blob/ebe9f004332be9f550d9142849bcfb8bb13e2b39/modules/by-name/av/avahi/nixos-module.nix)
-      ip udp sport mdns ip daddr 224.0.0.251/32 udp dport mdns accept
-      ip6 udp sport mdns ip6 daddr ff02::fb/128 udp dport mdns accept
+      udp sport mdns ip daddr 224.0.0.251/32 udp dport mdns accept
+      udp sport mdns ip6 daddr ff02::fb/128 udp dport mdns accept
     '';
 }
