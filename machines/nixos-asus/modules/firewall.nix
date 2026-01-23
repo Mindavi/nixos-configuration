@@ -49,8 +49,10 @@ in
       # prometheus node_exporter
       ip saddr { ${subnetWireGuard} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
 
-      # mosquitto
-      ip saddr { ${subnetInternal1}, ${subnetInternal2}, ${subnetWireGuard} } tcp dport 1884 accept
+      # multicast DNS (inspiration: https://github.com/reckenrode/nixos-configs/blob/ebe9f004332be9f550d9142849bcfb8bb13e2b39/modules/by-name/av/avahi/nixos-module.nix)
+      # https://wiki.gentoo.org/wiki/Nftables/Examples
+      ip udp sport mdns ip daddr 224.0.0.251/32 udp dport mdns accept
+      ip6 udp sport mdns ip6 daddr ff02::fb/128 udp dport mdns accept
     '';
   };
 }
