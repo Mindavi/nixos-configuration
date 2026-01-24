@@ -16,6 +16,23 @@
     listenOn = [ "any" ];
     listenOnIpv6 = [ "any" ];
 
+    extraConfig = ''
+      logging {
+        channel queries_log {
+          print-time yes;
+          print-category yes;
+          print-severity yes;
+          severity info;
+        };
+        category queries { queries_log; };
+        category default { default_syslog; default_debug; default_log; };
+        category config { default_syslog; default_debug; default_log; };
+        category dispatch { default_syslog; default_debug; default_log; };
+        category network { default_syslog; default_debug; default_log; };
+        category general { default_syslog; default_debug; default_log; };
+      };
+    '';
+
     cacheNetworks = [
       "127.0.0.0/24"
       "::1/128"
