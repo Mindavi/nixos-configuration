@@ -29,6 +29,7 @@ in
     ./modules/audio.nix
     ./modules/avahi.nix
     ./modules/backup.nix
+    ./modules/bind.nix
     ./modules/dashboard.nix
     ./modules/disko.nix
     ./modules/fail2ban.nix
