@@ -63,7 +63,7 @@ in
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
-          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard_ipv4}`) || ClientIP(`${range_wireguard_ipv6}`) || Host(`aqua.lan`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard_ipv4}`) || ClientIP(`${range_wireguard_ipv6}`) || Host(`aqua.lan`) || Host(`hass.home.arpa`)";
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
@@ -125,7 +125,7 @@ in
 
         ### Grafana
         routers.grafana = {
-          rule = "Host(`grafana.aqua`) || PathPrefix(`/grafana`)";
+          rule = "Host(`grafana.aqua`) || PathPrefix(`/grafana`) || Host(`grafana.home.arpa`)";
           service = "grafana";
         };
         services.grafana = {
@@ -139,7 +139,7 @@ in
         ### Dashboard
         middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard/";
         routers.dashboard = {
-          rule = "PathPrefix(`/dashboard/`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`))";
+          rule = "PathPrefix(`/dashboard/`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`)) || Host(`dashboard.home.arpa`)";
           service = "dashboard";
           middlewares = [
             "dashboard-stripprefix"
@@ -168,7 +168,7 @@ in
 
         ### Music assistant
         routers.music-assistant = {
-          rule = "Host(`music-assistant.aqua`) || Host(`music-assistant.aqua.local`) || Host(`music-assistant.aqua.lan`)";
+          rule = "Host(`music-assistant.aqua`) || Host(`music-assistant.aqua.local`) || Host(`music-assistant.aqua.lan`)  || Host(`music-assistant.home.arpa`)";
           service = "music-assistant";
         };
         services.music-assistant = {
