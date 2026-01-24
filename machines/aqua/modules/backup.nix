@@ -15,7 +15,6 @@
         initialize = true;
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
-          "/var/data/samba"
           "/var/lib/zigbee2mqtt"
           "/storage/documents"
         ];
