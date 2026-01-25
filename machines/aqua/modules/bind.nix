@@ -7,7 +7,7 @@
 
 {
   services.bind = {
-    enable = true;
+    enable = false;
 
     listenOnPort = 53;
     listenOnIpv6Port = 53;
