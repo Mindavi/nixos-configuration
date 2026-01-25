@@ -45,10 +45,10 @@ in
                           title = "Grafana";
                           url = "http://${aqua_url}/grafana";
                         }
-                        {
-                          title = "Traefik";
-                          url = "http://${aqua_url}/traefik/";
-                        }
+                        # {
+                        #   title = "Traefik";
+                        #   url = "http://${aqua_url}/traefik/";
+                        # }
                         {
                           title = "Zigbee2MQTT";
                           url = "http://${aqua_url}/zigbee2mqtt";
