@@ -7,7 +7,7 @@
 
 {
   services.bind = {
-    enable = false;
+    enable = true;
 
     listenOnPort = 53;
     listenOnIpv6Port = 53;
@@ -58,11 +58,11 @@
           $TTL 2h
           $ORIGIN home.arpa.
           @               IN      SOA     ns1.home.arpa.   hostmaster.home.arpa. (
-                                          1       ; serial number
-                                          3h      ; refresh
-                                          15m     ; update retry
-                                          3w      ; expiry
-                                          1h      ; minimum / negative cache TTL
+                                          2026012601  ; serial number
+                                          3h          ; refresh
+                                          15m         ; update retry
+                                          3w          ; expiry
+                                          1h          ; minimum / negative cache TTL
                                           )
           ; name server RR for the domain
                           IN      NS      ns1.home.arpa.
