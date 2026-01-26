@@ -78,7 +78,7 @@
         #   https://bind9.readthedocs.io/en/latest/chapter7.html#dynamic-update-security
         # Allow for dynamic DNS by updating the config at runtime.
         extraConfig = ''
-          allow-update = { 127.0.0.1/24; ::1; };
+          allow-update { 127.0.0.0/24; ::1; };
         '';
       };
     };
