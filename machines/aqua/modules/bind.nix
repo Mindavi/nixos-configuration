@@ -73,6 +73,13 @@
           music-assistant IN      A       192.168.1.8
           traefik         IN      A       192.168.1.8
         '';
+
+        # TODO(Mindavi): use update-policy instead of this option.
+        #   https://bind9.readthedocs.io/en/latest/chapter7.html#dynamic-update-security
+        # Allow for dynamic DNS by updating the config at runtime.
+        extraConfig = ''
+          allow-update = { 127.0.0.1/24; ::1; }
+        '';
       };
     };
   };
