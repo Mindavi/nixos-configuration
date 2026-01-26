@@ -32,6 +32,9 @@
     ];
 
     forwarders = [
+      # Home router
+      "192.168.1.1"
+      # TODO(Mindavi): IPv6 for home router.
       # AdGuard DNS
       "94.140.14.14"
       "94.140.15.15"
@@ -39,6 +42,14 @@
       "2a10:50c0::ad1:ff"
       "2a10:50c0::ad2:ff"
     ];
+
+    # To be able to forward to the addresses that are being determined by the DHCP server
+    # in OpenWrt, disable DNSSEC for now. Maybe only for the .lan zone in the future?
+    extraOptions = ''
+      // Check if the enable switch should be completely off or if validation disabling is enough.
+      // dnssec-enable no;
+      dnssec-validation no;
+    '';
 
     zones = {
       # https://www.rfc-editor.org/rfc/rfc8375.html
