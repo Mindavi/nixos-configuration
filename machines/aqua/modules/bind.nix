@@ -62,7 +62,7 @@ in {
           $TTL 2h
           $ORIGIN home.arpa.
           @               IN      SOA     ns1.home.arpa.   hostmaster.home.arpa. (
-                                          2026012601  ; serial number
+                                          2026012901  ; serial number
                                           3h          ; refresh
                                           15m         ; update retry
                                           3w          ; expiry
@@ -71,11 +71,19 @@ in {
           ; name server RR for the domain
                           IN      NS      ns1.home.arpa.
 
+          ns1             IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           ns1             IN      A       192.168.1.8
+          aqua            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           aqua            IN      A       192.168.1.8
+          hass            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           hass            IN      A       192.168.1.8
+          music-assistant IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           music-assistant IN      A       192.168.1.8
+          traefik         IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           traefik         IN      A       192.168.1.8
+
+          ; static DHCP lease
+          slzb-06         IN      A       192.168.1.23
         '';
 
         # TODO(Mindavi): use update-policy instead of this option.
