@@ -78,7 +78,7 @@ in
   networking.hostName = "aqua";
   # head -c 8 /etc/machine-id
   networking.hostId = "c496aec3";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
