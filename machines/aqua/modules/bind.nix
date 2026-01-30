@@ -69,6 +69,7 @@ in {
           ns1             IN      A       192.168.1.8
           aqua            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           aqua            IN      A       192.168.1.8
+          aquav6          IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           hass            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           hass            IN      A       192.168.1.8
           music-assistant IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
