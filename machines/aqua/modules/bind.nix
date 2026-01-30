@@ -7,16 +7,10 @@
 
 let
   allowedNetworks = [
-    "127.0.0.0/24"
-    "::1/128"
-    # Local/home network IPs
-    "192.168.1.0/24"
+    "localhost"
+    "localnets"
     # Wireguard range
     "172.16.0.0/16"
-    # Link local scope
-    "fe80::/10"
-    # Site local scope
-    "fc00::/7"
   ];
 in {
   services.bind = {
