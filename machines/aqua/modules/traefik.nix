@@ -47,14 +47,13 @@ in
         ];
 
         ### Internal API
-        # Disabled because it clashes with Home Assistant.
-        # routers.api = {
-        #   # https://doc.traefik.io/traefik/routing/routers/#entrypoints
-        #   # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
-        #   entrypoints = "web";
-        #   rule = "PathPrefix(`/traefik`) || PathPrefix(`/api`)";
-        #   service = "api@internal";
-        # };
+        routers.api = {
+          # https://doc.traefik.io/traefik/routing/routers/#entrypoints
+          # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
+          entrypoints = "web";
+          rule = "Host(`traefik.home.arpa`) && (PathPrefix(`/traefik`) || PathPrefix(`/api`))";
+          service = "api@internal";
+        };
 
         ### Home assistant
         routers.homeassistant = {
