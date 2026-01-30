@@ -40,7 +40,8 @@ in
     logRefusedUnicastsOnly = false;
     logReversePathDrops = true;
     rejectPackets = true;
-    checkReversePath = true;
+    # TODO(ricsch): seems to cause issues here, but not on the server?
+    checkReversePath = "loose";
 
     extraInputRules = ''
       # Open up 8000 for testing purposes. E.g. running development servers.
