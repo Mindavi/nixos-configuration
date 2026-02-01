@@ -49,7 +49,7 @@ in
           # https://github.com/home-assistant/core/issues/21113
           # https://community.home-assistant.io/t/configurable-webroot/516
           # https://github.com/home-assistant/core/issues/805
-          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_internal1}`) || ClientIP(`${range_wireguard_ipv4}`) || ClientIP(`${range_wireguard_ipv6}`) || Host(`aqua.lan`) || Host(`hass.home.arpa`)";
+          rule = "Host(`hass.aqua`) || Host(`aqua.local`) || ClientIP(`${range_wireguard_ipv6}`) || Host(`hass.home.arpa`) || Host(`home-assistant.home.arpa`)";
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
@@ -78,7 +78,7 @@ in
         # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
         middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
-          rule = "Host(`hydra.aqua`) || PathPrefix(`/hydra`)";
+          rule = "(Host(`aqua.local`) || Host(`hydra.home.arpa`)) && PathPrefix(`/hydra`)";
           #tls = true;
           #tls.certresolver = "le";
           service = "hydra";
@@ -98,7 +98,7 @@ in
         ### Prometheus
         routers.prometheus = {
           # https://blog.cubieserver.de/2020/configure-prometheus-on-a-sub-path-behind-reverse-proxy/
-          rule = "Host(`prometheus.aqua`) || PathPrefix(`/prometheus`)";
+          rule = "(Host(`aqua.local`) || Host(`prometheus.home.arpa`)) && PathPrefix(`/prometheus`)";
           service = "prometheus";
         };
         services.prometheus = {
@@ -111,7 +111,7 @@ in
 
         ### Grafana
         routers.grafana = {
-          rule = "Host(`grafana.aqua`) || PathPrefix(`/grafana`) || Host(`grafana.home.arpa`)";
+          rule = "(Host(`aqua.local`) || Host(`grafana.home.arpa`)) && PathPrefix(`/grafana`)";
           service = "grafana";
         };
         services.grafana = {
@@ -125,7 +125,7 @@ in
         ### Dashboard
         middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard/";
         routers.dashboard = {
-          rule = "PathPrefix(`/dashboard/`) && !(Host(`traefik.aqua`) || Host(`traefik.localhost`)) || Host(`dashboard.home.arpa`)";
+          rule = "(Host(`aqua.local`) || Host(`dashboard.home.arpa`)) && PathPrefix(`/dashboard/`)";
           service = "dashboard";
           middlewares = [
             "dashboard-stripprefix"
@@ -141,7 +141,7 @@ in
 
         ### Zigbee2MQTT
         routers.zigbee2mqtt = {
-          rule = "PathPrefix(`/zigbee2mqtt`)";
+          rule = "(Host(`aqua.local`) || Host(`zigbee2mqtt.home.arpa`)) && PathPrefix(`/zigbee2mqtt`)";
           service = "zigbee2mqtt";
         };
         services.zigbee2mqtt = {
@@ -154,7 +154,7 @@ in
 
         ### Music assistant
         routers.music-assistant = {
-          rule = "Host(`music-assistant.aqua`) || Host(`music-assistant.aqua.local`) || Host(`music-assistant.aqua.lan`)  || Host(`music-assistant.home.arpa`)";
+          rule = "Host(`music-assistant.home.arpa`)";
           service = "music-assistant";
         };
         services.music-assistant = {
@@ -168,7 +168,7 @@ in
         ### Syncthing
         middlewares.syncthing-stripprefix.stripprefix.prefixes = "/syncthing";
         routers.syncthing = {
-          rule = "PathPrefix(`/syncthing`)";
+          rule = "(Host(`aqua.local`) || Host(`syncthing.home.arpa`)) && PathPrefix(`/syncthing`)";
           service = "syncthing";
           middlewares = [
             "syncthing-stripprefix"
