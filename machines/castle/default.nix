@@ -128,6 +128,6 @@ in
     ];
   };
   users.mutableUsers = false;
-  services.postgresql.package = pkgs.postgresql_17;
+  services.postgresql.package = pkgs.postgresql_18;
   system.stateVersion = "25.11";
 }

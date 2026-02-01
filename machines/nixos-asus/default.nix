@@ -259,7 +259,7 @@
 
   programs.bash.completion.enable = true;
 
-  services.postgresql.package = pkgs.postgresql_17;
+  services.postgresql.package = pkgs.postgresql_18;
 
   # Add unfree packages that should be installed here.
   nixpkgs.config.allowUnfreePredicate =
