@@ -181,6 +181,19 @@ in
             }
           ];
         };
+
+        ### Immich
+        routers.immich = {
+          rule = "Host(`photos.home.arpa`)";
+          service = "immich";
+        };
+        services.immich = {
+          loadBalancer.servers = [
+            {
+              url = "http://localhost:${toString config.services.immich.port}";
+            }
+          ];
+        };
       };
     };
   };
