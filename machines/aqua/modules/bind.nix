@@ -56,7 +56,7 @@ in {
           $TTL 2h
           $ORIGIN home.arpa.
           @               IN      SOA     ns1.home.arpa.   hostmaster.home.arpa. (
-                                          2026012901  ; serial number
+                                          2026020101  ; serial number
                                           3h          ; refresh
                                           15m         ; update retry
                                           3w          ; expiry
@@ -66,16 +66,19 @@ in {
                           IN      NS      ns1.home.arpa.
 
           ns1             IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          ns1             IN      A       192.168.1.8
           aqua            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           aqua            IN      A       192.168.1.8
-          aquav6          IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          dashboard       IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          grafana         IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           hass            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          hass            IN      A       192.168.1.8
+          home-assistant  IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          hydra           IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           music-assistant IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          music-assistant IN      A       192.168.1.8
+          photos          IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          prometheus      IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          syncthing       IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
           traefik         IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          traefik         IN      A       192.168.1.8
+          zigbee2mqtt     IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
 
           ; static DHCP lease
           slzb-06         IN      A       192.168.1.23
