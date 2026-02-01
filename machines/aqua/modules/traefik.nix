@@ -28,10 +28,6 @@ in
           address = ":${toString websecureport}";
         };
       };
-      api = {
-        dashboard = false;
-        basePath = "/traefik";
-      };
       accesslog = true;
       #certificatesResolvers.le.acme = {
       #email = "rol3517@gmail.com";
@@ -45,15 +41,6 @@ in
           "127.0.0.1/32"
           "[::1]"
         ];
-
-        ### Internal API
-        routers.api = {
-          # https://doc.traefik.io/traefik/routing/routers/#entrypoints
-          # If not specified, HTTP routers will accept requests from all EntryPoints in the list of default EntryPoints.
-          entrypoints = "web";
-          rule = "Host(`traefik.home.arpa`) && (PathPrefix(`/traefik`) || PathPrefix(`/api`))";
-          service = "api@internal";
-        };
 
         ### Home assistant
         routers.homeassistant = {
