@@ -79,20 +79,20 @@ in {
           ; name server RR for the domain
                           IN      NS      ns1.home.arpa.
 
-          ns1             IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          aqua            IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          aqua            IN      A       192.168.1.8
-          dashboard       IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          grafana         IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          hass            IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          home-assistant  IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          hydra           IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          music-assistant IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          photos          IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          prometheus      IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          syncthing       IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          traefik         IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
-          zigbee2mqtt     IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          ns1             IN      AAAA    fd37:191a:d082:555::1
+          aqua            IN      AAAA    fd37:191a:d082:555::1
+          aqua            IN      A       172.16.1.8
+          dashboard       IN      AAAA    fd37:191a:d082:555::1
+          grafana         IN      AAAA    fd37:191a:d082:555::1
+          hass            IN      AAAA    fd37:191a:d082:555::1
+          home-assistant  IN      AAAA    fd37:191a:d082:555::1
+          hydra           IN      AAAA    fd37:191a:d082:555::1
+          music-assistant IN      AAAA    fd37:191a:d082:555::1
+          photos          IN      AAAA    fd37:191a:d082:555::1
+          prometheus      IN      AAAA    fd37:191a:d082:555::1
+          syncthing       IN      AAAA    fd37:191a:d082:555::1
+          traefik         IN      AAAA    fd37:191a:d082:555::1
+          zigbee2mqtt     IN      AAAA    fd37:191a:d082:555::1
 
           ; static DHCP lease
           slzb-06         IN      A       192.168.1.23
