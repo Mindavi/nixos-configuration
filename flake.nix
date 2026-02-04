@@ -38,7 +38,7 @@
       impermanence,
       nixos-unstable,
       sops-nix,
-    #nixvim,
+      #nixvim,
     }:
     let
       system = "x86_64-linux";

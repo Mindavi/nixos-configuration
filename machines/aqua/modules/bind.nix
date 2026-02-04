@@ -18,7 +18,8 @@ let
     # Site local scope
     "fc00::/7"
   ];
-in {
+in
+{
   services.bind = {
     enable = true;
 
