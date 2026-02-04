@@ -8,15 +8,20 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/audio.nix
+    ./modules/avahi.nix
     ./modules/backup.nix
+    ./modules/desktop.nix
     ./modules/firewall.nix
     ./modules/gaming.nix
     ./modules/jellyfin.nix
+    ./modules/network.nix
     ./modules/nix.nix
     ./modules/nvidia.nix
     ./modules/printer-scanner.nix
     ./modules/prometheus.nix
     ./modules/samba.nix
+    ./modules/streaming.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
     # ../../modules/hydra.nix
@@ -67,48 +72,6 @@
   };
 
   hardware.cpu.intel.updateMicrocode = true;
-
-  networking.hostName = "nixos-asus";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  networking.useDHCP = false;
-  #networking.interfaces.enp3s0f1.useDHCP = true;
-  networking.interfaces = {
-    wlp2s0 = {
-      useDHCP = true;
-      ipv4.addresses = [
-        {
-          address = "192.168.1.3";
-          prefixLength = 24;
-        }
-      ];
-    };
-  };
-  # Prevent waiting for DHCP if running in a VM.
-  networking.dhcpcd.wait = "if-carrier-up";
-  #systemd.network.wait-online.timeout = 5;
-  #systemd.network.wait-online.enable = false;
-
-  #networking.usePredictableInterfaceNames = true;
-  #systemd.network.enable = true;
-  #networking.useNetworkd = true;
-
-  networking.hosts = {
-    "192.168.1.8" = [
-      "aqua"
-      "hass.aqua"
-      "hydra.aqua"
-      "music-assistant.aqua"
-      "owncast.aqua"
-      "prometheus.aqua"
-      "traefik.aqua"
-    ];
-    "172.16.1.8" = [
-      "owncast-wg.aqua"
-    ];
-  };
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -217,9 +180,6 @@
     sops
     ssh-to-age
 
-    # gaming
-    prismlauncher
-
     # script to sync changed data to SSD from parents
     (writeShellScriptBin "sync-photos-to-ssd" ''
       set -euxo pipefail
@@ -238,20 +198,6 @@
       sudo umount /mnt/copydrive && sync && sudo rm -r /mnt/copydrive
     '')
   ];
-
-  # streaming
-  #programs.obs-studio = {
-  #  enable = true;
-  #  package = (
-  #    pkgs.obs-studio.override {
-  #      cudaSupport = true;
-  #    }
-  #  );
-  #  plugins = with pkgs.obs-studio-plugins; [
-  #    droidcam-obs
-  #    obs-text-pthread
-  #  ];
-  #};
 
   environment.variables.EDITOR = "vim";
 
@@ -279,50 +225,11 @@
     enable = true;
     drivers = [ pkgs.gutenprint ];
   };
-  # mDNS doesn't work with TP-Link Deco M5 mesh modules.
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    nssmdns6 = true;
-    domainName = "local";
-    openFirewall = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-    };
-  };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # e.g. platformio and element use this, so make sure this is enabled.
   security.unprivilegedUsernsClone = true;
 
   hardware.bluetooth.enable = true;
-
-  # Enable the X11 windowing system.
-  services = {
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-    # Enable touchpad support.
-    libinput = {
-      enable = true;
-      touchpad = {
-        tapping = true;
-      };
-    };
-    desktopManager.plasma6.enable = true;
-    xserver = {
-      enable = true;
-      xkb.layout = "us";
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rick = {

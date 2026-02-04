@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     discord
     openttd
-    #polymc
+    prismlauncher
     zeroad
     zeroad-data
   ];
