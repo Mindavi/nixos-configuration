@@ -60,6 +60,7 @@ in {
       };
     '';
 
+    # split horizon example: https://github.com/lopsided98/nixos-config/blob/b000df92c20d79a58d56f755ff8af2cabb69b090/modules/config/dns.nix
     zones = {
       # https://www.rfc-editor.org/rfc/rfc8375.html
       "home.arpa" = {
@@ -78,20 +79,20 @@ in {
           ; name server RR for the domain
                           IN      NS      ns1.home.arpa.
 
-          ns1             IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          aqua            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          ns1             IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          aqua            IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
           aqua            IN      A       192.168.1.8
-          dashboard       IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          grafana         IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          hass            IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          home-assistant  IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          hydra           IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          music-assistant IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          photos          IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          prometheus      IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          syncthing       IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          traefik         IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
-          zigbee2mqtt     IN      AAAA    2a10:3781:5523:0:aaa1:59ff:fe2f:c49c
+          dashboard       IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          grafana         IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          hass            IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          home-assistant  IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          hydra           IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          music-assistant IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          photos          IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          prometheus      IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          syncthing       IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          traefik         IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
+          zigbee2mqtt     IN      AAAA    fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c
 
           ; static DHCP lease
           slzb-06         IN      A       192.168.1.23
