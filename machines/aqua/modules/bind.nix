@@ -49,7 +49,9 @@ in {
     # in OpenWrt, disable DNSSEC for now. Maybe only for the .lan zone in the future?
     extraOptions = ''
       dnssec-validation auto;
+    '';
 
+    extraConfig = ''
       logging {
           category default { default_syslog; };
           category queries { default_syslog; };
