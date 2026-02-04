@@ -48,9 +48,14 @@ in {
     # To be able to forward to the addresses that are being determined by the DHCP server
     # in OpenWrt, disable DNSSEC for now. Maybe only for the .lan zone in the future?
     extraOptions = ''
-      // Check if the enable switch should be completely off or if validation disabling is enough.
-      // dnssec-enable no;
-      dnssec-validation no;
+      dnssec-validation auto;
+
+      logging {
+          category default { default_syslog; };
+          category queries { default_syslog; };
+          category config { default_syslog; };
+          category resolver { default_syslog; };
+      };
     '';
 
     zones = {
