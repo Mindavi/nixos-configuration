@@ -22,6 +22,10 @@ in {
   services.bind = {
     enable = true;
 
+    # Note: by default this sets `networking.resolvconf.useLocalResolver` to true.
+    # This may mean that DNS breaks on this system whenever BIND fails to start up.
+    # Consider setting it to false, maybe?
+
     listenOnPort = 53;
     listenOnIpv6Port = 53;
 
