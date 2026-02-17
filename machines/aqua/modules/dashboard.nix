@@ -3,8 +3,8 @@
 }:
 
 let
-  aqua_url = "172.16.1.8";
-  nixos-asus_url = "172.16.1.2";
+  aqua_url = "home.arpa";
+  nixos-asus_url = "fd37:191a:d082:0555::2";
 in
 {
   services.glance = {
@@ -31,19 +31,19 @@ in
                       links = [
                         {
                           title = "Home assistant";
-                          url = "http://${aqua_url}";
+                          url = "http://hass.${aqua_url}";
                         }
                         # {
                         #   title = "Hydra";
-                        #   url = "http://${aqua_url}/hydra";
+                        #   url = "http://hydra.${aqua_url}/hydra";
                         # }
                         {
                           title = "Prometheus";
-                          url = "http://${aqua_url}/prometheus";
+                          url = "http://prometheus.${aqua_url}/prometheus";
                         }
                         {
                           title = "Grafana";
-                          url = "http://${aqua_url}/grafana";
+                          url = "http://grafana.${aqua_url}/grafana";
                         }
                         # {
                         #   title = "Traefik";
@@ -51,11 +51,11 @@ in
                         # }
                         {
                           title = "Zigbee2MQTT";
-                          url = "http://${aqua_url}/zigbee2mqtt";
+                          url = "http://zigbee2mqtt.${aqua_url}/zigbee2mqtt";
                         }
                         {
                           title = "Syncthing";
-                          url = "http://${aqua_url}/syncthing/";
+                          url = "http://syncthing.${aqua_url}/syncthing/";
                         }
                       ];
                     }
