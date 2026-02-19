@@ -6,7 +6,6 @@
 }:
 let
   subnetInternal1 = "192.168.1.0/24";
-  subnetInternal2 = "192.168.178.0/24";
   subnetVm = "10.0.2.0/24";
   subnetWireGuardIpv6 = "fd37:191a:d082:555::1/96";
 in
@@ -26,7 +25,6 @@ in
     let
       subnets = lib.concatStringsSep ", " [
         subnetInternal1
-        subnetInternal2
         subnetVm
       ];
     in

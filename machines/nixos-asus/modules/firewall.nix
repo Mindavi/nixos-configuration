@@ -7,7 +7,6 @@
 
 let
   subnetInternal1 = "192.168.1.0/24";
-  subnetInternal2 = "192.168.178.0/24";
   subnetWireGuardIpv6 = "fd37:191a:d082:555::1/96";
 in
 {
@@ -45,7 +44,7 @@ in
 
     extraInputRules = ''
       # Open up 8000 for testing purposes. E.g. running development servers.
-      ip saddr { ${subnetInternal1}, ${subnetInternal2} } tcp dport 8000 accept
+      ip saddr { ${subnetInternal1} } tcp dport 8000 accept
       ip6 saddr { ${subnetWireGuardIpv6} } tcp dport 8000 accept
 
       # prometheus node_exporter

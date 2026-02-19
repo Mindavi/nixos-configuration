@@ -94,7 +94,7 @@ in
           prefixLength = 24;
         }
       ];
-      # TODO(Mindavi): ipv6 address.
+      # For IPv6 SLAAC and DHCPv6 are used. No need to define static IPs here.
     };
   };
 

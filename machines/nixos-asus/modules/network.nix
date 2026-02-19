@@ -15,12 +15,6 @@
   networking.interfaces = {
     wlp2s0 = {
       useDHCP = true;
-      ipv4.addresses = [
-        {
-          address = "192.168.1.3";
-          prefixLength = 24;
-        }
-      ];
     };
   };
   # Prevent waiting for DHCP if running in a VM.
