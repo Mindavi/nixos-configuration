@@ -86,7 +86,6 @@ in
 
           ns1             IN      AAAA    fd37:191a:d082:555::1
           aqua            IN      AAAA    fd37:191a:d082:555::1
-          aqua            IN      A       172.16.1.8
           dashboard       IN      AAAA    fd37:191a:d082:555::1
           grafana         IN      AAAA    fd37:191a:d082:555::1
           hass            IN      AAAA    fd37:191a:d082:555::1

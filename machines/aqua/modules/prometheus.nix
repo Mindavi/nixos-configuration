@@ -32,7 +32,7 @@
           {
             targets = [
               "aqua:${toString config.services.prometheus.exporters.node.port}"
-              "172.16.1.2:9100"
+              "[fd37:191a:d082:0555::2]:9100"
             ];
           }
         ];
