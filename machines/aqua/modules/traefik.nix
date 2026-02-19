@@ -8,8 +8,6 @@ let
   webport = 80;
   websecureport = 8001; # use 8001 for experimentation
   range_internal1 = "192.168.1.0/24";
-  range_wireguard_ipv4 = "172.16.1.0/24";
-  # TODO(ricsch): This range is quite arbitrary.
   range_wireguard_ipv6 = "fd37:191a:d082:555::1/96";
 in
 {
