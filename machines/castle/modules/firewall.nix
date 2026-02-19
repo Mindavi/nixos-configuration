@@ -33,6 +33,9 @@ in
       ip saddr { ${subnets} } tcp dport 8000 accept
       ip6 saddr { ${subnetWireGuardIpv6} } tcp dport 8000 accept
 
+      # prometheus node_exporter
+      ip6 saddr { ${subnetWireGuardIpv6} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
+
       # enable multicast support (avahi, upnp)
       # taken and adapted from nixos/modules/services/audio/roon-server.nix
       # port 5353 is already opened by avahi, but IGMP packets seem to be dropped too
