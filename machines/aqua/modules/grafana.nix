@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   ...
 }:
@@ -12,7 +13,7 @@
         serve_from_sub_path = true;
         root_url = "%(protocol)s://%(domain)s:%(http_port)s/grafana";
       };
-      security.secret_key = "$__file{${config.sops.secrets."grafana/secret_key"}}";
+      security.secret_key = "$__file{${config.sops.secrets."grafana/secret_key".path}}";
     };
   };
 }
