@@ -31,6 +31,18 @@
                 settings = {
                   allowDiscards = true;
                   # keyFile = "/tmp/secret.key"; # enable for non-interactive password entry
+                  crypttabExtraOpts = [
+                    # To enroll the TPM, use the following command:
+                    # sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=<fill-in> /dev/the-disk
+                    # PCRs (from https://wiki.archlinux.org/title/Trusted_Platform_Module#Accessing_PCR_registers):
+                    # 0: Core System Firmware executable code (aka Firmware)
+                    # 2: Extended or pluggable executable code (aka OpROMs)
+                    # 7: Secure boot state
+                    # 12: overridden kernel command line, credentials
+                    # Use the command `systemd-analyze pcrs` to check current values.
+                    # Typically PCR0 is used, and PCR7 as well if secure boot is to be used.
+                    "tpm2-device=auto"
+                  ];
                 };
                 # Note(Mindavi): It is very important to export the zroot / zpools after nixos-install to ensure they can be imported on reboot.
                 content = {
