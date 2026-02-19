@@ -33,6 +33,7 @@ in
     ./modules/fail2ban.nix
     ./modules/firewall.nix
     ./modules/impermanence.nix
+    ./modules/network.nix
     ./modules/nix.nix
     ./modules/prometheus.nix
     ./modules/sops.nix
@@ -50,29 +51,6 @@ in
 
   boot.kernelPackages = latestKernelPackage;
   hardware.cpu.amd.updateMicrocode = true;
-
-  networking = {
-    hostName = "castle";
-    hostId = "676dc1cb";
-    networkmanager.enable = false;
-    # Disable global useDhcp flag, it is deprecated.
-    useDHCP = false;
-    interfaces = lib.optionalAttrs (!isVmBuild) {
-      enp2s0 = {
-        # Intentionally enable both DHCP and static IP.
-        # This can be handy for recovery when network config is changed.
-        # Also, ideally the router handles that the same IP keeps being set up.
-        useDHCP = true;
-        ipv4.addresses = [
-          {
-            address = "192.168.1.10";
-            prefixLength = 24;
-          }
-        ];
-        # TODO(Mindavi): ipv6 address.
-      };
-    };
-  };
 
   time.timeZone = "Europe/Amsterdam";
 
