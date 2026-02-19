@@ -18,11 +18,14 @@
       #                     # something to consider later for easier onboarding of others in the house
       http = {
         server_port = 8123;
-        server_host = "::1";
+        server_host = [
+          "127.0.0.1"
+          "::1"
+        ];
         use_x_forwarded_for = true;
         trusted_proxies = [
           # Traefik / loopback
-          "127.0.0.1"
+          "127.0.0.0/8"
           "::1"
         ];
         # TODO(Mindavi): I got locked out due to this, and I don't know why...
