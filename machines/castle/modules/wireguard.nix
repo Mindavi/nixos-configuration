@@ -13,25 +13,33 @@
     enable = true;
     interfaces = {
       wg0 = {
-        ips = [ "172.16.1.10/24" ];
+        ips = [ "fd37:191a:d082:555::1d20:9486/96" ];
         listenPort = 51820;
         mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";
         generatePrivateKeyFile = true;
         peers = [
           {
-            name = "phone-rick";
-            publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vIdO1Gc=";
-            allowedIPs = [ "172.16.1.1/32" ];
-            endpoint = "192.168.1.9:51820";
+            name = "aqua";
+            publicKey = "D23jZc9k02dKnamHUAagtZPwrPAD0W40YWC6Pp5yP00=";
+            allowedIPs = [ "fd37:191a:d082:555::1/128" ];
+            endpoint = "192.168.1.8:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "nixos-asus";
             publicKey = "uKb3tIPQCTSdQBKvXjQFVT22gj6BHNveP3PSzq9gQBI=";
-            allowedIPs = [ "172.16.1.2/32" ];
-            endpoint = "192.168.1.174:51820";
+            allowedIPs = [ "fd37:191a:d082:555::/128" ];
+            endpoint = "[2a10:3781:5523:0:de53:60ff:fefc:bc9b]:51820";
+            dynamicEndpointRefreshSeconds = 5;
+            dynamicEndpointRefreshRestartSeconds = 60;
+          }
+          {
+            name = "phone-rick";
+            publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vIdO1Gc=";
+            allowedIPs = [ "fd37:191a:d082:555::/128" ];
+            endpoint = "192.168.1.9:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
