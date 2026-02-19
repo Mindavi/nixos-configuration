@@ -4,7 +4,7 @@
 
 let
   aqua_url = "home.arpa";
-  nixos-asus_url = "fd37:191a:d082:0555::2";
+  nixos-asus_url = "[fd37:191a:d082:0555::2]";
 in
 {
   services.glance = {
