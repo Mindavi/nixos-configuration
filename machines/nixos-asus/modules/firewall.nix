@@ -39,7 +39,7 @@ in
     logRefusedUnicastsOnly = false;
     logReversePathDrops = true;
     rejectPackets = true;
-    # TODO(ricsch): seems to cause issues here, but not on the server?
+    # TODO(Mindavi): seems to cause issues here, but not on the server?
     checkReversePath = "loose";
 
     extraInputRules = ''
