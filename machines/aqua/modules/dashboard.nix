@@ -57,6 +57,14 @@ in
                           title = "Syncthing";
                           url = "http://syncthing.${aqua_url}/syncthing/";
                         }
+                        {
+                          title = "Music assistant";
+                          url = "http://music-assistant.${aqua_url}";
+                        }
+                        {
+                          title = "Photos";
+                          url = "http://photos.${aqua_url}";
+                        }
                       ];
                     }
                     {
