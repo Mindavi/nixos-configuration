@@ -32,7 +32,8 @@
           {
             targets = [
               "aqua:${toString config.services.prometheus.exporters.node.port}"
-              "[fd37:191a:d082:0555::2]:9100"
+              "nixos-asus.home.arpa:9100"
+              "castle.home.arpa:9100"
             ];
           }
         ];

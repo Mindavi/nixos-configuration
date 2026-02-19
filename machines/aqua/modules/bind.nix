@@ -98,6 +98,9 @@ in
           traefik         IN      AAAA    fd37:191a:d082:555::1
           zigbee2mqtt     IN      AAAA    fd37:191a:d082:555::1
 
+          nixos-asus      IN      AAAA    fd37:191a:d082:555::2
+          castle          IN      AAAA    fd37:191a:d082:555::1d20:9486
+
           ; static DHCP lease
           slzb-06         IN      A       192.168.1.23
         '';
