@@ -193,7 +193,7 @@
       }:$PATH"
       # TODO(Mindavi): Maybe show list first and ask for confirmation?
       sudo mkdir -p /mnt/copydrive
-      sudo mount -t cifs //172.16.1.8/copydrive /mnt/copydrive/ -o rw -o vers=3 -o credentials=~/.smbcredentials
+      sudo mount -t cifs //fd37:191a:d082:555::1/copydrive /mnt/copydrive/ -o rw -o vers=3 -o credentials=~/.smbcredentials
       rsync --modify-window=2 --size-only /mnt/copydrive/Fotos/ /run/media/rick/Familie\ van\ Schijndel/Fotos/ -v --recursive --itemize-changes --info=progress2
       sudo umount /mnt/copydrive && sync && sudo rm -r /mnt/copydrive
     '')
