@@ -30,6 +30,10 @@ in
                       title = "aqua";
                       links = [
                         {
+                          title = "Grafana";
+                          url = "http://grafana.${aqua_url}/grafana";
+                        }
+                        {
                           title = "Home assistant";
                           url = "http://hass.${aqua_url}";
                         }
@@ -38,32 +42,24 @@ in
                         #   url = "http://hydra.${aqua_url}/hydra";
                         # }
                         {
-                          title = "Prometheus";
-                          url = "http://prometheus.${aqua_url}/prometheus";
-                        }
-                        {
-                          title = "Grafana";
-                          url = "http://grafana.${aqua_url}/grafana";
-                        }
-                        # {
-                        #   title = "Traefik";
-                        #   url = "http://${aqua_url}/traefik/";
-                        # }
-                        {
-                          title = "Zigbee2MQTT";
-                          url = "http://zigbee2mqtt.${aqua_url}/zigbee2mqtt";
-                        }
-                        {
-                          title = "Syncthing";
-                          url = "http://syncthing.${aqua_url}/syncthing/";
-                        }
-                        {
                           title = "Music assistant";
                           url = "http://music-assistant.${aqua_url}";
                         }
                         {
                           title = "Photos";
                           url = "http://photos.${aqua_url}";
+                        }
+                        {
+                          title = "Prometheus";
+                          url = "http://prometheus.${aqua_url}/prometheus";
+                        }
+                        {
+                          title = "Syncthing";
+                          url = "http://syncthing.${aqua_url}/syncthing/";
+                        }
+                        {
+                          title = "Zigbee2MQTT";
+                          url = "http://zigbee2mqtt.${aqua_url}/zigbee2mqtt";
                         }
                       ];
                     }
