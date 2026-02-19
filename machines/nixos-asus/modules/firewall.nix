@@ -8,7 +8,7 @@
 let
   subnetInternal1 = "192.168.1.0/24";
   subnetInternal2 = "192.168.178.0/24";
-  subnetWireGuard = "172.16.1.0/24";
+  subnetWireGuardIpv6 = "fd37:191a:d082:555::1/96";
 in
 {
   # Open ports in the firewall.
@@ -45,10 +45,11 @@ in
 
     extraInputRules = ''
       # Open up 8000 for testing purposes. E.g. running development servers.
-      ip saddr { ${subnetInternal1}, ${subnetInternal2}, ${subnetWireGuard} } tcp dport 8000 accept
+      ip saddr { ${subnetInternal1}, ${subnetInternal2} } tcp dport 8000 accept
+      ip6 saddr { ${subnetWireGuardIpv6} } tcp dport 8000 accept
 
       # prometheus node_exporter
-      ip saddr { ${subnetWireGuard} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
+      ip6 saddr { ${subnetWireGuardIpv6} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
 
       # multicast DNS (inspiration: https://github.com/reckenrode/nixos-configs/blob/ebe9f004332be9f550d9142849bcfb8bb13e2b39/modules/by-name/av/avahi/nixos-module.nix)
       # https://wiki.gentoo.org/wiki/Nftables/Examples
