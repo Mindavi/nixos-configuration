@@ -37,7 +37,7 @@
             allowedIPs = [
               "fd37:191a:d082:0555::2/128"
             ];
-            endpoint = "192.168.1.174:51820";
+            endpoint = "[2a10:3781:5523:0:de53:60ff:fefc:bc9b]:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
