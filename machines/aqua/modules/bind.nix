@@ -11,11 +11,9 @@ let
     "localnets"
     # Local/home network IPs
     "192.168.1.0/24"
-    # Wireguard range
-    "172.16.0.0/16"
     # Link local scope
     "fe80::/10"
-    # Site local scope
+    # Site local scope (also used for wireguard)
     "fc00::/7"
   ];
 in
