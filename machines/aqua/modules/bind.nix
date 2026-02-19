@@ -20,6 +20,7 @@ let
   ];
 in
 {
+  networking.resolvconf.useLocalResolver = false;
   services.bind = {
     enable = true;
 
@@ -60,6 +61,7 @@ in
       logging {
           category default { default_syslog; };
           category queries { default_syslog; };
+          category query-errors { default_syslog; };
           category config { default_syslog; };
           category resolver { default_syslog; };
       };
