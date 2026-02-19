@@ -13,7 +13,7 @@
     enable = true;
     interfaces = {
       wg0 = {
-        ips = [ "fd37:191a:d082:555::1d20:9486/96" ];
+        ips = [ "fd37:191a:d082:555::1d20:9486/128" ];
         listenPort = 51820;
         mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";

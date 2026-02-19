@@ -42,6 +42,16 @@
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
+          {
+            name = "castle"
+            publicKey = "A5Gc+c+O+rvAbAYT0VSKT/EmFacDZ/hGopF8xKL6Y2w=";
+            allowedIPs = [
+              "fd37:191a:d082:555::1d20:9486/128"
+            ];
+            endpoint = "[2a10:3781:5523:0:9e6b:ff:fe03:d2f2]:51820";
+            dynamicEndpointRefreshSeconds = 5;
+            dynamicEndpointRefreshRestartSeconds = 60;
+          }
         ];
       };
     };
