@@ -135,7 +135,7 @@
       "iperf3"
       "ipp"
       "isal" # https://github.com/NixOS/nixpkgs/issues/330377
-      "kegtron_ble" # hopefully prevents errors when setting up bluetooth
+      "kegtron" # hopefully prevents errors when setting up bluetooth
       "linkplay"
       "local_calendar"
       "local_file"
