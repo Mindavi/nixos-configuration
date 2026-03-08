@@ -7,6 +7,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    systemWide = true;
   };
   # Headless support
   # https://wiki.nixos.org/wiki/PipeWire
