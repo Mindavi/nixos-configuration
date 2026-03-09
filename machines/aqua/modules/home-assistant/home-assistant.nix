@@ -35,6 +35,12 @@
       };
       logger = {
         default = "info";
+        logs = {
+          frontend = "debug";
+          homeassistant.components.frontend = "debug";
+          custom_components.bosch = "debug";
+          bosch_thermostat_http = "debug";
+        };
       };
 
       # note: adaptive_lighting is a custom component
