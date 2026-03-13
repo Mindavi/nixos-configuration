@@ -5,4 +5,6 @@
   # TODO(Mindavi): should we enable this?
   services.zfs.autoSnapshot.enable = false;
   services.zfs.autoScrub.enable = true;
+
+  # Consider setting TimeoutStopFailureMode to prevent ZFS stopping system shutdown if any issues occur.
 }
