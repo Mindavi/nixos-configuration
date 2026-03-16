@@ -20,7 +20,5 @@
     enable = true;
     # TODO(Mindavi): get this also working with the Fiio BTR3K DAC.
     extraArguments = "-o default";
-    pulseAudio = false;
   };
-  systemd.services.squeezelite.serviceConfig.SupplementaryGroups = lib.mkForce [ "audio" "pipewire" ];
 }
