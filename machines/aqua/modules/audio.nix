@@ -16,6 +16,4 @@
   # Start WirePlumber (with PipeWire) at boot.
   systemd.user.services.wireplumber.wantedBy = [ "default.target" ];
   users.users.rick.linger = true; # keep user services running
-
-  # TODO(Mindavi): systemWide?
 }
