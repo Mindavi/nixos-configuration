@@ -71,16 +71,12 @@ in
   ];
 
   programs.bash.completion.enable = true;
-  services.openssh.enable = true;
-
-  services.btrfs.autoScrub = {
+  services.openssh = {
     enable = true;
-    interval = "monthly";
-    fileSystems = [
-      "/"
-      "/nix"
-      "/home"
-    ];
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
 
   # Define a user account. Don't forget to set a password with `passwd`.
