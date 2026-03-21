@@ -36,11 +36,11 @@
       logger = {
         default = "info";
         logs = {
-          "frontend" = "DEBUG";
-          "homeassistant.components.frontend" = "debug";
+          #"frontend" = "DEBUG";
+          #"homeassistant.components.frontend" = "debug";
           "custom_components.bosch" = "debug";
           "bosch_thermostat_http" = "debug";
-          "homeassistant.components.websocket_api.http.connection" = "debug";
+          #"homeassistant.components.websocket_api.http.connection" = "debug";
         };
       };
 
