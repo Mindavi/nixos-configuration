@@ -12,6 +12,7 @@
     execWheelOnly = true;
     extraConfig = ''
       Defaults insults
+      Defaults lecture="never"
     '';
   };
 }
