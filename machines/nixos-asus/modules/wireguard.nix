@@ -44,7 +44,7 @@
           }
           {
             name = "castle";
-            publicKey = "krwUqD0HoNSAEBMuOuCvcQi7t4aYVyJPwuc001E1rD4==";
+            publicKey = "krwUqD0HoNSAEBMuOuCvcQi7t4aYVyJPwuc001E1rD4=";
             allowedIPs = [
               "fd37:191a:d082:555::1d20:9486/128"
             ];
