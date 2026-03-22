@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  # Some inspiration, maybe:
+  # https://github.com/tejing1/nixos-config/blob/master/nixosConfigurations/tejingdesk/optin-state.nix
   environment.persistence."/persist" = {
     directories = [
       "/var/cache/restic-backups-data"
