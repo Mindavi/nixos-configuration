@@ -4,6 +4,7 @@
   # https://github.com/tejing1/nixos-config/blob/master/nixosConfigurations/tejingdesk/optin-state.nix
   environment.persistence."/persist" = {
     directories = [
+      "/etc/nixos/secrets"
       "/var/cache/restic-backups-data"
       "/var/cache/restic-backups-state"
       "/var/log"
