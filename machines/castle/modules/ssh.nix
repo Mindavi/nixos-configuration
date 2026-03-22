@@ -6,7 +6,7 @@
       PermitRootLogin = "no";
       PasswordAuthentication = false;
     };
-    hostkeys = [
+    hostKeys = [
       {
         bits = 4096;
         path = "/persist/castle/ssh_host_keys/ssh_host_rsa_key";
