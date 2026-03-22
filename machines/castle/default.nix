@@ -33,6 +33,7 @@ in
     ./modules/nix.nix
     ./modules/prometheus.nix
     ./modules/sops.nix
+    ./modules/ssh.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
     ../../modules/hydra.nix
@@ -71,13 +72,6 @@ in
   ];
 
   programs.bash.completion.enable = true;
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-  };
 
   # Define a user account. Don't forget to set a password with `passwd`.
   users.users.rick = {
