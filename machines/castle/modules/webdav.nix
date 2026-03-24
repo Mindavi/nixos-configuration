@@ -14,8 +14,9 @@
           password = "my_secret";
         }
       ];
+      debug = true;
       directory = "/srv/public";
-      permissions = "RW";
+      permissions = "CRUD";
     };
   };
   # TODO(Mindavi): route through traefik or setup more strict firewall rules.
