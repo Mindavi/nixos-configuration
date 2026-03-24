@@ -47,6 +47,10 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = latestKernelPackage;
+  # Machine seems to give machine check exceptions.
+  # But this post on LKML seems to say that they are invalid errors.
+  # https://lkml.org/lkml/2026/3/2/1553
+  # Memtest86+ on 2026-03-23/24 did not give any RAM errors.
   hardware.cpu.amd.updateMicrocode = true;
 
   time.timeZone = "Europe/Amsterdam";
