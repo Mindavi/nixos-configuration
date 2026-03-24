@@ -2,7 +2,7 @@
 
 {
   services.webdav = {
-    enable = true;
+    enable = false;
     user = "webdav";
     group = "webdav";
     settings = {
