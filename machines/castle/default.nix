@@ -69,6 +69,9 @@ in
     vim
     zfs
     zip
+
+    memtester
+    stress-ng
   ];
 
   programs.bash.completion.enable = true;
