@@ -126,8 +126,6 @@ in
 
   programs.bash.completion.enable = true;
 
-  # TODO: add syncthing
-
   services.openssh.enable = true;
 
   networking.firewall.enable = true;
