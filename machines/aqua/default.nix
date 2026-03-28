@@ -72,7 +72,6 @@ in
   systemd.enableEmergencyMode = false;
 
   boot.kernelPackages = latestKernelPackage;
-  #boot.kernelParams = [ "nouveau.modeset=0" ];
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.bluetooth.enable = true;
@@ -116,7 +115,6 @@ in
     screen
     sl
     syncthing
-    #transmission_4
     tree
     usbutils
     vim
