@@ -53,6 +53,7 @@ in
     ./modules/user-management.nix
     #./modules/virtualisation.nix
     ./modules/voice.nix
+    ./modules/webdav.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
