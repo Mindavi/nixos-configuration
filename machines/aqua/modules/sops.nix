@@ -15,5 +15,9 @@
     "prometheus/homeassistant" = {
       owner = config.systemd.services.prometheus.serviceConfig.User;
     };
+    "webdav" = {
+      owner = config.services.webdav.user;
+      group = config.services.webdav.group;
+    };
   };
 }
