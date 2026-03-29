@@ -35,7 +35,7 @@
             name = "phone-rick";
             publicKey = "BgCzrwWKlyV+zz1LqkxeedKJOdgdnXQs+U4/vIdO1Gc=";
             allowedIPs = [
-              "fd37:191a:d082:0555::25/128"
+              "fd37:191a:d082:555::25/128"
             ];
             endpoint = "192.168.1.9:51820";
             dynamicEndpointRefreshSeconds = 5;
@@ -45,11 +45,19 @@
             name = "nixos-asus";
             publicKey = "uKb3tIPQCTSdQBKvXjQFVT22gj6BHNveP3PSzq9gQBI=";
             allowedIPs = [
-              "fd37:191a:d082:0555::2/128"
+              "fd37:191a:d082:555::2/128"
             ];
             endpoint = "[2a10:3781:5523:0:de53:60ff:fefc:bc9b]:51820";
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
+          }
+          {
+            name = "phone-rick-2";
+            publicKey = "n9c6XYkJoPunqSsg86qhaK9zXEXwdpTIv01cruFogHk=";
+            allowedIPs = [
+              "fd37:191a:d082:555:af16:4465:9f79:ba81/128"
+            ];
+            endpoint = "[2a10:3781:5523:0:b048:eaff:fedb:d09a]:51820";
           }
         ];
       };

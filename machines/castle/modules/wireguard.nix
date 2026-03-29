@@ -43,6 +43,14 @@
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
+          {
+            name = "phone-rick-2";
+            publicKey = "n9c6XYkJoPunqSsg86qhaK9zXEXwdpTIv01cruFogHk=";
+            allowedIPs = [
+              "fd37:191a:d082:555:af16:4465:9f79:ba81/128"
+            ];
+            endpoint = "[2a10:3781:5523:0:b048:eaff:fedb:d09a]:51820";
+          }
         ];
       };
     };
