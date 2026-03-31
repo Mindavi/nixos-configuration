@@ -107,6 +107,10 @@ in
           slzb-06         IN      A       192.168.1.23
         '';
 
+        slaves = [
+          "2a10:3781:5523:0:9e6b:ff:fe03:d2f2"
+        ];
+
         # TODO(Mindavi): use update-policy instead of this option.
         #   https://bind9.readthedocs.io/en/latest/chapter7.html#dynamic-update-security
         # Allow for dynamic DNS by updating the config at runtime.
