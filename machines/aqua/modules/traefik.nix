@@ -37,7 +37,7 @@ in
       http = {
         middlewares.localhost-allowlist.ipallowlist.sourcerange = lib.concatStringsSep ", " [
           "127.0.0.0/8"
-          "[::1]"
+          "::1"
         ];
 
         ### Home assistant
