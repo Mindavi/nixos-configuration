@@ -4,6 +4,9 @@
     enable = true;
     # only open firewall to internal network, see firewall.nix
     openFirewall = false;
+    # See https://github.com/NixOS/nixpkgs/issues/502964
+    # Fix: https://github.com/NixOS/nixpkgs/pull/504784
+    package = pkgs.samba.overrideAttrs (_: {hardeningDisable = [ "strictflexarrays1" ];});
     settings = {
       global = {
         "invalid users" = [
