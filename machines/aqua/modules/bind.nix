@@ -122,6 +122,15 @@ in
       };
     };
   };
+  systemd.services.bind.serviceConfig = {
+    # For some reason, bind crashes on first startup.
+    # To be done is figure out what the reason is and fix it better, but for now just allow a few restarts.
+    Restart = "on-failure";
+    RestartSec = 15;
+    RestartSteps = 5;
+    RestartMaxDelaySec = "15min";
+  };
+
   networking.firewall.allowedTCPPorts = [ 53 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 }
