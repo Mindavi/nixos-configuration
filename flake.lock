@@ -62,16 +62,16 @@
     },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1774824424,
-        "narHash": "sha256-qz3R6miCZtgPvPeuts2mRANnpCwCROcfpibHxlzQVm4=",
-        "owner": "SFrijters",
+        "lastModified": 1774709303,
+        "narHash": "sha256-D3Q07BbIA2KnTcSXIqqu9P586uWxN74zNoCH3h2ESHg=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5f99649caefd0559ed1db1b2cfbeece99f4bdd4f",
+        "rev": "8110df5ad7abf5d4c0f6fb0f8f978390e77f9685",
         "type": "github"
       },
       "original": {
-        "owner": "SFrijters",
-        "ref": "samba-nmbd-crash-fix",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
