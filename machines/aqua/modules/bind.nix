@@ -22,7 +22,9 @@ in
   services.bind = {
     enable = true;
 
-    package = pkgs.bind.overrideAttrs (_: {hardeningDisable = [ "strictflexarrays1" ];});
+    package = pkgs.bind.overrideAttrs (_: {
+      hardeningDisable = [ "strictflexarrays1" ];
+    });
 
     # Note: by default this sets `networking.resolvconf.useLocalResolver` to true.
     # This may mean that DNS breaks on this system whenever BIND fails to start up.
