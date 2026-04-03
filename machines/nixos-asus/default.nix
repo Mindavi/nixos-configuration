@@ -113,6 +113,8 @@
     minicom # for uart / serial debugging
     qalculate-qt # calculator gui application
 
+    gnome-decoder # handy to share small textual data with a phone
+
     # pdf viewer
     kdePackages.okular
 
