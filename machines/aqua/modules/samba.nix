@@ -4,7 +4,6 @@
     enable = true;
     # only open firewall to internal network, see firewall.nix
     openFirewall = false;
-    # Fix: https://github.com/NixOS/nixpkgs/pull/504784
     settings = {
       global = {
         "invalid users" = [
