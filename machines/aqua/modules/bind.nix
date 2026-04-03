@@ -75,7 +75,7 @@ in
           $TTL 2h
           $ORIGIN home.arpa.
           @               IN      SOA     ns1.home.arpa.   hostmaster.home.arpa. (
-                                          2026020101  ; serial number
+                                          2026040301  ; serial number
                                           3h          ; refresh
                                           15m         ; update retry
                                           3w          ; expiry
@@ -85,6 +85,7 @@ in
                           IN      NS      ns1.home.arpa.
 
           ns1             IN      AAAA    fd37:191a:d082:555::1
+          ns2             IN      AAAA    fd37:191a:d082:555::1d20:9486
           aqua            IN      AAAA    fd37:191a:d082:555::1
           dashboard       IN      AAAA    fd37:191a:d082:555::1
           grafana         IN      AAAA    fd37:191a:d082:555::1
@@ -106,8 +107,7 @@ in
         '';
 
         slaves = [
-          "fd71:a1a4:5a53:0:9e6b:ff:fe03:d2f2"
-          "2a10:3781:5523:0:9e6b:ff:fe03:d2f2"
+          "any"
         ];
 
         # TODO(Mindavi): use update-policy instead of this option.
