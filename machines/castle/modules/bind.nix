@@ -70,7 +70,9 @@ in
       # https://www.rfc-editor.org/rfc/rfc8375.html
       "home.arpa" = {
         master = false;
-        # TODO(Mindavi): add master dns server IP address.
+        # note that impermanence will get rid of this
+        # due to how the bind module is written, file is mandatory
+        file = "/var/dns/home.arpa.saved";
         allowQuery = allowedNetworks;
         masters = [
           "fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c"
