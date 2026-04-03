@@ -53,6 +53,9 @@ in
     # in OpenWrt, disable DNSSEC for now. Maybe only for the .lan zone in the future?
     extraOptions = ''
       dnssec-validation no;
+      response-policy {
+        zone "rpz.blocklist.com";
+      };
     '';
 
     extraConfig = ''
@@ -116,6 +119,19 @@ in
         # extraConfig = ''
         #   allow-update { 127.0.0.0/24; ::1; };
         # '';
+      };
+
+      "rpz.blocklist.com" = {
+        master = true;
+        allowQuery = [ "localhost" ];
+        slaves = [
+          "none"
+        ];
+        file = pkgs.fetchurl {
+          # https://github.com/hagezi/dns-blocklists
+          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.93.68022/rpz/pro.txt";
+          hash = "sha256-8s9A3BvmsR5nauYhqA+rDbXbfd04VuCEpJsU5WHgxPU=";
+        };
       };
     };
   };
