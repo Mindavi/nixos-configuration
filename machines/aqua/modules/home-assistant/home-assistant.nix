@@ -188,7 +188,9 @@
       adaptive_lighting
       # auth_oidc
       # localtuya # mutually exclusive with tuya_local
+      powercalc
       smartir
+      spook
       # tuya_local
       waste_collection_schedule
       (pkgs.home-assistant.python.pkgs.callPackage ./pkgs/home-assistant-bosch-custom-component.nix { })
