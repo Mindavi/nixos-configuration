@@ -140,6 +140,7 @@
       "ibeacon"
       "immich"
       "improv_ble"
+      "infrared"
       "iperf3"
       "ipp"
       "isal" # https://github.com/NixOS/nixpkgs/issues/330377
