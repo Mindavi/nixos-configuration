@@ -9,10 +9,9 @@
     piper.servers.hass = {
       enable = true;
       # https://rhasspy.github.io/piper-samples/#nl_NL-mls-medium
-      voice = "nl_NL-mls-medium";
+      voice = "nl_BE-rdh-medium";
       useCUDA = false;
       uri = "tcp://127.0.0.1:10200";
-      speaker = 7432;
     };
     faster-whisper = {
       servers.hass = {
