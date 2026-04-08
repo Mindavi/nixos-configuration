@@ -12,7 +12,7 @@
         unit_system = "metric";
         time_zone = "Europe/Amsterdam";
         #external_url = "TBD";
-        internal_url = "http://aqua";
+        internal_url = "http://hass-local.home.arpa";
       };
       #auth_providers = {}; # kept disabled for now, as recommended on the home-assistant page
       #                     # something to consider later for easier onboarding of others in the house
