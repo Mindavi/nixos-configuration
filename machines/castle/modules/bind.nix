@@ -72,7 +72,7 @@ in
         master = false;
         # note that impermanence will get rid of this
         # due to how the bind module is written, file is mandatory
-        file = "/var/dns/home.arpa.saved";
+        file = "zones/home.arpa.saved";
         allowQuery = allowedNetworks;
         masters = [
           "fd71:a1a4:5a53:0:aaa1:59ff:fe2f:c49c"
