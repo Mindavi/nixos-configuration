@@ -7,8 +7,7 @@
 {
   # Enable the X11 windowing system.
   services = {
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    displayManager.plasma-login-manager.enable = true;
     # Enable touchpad support.
     libinput = {
       enable = true;
