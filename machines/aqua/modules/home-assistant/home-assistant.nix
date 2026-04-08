@@ -179,6 +179,7 @@
       "upnp"
       "webostv"
       "whisper"
+      "wiim"
       "wled"
       "wyoming"
       "xiaomi_ble"
