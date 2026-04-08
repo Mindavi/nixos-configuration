@@ -189,7 +189,7 @@
       adaptive_lighting
       # auth_oidc
       # localtuya # mutually exclusive with tuya_local
-      powercalc
+      # powercalc
       smartir
       spook
       # tuya_local
