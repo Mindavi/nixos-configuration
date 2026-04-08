@@ -53,6 +53,7 @@
       input_boolean = { };
       input_number = { };
       logbook = { };
+      media_source = { };
       mobile_app = { };
       network = { };
       prometheus = {
@@ -158,6 +159,7 @@
       "mobile_app"
       "mqtt"
       "music_assistant"
+      "notify"
       "owntracks"
       "paperless_ngx"
       "ping"
@@ -171,6 +173,7 @@
       "ssdp"
       "switchbot"
       "syncthing"
+      "tts"
       "ubus"
       "upnp"
       "webostv"
