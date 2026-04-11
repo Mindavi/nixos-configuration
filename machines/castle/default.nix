@@ -60,6 +60,7 @@ in
   zramSwap = {
     enable = true;
     algorithm = "zstd";
+    memoryPercent = 80;
   };
 
   environment.systemPackages = with pkgs; [
