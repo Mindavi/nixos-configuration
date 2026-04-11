@@ -57,6 +57,11 @@ in
 
   time.timeZone = "Europe/Amsterdam";
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
   environment.systemPackages = with pkgs; [
     fdupes
     file
