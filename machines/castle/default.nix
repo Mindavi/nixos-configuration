@@ -38,7 +38,7 @@ in
     ./modules/webdav.nix
     ./modules/wireguard.nix
     ./modules/zfs.nix
-    ../../modules/hydra.nix
+    #../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/sudo.nix
   ];
@@ -66,7 +66,7 @@ in
     fdupes
     file
     fzf # fuzzy find
-    gitFull
+    git
     htop
     jpeginfo # verify validity of jpegs
     jq
