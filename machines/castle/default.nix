@@ -83,7 +83,7 @@ in
   programs.bash.completion.enable = true;
 
   nixpkgs.config = {
-    #contentAddressedByDefault = true;
+    contentAddressedByDefault = true;
     #strictDepsByDefault = true;
     # error: The `env` attribute set cannot contain any attributes passed to derivation. The following attributes are overlapping:
     # - BASH_SHELL: in `env`: "/bin/sh"; in derivation arguments: "/bin/sh"
