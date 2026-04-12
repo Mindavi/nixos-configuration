@@ -37,5 +37,19 @@
     channel.enable = false;
     registry.nixpkgs.flake = nixos-unstable;
     # nixPath = [ "nixpkgs=${pkgs.path}" ];
+
+    firewall = {
+      enable = true;
+      # Inspiration: https://github.com/NixOS/nixpkgs/pull/464613#issuecomment-3638093484
+      allowedTCPPorts = [
+        22 # SSH (for git+ssh:// URLs)
+        80 # HTTP
+        443 # HTTPS
+      ];
+      allowedUDPPorts = [
+        53 # DNS
+        443 # QUIC/HTTP3
+      ];
+    };
   };
 }
