@@ -17,5 +17,6 @@
     # TODO(Mindavi): get this also working with the Fiio BTR3K DAC.
     extraArgs = "-o default";
     pulseaudio.enable = true;
+    name = "Kantoor-aqua";
   };
 }
