@@ -40,15 +40,13 @@ in
     logReversePathDrops = true;
     rejectPackets = true;
     # TODO(Mindavi): seems to cause issues here, but not on the server?
+    # Possibly due to WiFi / LAN mixing up traffic?
     checkReversePath = "loose";
 
     extraInputRules = ''
       # Open up 8000 for testing purposes. E.g. running development servers.
       ip saddr { ${subnetInternal1} } tcp dport 8000 accept
       ip6 saddr { ${subnetWireGuardIpv6} } tcp dport 8000 accept
-
-      # prometheus node_exporter
-      ip6 saddr { ${subnetWireGuardIpv6} } tcp dport ${toString config.services.prometheus.exporters.node.port} accept
 
       # multicast DNS (inspiration: https://github.com/reckenrode/nixos-configs/blob/ebe9f004332be9f550d9142849bcfb8bb13e2b39/modules/by-name/av/avahi/nixos-module.nix)
       # https://wiki.gentoo.org/wiki/Nftables/Examples

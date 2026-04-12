@@ -16,4 +16,8 @@
       };
     };
   };
+
+  networking.firewall.interfaces.wg0.allowedTCPPorts = [
+    config.services.prometheus.exporters.node.port
+  ];
 }
