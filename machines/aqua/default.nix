@@ -40,7 +40,7 @@ in
     ./modules/llm.nix
     ./modules/mosquitto.nix
     ./modules/music-assistant.nix
-    ./modules/networking.nix
+    ./modules/network.nix
     ./modules/nix.nix
     #./modules/owncast.nix
     ./modules/prometheus.nix
