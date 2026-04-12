@@ -17,6 +17,9 @@
           "tcpstat"
         ];
       };
+      smartctl = {
+        enable = true;
+      };
     };
     globalConfig.scrape_interval = "15s";
     # Use traefik for proxying.
@@ -34,6 +37,17 @@
               "aqua:${toString config.services.prometheus.exporters.node.port}"
               "nixos-asus.home.arpa:9100"
               "castle.home.arpa:9100"
+            ];
+          }
+        ];
+      }
+      {
+        job_name = "smartctl";
+        static_configs = [
+          {
+            targets = [
+              "aqua:${toString config.services.prometheus.exporters.smartctl.port}"
+              "castle.home.arpa:9633"
             ];
           }
         ];
