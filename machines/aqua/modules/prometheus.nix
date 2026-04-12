@@ -91,7 +91,7 @@
         static_configs = [
           {
             targets = [
-              "aqua:8123"
+              "aqua"
             ];
           }
         ];
