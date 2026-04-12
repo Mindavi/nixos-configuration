@@ -152,7 +152,7 @@ in
 
         ### Music assistant
         routers.music-assistant = {
-          rule = "Host(`music-assistant.home.arpa`)";
+          rule = "Host(`music-assistant.home.arpa`) || Host(`mass-local.home.arpa`)";
           service = "music-assistant";
         };
         services.music-assistant = {
