@@ -6,10 +6,6 @@
 }:
 
 let
-  # TODO(Mindavi): consider this: https://discourse.nixos.org/t/detect-build-vm-in-flake/20648
-  isVmBuild = builtins.trace "building as vm: ${lib.boolToString (config.virtualisation ? qemu)}" (
-    config.virtualisation ? qemu
-  );
   # https://wiki.nixos.org/wiki/ZFS
   zfsCompatibleKernelPackages = lib.filterAttrs (
     name: kernelPackages:

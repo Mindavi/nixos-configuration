@@ -1,5 +1,11 @@
 { lib, config, ... }:
 
+let
+  # TODO(Mindavi): consider this: https://discourse.nixos.org/t/detect-build-vm-in-flake/20648
+  isVmBuild = builtins.trace "building as vm: ${lib.boolToString (config.virtualisation ? qemu)}" (
+    config.virtualisation ? qemu
+  );
+in
 {
   networking.hostName = "aqua";
   # head -c 8 /etc/machine-id
