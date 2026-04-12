@@ -30,4 +30,9 @@ in
   hardware.nvidia.modesetting.enable = true;
   # open driver doesn't support the GPU in this machine.
   hardware.nvidia.open = false;
+
+  nixpkgs.config.allowUnfreePackages = [
+    "nvidia-x11"
+    "nvidia-settings"
+  ];
 }

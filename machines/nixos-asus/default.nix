@@ -209,20 +209,6 @@
 
   services.postgresql.package = pkgs.postgresql_18;
 
-  # Add unfree packages that should be installed here.
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "discord"
-      "steam"
-      "steam-original"
-      "steam-run"
-      "steam-runtime"
-      "steam-unwrapped"
-      "nvidia-x11"
-      "nvidia-settings"
-    ];
-
   services.printing = {
     enable = true;
     drivers = [ pkgs.gutenprint ];

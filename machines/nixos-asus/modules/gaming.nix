@@ -16,4 +16,13 @@
     zeroad
     zeroad-data
   ];
+
+  nixpkgs.config.allowUnfreePackages = [
+    "discord"
+    "steam"
+    "steam-original"
+    "steam-run"
+    "steam-runtime"
+    "steam-unwrapped"
+  ];
 }
