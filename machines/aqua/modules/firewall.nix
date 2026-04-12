@@ -10,7 +10,11 @@ let
   subnetWireGuardIpv6 = "fd37:191a:d082:555::1/64";
 in
 {
-  networking.nftables.enable = true;
+  networking.nftables = {
+    enable = true;
+    # Hmmpf, stateVersion...
+    flushRuleset = false;
+  };
   networking.firewall = {
     enable = true;
     logRefusedPackets = true;

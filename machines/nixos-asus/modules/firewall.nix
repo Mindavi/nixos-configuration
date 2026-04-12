@@ -31,7 +31,11 @@ in
     20595
     #6567
   ];
-  networking.nftables.enable = true;
+  networking.nftables = {
+    enable = true;
+    # Hmmpf, stateVersion...
+    flushRuleset = false;
+  };
   networking.firewall = {
     enable = true;
     logRefusedPackets = true;
