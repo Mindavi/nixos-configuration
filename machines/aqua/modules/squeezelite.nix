@@ -13,9 +13,9 @@
     # https://blog.masoko.net/linux/sqeezelite-wont-mix-with-user-audio/
     # ExtraArguments for now doesn't seem to make any differences.
     # Possibly permissions issue?
-    enable = false;
+    enable = true;
     # TODO(Mindavi): get this also working with the Fiio BTR3K DAC.
-    extraArguments = "-o default";
-    pulseAudio = true;
+    extraArgs = "-o default";
+    pulseAudio.enable = true;
   };
 }
