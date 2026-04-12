@@ -134,6 +134,8 @@
       "gardena_bluetooth"
       "govee_ble"
       "history"
+      "homekit"
+      "homekit_controller"
       "html5"
       "http"
       "husqvarna_automower_ble"
