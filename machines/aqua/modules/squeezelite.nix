@@ -16,6 +16,6 @@
     enable = true;
     # TODO(Mindavi): get this also working with the Fiio BTR3K DAC.
     extraArgs = "-o default";
-    pulseAudio.enable = true;
+    pulseaudio.enable = true;
   };
 }
