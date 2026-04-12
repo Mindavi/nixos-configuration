@@ -36,6 +36,8 @@ in
     # Hmmpf, stateVersion...
     flushRuleset = false;
   };
+  # TODO(Mindavi): check DHCP packets being (sometimes) dropped?
+  # https://github.com/NixOS/nixpkgs/issues/263359
   networking.firewall = {
     enable = true;
     logRefusedPackets = true;
