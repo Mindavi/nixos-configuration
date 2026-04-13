@@ -14,7 +14,6 @@
       permit_join = false;
       serial = {
         port = "mdns://slzb-06";
-        #port = "tcp://192.168.1.23:6638";
         adapter = "zstack";
       };
       frontend = {
