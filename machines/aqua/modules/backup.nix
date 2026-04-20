@@ -30,6 +30,24 @@
           RandomizedDelaySec = "3h";
         };
       };
+      rsyncnet_postgres_database = {
+        initialize = true;
+        passwordFile = "/etc/nixos/secrets/restic-password";
+        command = [ "sudo" "-u" "postgres" "pg_dumpall" ];
+        extraBackupArgs = [ "--stdin-filename" "postgres.sql" ];
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-monthly 3"
+          "--keep-yearly 2"
+        ];
+        repository = "sftp:zh4793@zh4793.rsync.net:restic/database";
+        timerConfig = {
+          OnCalendar = "00:55";
+          Persistent = true;
+          RandomizedDelaySec = "3h";
+        };
+      };
+      # TODO(Mindavi): home assistant backup
     };
   };
   programs.ssh.extraConfig = ''
