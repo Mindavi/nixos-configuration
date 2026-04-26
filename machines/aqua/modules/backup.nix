@@ -65,7 +65,7 @@
   # :"Fatal: unable to open repository at sftp:zh4793@zh4793.rsync.net:restic/samba: unable to start the sftp session, error:
   # error receiving version packet from server: server unexpectedly closed connection: unexpected EOF"}  Exit code: 1
   services.prometheus.exporters.restic = {
-    enable = false;
+    enable = true;
     port = 9753;
     repository = config.services.restic.backups.rsyncnet_samba.repository;
     refreshInterval = 60 * 60 * 6;
@@ -75,6 +75,9 @@
     # TODO(Mindavi): Eh, is this ok? I'd like localhost (on IPv6?).
     # Should be supported, see https://github.com/prometheus/client_python/issues/791
     listenAddress = "::1";
+
+    # Must run as root due to the key access, I think.
+    user = "root";
   };
 
   systemd.services.prometheus-restic-exporter = {
