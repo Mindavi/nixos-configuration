@@ -65,7 +65,7 @@
   # :"Fatal: unable to open repository at sftp:zh4793@zh4793.rsync.net:restic/samba: unable to start the sftp session, error:
   # error receiving version packet from server: server unexpectedly closed connection: unexpected EOF"}  Exit code: 1
   services.prometheus.exporters.restic = {
-    enable = true;
+    enable = false;
     port = 9753;
     repository = config.services.restic.backups.rsyncnet_samba.repository;
     refreshInterval = 60 * 60 * 6;
