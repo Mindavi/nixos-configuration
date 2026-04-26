@@ -33,8 +33,16 @@
       rsyncnet_postgres_database = {
         initialize = true;
         passwordFile = "/etc/nixos/secrets/restic-password";
-        command = [ "sudo" "-u" "postgres" "pg_dumpall" ];
-        extraBackupArgs = [ "--stdin-filename" "postgres.sql" ];
+        command = [
+          "sudo"
+          "-u"
+          "postgres"
+          "pg_dumpall"
+        ];
+        extraBackupArgs = [
+          "--stdin-filename"
+          "postgres.sql"
+        ];
         pruneOpts = [
           "--keep-daily 7"
           "--keep-monthly 3"
