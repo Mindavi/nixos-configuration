@@ -44,6 +44,7 @@ in
     ./modules/samba.nix
     #./modules/solar-inverter.nix
     ./modules/sops.nix
+    ./modules/spotifyd.nix
     ./modules/squeezelite.nix
     ./modules/syncthing.nix
     ./modules/traefik.nix
