@@ -26,7 +26,7 @@
     # Use traefik for proxying.
     listenAddress = "127.0.0.1";
     port = 9090;
-    webExternalUrl = "/prometheus/";
+    webExternalUrl = "/";
     # Required because we read a credential file using sops that's not available from the nix sandbox.
     checkConfig = "syntax-only";
     scrapeConfigs = [
