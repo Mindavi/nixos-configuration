@@ -40,6 +40,7 @@ in
     ./modules/nix.nix
     #./modules/owncast.nix
     ./modules/prometheus.nix
+    ./modules/radicale.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
     ./modules/sops.nix
