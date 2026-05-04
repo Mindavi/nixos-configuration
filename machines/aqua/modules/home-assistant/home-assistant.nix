@@ -13,6 +13,8 @@
         time_zone = "Europe/Amsterdam";
         #external_url = "TBD";
         internal_url = "http://hass-local.home.arpa";
+        # To ensure 24h clock is used, the language is set to en-GB.
+        language = "en-GB";
       };
       #auth_providers = {}; # kept disabled for now, as recommended on the home-assistant page
       #                     # something to consider later for easier onboarding of others in the house
