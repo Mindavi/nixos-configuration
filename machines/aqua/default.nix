@@ -104,11 +104,7 @@ in
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
-    fileSystems = [
-      "/"
-      "/nix"
-      "/home"
-    ];
+    # fileSystems should be determined automatically.
   };
 
   services.postgresql.package = pkgs.postgresql_18;
