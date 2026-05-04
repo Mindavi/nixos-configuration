@@ -51,8 +51,6 @@ in
           # Give this route the lowest priority to ensure other routes are always matched first.
           # Otherwise e.g. the hydra route would not be chosen with http://aqua.local/hydra.
           priority = 1;
-          #tls = true;
-          #tls.certresolver = "le";
           service = "homeassistant";
         };
         services.homeassistant = {
@@ -72,18 +70,9 @@ in
         };
 
         ### Hydra
-        middlewares.hydra-stripprefix.stripprefix.prefixes = "/hydra";
-        # https://hydra.nixos.org/build/276327056/download/1/hydra/configuration.html#serving-behind-reverse-proxy
-        middlewares.hydra-prefix-header.headers.customrequestheaders.X-Request-Base = "/hydra";
         routers.hydra = {
-          rule = "(Host(`aqua.local`) || Host(`hydra.home.arpa`)) && PathPrefix(`/hydra`)";
-          #tls = true;
-          #tls.certresolver = "le";
+          rule = "Host(`hydra.home.arpa`)";
           service = "hydra";
-          middlewares = [
-            "hydra-stripprefix"
-            "hydra-prefix-header"
-          ];
         };
         services.hydra = {
           loadBalancer.servers = [
@@ -96,7 +85,7 @@ in
         ### Prometheus
         routers.prometheus = {
           # https://blog.cubieserver.de/2020/configure-prometheus-on-a-sub-path-behind-reverse-proxy/
-          rule = "(Host(`aqua.local`) || Host(`prometheus.home.arpa`)) && PathPrefix(`/prometheus`)";
+          rule = "Host(`prometheus.home.arpa`)";
           service = "prometheus";
         };
         services.prometheus = {
@@ -109,7 +98,7 @@ in
 
         ### Grafana
         routers.grafana = {
-          rule = "(Host(`aqua.local`) || Host(`grafana.home.arpa`)) && PathPrefix(`/grafana`)";
+          rule = "Host(`grafana.home.arpa`)";
           service = "grafana";
         };
         services.grafana = {
@@ -121,13 +110,9 @@ in
         };
 
         ### Dashboard
-        middlewares.dashboard-stripprefix.stripprefix.prefixes = "/dashboard/";
         routers.dashboard = {
-          rule = "(Host(`aqua.local`) || Host(`dashboard.home.arpa`)) && PathPrefix(`/dashboard/`)";
+          rule = "Host(`dashboard.home.arpa`)";
           service = "dashboard";
-          middlewares = [
-            "dashboard-stripprefix"
-          ];
         };
         services.dashboard = {
           loadBalancer.servers = [
@@ -139,7 +124,7 @@ in
 
         ### Zigbee2MQTT
         routers.zigbee2mqtt = {
-          rule = "(Host(`aqua.local`) || Host(`zigbee2mqtt.home.arpa`)) && PathPrefix(`/zigbee2mqtt`)";
+          rule = "Host(`zigbee2mqtt.home.arpa`)";
           service = "zigbee2mqtt";
         };
         services.zigbee2mqtt = {
@@ -164,13 +149,9 @@ in
         };
 
         ### Syncthing
-        middlewares.syncthing-stripprefix.stripprefix.prefixes = "/syncthing";
         routers.syncthing = {
-          rule = "(Host(`aqua.local`) || Host(`syncthing.home.arpa`)) && PathPrefix(`/syncthing`)";
+          rule = "Host(`syncthing.home.arpa`)";
           service = "syncthing";
-          middlewares = [
-            "syncthing-stripprefix"
-          ];
         };
         services.syncthing = {
           loadBalancer.servers = [

@@ -14,7 +14,7 @@ in
       server = {
         port = 8082;
         host = "127.0.0.1";
-        base-url = "/dashboard";
+        base-url = "/";
       };
       pages = [
         {
@@ -31,7 +31,7 @@ in
                       links = [
                         {
                           title = "Grafana";
-                          url = "http://grafana.${aqua_url}/grafana";
+                          url = "http://grafana.${aqua_url}";
                         }
                         {
                           title = "Home assistant";
@@ -39,7 +39,7 @@ in
                         }
                         # {
                         #   title = "Hydra";
-                        #   url = "http://hydra.${aqua_url}/hydra";
+                        #   url = "http://hydra.${aqua_url}";
                         # }
                         {
                           title = "Music assistant";
@@ -51,15 +51,15 @@ in
                         }
                         {
                           title = "Prometheus";
-                          url = "http://prometheus.${aqua_url}/prometheus";
+                          url = "http://prometheus.${aqua_url}";
                         }
                         {
                           title = "Syncthing";
-                          url = "http://syncthing.${aqua_url}/syncthing/";
+                          url = "http://syncthing.${aqua_url}";
                         }
                         {
                           title = "Zigbee2MQTT";
-                          url = "http://zigbee2mqtt.${aqua_url}/zigbee2mqtt";
+                          url = "http://zigbee2mqtt.${aqua_url}";
                         }
                       ];
                     }
