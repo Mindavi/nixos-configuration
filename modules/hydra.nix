@@ -21,9 +21,6 @@ in
         ];
       })
     );
-    #.override {
-    #  nix = pkgs.nixVersions.nix_2_22;
-    #};
     hydraURL = "http://localhost:${toString config.services.hydra.port}";
     port = 3000;
     notificationSender = "hydra@localhost";
