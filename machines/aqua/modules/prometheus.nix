@@ -18,7 +18,8 @@
         ];
       };
       smartctl = {
-        enable = true;
+        # Disable because it wakes up the disks from sleep on scrape, increasing power usage.
+        enable = false;
       };
     };
     globalConfig.scrape_interval = "15s";
@@ -46,7 +47,7 @@
         static_configs = [
           {
             targets = [
-              "aqua:${toString config.services.prometheus.exporters.smartctl.port}"
+              # "aqua:${toString config.services.prometheus.exporters.smartctl.port}"
               "castle.home.arpa:9633"
             ];
           }
