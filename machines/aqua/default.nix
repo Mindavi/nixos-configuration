@@ -42,7 +42,6 @@ in
     ./modules/prometheus.nix
     ./modules/rtl_433.nix
     ./modules/samba.nix
-    #./modules/solar-inverter.nix
     ./modules/sops.nix
     ./modules/spotifyd.nix
     ./modules/squeezelite.nix
