@@ -173,6 +173,19 @@ in
             }
           ];
         };
+
+        ### Radicale (calendar)
+        routers.radicale = {
+          rule = "Host(`calendar.home.arpa`)";
+          service = "radicale";
+        };
+        services.radicale = {
+          loadBalancer.servers = [
+            {
+              url = "http://${config.services.radicale.settings.server.hosts[0]}";
+            }
+          ];
+        };
       };
     };
   };
