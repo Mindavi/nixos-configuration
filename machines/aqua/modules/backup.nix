@@ -15,8 +15,11 @@
         initialize = true;
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
+          "/var/lib/radicale"
           "/var/lib/zigbee2mqtt"
-          "/storage/documents"
+          # Explicitly list to prevent backups of possibly large files.
+          "/storage/documents/samba"
+          "/storage/documents/webdav"
         ];
         pruneOpts = [
           "--keep-daily 7"
