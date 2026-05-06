@@ -5,7 +5,7 @@
 
 {
   services.radicale = {
-    enable = false;
+    enable = true;
     settings = {
       server = {
         # For now, just setup IPv6. Shouldn't really matter because we'll connect using localhost.
