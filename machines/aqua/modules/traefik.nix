@@ -179,6 +179,7 @@ in
           rule = "Host(`calendar.home.arpa`)";
           service = "radicale";
         };
+        # TODO(Mindavi): put in allowlist for only wireguard clients
         services.radicale = {
           loadBalancer.servers = [
             {
