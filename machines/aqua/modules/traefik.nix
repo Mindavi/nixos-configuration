@@ -182,7 +182,8 @@ in
         services.radicale = {
           loadBalancer.servers = [
             {
-              url = "http://${config.services.radicale.settings.server.hosts[0]}";
+              # Assume the list of hosts is 1 long for now.
+              url = "http://${builtins.head config.services.radicale.settings.server.hosts}";
             }
           ];
         };
