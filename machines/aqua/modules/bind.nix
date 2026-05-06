@@ -78,7 +78,7 @@ in
           $TTL 2h
           $ORIGIN home.arpa.
           @               IN      SOA     ns1.home.arpa.   hostmaster.home.arpa. (
-                                          2026041201  ; serial number
+                                          2026050601  ; serial number
                                           3h          ; refresh
                                           15m         ; update retry
                                           3w          ; expiry
@@ -90,6 +90,7 @@ in
           ns1             IN      AAAA    fd37:191a:d082:555::1
           ns2             IN      AAAA    fd37:191a:d082:555::1d20:9486
           aqua            IN      AAAA    fd37:191a:d082:555::1
+          calendar        IN      AAAA    fd37:191a:d082:555::1
           dashboard       IN      AAAA    fd37:191a:d082:555::1
           grafana         IN      AAAA    fd37:191a:d082:555::1
           hass            IN      AAAA    fd37:191a:d082:555::1
