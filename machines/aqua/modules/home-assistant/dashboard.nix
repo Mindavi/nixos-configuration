@@ -1,7 +1,9 @@
 { ... }:
 {
   services.home-assistant = {
-    config.lovelace.mode = "storage";
+    config.lovelace = {
+      resource_mode = "storage";
+    };
     lovelaceConfig = null;
   };
 }
