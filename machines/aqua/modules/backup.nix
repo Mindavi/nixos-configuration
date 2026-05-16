@@ -40,7 +40,7 @@
           "${lib.getExe pkgs.sudo}"
           "-u"
           "postgres"
-          "${pkgs.postgresql}/bin/pg_dumpall"
+          "${config.services.postgresql.package}/bin/pg_dumpall"
         ];
         extraBackupArgs = [
           "--stdin-filename"
