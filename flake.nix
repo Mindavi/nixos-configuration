@@ -78,6 +78,6 @@
           inherit nixos-unstable;
         };
       };
-
+      formatter.x86_64-linux = nixos-unstable.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
