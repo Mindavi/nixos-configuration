@@ -37,10 +37,10 @@
         initialize = true;
         passwordFile = "/etc/nixos/secrets/restic-password";
         command = [
-          "sudo"
+          "${lib.getExe pkgs.sudo}"
           "-u"
           "postgres"
-          "pg_dumpall"
+          "${pkgs.postgresql}/bin/falsepg_dumpall"
         ];
         extraBackupArgs = [
           "--stdin-filename"
