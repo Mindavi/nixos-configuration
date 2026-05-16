@@ -39,14 +39,14 @@ in
         "audio"
         "pipewire"
       ];
-      RuntimeDirectory = "squeezelite";
+      RuntimeDirectory = "spotifyd";
       RuntimeDirectoryMode = "0700";
-      StateDirectory = "squeezelite";
+      StateDirectory = "spotifyd";
       StateDirectoryMode = "0700";
     };
     environment = {
-      XDG_CONFIG_HOME = "%S/squeezelite/.config";
-      XDG_RUNTIME_DIR = "%t/squeezelite";
+      XDG_CONFIG_HOME = "%S/spotifyd/.config";
+      XDG_RUNTIME_DIR = "%t/spotifyd";
     };
   };
 }
