@@ -48,7 +48,7 @@ in
     ./modules/squeezelite.nix
     ./modules/syncthing.nix
     ./modules/traefik.nix
-    ./modules/user-management.nix
+    ./modules/users.nix
     #./modules/virtualisation.nix
     ./modules/voice.nix
     ./modules/webdav.nix
