@@ -20,6 +20,7 @@
         mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";
         generatePrivateKeyFile = true;
+        dynamicEndpointRefreshSeconds = 300;
         peers = [
           {
             name = "phone-rick";
@@ -28,8 +29,6 @@
               "fd37:191a:d082:0555::25/128"
             ];
             endpoint = "192.168.1.9:51820";
-            dynamicEndpointRefreshSeconds = 5;
-            dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "phone-rick-2";
@@ -47,8 +46,6 @@
               "fd37:191a:d082:0555::1/128"
             ];
             endpoint = "[2a10:3781:5523:0:aaa1:59ff:fe2f:c49c]:51820";
-            dynamicEndpointRefreshSeconds = 5;
-            dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "castle";
@@ -60,6 +57,14 @@
             dynamicEndpointRefreshSeconds = 5;
             dynamicEndpointRefreshRestartSeconds = 60;
           }
+          # {
+          #   name = "iqaluk";
+          #   publicKey = "TODO";
+          #   allowedIPs = [
+          #     "fd37:191a:d082:0555:4e0f:eb2b:a25d:1a46/128"
+          #   ];
+          #   endpoint = "TODO";
+          # }
         ];
       };
     };
