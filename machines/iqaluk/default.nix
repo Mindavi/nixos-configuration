@@ -23,9 +23,9 @@
     ./modules/syncthing.nix
     ./modules/users.nix
     ./modules/wireguard.nix
-    ./modules/zfs.nix
     ../../modules/iperf.nix
     ../../modules/sudo.nix
+    ../../modules/zfs.nix
   ];
 
   system.stateVersion = "26.05";

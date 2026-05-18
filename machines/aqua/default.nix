@@ -5,20 +5,6 @@
   ...
 }:
 
-let
-  # https://wiki.nixos.org/wiki/ZFS
-  zfsCompatibleKernelPackages = lib.filterAttrs (
-    name: kernelPackages:
-    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
-    && (builtins.tryEval kernelPackages).success
-    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
-  ) pkgs.linuxKernel.packages;
-  latestKernelPackage = lib.last (
-    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
-      builtins.attrValues zfsCompatibleKernelPackages
-    )
-  );
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -53,12 +39,12 @@ in
     ./modules/voice.nix
     ./modules/webdav.nix
     ./modules/wireguard.nix
-    ./modules/zfs.nix
     ./modules/zigbee2mqtt.nix
     #../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/rtl-sdr.nix
     ../../modules/sudo.nix
+    ../../modules/zfs.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -69,8 +55,6 @@ in
   # The system will try to boot as far as possible even if mounting (or other services) fail.
   # Otherwise it will be dropped in an emergency shell (without SSH access).
   systemd.enableEmergencyMode = false;
-
-  boot.kernelPackages = latestKernelPackage;
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.bluetooth.enable = true;

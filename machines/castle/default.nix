@@ -5,20 +5,6 @@
   ...
 }:
 
-let
-  # https://wiki.nixos.org/wiki/ZFS
-  zfsCompatibleKernelPackages = lib.filterAttrs (
-    name: kernelPackages:
-    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
-    && (builtins.tryEval kernelPackages).success
-    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
-  ) pkgs.linuxKernel.packages;
-  latestKernelPackage = lib.last (
-    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
-      builtins.attrValues zfsCompatibleKernelPackages
-    )
-  );
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -41,6 +27,7 @@ in
     ../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/sudo.nix
+    ../../modules/zfs.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -48,7 +35,6 @@ in
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = latestKernelPackage;
   # Machine seems to give machine check exceptions.
   # But this post on LKML seems to say that they are invalid errors.
   # https://lkml.org/lkml/2026/3/2/1553
