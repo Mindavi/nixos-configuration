@@ -40,12 +40,6 @@
             ];
             passwordFile = config.sops.secrets."mosquitto/monitor".path;
           };
-          inverter = {
-            acl = [
-              "write sensor/inverter/ginlong-inverter-monitor/#"
-            ];
-            password = "inverter-monitor<>";
-          };
           zigbee2mqtt = {
             password = ")O(*'e5[2#OpUch9,z7gn5z.";
             acl = [
