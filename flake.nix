@@ -78,6 +78,19 @@
           inherit nixos-unstable;
         };
       };
+      nixosConfigurations.iqaluk = nixos-unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/iqaluk/default.nix
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+          sops-nix.nixosModules.sops
+        ];
+        specialArgs = {
+          inherit nixos-unstable;
+        };
+      };
+
       formatter.x86_64-linux = nixos-unstable.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
