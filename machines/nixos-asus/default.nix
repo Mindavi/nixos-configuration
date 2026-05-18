@@ -20,7 +20,6 @@
     ./modules/nvidia.nix
     ./modules/printer-scanner.nix
     ./modules/prometheus.nix
-    ./modules/samba.nix
     ./modules/streaming.nix
     ./modules/syncthing.nix
     ./modules/wireguard.nix
