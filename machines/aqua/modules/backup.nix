@@ -15,6 +15,7 @@
         initialize = true;
         passwordFile = "/etc/nixos/secrets/restic-password";
         paths = [
+          # TODO(Mindavi): maybe split out the radicale and z2m backups.
           "/var/lib/radicale"
           "/var/lib/zigbee2mqtt"
           # Explicitly list to prevent backups of possibly large files.
@@ -58,7 +59,26 @@
           RandomizedDelaySec = "3h";
         };
       };
-      # TODO(Mindavi): home assistant backup
+      rsyncnet_home-assistant = {
+        initialize = true;
+        passwordFile = "/etc/nixos/secrets/restic-password";
+        # TODO(Mindavi): extract the contents and let restic handle that, rather than backupping the archives.
+        # Though maybe that is also not ideal since home assistant will then be unhappy without the metadata.
+        paths = [ "/var/lib/hass/backups" ];
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 4"
+          "--keep-monthly 3"
+          # I think I'll notice way before this when hass is broken, but keeping 1 should be reasonable.
+          "--keep-yearly 1"
+        ];
+        repository = "sftp:zh4793@zh4793.rsync.net:restic/home-assistant";
+        timerConfig = {
+          OnCalendar = "10:00";
+          Persistent = true;
+          RandomizedDelaySec = "3h";
+        };
+      };
     };
   };
   programs.ssh.extraConfig = ''
