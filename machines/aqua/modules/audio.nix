@@ -8,5 +8,23 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     systemWide = true;
+    wireplumber.extraConfig = {
+      "fiio-sample-rate" = {
+        monitor.alsa.rules = [
+          {
+            matches = [
+              {
+                node.name = "alsa_output.usb-FiiO_FiiO_BTR3K_ABCDEF0123456789-00.analog-stereo";
+              }
+            ];
+            actions = {
+              update-props = {
+                # TODO(Mindavi): do we need to update something here to make it work?
+              };
+            };
+          }
+        ];
+      };
+    };
   };
 }
