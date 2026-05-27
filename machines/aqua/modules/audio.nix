@@ -26,5 +26,18 @@
         ];
       };
     };
+    extraConfig.pipewire = {
+      "10-clock-rate" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.allowed-rates" = [
+            192000
+            48000
+            44100
+          ];
+        };
+      };
+
+    };
   };
 }
