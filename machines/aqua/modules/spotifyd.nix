@@ -1,12 +1,11 @@
 { lib, pkgs, ... }:
 
 let
-  # Note(Mindavi): ensure this port is opened in firewall, too.
   spotifyd_zeroconf_port = 7452;
 in
 {
   services.spotifyd = {
-    enable = false;
+    enable = true;
     package = pkgs.spotifyd;
     settings = {
       global = {
