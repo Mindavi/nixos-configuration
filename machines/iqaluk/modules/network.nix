@@ -15,6 +15,7 @@
     interfaces = {
       # Figure out which interfaces are inside.
       # Mostly, just use ipv6 router advertisements for configuration.
+      # Ethernet devices: eno1/enp2s0 (closer to the side), enp3s0 (next to USB ports)
     };
     # dhcpcd.enable = false;
     # useNetworkd = true;

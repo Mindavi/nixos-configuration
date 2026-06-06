@@ -1,9 +1,11 @@
 {
   disko.devices = {
     disk = {
+      # Disk 0: nvme-eui.0025384261407c50
+      # Disk 1: nvme-eui.00253847514020ff
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/TODO";
+        device = "/dev/disk/by-id/nvme-eui.0025384261407c50";
         content = {
           type = "gpt";
           partitions = {
