@@ -199,7 +199,7 @@
       spook
       # tuya_local
       waste_collection_schedule
-      (pkgs.home-assistant.python.pkgs.callPackage ./pkgs/home-assistant-bosch-custom-component.nix { })
+      (pkgs.home-assistant.python3Packages.callPackage ./pkgs/home-assistant-bosch-custom-component.nix { })
     ];
     package = pkgs.home-assistant;
     openFirewall = false;
