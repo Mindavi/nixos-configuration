@@ -3,12 +3,63 @@
     disk = {
       # Disk 0: nvme-eui.0025384261407c50
       # Disk 1: nvme-eui.00253847514020ff
-      main = {
+      disk0 = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-eui.0025384261407c50";
         content = {
           type = "gpt";
           partitions = {
+            ESP = {
+              # 42MiB initrd + 14MiB bzImage * 20 generations = 1.2GiB. 2G should be enough.
+              size = "2G";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
+              };
+            };
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "crypted";
+                passwordFile = "/tmp/secret.key"; # For interactive password entry
+                settings = {
+                  allowDiscards = true;
+                  # keyFile = "/tmp/secret.key"; # enable for non-interactive password entry
+                  crypttabExtraOpts = [
+                    # To enroll the TPM, use the following command:
+                    # sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=<fill-in> /dev/the-disk
+                    # PCRs (from https://wiki.archlinux.org/title/Trusted_Platform_Module#Accessing_PCR_registers):
+                    # 0: Core System Firmware executable code (aka Firmware)
+                    # 2: Extended or pluggable executable code (aka OpROMs)
+                    # 7: Secure boot state
+                    # 12: overridden kernel command line, credentials
+                    # Use the command `systemd-analyze pcrs` to check current values.
+                    # Typically PCR0 is used, and PCR7 as well if secure boot is to be used.
+                    "tpm2-device=auto"
+                  ];
+                };
+                # Note(Mindavi): It is very important to export the zroot / zpools after nixos-install to ensure they can be imported on reboot.
+                content = {
+                  type = "zfs";
+                  pool = "zroot";
+                };
+              };
+            };
+          };
+        };
+      };
+      disk1 = {
+        type = "disk";
+        device = "/dev/disk/by-id/nvme-eui.00253847514020ff";
+        content = {
+          type = "gpt";
+          partitions = {
+            # Mirroring ESP to this disk as well to ensure the space is reserved.
+            # In case one of the disks dies.
             ESP = {
               # 42MiB initrd + 14MiB bzImage * 20 generations = 1.2GiB. 2G should be enough.
               size = "2G";
