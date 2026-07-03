@@ -23,7 +23,6 @@
     ./modules/ssh.nix
     ./modules/webdav.nix
     ./modules/wireguard.nix
-    ./modules/zfs.nix
     ../../modules/hydra.nix
     ../../modules/iperf.nix
     ../../modules/sudo.nix
