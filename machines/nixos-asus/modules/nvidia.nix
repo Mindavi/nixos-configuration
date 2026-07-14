@@ -19,17 +19,21 @@ in
     nvidia-offload
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+  hardware.nvidia = {
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    # required for gdm
+    modesetting.enable = true;
+    # open driver doesn't support the GPU in this machine.
+    open = false;
   };
-
-  # required for gdm
-  hardware.nvidia.modesetting.enable = true;
-  # open driver doesn't support the GPU in this machine.
-  hardware.nvidia.open = false;
 
   nixpkgs.config.allowUnfreePackages = [
     "nvidia-x11"
