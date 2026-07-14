@@ -24,6 +24,7 @@ in
     "nvidia"
   ];
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     prime = {
       offload.enable = true;
       intelBusId = "PCI:0:2:0";
