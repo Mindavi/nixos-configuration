@@ -116,8 +116,7 @@
     zpool = {
       zroot = {
         type = "zpool";
-        # Single disk, no mode options.
-        mode = "";
+        mode = "mirror";
         rootFsOptions = {
           acltype = "posixacl";
           compression = "zstd";
