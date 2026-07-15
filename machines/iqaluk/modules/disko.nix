@@ -25,6 +25,7 @@
               content = {
                 type = "luks";
                 name = "crypted";
+                # Setup password with `echo -n "password" > /tmp/secret.key`
                 passwordFile = "/tmp/secret.key"; # For interactive password entry
                 settings = {
                   allowDiscards = true;
