@@ -5,8 +5,7 @@
 {
   # userborn causes issues during install: https://github.com/NixOS/nixpkgs/issues/408507
   services.userborn.enable = false;
-  # ... so use systemd-sysusers for now
-  systemd.sysusers.enable = true;
+  # Consider enabling userborn after the install is complete.
 
   users = {
     mutableUsers = true;
