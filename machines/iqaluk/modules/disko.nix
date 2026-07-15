@@ -68,7 +68,8 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/boot";
+                # Cannot both be mounted at /boot, so give it no mountpoint for now.
+                #mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
               };
             };
