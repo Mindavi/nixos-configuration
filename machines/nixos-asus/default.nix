@@ -213,9 +213,6 @@
     drivers = [ pkgs.gutenprint ];
   };
 
-  # e.g. platformio and element use this, so make sure this is enabled.
-  security.unprivilegedUsernsClone = true;
-
   hardware.bluetooth.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

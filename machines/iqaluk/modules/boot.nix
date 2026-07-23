@@ -23,9 +23,6 @@
     "vm.overcommit_memory" = "0";
   };
 
-  # e.g. platformio and element use this, so make sure this is enabled.
-  security.unprivilegedUsernsClone = true;
-
   # The system will try to boot as far as possible even if mounting (or other services) fail.
   # Otherwise it will be dropped in an emergency shell (without SSH access).
   systemd.enableEmergencyMode = false;
