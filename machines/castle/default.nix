@@ -33,6 +33,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = true;
+  # TODO(Mindavi): Consider enabling boot counting
 
   # Machine seems to give machine check exceptions.
   # But this post on LKML seems to say that they are invalid errors.
