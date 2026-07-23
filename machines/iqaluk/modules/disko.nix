@@ -185,5 +185,5 @@
   };
   # Impermanence requires this.
   fileSystems."/persist".neededForBoot = true;
-  fileSystems."/home".neededForBoot = true;
+  #fileSystems."/home".neededForBoot = true;
 }
