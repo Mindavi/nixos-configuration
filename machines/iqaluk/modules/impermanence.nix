@@ -14,31 +14,31 @@
     ];
     files = [
       "/etc/nix/netrc"
-      "/etc/machine-id"
+      # "/etc/machine-id"
     ];
   };
-  environment.persistence."/persist" = {
-   users.rick = {
-     directories = [
-       "Documents"
-       "Downloads"
-       "Pictures"
-       "Videos"
-       {
-         directory = ".config/sops/age/";
-         mode = "0700";
-       }
-       {
-         directory = ".ssh";
-         mode = "0700";
-       }
-     ];
-     files = [
-       ".bash_history"
-       ".bash_eternal_history"
-     ];
-   };
-  };
+  # environment.persistence."/persist" = {
+  #  users.rick = {
+  #    directories = [
+  #      "Documents"
+  #      "Downloads"
+  #      "Pictures"
+  #      "Videos"
+  #      {
+  #        directory = ".config/sops/age/";
+  #        mode = "0700";
+  #      }
+  #      {
+  #        directory = ".ssh";
+  #        mode = "0700";
+  #      }
+  #    ];
+  #    files = [
+  #      ".bash_history"
+  #      ".bash_eternal_history"
+  #    ];
+  #  };
+  # };
   boot.initrd.systemd.enable = true;
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root filesystem to a pristine state";
