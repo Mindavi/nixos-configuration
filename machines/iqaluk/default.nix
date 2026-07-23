@@ -15,6 +15,7 @@
     ./modules/firewall.nix
     ./modules/gaming.nix
     ./modules/hardware.nix
+    ./modules/impermanence.nix
     ./modules/network.nix
     ./modules/nix.nix
     ./modules/postgres.nix

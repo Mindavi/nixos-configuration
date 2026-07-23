@@ -1,0 +1,55 @@
+{ pkgs, ... }:
+{
+  # Some inspiration, maybe:
+  # https://github.com/tejing1/nixos-config/blob/master/nixosConfigurations/tejingdesk/optin-state.nix
+  environment.persistence."/persist" = {
+    directories = [
+      "/etc/nixos/secrets"
+      "/var/cache/restic-backups-data"
+      "/var/cache/restic-backups-state"
+      "/var/log"
+      "/var/lib/libvirt"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+    ];
+    files = [
+      "/etc/nix/netrc"
+      "/etc/machine-id"
+    ];
+  };
+  environment.persistence."/persist" = {
+   users.rick = {
+     directories = [
+       "Documents"
+       "Downloads"
+       "Pictures"
+       "Videos"
+       {
+         directory = ".config/sops/age/";
+         mode = "0700";
+       }
+       {
+         directory = ".ssh";
+         mode = "0700";
+       }
+     ];
+     files = [
+       ".bash_history"
+       ".bash_eternal_history"
+     ];
+   };
+  };
+  boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.services.rollback = {
+    description = "Rollback root filesystem to a pristine state";
+    wantedBy = [ "initrd.target" ];
+    after = [ "zfs-import-zroot.service" ];
+    before = [ "sysroot.mount" ];
+    path = with pkgs; [ zfs ];
+    unitConfig.DefaultDependencies = "no";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      zfs rollback -r zroot/local/root@empty && echo " >> >> Rollback Complete << <<"
+    '';
+  };
+}
