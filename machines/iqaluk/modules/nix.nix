@@ -7,7 +7,7 @@
 
 {
   nix = {
-    package = pkgs.nixVersions.nix_2_34;
+    package = pkgs.nixVersions.latest;
     settings = {
       sandbox = true;
       max-jobs = 8;
