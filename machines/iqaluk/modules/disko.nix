@@ -40,6 +40,7 @@
                     # 12: overridden kernel command line, credentials
                     # Use the command `systemd-analyze pcrs` to check current values.
                     # Typically PCR0 is used, and PCR7 as well if secure boot is to be used.
+                    # Also consider 'Pinning a LUKS volume': https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Pinning_a_LUKS_volume
                     "tpm2-device=auto"
                   ];
                 };

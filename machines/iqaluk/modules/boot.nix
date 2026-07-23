@@ -10,6 +10,7 @@
     enable = true;
     # 2026-05-18: initrd 42MiB + bzImage 14MiB
     configurationLimit = 20;
+    # Prevent getting a root shell by passing kernel parameters.
     editor = false;
     memtest86.enable = true;
   };
