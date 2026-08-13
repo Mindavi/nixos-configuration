@@ -13,8 +13,8 @@ in
     hostId = "c496aec3";
     networkmanager.enable = false;
 
-    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-    useDHCP = false;
+    # Somehow, on 2026-08-14 the whole network config broke with this disable. Re-enable for now.
+    useDHCP = true;
 
     interfaces = lib.optionalAttrs (!isVmBuild) {
       eno1 = {
