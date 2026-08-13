@@ -19,6 +19,7 @@
 
   nixpkgs.config.allowUnfreePackages = [
     "discord"
+    "discord-unwrapped"
     "steam"
     "steam-original"
     "steam-run"
