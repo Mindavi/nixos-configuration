@@ -204,7 +204,6 @@
       )
     ];
     package = pkgs.home-assistant;
-    openFirewall = false;
     enable = true;
     configDir = "/var/lib/hass";
   };
