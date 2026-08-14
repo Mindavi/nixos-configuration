@@ -16,7 +16,7 @@ in
         IPv6AcceptRA = true;
       };
       linkConfig.RequiredForOnline = if isVmBuild then "no" else "yes";
-    }
+    };
   };
   # Extra logging for debugging.
   systemd.services."systemd-networkd".environment.SYSTEMD_LOG_LEVEL = "debug";
