@@ -7,23 +7,23 @@ let
   );
 in
 {
+  systemd.network = {
+    enable = true;
+    networks."10-eno1" = {
+      matchConfig.Name = "eno1";
+      networkConfig = {
+        DHCP = "ipv4";
+        IPv6AcceptRA = true;
+      };
+      linkConfig.RequiredForOnline = if isVmBuild then "no" else "yes";
+    }
+  };
+  # Extra logging for debugging.
+  systemd.services."systemd-networkd".environment.SYSTEMD_LOG_LEVEL = "debug";
   networking = {
     hostName = "aqua";
     # head -c 8 /etc/machine-id
     hostId = "c496aec3";
     networkmanager.enable = false;
-
-    # Somehow, on 2026-08-14 the whole network config broke with this disable. Re-enable for now.
-    useDHCP = true;
-
-    interfaces = lib.optionalAttrs (!isVmBuild) {
-      eno1 = {
-        useDHCP = true;
-        # For IPv6 SLAAC and DHCPv6 are used. No need to define static IPs here.
-      };
-    };
-    dhcpcd.extraConfig = ''
-      debug
-    '';
   };
 }
