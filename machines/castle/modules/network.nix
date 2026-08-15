@@ -11,20 +11,25 @@ let
   );
 in
 {
+  systemd.network = {
+    enable = true;
+    networks."10-enp2s0" = {
+      matchConfig.Name = "enp2s0";
+      networkConfig = {
+        DHCP = "ipv4";
+        IPv6AcceptRA = true;
+      };
+      linkConfig.RequiredForOnline = if isVmBuild then "no" else "yes";
+    };
+  };
+  # Extra logging for debugging.
+  systemd.services."systemd-networkd".environment.SYSTEMD_LOG_LEVEL = "debug";
+
   networking = {
     hostName = "castle";
     hostId = "676dc1cb";
     networkmanager.enable = false;
-    # Disable global useDhcp flag, it is deprecated.
+    # Managed by networkd.
     useDHCP = false;
-    interfaces = lib.optionalAttrs (!isVmBuild) {
-      enp2s0 = {
-        useDHCP = true;
-        # For IPv6 SLAAC and DHCPv6 are used. No need to define static IPs here.
-      };
-    };
-    dhcpcd.extraConfig = ''
-      debug
-    '';
   };
 }
