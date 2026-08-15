@@ -25,9 +25,9 @@
       wireguardConfig = {
         ListenPort = 51820;
         # TODO(Mindavi): figure out automatically generating this. Or store with sops?
+        # TODO(Mindavi): make sure correct user owns this file. Previously it was root, now it should be systemd-network:systemd-network.
         PrivateKeyFile = "/etc/nixos/secrets/wireguard_key";
-        # TODO(Mindavi): is this needed?
-        # RouteTable = "main";
+        RouteTable = "main";
       };
       wireguardPeers = [
         {
