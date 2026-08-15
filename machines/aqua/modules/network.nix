@@ -27,5 +27,7 @@ in
     networkmanager.enable = false;
     # Managed by networkd.
     useDHCP = false;
+    dhcpcd.enable = false;
+    useNetworkd = true;
   };
 }
