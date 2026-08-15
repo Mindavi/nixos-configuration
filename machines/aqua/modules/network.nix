@@ -25,5 +25,7 @@ in
     # head -c 8 /etc/machine-id
     hostId = "c496aec3";
     networkmanager.enable = false;
+    # Managed by networkd.
+    useDHCP = false;
   };
 }
