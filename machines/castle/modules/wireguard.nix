@@ -11,6 +11,7 @@
   networking.firewall.allowedUDPPorts = [ 51820 ];
   networking.wireguard = {
     enable = true;
+    useNetworkd = true;
     interfaces = {
       wg0 = {
         ips = [ "fd37:191a:d082:555::1d20:9486/128" ];
@@ -18,7 +19,8 @@
         mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";
         generatePrivateKeyFile = true;
-        dynamicEndpointRefreshSeconds = 240;
+        # Re-executing wg is only needed for DNS resolution. We use IPs (for now at least).
+        #dynamicEndpointRefreshSeconds = 240;
         peers = [
           {
             name = "aqua";
