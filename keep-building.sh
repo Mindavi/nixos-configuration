@@ -5,11 +5,13 @@
 # This script keeps track of build logs and keeps retry until success (or killed).
 # Make sure to monitor from time to time to prevent actually broken packages from using up CPU time and energy.
 
+set -euxo pipefail
+
 echo "Starting new build: `date --iso-8601=seconds`" >> nixos-build-log.txt
 
 while :
 do
-  if [[ `nixos-rebuild build --flake '.#' --no-link --keep-going 2>&1 | tee --append nixos-build-log.txt` ]]; then
+  if [[ `nixos-rebuild build --flake '.#' --no-link --keep-going` ]]; then
     break
   fi
   echo "Build fail, retrying..."
