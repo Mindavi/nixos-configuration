@@ -11,6 +11,7 @@
   networking.firewall.allowedUDPPorts = [ 51820 ];
   networking.wireguard = {
     enable = true;
+    useNetworkd = true;
     interfaces = {
       wg0 = {
         ips = [
@@ -19,7 +20,10 @@
         listenPort = 51820;
         mtu = 1280;
         privateKeyFile = "/etc/nixos/secrets/wireguard_key";
-        generatePrivateKeyFile = true;
+        # Generating a private key file cannot be done when networkd is used.
+        # generatePrivateKeyFile = true;
+        # Re-executing wg is only needed for DNS resolution. We use IPs (for now at least).
+        #dynamicEndpointRefreshSeconds = 240;
         peers = [
           {
             name = "castle";
@@ -28,8 +32,6 @@
               "fd37:191a:d082:555::1d20:9486/128"
             ];
             endpoint = "[2a10:3781:5523:0:9e6b:ff:fe03:d2f2]:51820";
-            dynamicEndpointRefreshSeconds = 5;
-            dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "phone-rick";
@@ -38,8 +40,6 @@
               "fd37:191a:d082:555::25/128"
             ];
             endpoint = "192.168.1.9:51820";
-            dynamicEndpointRefreshSeconds = 5;
-            dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "nixos-asus";
@@ -48,8 +48,6 @@
               "fd37:191a:d082:555::2/128"
             ];
             endpoint = "[2a10:3781:5523:0:de53:60ff:fefc:bc9b]:51820";
-            dynamicEndpointRefreshSeconds = 5;
-            dynamicEndpointRefreshRestartSeconds = 60;
           }
           {
             name = "phone-rick-2";
