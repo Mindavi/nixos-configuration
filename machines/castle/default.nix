@@ -101,6 +101,7 @@
     hashedPassword = "$y$j9T$YFgZE2/erDCM61d0kprpF0$fFuWEGhg4U1CUDCtlzRJKTiCF6E.TMmr7i1RtP3AZ5D";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHX8vXQS3giFtiYf8rYkIAhKpQlc/2wNLj1EOvyfl9D4 rick@nixos-asus"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhjVongp9yM8sw7tiMPcbA5u2vK3IS+KVfnQi6KGwvZ rick@iqaluk"
     ];
   };
   users.mutableUsers = false;
