@@ -4,7 +4,7 @@
 
 {
   # userborn causes issues during install: https://github.com/NixOS/nixpkgs/issues/408507
-  services.userborn.enable = false;
+  services.userborn.enable = true;
   # Consider enabling userborn after the install is complete.
 
   users = {
