@@ -61,7 +61,7 @@
           "--keep-monthly 12"
           "--keep-yearly 25"
         ];
-        repository = "sftp:zh4793@zh4793.rsync.net:restic/nixos-asus";
+        repository = "sftp:zh4793@zh4793.rsync.net:restic/iqaluk";
         timerConfig = {
           OnCalendar = "00:30";
           Persistent = true;
