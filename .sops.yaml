@@ -1,5 +1,6 @@
 keys:
   - &rick_nixos-asus age1tpgrweckqqr7s8e5ju4g66r0mvvh9fjvfr8t6pd3d9uf5fq7dg2srkq38l
+  - &rick_iqaluk age1p97pxry23xd4jqa46h50sylqf5sej03eh8h077s9hw87h34qvqqq4z6s39
   - &aqua age10eq5y944n3lqr452g27sd8sk8hkfa3ce6tuxw3p6jvquhg969s7qwq03qf
   - &castle age1gemvrvanahxy8hlf0m2wmkhyc656e08z8rf8x2g7pqr20frjdehs2j75a8
 
@@ -8,5 +9,6 @@ creation_rules:
     key_groups:
       - age:
         - *rick_nixos-asus
+        - *rick_iqaluk
         - *aqua
         - *castle
