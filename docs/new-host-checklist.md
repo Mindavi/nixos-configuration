@@ -8,10 +8,10 @@
     - And/or enroll a physical security key for unlocking
 4. Enroll secure boot
 5. Enroll ssh key in authorizedkeys for all hosts
-    - Generate ssh key
+    - Generate ssh key: ssh-keygen -t ed25519 -C "user@host"
     - Add to authorizedkeys
 6. Enroll host in sops with ssh-to-age for the main user
     - Generate a key
     - Ensure permissions, e.g. chmod 400 ~/.config/sops/age/keys.txt
 7. Verify backups are working
-
+8. Enroll ssh key in github
