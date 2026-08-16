@@ -9,6 +9,9 @@
     rclone
     restic
   ];
+  # TODO(Mindavi): systemd keep giving warnings about unclean shutdown.
+  #   Found left-over process 9996 (ssh) in control group while starting unit. Ignoring.
+  #   This usually indicates unclean termination of a previous run, or service implementation deficiencies.
   services.restic = {
     backups = {
       rsyncnet_samba = {
