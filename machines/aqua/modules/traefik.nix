@@ -9,6 +9,7 @@ let
   websecureport = 8001; # use 8001 for experimentation
   range_internal1 = "192.168.1.0/24";
   range_wireguard_ipv6 = "fd37:191a:d082:555::1/64";
+  home_assistant_port = 8123;
 in
 {
   services.traefik = {
@@ -56,7 +57,7 @@ in
         services.homeassistant = {
           loadBalancer.servers = [
             {
-              url = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
+              url = "http://localhost:${toString home_assistant_port}";
             }
           ];
         };
