@@ -18,23 +18,6 @@
       };
       #auth_providers = {}; # kept disabled for now, as recommended on the home-assistant page
       #                     # something to consider later for easier onboarding of others in the house
-      http = {
-        server_port = 8123;
-        server_host = [
-          "127.0.0.1"
-          "::1"
-        ];
-        use_x_forwarded_for = true;
-        trusted_proxies = [
-          # Traefik / loopback
-          "127.0.0.0/8"
-          "::1"
-        ];
-        # TODO(Mindavi): I got locked out due to this, and I don't know why...
-        # Disable it until I figure out what happened.
-        ip_ban_enabled = false;
-        login_attempts_threshold = 4;
-      };
       logger = {
         default = "info";
         logs = {
