@@ -12,6 +12,9 @@
     configurationLimit = 20;
     # Prevent getting a root shell by passing kernel parameters.
     editor = false;
+    # Is not signed, so we cannot boot it with secure boot enabled.
+    # https://github.com/nix-community/lanzaboote/issues/273
+    # Keeping enabled since it can be useful to temporarily disable secure boot and run memtest.
     memtest86.enable = true;
   };
 
