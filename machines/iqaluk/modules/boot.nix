@@ -7,7 +7,7 @@
 {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
-    enable = true;
+    enable = false;
     # 2026-05-18: initrd 42MiB + bzImage 14MiB
     configurationLimit = 20;
     # Prevent getting a root shell by passing kernel parameters.
@@ -16,7 +16,7 @@
   };
 
   boot.lanzaboote = {
-    enable = false;
+    enable = true;
     pkiBundle = "/var/lib/sbctl";
   };
   boot.loader.efi.canTouchEfiVariables = true;
