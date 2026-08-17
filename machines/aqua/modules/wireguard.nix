@@ -27,7 +27,8 @@
         # TODO(Mindavi): figure out automatically generating this. Or store with sops?
         # TODO(Mindavi): make sure correct user owns this file. Previously it was root, now it should be systemd-network:systemd-network.
         # sudo mkdir -p /etc/nixos/secrets/
-        # sudo wg genkey > /etc/nixos/secrets/wireguard_key
+        # wg genkey | sudo tee /etc/nixos/secrets/wireguard_key
+        # sudo chown systemd-network:systemd-network /etc/nixos/secrets/wireguard_key
         # sudo chmod 400 /etc/nixos/secrets/wireguard_key
         PrivateKeyFile = "/etc/nixos/secrets/wireguard_key";
         RouteTable = "main";
