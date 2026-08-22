@@ -27,11 +27,17 @@
     url = "github:nix-community/impermanence";
   };
 
+  inputs.lanzaboote = {
+    url = "github:nix-community/lanzaboote/v1.1.0";
+    inputs.nixpkgs.follows = "nixos-unstable";
+  };
+
   outputs =
     {
       self,
       disko,
       impermanence,
+      lanzaboote,
       nixos-unstable,
       sops-nix,
       #nixvim,
@@ -84,6 +90,7 @@
           ./machines/iqaluk/default.nix
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
+          lanzaboote.nixosModules.lanzaboote
           sops-nix.nixosModules.sops
         ];
         specialArgs = {

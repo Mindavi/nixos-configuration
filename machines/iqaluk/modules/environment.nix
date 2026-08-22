@@ -111,6 +111,8 @@
     keepassxc
     sops
     ssh-to-age
+    # Secure boot
+    sbctl
 
     # script to sync changed data to SSD from parents
     (writeShellScriptBin "sync-photos-to-ssd" ''

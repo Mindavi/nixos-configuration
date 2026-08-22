@@ -26,6 +26,10 @@
         ListenPort = 51820;
         # TODO(Mindavi): figure out automatically generating this. Or store with sops?
         # TODO(Mindavi): make sure correct user owns this file. Previously it was root, now it should be systemd-network:systemd-network.
+        # sudo mkdir -p /etc/nixos/secrets/
+        # wg genkey | sudo tee /etc/nixos/secrets/wireguard_key
+        # sudo chown systemd-network:systemd-network /etc/nixos/secrets/wireguard_key
+        # sudo chmod 400 /etc/nixos/secrets/wireguard_key
         PrivateKeyFile = "/etc/nixos/secrets/wireguard_key";
         RouteTable = "main";
       };
@@ -37,6 +41,15 @@
             "fd37:191a:d082:555::1d20:9486/128"
           ];
           Endpoint = "[2a10:3781:5523:0:9e6b:ff:fe03:d2f2]:51820";
+        }
+        {
+          # iqaluk
+          PublicKey = "WzLQ8KpxUyLRmXdIR4pJJwtqHKrcN+d5G0S0Qew1PWI=";
+          AllowedIPs = [
+            "fd37:191a:d082:0555:4e0f:eb2b:a25d:1a46/128"
+          ];
+          # TODO(Mindavi): I don't think this is strictly needed.
+          #Endpoint = "[2a10:TODO]";
         }
         {
           # nixos-asus

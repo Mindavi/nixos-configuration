@@ -10,6 +10,7 @@
       "/var/log"
       "/var/lib/libvirt"
       "/var/lib/nixos"
+      "/var/lib/sbctl"
       "/var/lib/systemd/coredump"
     ];
     files = [

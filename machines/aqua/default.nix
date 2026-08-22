@@ -12,6 +12,7 @@
     ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/bind.nix
+    ./modules/boot.nix
     ./modules/dashboard.nix
     ./modules/disko.nix
     ./modules/fail2ban.nix
@@ -46,15 +47,6 @@
     ../../modules/sudo.nix
     ../../modules/zfs.nix
   ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 7;
-  boot.loader.efi.canTouchEfiVariables = false;
-
-  # The system will try to boot as far as possible even if mounting (or other services) fail.
-  # Otherwise it will be dropped in an emergency shell (without SSH access).
-  systemd.enableEmergencyMode = false;
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.bluetooth.enable = true;
