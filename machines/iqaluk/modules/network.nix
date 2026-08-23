@@ -6,7 +6,7 @@
 
 {
   systemd.network = {
-    enable = true;
+    enable = false;
     # Disable to prevent blocking boot when wifi (or something else managed by NetworkManager) is used.
     wait-online.enable = false;
     # Ethernet devices: eno1/enp2s0 (closer to the side), enp3s0 (next to USB ports)
@@ -30,15 +30,15 @@
     hostId = "ab0311dd";
     networkmanager = {
       enable = true;
-      unmanaged = [
-        "enp2s0"
-      ];
+      #unmanaged = [
+      #  "enp2s0"
+      #];
       logLevel = "DEBUG";
     };
 
     useDHCP = false;
-    dhcpcd.enable = false;
-    useNetworkd = true;
+    #dhcpcd.enable = false;
+    #useNetworkd = true;
 
     #nameservers = [
       # aqua
@@ -50,7 +50,7 @@
   services.clatd.enable = true;
 
   services.resolved = {
-    enable = true;
+    #enable = true;
     #settings = {
       #Resolve = {
         #MulticastDNS = "yes";
