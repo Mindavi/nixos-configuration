@@ -1,7 +1,8 @@
 { lib, pkgs, ... }:
 
 let
-  spotifyd_zeroconf_port = 7452;
+  spotifyd_zeroconf_port_tcp = 7452;
+  spotify_connect_port_udp = 57621;
 in
 {
   services.spotifyd = {
@@ -28,7 +29,8 @@ in
       };
     };
   };
-  networking.firewall.allowedTCPPorts = [ spotifyd_zeroconf_port ];
+  networking.firewall.allowedTCPPorts = [ spotifyd_zeroconf_port_tcp ];
+  networking.firewall.allowedUDPPorts = [ spotify_connect_port_udp ];
 
   systemd.services.spotifyd = {
     serviceConfig = {
