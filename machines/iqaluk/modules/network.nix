@@ -15,6 +15,7 @@
       networkConfig = {
         DHCP = "ipv4";
         IPv6AcceptRA = true;
+        MulticastDNS = "yes";
       };
       # Probably a bit redundant with wait-online.enable = false.
       linkConfig.RequiredForOnline = "no";
@@ -44,5 +45,10 @@
 
   services.resolved = {
     enable = true;
+    settings = {
+      Resolve = {
+        MulticastDNS = "yes";
+      };
+    };
   };
 }
