@@ -28,7 +28,13 @@
     hostName = "iqaluk";
     # head -c4 /dev/urandom | od -A none -t x4
     hostId = "ab0311dd";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      unmanaged = [
+        "enp2s0"
+      ];
+      logLevel = "DEBUG";
+    };
 
     useDHCP = false;
     dhcpcd.enable = false;
