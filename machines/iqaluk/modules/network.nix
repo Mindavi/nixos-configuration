@@ -30,31 +30,31 @@
     hostId = "ab0311dd";
     networkmanager = {
       enable = true;
-      #unmanaged = [
-      #  "enp2s0"
-      #];
+      unmanaged = [
+        "enp2s0"
+      ];
       logLevel = "DEBUG";
     };
 
     useDHCP = false;
-    #dhcpcd.enable = false;
-    #useNetworkd = true;
+    dhcpcd.enable = false;
+    useNetworkd = true;
 
-    #nameservers = [
+    nameservers = [
       # aqua
-      #"2a10:3781:5523:0:aaa1:59ff:fe2f:c49c"
+      "2a10:3781:5523:0:aaa1:59ff:fe2f:c49c"
       # castle
-      #"2a10:3781:5523:0:9e6b:ff:fe03:d2f2"
-    #];
+      "2a10:3781:5523:0:9e6b:ff:fe03:d2f2"
+    ];
   };
   services.clatd.enable = true;
 
   services.resolved = {
     enable = true;
-    #settings = {
-      #Resolve = {
-        #MulticastDNS = "yes";
-      #};
-    #};
+    settings = {
+      Resolve = {
+        MulticastDNS = "yes";
+      };
+    };
   };
 }
