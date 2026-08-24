@@ -1,6 +1,7 @@
 {
   #inputs.nixos-unstable.url = "git:/home/rick/nixpkgs?ref=nixos-unstable";
-  inputs.nixos-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+  #inputs.nixos-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+  inputs.nixos-unstable.url = "github:NixOS/nixpkgs/0e251e24a4f24e036a084b6b4b2d2491af4167f4";
   #  inputs.nixvim = {
   #    url = "github:nix-community/nixvim";
   #    inputs.nixpkgs.follows = "nixos-unstable";
