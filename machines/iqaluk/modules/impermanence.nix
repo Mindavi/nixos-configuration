@@ -12,6 +12,7 @@
       "/var/lib/nixos"
       "/var/lib/sbctl"
       "/var/lib/systemd/coredump"
+      "/var/lib/userborn"
     ];
     files = [
       "/etc/nix/netrc"
