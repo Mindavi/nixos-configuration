@@ -6,7 +6,7 @@
 
 {
   systemd.network = {
-    enable = false;
+    enable = true;
     # Disable to prevent blocking boot when wifi (or something else managed by NetworkManager) is used.
     wait-online.enable = false;
     # Ethernet devices: eno1/enp2s0 (closer to the side), enp3s0 (next to USB ports)
@@ -15,7 +15,7 @@
       networkConfig = {
         DHCP = "ipv4";
         IPv6AcceptRA = true;
-        #MulticastDNS = "yes";
+        MulticastDNS = "yes";
       };
       # Probably a bit redundant with wait-online.enable = false.
       linkConfig.RequiredForOnline = "no";
@@ -50,7 +50,7 @@
   services.clatd.enable = true;
 
   services.resolved = {
-    #enable = true;
+    enable = true;
     #settings = {
       #Resolve = {
         #MulticastDNS = "yes";
