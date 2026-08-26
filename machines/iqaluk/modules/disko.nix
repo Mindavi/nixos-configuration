@@ -41,6 +41,11 @@
                     # Use the command `systemd-analyze pcrs` to check current values.
                     # Typically PCR0 is used, and PCR7 as well if secure boot is to be used.
                     # Also consider 'Pinning a LUKS volume': https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Pinning_a_LUKS_volume
+                    # https://heylyle.com/en/posts/revisiting-tpm2-pcr-selection
+                    # PCR 1 + 3 + 5 + 7 + 12
+                    # https://nix-community.github.io/lanzaboote/explanation/measured-boot.html
+                    # lanzaboote recommends PCR 0,4,7 when using measured boot with lanzaboote
+                    # also, setting up a pin with --tpm2-with-pin=true is recommended for attended workstations
                     "tpm2-device=auto"
                   ];
                 };
