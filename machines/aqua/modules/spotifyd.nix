@@ -23,7 +23,7 @@ in
         use_keyring = false;
 
         # Note(Mindavi): ensure this port is opened in firewall, too.
-        zeroconf_port = spotifyd_zeroconf_port;
+        zeroconf_port = spotifyd_zeroconf_port_tcp;
         # Make sure zeroconf discovery is enabled.
         disable_discovery = false;
       };
