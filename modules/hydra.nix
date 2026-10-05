@@ -24,16 +24,16 @@ in
     hydraURL = "http://localhost:${toString config.services.hydra.port}";
     port = 3000;
     notificationSender = "hydra@localhost";
-    # Enable to only use localhost, disable or set to /etc/nix/machines to enable remote builders as well.
-    buildMachinesFiles = [ ];
     useSubstitutes = true;
-    extraConfig = ''
+    evaluatorSettings = {
       # Uses quite a bit of memory, so prevent multiple evals at once to reduce chance of memory exhaustion.
-      max_concurrent_evals = 1
-    '';
+      max_concurrent_evals = 1;
+    };
     extraEnv = {
       #"HYDRA_DEBUG" = "1";
     };
+    # disable for now, probably requires some setup on the reverse proxy anyway
+    ws.enable = false;
   };
   systemd.services.hydra-send-stats.enable = false;
   networking.firewall.allowedTCPPorts = [
