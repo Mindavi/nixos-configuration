@@ -132,8 +132,8 @@ in
         ];
         file = pkgs.fetchurl {
           # https://github.com/hagezi/dns-blocklists
-          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.93.68022/rpz/pro.txt";
-          hash = "sha256-8s9A3BvmsR5nauYhqA+rDbXbfd04VuCEpJsU5WHgxPU=";
+          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.278.34362/rpz/pro.txt";
+          hash = "sha256-8Uu0tT0wJ4th4Ehk/HQeqV+edGow26uhkybiB5gz77o=";
         };
       };
     };
