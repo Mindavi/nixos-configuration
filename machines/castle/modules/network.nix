@@ -18,6 +18,7 @@ in
       networkConfig = {
         DHCP = "ipv4";
         IPv6AcceptRA = true;
+        MulticastDNS = "yes";
       };
       linkConfig.RequiredForOnline = if isVmBuild then "no" else "yes";
     };
