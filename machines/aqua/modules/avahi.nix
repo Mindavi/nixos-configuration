@@ -7,11 +7,13 @@
 {
   services.avahi = {
     enable = false;
-    domainName = "local";
     nssmdns4 = true;
     nssmdns6 = true;
     openFirewall = true;
     settings = {
+      server = {
+        domain-name = "local";
+      };
       publish = {
         disable-publishing = false;
         publish-addresses = true;

@@ -10,12 +10,17 @@
     enable = true;
     nssmdns4 = true;
     nssmdns6 = true;
-    domainName = "local";
     openFirewall = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
+    settings = {
+      server = {
+        domain-name = "local";
+      };
+      publish = {
+        disable-publishing = false;
+        publish-addresses = true;
+        disable-user-service-publishing = false;
+        publish-workstation = true;
+      };
     };
   };
 }
