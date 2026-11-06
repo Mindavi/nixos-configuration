@@ -6,7 +6,7 @@
 }:
 {
   services.avahi = {
-    enable = true;
+    enable = false;
     domainName = "local";
     nssmdns4 = true;
     openFirewall = true;
