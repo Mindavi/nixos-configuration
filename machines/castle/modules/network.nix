@@ -16,7 +16,7 @@ in
     networks."10-enp2s0" = {
       matchConfig.Name = "enp2s0";
       networkConfig = {
-        DHCP = "ipv4";
+        DHCP = "no";
         IPv6AcceptRA = true;
         MulticastDNS = "yes";
       };
