@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/audio.nix
-    ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/bind.nix
     ./modules/disko.nix

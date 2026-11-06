@@ -6,7 +6,6 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/audio.nix
-    ./modules/avahi.nix
     ./modules/backup.nix
     ./modules/boot.nix
     ./modules/desktop.nix
