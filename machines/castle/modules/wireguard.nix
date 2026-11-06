@@ -37,6 +37,13 @@
           Endpoint = "[2a10:3781:5523:0:aaa1:59ff:fe2f:c49c]:51820";
         }
         {
+          # iqaluk
+          PublicKey = "WzLQ8KpxUyLRmXdIR4pJJwtqHKrcN+d5G0S0Qew1PWI=";
+          AllowedIPs = [
+            "fd37:191a:d082:0555:4e0f:eb2b:a25d:1a46/128"
+          ];
+        }
+        {
           # nixos-asus
           PublicKey = "uKb3tIPQCTSdQBKvXjQFVT22gj6BHNveP3PSzq9gQBI=";
           AllowedIPs = [ "fd37:191a:d082:555::2/128" ];

@@ -48,8 +48,6 @@
           AllowedIPs = [
             "fd37:191a:d082:0555:4e0f:eb2b:a25d:1a46/128"
           ];
-          # TODO(Mindavi): I don't think this is strictly needed.
-          #Endpoint = "[2a10:TODO]";
         }
         {
           # nixos-asus
