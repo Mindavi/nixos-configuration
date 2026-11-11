@@ -52,7 +52,7 @@
         comment = "Tijdelijke bestanden, wordt regelmatig gewist";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "valid users" = "gedeeld";
+        #"valid users" = "gedeeld";
         "force user" = "gedeeld";
         "force group" = "gedeeld";
       };
