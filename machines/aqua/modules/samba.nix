@@ -14,7 +14,7 @@
         "map to guest" = "Bad User";
         "server smb encrypt" = "required";
         "server min protocol" = "SMB3_00";
-        "log level" = "1";
+        "log level" = "3";
       };
       family_documents = {
         path = "/storage/documents/samba/family_documents";
@@ -46,13 +46,16 @@
       };
       copydrive = {
         path = "/mnt/tmpfs/copydrive";
+        "public" = "yes";
         "read only" = "no";
+        #"writable" = "yes";
         browseable = "yes";
         "guest ok" = "yes";
         "guest only" = "yes";
+        "guest account" = "nobody";
         comment = "Tijdelijke bestanden, wordt regelmatig gewist";
-        "create mask" = "0644";
-        "directory mask" = "0755";
+        "create mask" = "0666";
+        "directory mask" = "0777";
         #"valid users" = "gedeeld";
         #"force user" = "gedeeld";
         #"force group" = "gedeeld";
@@ -70,7 +73,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d ${config.services.samba.settings.copydrive.path} 0755 gedeeld gedeeld 3d"
+    "d ${config.services.samba.settings.copydrive.path} 0777 gedeeld gedeeld 3d"
   ];
 
   # inspiration from https://github.com/nix-community/harmonia/blob/b5d77f05256529edbaf574a478d16a8570826789/module.nix#L44-L68
