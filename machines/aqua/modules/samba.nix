@@ -52,7 +52,6 @@
         browseable = "yes";
         "guest ok" = "yes";
         "guest only" = "yes";
-        "guest account" = "nobody";
         comment = "Tijdelijke bestanden, wordt regelmatig gewist";
         "create mask" = "0666";
         "directory mask" = "0777";
