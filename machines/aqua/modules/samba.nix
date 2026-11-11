@@ -11,9 +11,10 @@
         ];
         "passwd program" = "/run/wrappers/bin/passwd %u";
         security = "user";
-        "map to guest" = "Never";
+        "map to guest" = "Bad User";
         "server smb encrypt" = "required";
         "server min protocol" = "SMB3_00";
+        "log level" = "1";
       };
       family_documents = {
         path = "/storage/documents/samba/family_documents";
@@ -45,7 +46,7 @@
       };
       copydrive = {
         path = "/mnt/tmpfs/copydrive";
-        "read only" = false;
+        "read only" = "no";
         browseable = "yes";
         "guest ok" = "yes";
         "guest only" = "yes";
@@ -53,8 +54,8 @@
         "create mask" = "0644";
         "directory mask" = "0755";
         #"valid users" = "gedeeld";
-        "force user" = "gedeeld";
-        "force group" = "gedeeld";
+        #"force user" = "gedeeld";
+        #"force group" = "gedeeld";
       };
     };
   };
