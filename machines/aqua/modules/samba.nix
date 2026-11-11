@@ -12,9 +12,10 @@
         "passwd program" = "/run/wrappers/bin/passwd %u";
         security = "user";
         "map to guest" = "Bad User";
-        "server smb encrypt" = "required";
-        "server min protocol" = "SMB3_00";
-        "log level" = "3";
+        # Seems to break connecting with FX (Android app)
+        #"server smb encrypt" = "required";
+        #"server min protocol" = "SMB3_00";
+        "log level" = "3 auth_audit:3";
       };
       family_documents = {
         path = "/storage/documents/samba/family_documents";
