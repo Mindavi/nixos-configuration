@@ -12,6 +12,8 @@
         "passwd program" = "/run/wrappers/bin/passwd %u";
         security = "user";
         "map to guest" = "Never";
+        "server smb encrypt" = "required";
+        "server min protocol" = "SMB3_00";
       };
       family_documents = {
         path = "/storage/documents/samba/family_documents";
@@ -41,8 +43,34 @@
         comment = "Persoonlijke documenten en bestanden";
         "valid users" = "rick";
       };
+      copydrive = {
+        path = "/mnt/tmpfs/copydrive";
+        "read only" = false;
+        browseable = "yes";
+        "guest ok" = "yes";
+        "guest only" = "yes";
+        comment = "Tijdelijke bestanden, wordt regelmatig gewist";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "valid users" = "gedeeld";
+        "force user" = "gedeeld";
+        "force group" = "gedeeld";
+      };
     };
   };
+
+  fileSystems."/mnt/tmpfs" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "size=16G"
+      "mode=777"
+    ];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d ${config.services.samba.settings.copydrive.path} 0755 gedeeld gedeeld 3d"
+  ];
 
   # inspiration from https://github.com/nix-community/harmonia/blob/b5d77f05256529edbaf574a478d16a8570826789/module.nix#L44-L68
   # and https://github.com/Mic92/sops-nix/issues/198
