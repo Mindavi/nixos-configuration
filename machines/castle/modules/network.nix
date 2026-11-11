@@ -16,7 +16,8 @@ in
     networks."10-enp2s0" = {
       matchConfig.Name = "enp2s0";
       networkConfig = {
-        DHCP = "no";
+        # Don't disable ipv4 without having a way to connect to github...
+        DHCP = "ipv4";
         IPv6AcceptRA = true;
         MulticastDNS = "yes";
       };
