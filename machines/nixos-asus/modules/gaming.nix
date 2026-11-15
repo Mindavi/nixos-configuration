@@ -13,8 +13,9 @@
     discord
     openttd
     prismlauncher
-    zeroad
-    zeroad-data
+    # zeroad got dropped from nixpkgs: https://github.com/NixOS/nixpkgs/pull/585016
+    #zeroad
+    #zeroad-data
   ];
 
   nixpkgs.config.allowUnfreePackages = [
