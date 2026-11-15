@@ -73,6 +73,14 @@
 
   programs.bash.completion.enable = true;
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      tzdata = prev.tzdata.overrideAttrs (old: {
+        doCheck = false;
+      });
+    })
+  ];
+
   nixpkgs.config = {
     contentAddressedByDefault = true;
     #strictDepsByDefault = true;
